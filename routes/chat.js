@@ -8,19 +8,17 @@ router.post("/", async (req, res) => {
     const { message } = req.body;
 
     if (!message) {
-      return res.status(400).json({ error: "Message required" });
+      return res.status(400).json({ error: "Message is required" });
     }
 
     const result = await askQuestion(message);
 
-    res.json({
-      reply: result.answer,
-      sources: result.sources,
-    });
+    // 🔥 Return FULL result object
+    return res.json(result);
 
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Something went wrong" });
+    console.error("Chat route error:", error);
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 });
 

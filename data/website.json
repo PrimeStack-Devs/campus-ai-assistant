@@ -1,103 +1,120 @@
 {
   "about": {
     "url": "https://paruluniversity.ac.in/about-us/",
-    "description": "General information about Parul University, its history, mission, vision, leadership, and institutional overview.",
+    "description": "Official overview of Parul University including history, mission, vision, leadership, campus overview, and institutional profile.",
+    "intent_keywords": ["about", "history", "mission", "vision", "leadership"],
     "type": "informational"
   },
 
   "research": {
     "url": "https://paruluniversity.ac.in/research-and-development-centre/",
-    "description": "Research activities, innovation initiatives, development centres, research publications, patents, and academic research programs.",
+    "description": "Information about research activities, innovation centres, patents, funded projects, publications, and academic research initiatives.",
+    "intent_keywords": ["research", "innovation", "patents", "publications", "projects"],
     "type": "informational"
   },
 
   "awards": {
     "url": "https://paruluniversity.ac.in/about-us/awards-rankings-ratings/",
-    "description": "University rankings, awards, recognitions, ratings, accreditations, and achievements.",
+    "description": "Details about university rankings, awards, recognitions, ratings, accreditations, and institutional achievements.",
+    "intent_keywords": ["ranking", "awards", "recognition", "accreditation"],
     "type": "informational"
   },
 
   "placements": {
     "url": "https://paruluniversity.ac.in/training-placement-cell/",
-    "description": "Placement cell information, internships, company visits, training programs, recruitment statistics, and career opportunities.",
+    "description": "Information about campus placements including companies visiting the university, campus recruitment drives, placement statistics, internship programs, corporate hiring events, and student placement records.",
+    "intent_keywords": ["placement", "placements", "company", "companies", "campus recruitment", "internship", "recruitment drive"],
     "type": "dynamic"
   },
 
   "life_at_pu": {
     "url": "https://paruluniversity.ac.in/life-at-pu/",
-    "description": "Campus life, extracurricular activities, student clubs, cultural events, sports, and student engagement activities.",
+    "description": "Details about campus life, student activities, clubs, cultural festivals, sports events, extracurricular programs, and student engagement opportunities.",
+    "intent_keywords": ["campus life", "clubs", "fest", "sports", "activities"],
     "type": "dynamic"
   },
 
   "iqac": {
     "url": "https://paruluniversity.ac.in/iqac-page/",
-    "description": "Internal Quality Assurance Cell information, academic quality measures, institutional governance, and compliance.",
+    "description": "Information about the Internal Quality Assurance Cell including academic quality standards, institutional governance, audits, and compliance mechanisms.",
+    "intent_keywords": ["iqac", "quality", "assurance", "governance"],
     "type": "informational"
   },
 
   "student_services": {
     "url": "https://paruluniversity.ac.in/student-services/",
-    "description": "Student support services, welfare programs, hostel services, counseling, scholarships, and student facilities.",
+    "description": "Details about student support services including hostel facilities, counseling, scholarships, welfare programs, grievance redressal, and student assistance systems.",
+    "intent_keywords": ["hostel", "counseling", "scholarship", "student support", "welfare"],
     "type": "dynamic"
   },
 
   "connect": {
     "url": "https://paruluniversity.ac.in/connect-with-us/",
-    "description": "Contact information, university communication channels, address, phone numbers, email, and enquiry details.",
+    "description": "Official contact details of Parul University including address, phone numbers, email contacts, enquiry forms, and communication channels.",
+    "intent_keywords": ["contact", "address", "phone", "email", "location"],
     "type": "informational"
   },
 
   "admissions_overview": {
     "url": "https://paruluniversity.online/",
-    "description": "Online admissions overview, academic programs, distance learning, and admission-related announcements.",
+    "description": "Overview of online admissions including available programs, admission announcements, and application-related updates.",
+    "intent_keywords": ["admission", "apply online", "enrollment"],
     "type": "dynamic"
   },
 
   "how_to_apply": {
     "url": "https://paruluniversity.ac.in/admission/how-to-apply/",
-    "description": "Admission process, application steps, required documents, eligibility criteria, and application guidelines.",
+    "description": "Step-by-step admission process including eligibility criteria, required documents, application procedure, and admission guidelines.",
+    "intent_keywords": ["how to apply", "application process", "eligibility", "documents"],
     "type": "dynamic"
   },
 
   "apply_portal": {
     "url": "https://admissions.paruluniversity.ac.in/",
-    "description": "Official admission application portal for submitting online applications and tracking admission status.",
+    "description": "Official online application portal where students submit admission forms and track application status.",
+    "intent_keywords": ["application portal", "apply now", "admission form"],
     "type": "dynamic"
   },
 
   "all_programs": {
     "url": "https://paruluniversity.ac.in/admission/all-programs/",
-    "description": "List of all academic programs offered including undergraduate, postgraduate, diploma, and doctoral programs.",
+    "description": "Comprehensive list of undergraduate, postgraduate, diploma, and doctoral programs offered at Parul University.",
+    "intent_keywords": ["programs", "courses", "degrees", "ug", "pg"],
     "type": "informational"
   },
 
   "careers": {
     "url": "https://vacancies.paruluniversity.ac.in/",
-    "description": "University job vacancies, faculty recruitment, staff openings, and career opportunities at Parul University.",
+    "description": "Information about job vacancies at Parul University including faculty recruitment, staff openings, administrative positions, and employment opportunities within the university.",
+    "intent_keywords": ["job", "vacancy", "faculty recruitment", "staff opening", "employment"],
     "type": "dynamic"
   },
 
   "privacy_policy": {
     "url": "https://paruluniversity.ac.in/privacy-policy/",
-    "description": "University privacy policy, data protection guidelines, and legal information.",
+    "description": "Official privacy policy explaining data usage, data protection practices, and website privacy guidelines.",
+    "intent_keywords": ["privacy", "data protection", "policy"],
     "type": "legal"
   },
 
   "terms_of_use": {
     "url": "https://paruluniversity.ac.in/terms-of-use/",
-    "description": "Terms and conditions for using the university website and services.",
+    "description": "Terms and conditions governing the use of Parul University website and online services.",
+    "intent_keywords": ["terms", "conditions", "usage policy"],
     "type": "legal"
   },
 
   "wikipedia": {
     "url": "https://en.wikipedia.org/wiki/Parul_University",
-    "description": "Third-party encyclopedic overview of Parul University including history, academic structure, and public information.",
+    "description": "Encyclopedic third-party overview of Parul University including public history, academic structure, and general information.",
+    "intent_keywords": ["wikipedia", "overview", "public info"],
     "type": "external"
   },
 
   "shiksha_profile": {
     "url": "https://www.shiksha.com/university/parul-university-vadodara-30821",
-    "description": "Educational portal profile of Parul University including student reviews, rankings, programs, and admission details.",
+    "description": "External educational profile including student reviews, rankings, ratings, programs, and admission insights.",
+    "intent_keywords": ["reviews", "ratings", "student feedback"],
     "type": "external"
   }
 }
