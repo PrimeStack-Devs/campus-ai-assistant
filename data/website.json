@@ -1,0 +1,103 @@
+{
+  "about": {
+    "url": "https://paruluniversity.ac.in/about-us/",
+    "description": "General information about Parul University, its history, mission, vision, leadership, and institutional overview.",
+    "type": "informational"
+  },
+
+  "research": {
+    "url": "https://paruluniversity.ac.in/research-and-development-centre/",
+    "description": "Research activities, innovation initiatives, development centres, research publications, patents, and academic research programs.",
+    "type": "informational"
+  },
+
+  "awards": {
+    "url": "https://paruluniversity.ac.in/about-us/awards-rankings-ratings/",
+    "description": "University rankings, awards, recognitions, ratings, accreditations, and achievements.",
+    "type": "informational"
+  },
+
+  "placements": {
+    "url": "https://paruluniversity.ac.in/training-placement-cell/",
+    "description": "Placement cell information, internships, company visits, training programs, recruitment statistics, and career opportunities.",
+    "type": "dynamic"
+  },
+
+  "life_at_pu": {
+    "url": "https://paruluniversity.ac.in/life-at-pu/",
+    "description": "Campus life, extracurricular activities, student clubs, cultural events, sports, and student engagement activities.",
+    "type": "dynamic"
+  },
+
+  "iqac": {
+    "url": "https://paruluniversity.ac.in/iqac-page/",
+    "description": "Internal Quality Assurance Cell information, academic quality measures, institutional governance, and compliance.",
+    "type": "informational"
+  },
+
+  "student_services": {
+    "url": "https://paruluniversity.ac.in/student-services/",
+    "description": "Student support services, welfare programs, hostel services, counseling, scholarships, and student facilities.",
+    "type": "dynamic"
+  },
+
+  "connect": {
+    "url": "https://paruluniversity.ac.in/connect-with-us/",
+    "description": "Contact information, university communication channels, address, phone numbers, email, and enquiry details.",
+    "type": "informational"
+  },
+
+  "admissions_overview": {
+    "url": "https://paruluniversity.online/",
+    "description": "Online admissions overview, academic programs, distance learning, and admission-related announcements.",
+    "type": "dynamic"
+  },
+
+  "how_to_apply": {
+    "url": "https://paruluniversity.ac.in/admission/how-to-apply/",
+    "description": "Admission process, application steps, required documents, eligibility criteria, and application guidelines.",
+    "type": "dynamic"
+  },
+
+  "apply_portal": {
+    "url": "https://admissions.paruluniversity.ac.in/",
+    "description": "Official admission application portal for submitting online applications and tracking admission status.",
+    "type": "dynamic"
+  },
+
+  "all_programs": {
+    "url": "https://paruluniversity.ac.in/admission/all-programs/",
+    "description": "List of all academic programs offered including undergraduate, postgraduate, diploma, and doctoral programs.",
+    "type": "informational"
+  },
+
+  "careers": {
+    "url": "https://vacancies.paruluniversity.ac.in/",
+    "description": "University job vacancies, faculty recruitment, staff openings, and career opportunities at Parul University.",
+    "type": "dynamic"
+  },
+
+  "privacy_policy": {
+    "url": "https://paruluniversity.ac.in/privacy-policy/",
+    "description": "University privacy policy, data protection guidelines, and legal information.",
+    "type": "legal"
+  },
+
+  "terms_of_use": {
+    "url": "https://paruluniversity.ac.in/terms-of-use/",
+    "description": "Terms and conditions for using the university website and services.",
+    "type": "legal"
+  },
+
+  "wikipedia": {
+    "url": "https://en.wikipedia.org/wiki/Parul_University",
+    "description": "Third-party encyclopedic overview of Parul University including history, academic structure, and public information.",
+    "type": "external"
+  },
+
+  "shiksha_profile": {
+    "url": "https://www.shiksha.com/university/parul-university-vadodara-30821",
+    "description": "Educational portal profile of Parul University including student reviews, rankings, programs, and admission details.",
+    "type": "external"
+  }
+}
