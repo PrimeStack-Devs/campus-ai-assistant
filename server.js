@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-
+import { initializeProfessorService } from "./services/structuredService.js";
 import chatRoutes from "./routes/chat.js";
 import { extractPDFDocs } from "./services/pdfProcessor.js";
 import { initializeRAG } from "./services/ragPipeline.js";
@@ -32,6 +32,7 @@ const startServer = async () => {
     // 2️⃣ Initialize Static RAG
     console.log("Initializing RAG...");
     await initializeRAG(pdfDocs);
+    await initializeProfessorService();
 
     // 3️⃣ Initialize Embedding Router
     console.log("Initializing Router...");

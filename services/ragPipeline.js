@@ -4,6 +4,7 @@ import Groq from "groq-sdk";
 import { renderHTML } from "../utils/htmlRenderer.js";
 import { cosineSimilarity } from "../utils/similarity.js";
 import { routeQuery, handleDynamicRoute } from "./router.js";
+import { findProfessorMatches } from "./structuredService.js";
 
 let embedder;
 let vectorStore = [];
@@ -40,7 +41,7 @@ export const initializeRAG = async (documents) => {
     });
 
     const vector = Array.from(
-      output.data ?? output[0].data ?? output[0]
+      output.data ?? output[0]?.data ?? output[0]
     );
 
     vectorStore.push({
@@ -68,47 +69,72 @@ export const askQuestion = async (query) => {
   let sources = [];
 
   // ============================
-  // 1️⃣ DYNAMIC ROUTER CHECK
+  // 1️⃣ STRUCTURED PROFESSOR LOOKUP (DETERMINISTIC)
   // ============================
 
-  const { bestMatch, highestScore } = await routeQuery(query);
+ const professorMatches = await findProfessorMatches(query);
 
-  if (bestMatch && highestScore > SIMILARITY_THRESHOLD) {
-    const dynamicContent = await handleDynamicRoute(bestMatch.name, query);
+  let structuredJSON = null;
 
-    if (dynamicContent) {
-      const response = await groq.chat.completions.create({
-        model: "llama-3.1-8b-instant",
-        messages: [
-          {
-            role: "system",
-            content: `
+  if (professorMatches) {
+    structuredJSON = {
+      title: "Faculty Contact Information",
+      summary: "Official contact details of Parul University faculty members.",
+      sections: professorMatches.map((prof) => ({
+        heading: prof.name,
+        content_type: "list",
+        content: [
+          `Role: ${prof.role || "Not specified"}`,
+          `Phone: ${prof.phone || "Not available"}`,
+          `Email: ${prof.email || "Not available"}`
+        ]
+      }))
+    };
+
+    sources = ["internal: professor_database"];
+  }
+
+  // ============================
+  // 2️⃣ DYNAMIC ROUTER CHECK
+  // ============================
+
+  if (!structuredJSON) {
+    const { bestMatch, highestScore } = await routeQuery(query);
+
+    if (bestMatch && highestScore > SIMILARITY_THRESHOLD) {
+      const dynamicContent = await handleDynamicRoute(bestMatch.name, query);
+
+      if (dynamicContent) {
+        const response = await groq.chat.completions.create({
+          model: "llama-3.1-8b-instant",
+          messages: [
+            {
+              role: "system",
+              content: `
 You are the official AI Campus Information Assistant for Parul University.
 
-Answer the question using only the provided content.
-
-Provide a clear, structured, and professional explanation.
-Do not introduce external information.
-If specific details are missing, state that the available information does not specify those details.
+Answer strictly using provided content.
+Provide structured professional response.
 `
-          },
-          {
-            role: "user",
-            content: `Content:\n${dynamicContent}\n\nQuestion:\n${query}`,
-          },
-        ],
-      });
+            },
+            {
+              role: "user",
+              content: `Content:\n${dynamicContent}\n\nQuestion:\n${query}`,
+            },
+          ],
+        });
 
-      ragAnswer = response.choices[0].message.content;
-      sources = [`live: ${bestMatch.name}`];
+        ragAnswer = response.choices[0].message.content;
+        sources = [`live: ${bestMatch.name}`];
+      }
     }
   }
 
   // ============================
-  // 2️⃣ STATIC FALLBACK
+  // 3️⃣ STATIC RAG FALLBACK
   // ============================
 
-  if (!ragAnswer) {
+  if (!structuredJSON && !ragAnswer) {
     if (!embedder || vectorStore.length === 0) {
       throw new Error("Static vector store not initialized.");
     }
@@ -119,7 +145,7 @@ If specific details are missing, state that the available information does not s
     });
 
     const queryVector = Array.from(
-      queryOutput.data ?? queryOutput[0].data ?? queryOutput[0]
+      queryOutput.data ?? queryOutput[0]?.data ?? queryOutput[0]
     );
 
     const scoredDocs = vectorStore.map((doc) => ({
@@ -139,11 +165,10 @@ If specific details are missing, state that the available information does not s
         {
           role: "system",
           content: `
-You are the official AI Campus Information Assistant for Parul University.
+You are the official AI Campus Information Assistant.
 
-Answer the question strictly using the provided context.
-Provide structured and professional responses.
-Do not add external information.
+Answer strictly using provided context.
+Provide structured response.
 `
         },
         {
@@ -161,17 +186,16 @@ Do not add external information.
   }
 
   // ============================
-  // 3️⃣ FORMATTER AGENT (JSON)
+  // 4️⃣ FORMAT ONLY RAG CONTENT (NOT STRUCTURED DATA)
   // ============================
 
-  const formattedResponse = await groq.chat.completions.create({
-    model: "llama-3.1-8b-instant",
-    messages: [
-      {
-        role: "system",
-        content: `
-You are a response formatting agent for Parul University.
-
+  if (!structuredJSON && ragAnswer) {
+    const formattedResponse = await groq.chat.completions.create({
+      model: "llama-3.1-8b-instant",
+      messages: [
+        {
+          role: "system",
+          content: `
 Convert the given response into strictly valid JSON.
 
 Schema:
@@ -187,39 +211,32 @@ Schema:
   ]
 }
 
-Rules:
-- Output only valid JSON.
-- No markdown.
-- No explanations.
-- Organize content clearly.
+Return only JSON.
 `
-      },
-      {
-        role: "user",
-        content: ragAnswer,
-      },
-    ],
-    temperature: 0.2,
-  });
+        },
+        {
+          role: "user",
+          content: ragAnswer,
+        },
+      ],
+      temperature: 0.2,
+    });
 
-  let structuredJSON;
-
-  try {
-    structuredJSON = JSON.parse(
-      formattedResponse.choices[0].message.content
-    );
-  } catch (error) {
-    console.error("Formatter JSON parsing failed:", error);
-
-    structuredJSON = {
-      title: "Response",
-      summary: ragAnswer,
-      sections: [],
-    };
+    try {
+      structuredJSON = JSON.parse(
+        formattedResponse.choices[0].message.content
+      );
+    } catch (error) {
+      structuredJSON = {
+        title: "Response",
+        summary: ragAnswer,
+        sections: [],
+      };
+    }
   }
 
   // ============================
-  // 4️⃣ RENDER HTML
+  // 5️⃣ RENDER HTML
   // ============================
 
   const finalHTML = renderHTML(structuredJSON);

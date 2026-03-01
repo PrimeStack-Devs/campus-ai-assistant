@@ -120,7 +120,7 @@ export function renderHTML(data) {
 
   content += `
       <div class="footer">
-        &copy; ${new Date().getFullYear()} Parul University yaha possible hain 😂😂😂😂| Admission Information Page
+        &copy; ${new Date().getFullYear()} Parul University yaha possible hain | Admission Information Page
       </div>
     </div>
   </div>

@@ -1,0 +1,268 @@
+[
+  {
+    "id":1,
+    "name":"Dr. Priya Swaminarayan",
+    "phone":"+919099997057",
+    "email":"priya.swaminarayan@paruluniversity.ac.in",
+    "role":" Dean – Faculty of IT & CS, "
+  },
+  {
+    "id":2,
+    "name":"Dr. Pallavi Khedkar",
+    "phone":"+919925038671",
+    "email":"pallavi.khedkar@paruluniversity.ac.in",
+    "role":"Academic-Director"
+  },
+  {
+    "id":3,
+    "name":"Prof. Vivek Dave",
+    "phone":"+918128313699",
+    "email":"vivek.dave@paruluniversity.ac.in",
+    "role":"HOD - Head Of Department MCA, "
+  },
+  {
+    "id":4,
+    "name":"Prof. Manish Joshi",
+    "phone":"+919898530753",
+    "email":"manishkumar.joshi42083@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":5,
+    "name":"Prof. Faruk Abdulla",
+    "phone":"+919810470397",
+    "email":"faruk.abdulla30274@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":6,
+    "name":"Prof. Mehul Dalwadi",
+    "phone":"+918000131149",
+    "email":"mehulkumar.dalwadi33536@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":7,
+    "name":"Prof. Sonali Kharade",
+    "phone":"+918141613990",
+    "email":"sonali.kharade31678@paruluniversity.ac.in",
+    "role":"HoD and Assistant Professor at MCA/M.Sc(IT)/M.Sc. Data Science"
+  },
+  {
+    "id":8,
+    "name":"Prof. Arun Udaysuriyan",
+    "phone":"+919626985016",
+    "email":"arun.udayasuriyan29426@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":9,
+    "name":"Prof. Aniket Paul",
+    "phone":"+916353871530",
+    "email":"aniket.paul36074@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":10,
+    "name":"Prof. Dampy Singh",
+    "phone":"+919927716342",
+    "email":"dampy.singh35694@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":11,
+    "name":"Prof. Uma Bharti",
+    "phone":"+917440697996",
+    "email":"uma.bharti33724@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":12,
+    "name":"Prof. Arul Pillai",
+    "phone":"+919558754555",
+    "email":"arul.pillai24682@paruluniversity.ac.in",
+    "role":"Head of the Department - Career Development Cell at Parul University "
+  },
+  {
+    "id":13,
+    "name":"Prof. Smarika Rai",
+    "phone":"+919023483944",
+    "email":"smarika.rai30842@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":14,
+    "name":"Prof. Praveen Tomar",
+    "phone":"+917987331323",
+    "email":"praveen.tomar36403@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":15,
+    "name":"Prof. Samant Kumar",
+    "phone":"+919002206922",
+    "email":"samant.kumar36344@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":16,
+    "name":"Prof. Varsha Biradar",
+    "phone":"+919370597547",
+    "email":"varsha.biradar37156@paruluniversity.ac.in",
+    "role":"TEACHING ASSISTANT"
+  },
+  {
+    "id":17,
+    "name":"Prof. Shivaniba Bhadoriya",
+    "phone":"+919510332044",
+    "email":"shivaniba.bhadoriya36466@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":18,
+    "name":"Prof. Chaitali Nayka",
+    "phone":"+919712009578",
+    "email":"chaitalikumari.nayka36591@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":19,
+    "name":"Prof. Sonali Gupta",
+    "phone":"+917652038657",
+    "email":"sonali.gupta36849@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":20,
+    "name":"Prof. Megha Trivedi",
+    "phone":"+919106805356",
+    "email":"megha.trivedi24314@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":21,
+    "name":"Prof. Mayank Parashar",
+    "phone":"+918005596759",
+    "email":"mayank.parashar32541@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":22,
+    "name":"Prof. Niharika Agrawal",
+    "phone":"+919662833439",
+    "email":"niharika.agarwal36122@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":23,
+    "name":"Prof. Nirmit Shah",
+    "phone":"+919898315486",
+    "email":"nirmitkumar.shah27546@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":24,
+    "name":"Prof. Prachi Mehta",
+    "phone":"+917698650313",
+    "email":"prachibahen.mehta35932@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":25,
+    "name":"Prof. Pratik Parmar",
+    "phone":"+919510615601",
+    "email":"prati.kparmar36283@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":26,
+    "name":"Prof. Preeti Sharma",
+    "phone":"+918218864370",
+    "email":"preeti.sharma32496@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":27,
+    "name":"Prof. Renuka Parmar",
+    "phone":"+917999475456",
+    "email":"renuka.parmar33043@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":28,
+    "name":"Prof. Rinku Patil",
+    "phone":"+919423284752",
+    "email":"rinku.patil31670@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":29,
+    "name":"Prof. Rinkal Sarvaiya",
+    "phone":"+918799025175",
+    "email":"rinkal.sarvaiya31672@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":30,
+    "name":"Prof. Saswati Chatterjee",
+    "phone":"+919874410748",
+    "email":"saswati.chatterjee30729@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":31,
+    "name":"Prof. Sheeja C.",
+    "phone":"+919385376375",
+    "email":"sheeja.c35555@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":32,
+    "name":"Prof. Sohil Parmar",
+    "phone":"+916352559859",
+    "email":"sohil.parmar24381@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":33,
+    "name":"Prof. Sweta Jethwa",
+    "phone":"+919925045656",
+    "email":"sweta.jethava24460@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":34,
+    "name":"Prof. Tanmay Shah",
+    "phone":"+919923238304",
+    "email":"tanmay.shah35142@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":35,
+    "name":"Prof. Sujit Singh",
+    "phone":"+919813769955",
+    "email":"sujit.singh36858@paruluniversity.ac.in",
+    "role":"Associate Professor"
+  },
+  {
+    "id":36,
+    "name":"Prof. Hardik Paramar",
+    "phone":"+919586607479",
+    "email":"hardik.parmar26611@paruluniversity.ac.in ",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":37,
+    "name":"Prof.  Jigar Bhawsar",
+    "phone":"+919229891004",
+    "email":"jigar.bhawsar24744@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  },
+  {
+    "id":38,
+    "name":"Prof. Vipul Gamit",
+    "phone":"+918200012226",
+    "email":"vipulbhai.gamit26053@paruluniversity.ac.in",
+    "role":"Assistant Professor"
+  }
+]
