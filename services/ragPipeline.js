@@ -239,10 +239,10 @@ Return only JSON.
   // 5️⃣ RENDER HTML
   // ============================
 
-  const finalHTML = renderHTML(structuredJSON);
+  // const finalHTML = renderHTML(structuredJSON);
 
   return {
-    reply: finalHTML,
+    reply: structuredJSON,
     sources,
   };
 };
