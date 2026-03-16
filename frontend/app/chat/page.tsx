@@ -4,13 +4,14 @@ import { useState } from 'react';
 import { DashboardLayout } from '@/components/DashboardLayout';
 import { ChatWindow } from '@/components/ChatWindow';
 import { ChatInput } from '@/components/ChatInput';
-import { askCampusAI } from '@/lib/api';
+import { askCampusAI, type LocationData } from '@/lib/api';
 
 interface Message {
   id: string;
   content: string;
   isUser: boolean;
   timestamp: string;
+  location?: LocationData;
 }
 
 export default function ChatPage() {
@@ -37,9 +38,10 @@ export default function ChatPage() {
 
     const aiMessage: Message = {
       id: (Date.now() + 1).toString(),
-      content: aiResponse,
+      content: aiResponse.answer,
       isUser: false,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      location: aiResponse.location,
     };
 
     setMessages((prev) => [...prev, aiMessage]);

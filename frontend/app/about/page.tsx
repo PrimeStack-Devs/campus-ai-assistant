@@ -55,7 +55,7 @@ export default function AboutPage() {
         </div>
 
         {/* Tech Stack */}
-        {/* <div>
+        <div>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Built With</h2>
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -85,10 +85,10 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
 
         {/* Future Roadmap */}
-        {/* <div>
+        <div>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">What's Coming</h2>
           <div className="space-y-3">
             <div className="flex items-start gap-3 p-4 bg-white rounded-lg border border-gray-200">
@@ -120,7 +120,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
 
         {/* CTA */}
         <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg p-8 text-white text-center">

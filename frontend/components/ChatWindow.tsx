@@ -4,11 +4,20 @@ import { useEffect, useRef } from 'react';
 import { MessageBubble } from './MessageBubble';
 import { TypingIndicator } from './TypingIndicator';
 
+interface LocationData {
+  name: string;
+  building?: string;
+  floor?: string;
+  latitude: number;
+  longitude: number;
+}
+
 interface Message {
   id: string;
   content: string;
   isUser: boolean;
   timestamp: string;
+  location?: LocationData;
 }
 
 interface ChatWindowProps {
@@ -46,6 +55,7 @@ export function ChatWindow({ messages, isLoading }: ChatWindowProps) {
                 content={message.content}
                 isUser={message.isUser}
                 timestamp={message.timestamp}
+                location={message.location}
               />
             ))}
             {isLoading && (
