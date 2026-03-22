@@ -99,3 +99,37 @@ export const contacts = [
   { name: "Student Services", phone: "(555) 123-4568", email: "services@university.edu" },
   { name: "Registrar", phone: "(555) 123-4569", email: "registrar@university.edu" },
 ];
+
+export const locations = [
+  { id: 1, name: "Science Building", latitude: 40.8067, longitude: -73.9629, type: "Academic" },
+  { id: 2, name: "Student Center", latitude: 40.8075, longitude: -73.9635, type: "Student Services" },
+  { id: 3, name: "Athletic Complex", latitude: 40.8045, longitude: -73.9615, type: "Sports" },
+  { id: 4, name: "Medical Building", latitude: 40.8085, longitude: -73.9625, type: "Health" },
+];
+
+export const documents = [
+  { id: 1, title: "2024 Academic Calendar", type: "pdf", uploadedDate: "2024-01-15", size: "2.4 MB" },
+  { id: 2, title: "Student Handbook", type: "pdf", uploadedDate: "2024-01-10", size: "5.8 MB" },
+  { id: 3, title: "Housing Guide 2024-25", type: "pdf", uploadedDate: "2024-02-01", size: "3.1 MB" },
+  { id: 4, title: "Financial Aid Overview", type: "pdf", uploadedDate: "2024-01-20", size: "1.9 MB" },
+];
+
+export const analytics = {
+  totalUsers: 5240,
+  activeUsers: 3128,
+  totalQueries: 18540,
+  averageResponseTime: 1.2,
+  satisfactionRate: 94.5,
+  userGrowth: [
+    { month: "Jan", users: 2100 },
+    { month: "Feb", users: 2800 },
+    { month: "Mar", users: 3128 },
+  ],
+  queryCategories: [
+    { name: "Events", count: 4200 },
+    { name: "Facilities", count: 3800 },
+    { name: "Academics", count: 5100 },
+    { name: "Clubs", count: 2800 },
+    { name: "Other", count: 2640 },
+  ],
+};

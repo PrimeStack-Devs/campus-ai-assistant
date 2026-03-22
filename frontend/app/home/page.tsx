@@ -100,6 +100,17 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
+
+        {/* Admin Access */}
+        <div className="pt-4 border-t border-gray-200">
+          <p className="text-sm text-gray-600 mb-3">Administrator Access</p>
+          <Link
+            href="/admin"
+            className="inline-block px-6 py-2 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition-colors"
+          >
+            Admin Dashboard →
+          </Link>
+        </div>
       </div>
     </DashboardLayout>
   );

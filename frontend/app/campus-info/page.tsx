@@ -8,41 +8,6 @@ export default function CampusInfoPage() {
   return (
     <DashboardLayout title="Campus Information">
       <div className="p-8 space-y-8">
-        {/* University Overview */}
-        <div className="bg-white border rounded-xl p-6 shadow-sm">
-          <h1 className="text-3xl font-bold text-gray-900 mb-3">
-            Parul University
-          </h1>
-
-          <p className="text-gray-600 leading-relaxed mb-4">
-            Parul University is a NAAC A++ accredited private university located in
-            Vadodara, Gujarat. The university offers a wide range of undergraduate,
-            postgraduate, and doctoral programs across engineering, medicine,
-            management, pharmacy, law, design, and many other disciplines.
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-            <div className="bg-gray-50 rounded-lg p-4 text-center">
-              <p className="text-xl font-bold text-gray-900">75,000+</p>
-              <p className="text-sm text-gray-600">Students</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-4 text-center">
-              <p className="text-xl font-bold text-gray-900">2,500+</p>
-              <p className="text-sm text-gray-600">Faculty</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-4 text-center">
-              <p className="text-xl font-bold text-gray-900">150+</p>
-              <p className="text-sm text-gray-600">Programs</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-4 text-center">
-              <p className="text-xl font-bold text-gray-900">70+</p>
-              <p className="text-sm text-gray-600">Countries Students</p>
-            </div>
-          </div>
-        </div>
         {/* Facilities Section */}
         <div>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Facilities</h2>
