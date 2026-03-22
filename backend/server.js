@@ -6,7 +6,10 @@ import chatRoutes from "./routes/chat.js";
 import { extractPDFDocs } from "./services/pdfProcessor.js";
 import { initializeRAG } from "./services/ragPipeline.js";
 import { initializeRouter } from "./services/router.js";
+import 'dotenv/config';
+import { connectRedis } from './config/redis.js';
 
+await connectRedis(); // ✅ THIS IS IMPORTANT
 dotenv.config();
 
 const app = express();
