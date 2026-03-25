@@ -1,4 +1,6 @@
 import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 import { pipeline } from "@xenova/transformers";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import { cosineSimilarity } from "../utils/similarity.js";
@@ -7,6 +9,8 @@ import { scrapePage } from "./scraper.js";
 let embedder;
 let categories = [];
 const cache = {};
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const CACHE_EXPIRY = 10 * 60 * 1000; // 10 minutes
 
@@ -18,7 +22,7 @@ export const initializeRouter = async () => {
   console.log("Initializing router...");
 
   const websiteData = JSON.parse(
-    fs.readFileSync("./data/website.json", "utf-8")
+    fs.readFileSync(path.resolve(__dirname, "../data/website.json"), "utf-8")
   );
 
   embedder = await pipeline(
