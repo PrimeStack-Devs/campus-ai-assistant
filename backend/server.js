@@ -13,6 +13,7 @@ import { initializeStore } from "./services/v2/vectorStore.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+await connectRedis(); // ✅ THIS IS IMPORTANT
 dotenv.config({ path: path.join(__dirname, ".env") });
 
 const app = express();

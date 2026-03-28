@@ -5,6 +5,7 @@ import { renderHTML } from "../utils/htmlRenderer.js";
 import { cosineSimilarity } from "../utils/similarity.js";
 import { routeQuery, handleDynamicRoute } from "./router.js";
 import { findProfessorMatches } from "./structuredService.js";
+import client from "../config/redis.js"; // ✅ REDIS IMPORT
 
 let embedder;
 let vectorStore = [];
@@ -59,6 +60,29 @@ export const initializeRAG = async (documents) => {
 // ============================
 
 export const askQuestion = async (query) => {
+
+ // ============================
+// ✅ INTENT-BASED CACHE KEY
+// ============================
+
+const normalized = query.toLowerCase().trim();
+
+// 👉 Use your existing router
+const { bestMatch } = await routeQuery(query);
+
+// 👉 Decide key
+const key = bestMatch
+  ? `intent:${bestMatch.name}`
+  : `q:${normalized}`;
+
+
+
+const cached = await client.get(key);
+if (cached) {
+  console.log("⚡ From Redis (Intent Cache)");
+  return JSON.parse(cached);
+}
+
   const SIMILARITY_THRESHOLD = 0.60;
 
   const groq = new Groq({
@@ -69,10 +93,10 @@ export const askQuestion = async (query) => {
   let sources = [];
 
   // ============================
-  // 1️⃣ STRUCTURED PROFESSOR LOOKUP (DETERMINISTIC)
+  // 1️⃣ STRUCTURED PROFESSOR LOOKUP
   // ============================
 
- const professorMatches = await findProfessorMatches(query);
+  const professorMatches = await findProfessorMatches(query);
 
   let structuredJSON = null;
 
@@ -95,7 +119,7 @@ export const askQuestion = async (query) => {
   }
 
   // ============================
-  // 2️⃣ DYNAMIC ROUTER CHECK
+  // 2️⃣ DYNAMIC ROUTER
   // ============================
 
   if (!structuredJSON) {
@@ -186,7 +210,7 @@ Provide structured response.
   }
 
   // ============================
-  // 4️⃣ FORMAT ONLY RAG CONTENT (NOT STRUCTURED DATA)
+  // 4️⃣ FORMAT RESPONSE
   // ============================
 
   if (!structuredJSON && ragAnswer) {
@@ -236,13 +260,17 @@ Return only JSON.
   }
 
   // ============================
-  // 5️⃣ RENDER HTML
+  // ✅ 5️⃣ SAVE TO REDIS
   // ============================
 
-  // const finalHTML = renderHTML(structuredJSON);
-
-  return {
+  const finalResponse = {
     reply: structuredJSON,
     sources,
   };
+
+  await client.set(key, JSON.stringify(finalResponse), {
+    EX: 86400, // 24 hours
+  });
+
+  return finalResponse;
 };
