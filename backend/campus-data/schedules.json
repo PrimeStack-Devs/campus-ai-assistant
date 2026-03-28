@@ -1,0 +1,319 @@
+{
+  "bus_routes": [
+    {
+      "id": "bus_001",
+      "route_name": "Vadodara Railway Station - Parul University",
+      "route_number": "PU-01",
+      "direction": "both",
+      "aliases": ["railway station bus", "station bus", "pu01", "vadodara station route"],
+      "description": "Main bus route connecting Vadodara Railway Station to Parul University campus. Most popular route for outstation students. Passes through major city landmarks.",
+      "stops": [
+        { "order": 1, "name": "Vadodara Railway Station", "landmark": "Near main entrance", "departure_time_morning": "07:00 AM" },
+        { "order": 2, "name": "Fatehgunj", "landmark": "Fatehgunj Cross Roads", "departure_time_morning": "07:10 AM" },
+        { "order": 3, "name": "Productivity Road", "landmark": "Productivity Cross Roads", "departure_time_morning": "07:18 AM" },
+        { "order": 4, "name": "Waghodia Road", "landmark": "Waghodia Road Circle", "departure_time_morning": "07:30 AM" },
+        { "order": 5, "name": "Parul University Main Gate", "landmark": "Main Entry Gate", "departure_time_morning": "08:00 AM" }
+      ],
+      "return_schedule": [
+        { "departure": "05:00 PM", "from": "Parul University Main Gate" },
+        { "departure": "06:00 PM", "from": "Parul University Main Gate" }
+      ],
+      "frequency": "Once in morning, twice in evening",
+      "notes": "Timings may vary during exams and holidays. Check Transport Office for updated schedule."
+    },
+    {
+      "id": "bus_002",
+      "route_name": "Vadodara Sayajigunj - Parul University",
+      "route_number": "PU-02",
+      "direction": "both",
+      "aliases": ["sayajigunj bus", "pu02", "sayajigunj route"],
+      "description": "Bus route from Sayajigunj area of Vadodara to Parul University campus.",
+      "stops": [
+        { "order": 1, "name": "Sayajigunj", "landmark": "Sayajigunj Bus Stand", "departure_time_morning": "07:00 AM" },
+        { "order": 2, "name": "Alkapuri", "landmark": "Alkapuri Circle", "departure_time_morning": "07:10 AM" },
+        { "order": 3, "name": "Race Course", "landmark": "Race Course Circle", "departure_time_morning": "07:20 AM" },
+        { "order": 4, "name": "Waghodia Road", "landmark": "Waghodia Road Junction", "departure_time_morning": "07:35 AM" },
+        { "order": 5, "name": "Parul University Main Gate", "landmark": "Main Entry Gate", "departure_time_morning": "08:00 AM" }
+      ],
+      "return_schedule": [
+        { "departure": "05:00 PM", "from": "Parul University Main Gate" },
+        { "departure": "06:00 PM", "from": "Parul University Main Gate" }
+      ],
+      "frequency": "Once in morning, twice in evening",
+      "notes": "Timings may vary. Confirm with Transport Office."
+    },
+    {
+      "id": "bus_003",
+      "route_name": "Manjalpur - Parul University",
+      "route_number": "PU-03",
+      "direction": "both",
+      "aliases": ["manjalpur bus", "pu03", "manjalpur route"],
+      "description": "Bus route from Manjalpur area to Parul University campus.",
+      "stops": [
+        { "order": 1, "name": "Manjalpur", "landmark": "Manjalpur Char Rasta", "departure_time_morning": "07:05 AM" },
+        { "order": 2, "name": "Sama", "landmark": "Sama Circle", "departure_time_morning": "07:15 AM" },
+        { "order": 3, "name": "Waghodia", "landmark": "Waghodia Town", "departure_time_morning": "07:40 AM" },
+        { "order": 4, "name": "Parul University Main Gate", "landmark": "Main Entry Gate", "departure_time_morning": "08:00 AM" }
+      ],
+      "return_schedule": [
+        { "departure": "05:00 PM", "from": "Parul University Main Gate" },
+        { "departure": "06:00 PM", "from": "Parul University Main Gate" }
+      ],
+      "frequency": "Once in morning, twice in evening",
+      "notes": "Timings may vary. Confirm with Transport Office."
+    },
+    {
+      "id": "bus_004",
+      "route_name": "Gotri - Parul University",
+      "route_number": "PU-04",
+      "direction": "both",
+      "aliases": ["gotri bus", "pu04", "gotri route"],
+      "description": "Bus route from Gotri area to Parul University.",
+      "stops": [
+        { "order": 1, "name": "Gotri", "landmark": "Gotri Road", "departure_time_morning": "07:00 AM" },
+        { "order": 2, "name": "Karelibaug", "landmark": "Karelibaug Circle", "departure_time_morning": "07:10 AM" },
+        { "order": 3, "name": "Waghodia Road", "landmark": "Waghodia Road", "departure_time_morning": "07:35 AM" },
+        { "order": 4, "name": "Parul University Main Gate", "landmark": "Main Entry Gate", "departure_time_morning": "08:00 AM" }
+      ],
+      "return_schedule": [
+        { "departure": "05:00 PM", "from": "Parul University Main Gate" },
+        { "departure": "06:00 PM", "from": "Parul University Main Gate" }
+      ],
+      "frequency": "Once in morning, twice in evening",
+      "notes": "Timings may vary. Confirm with Transport Office."
+    },
+    {
+      "id": "bus_005",
+      "route_name": "Waghodia Village - Parul University",
+      "route_number": "PU-05",
+      "direction": "both",
+      "aliases": ["waghodia bus", "pu05", "waghodia village route", "local bus"],
+      "description": "Short local route from Waghodia village and nearby areas to Parul University. Shortest route.",
+      "stops": [
+        { "order": 1, "name": "Waghodia Village", "landmark": "Waghodia Village Centre", "departure_time_morning": "07:30 AM" },
+        { "order": 2, "name": "Ishwarpura", "landmark": "Ishwarpura Junction", "departure_time_morning": "07:40 AM" },
+        { "order": 3, "name": "Parul University Main Gate", "landmark": "Main Entry Gate", "departure_time_morning": "08:00 AM" }
+      ],
+      "return_schedule": [
+        { "departure": "05:00 PM", "from": "Parul University Main Gate" },
+        { "departure": "06:30 PM", "from": "Parul University Main Gate" }
+      ],
+      "frequency": "Multiple trips throughout the day",
+      "notes": "This is the most frequent route due to short distance."
+    },
+    {
+      "id": "bus_006",
+      "route_name": "Anand / Ankleshwar - Parul University",
+      "route_number": "PU-06",
+      "direction": "both",
+      "aliases": ["anand bus", "ankleshwar bus", "pu06", "anand route"],
+      "description": "Long-distance bus route from Anand and Ankleshwar to Parul University.",
+      "stops": [
+        { "order": 1, "name": "Anand", "landmark": "Anand Bus Stand", "departure_time_morning": "06:30 AM" },
+        { "order": 2, "name": "Ankleshwar", "landmark": "Ankleshwar Junction", "departure_time_morning": "06:45 AM" },
+        { "order": 3, "name": "Bharuch", "landmark": "Bharuch Highway", "departure_time_morning": "07:00 AM" },
+        { "order": 4, "name": "Waghodia Road", "landmark": "Waghodia Road", "departure_time_morning": "07:45 AM" },
+        { "order": 5, "name": "Parul University Main Gate", "landmark": "Main Entry Gate", "departure_time_morning": "08:00 AM" }
+      ],
+      "return_schedule": [
+        { "departure": "05:00 PM", "from": "Parul University Main Gate" }
+      ],
+      "frequency": "Once in morning, once in evening",
+      "notes": "Long distance route. Seats limited. Bus pass required in advance."
+    },
+    {
+      "id": "bus_007",
+      "route_name": "Surat - Parul University (Weekly)",
+      "route_number": "PU-07",
+      "direction": "both",
+      "aliases": ["surat bus", "pu07", "surat route", "weekly bus"],
+      "description": "Weekly bus service from Surat to Parul University, typically operating on Monday mornings and Friday evenings.",
+      "stops": [
+        { "order": 1, "name": "Surat", "landmark": "Surat Central Bus Stand", "departure_time_morning": "05:00 AM (Monday)" },
+        { "order": 2, "name": "Bharuch", "landmark": "Bharuch Bypass", "departure_time_morning": "06:30 AM" },
+        { "order": 3, "name": "Vadodara", "landmark": "Vadodara Bypass", "departure_time_morning": "07:30 AM" },
+        { "order": 4, "name": "Parul University Main Gate", "landmark": "Main Entry Gate", "departure_time_morning": "08:00 AM" }
+      ],
+      "return_schedule": [
+        { "departure": "05:00 PM Friday", "from": "Parul University Main Gate" }
+      ],
+      "frequency": "Weekly — Monday inward, Friday return",
+      "notes": "Weekly service. Confirm schedule and seat availability with Transport Office. Subject to minimum passenger count."
+    }
+  ],
+
+  "office_hours": [
+    {
+      "id": "oh_academic_offices",
+      "name": "Academic Department Offices (HOD / Faculty)",
+      "days": "Monday to Saturday",
+      "timing": "09:00 AM - 05:00 PM",
+      "lunch_break": "01:00 PM - 02:00 PM",
+      "notes": "Faculty may have individual consultation hours. Check department notice board or contact department secretary.",
+      "aliases": ["hod office hours", "faculty office hours", "department office", "professor office"]
+    },
+    {
+      "id": "oh_admin_offices",
+      "name": "Administrative Offices (C1, C2, C3, C4, C5)",
+      "days": "Monday to Saturday",
+      "timing": "09:00 AM - 05:00 PM",
+      "lunch_break": "01:00 PM - 02:00 PM",
+      "notes": "Closed on Sundays and national holidays.",
+      "aliases": ["admin office hours", "office timings", "c block timings", "admin timings"]
+    },
+    {
+      "id": "oh_library",
+      "name": "Central Library",
+      "days": "Monday to Sunday",
+      "timing": "07:00 AM - 08:00 PM (Mon-Sat), 09:30 AM - 04:30 PM (Sun)",
+      "lunch_break": "None",
+      "notes": "Closed on national holidays unless notified.",
+      "aliases": ["library timings", "library hours", "library open time", "library close time"]
+    },
+    {
+      "id": "oh_bank",
+      "name": "Central Bank of India (Campus Branch)",
+      "days": "Monday to Saturday",
+      "timing": "10:00 AM - 04:00 PM (Mon-Fri), 10:00 AM - 01:00 PM (Sat)",
+      "lunch_break": "01:00 PM - 01:30 PM",
+      "notes": "ATM is available 24/7.",
+      "aliases": ["bank timings", "bank hours", "bank open", "bank close", "atm hours"]
+    },
+    {
+      "id": "oh_hospital_opd",
+      "name": "Parul Sevashram Hospital OPD",
+      "days": "Monday to Saturday",
+      "timing": "09:00 AM - 05:00 PM",
+      "lunch_break": "01:00 PM - 02:00 PM",
+      "notes": "Emergency services are available 24/7. Pharmacy open 24/7.",
+      "aliases": ["hospital timings", "opd timings", "doctor timings", "hospital hours", "opd hours"]
+    },
+    {
+      "id": "oh_transport_office",
+      "name": "Transport Office",
+      "days": "Monday to Saturday",
+      "timing": "09:00 AM - 05:00 PM",
+      "lunch_break": "01:00 PM - 02:00 PM",
+      "notes": "Bus services operate from approximately 7:00 AM. Last return bus around 6:00 PM.",
+      "aliases": ["transport office hours", "bus pass timing", "transport timing"]
+    },
+    {
+      "id": "oh_gym",
+      "name": "PU Fitness Gym",
+      "days": "Monday to Sunday",
+      "timing": "06:00 AM - 09:00 AM and 04:00 PM - 08:00 PM (Mon-Sat), 07:00 AM - 11:00 AM (Sun)",
+      "lunch_break": "None",
+      "notes": "Closed between 9 AM and 4 PM.",
+      "aliases": ["gym timings", "gym hours", "gym open", "fitness centre timings"]
+    },
+    {
+      "id": "oh_swimming_pool",
+      "name": "Swimming Pool",
+      "days": "Monday to Saturday",
+      "timing": "Boys 06:00-08:00 AM & 04:00-06:00 PM | Girls 08:00-10:00 AM & 06:00-08:00 PM",
+      "lunch_break": "None",
+      "notes": "Closed on Sundays for general use. Competitive training on Sundays.",
+      "aliases": ["pool timings", "swimming timings", "pool hours", "swimming hours"]
+    },
+    {
+      "id": "oh_canteen",
+      "name": "Greenzy Food Court",
+      "days": "Monday to Sunday",
+      "timing": "08:00 AM - 09:00 PM (Mon-Sat), 09:00 AM - 08:00 PM (Sun)",
+      "lunch_break": "None",
+      "notes": "Individual stalls may have different timings.",
+      "aliases": ["canteen timings", "food court timings", "canteen hours", "greenzy timings", "canteen open"]
+    },
+    {
+      "id": "oh_mess",
+      "name": "Student Mess",
+      "days": "Monday to Sunday",
+      "timing": "Breakfast 07:00-09:00 AM | Lunch 12:00-02:00 PM | Dinner 07:00-09:00 PM",
+      "lunch_break": "None",
+      "notes": "Sunday brunch 08:00 AM to 11:00 AM. Late entry may not be served.",
+      "aliases": ["mess timings", "mess hours", "dining timings", "breakfast time", "lunch time", "dinner time"]
+    },
+    {
+      "id": "oh_counselling",
+      "name": "Counselling Centre",
+      "days": "Monday to Saturday",
+      "timing": "09:00 AM - 05:00 PM (Mon-Fri), 09:00 AM - 01:00 PM (Sat)",
+      "lunch_break": "01:00 PM - 02:00 PM",
+      "notes": "Appointment preferred. Walk-in accepted based on counsellor availability.",
+      "aliases": ["counselling timings", "counsellor hours", "mental health timings", "insights centre hours"]
+    },
+    {
+      "id": "oh_sports_grounds",
+      "name": "Sports Grounds",
+      "days": "Monday to Sunday",
+      "timing": "06:00 AM - 09:00 AM and 04:00 PM - 07:00 PM",
+      "lunch_break": "None",
+      "notes": "Closed during heavy rain. Competitive events may restrict public access.",
+      "aliases": ["sports ground timings", "ground hours", "football ground timings", "sports timings"]
+    }
+  ],
+
+  "academic_calendar": {
+    "current_academic_year": "2024-2025",
+    "semester_1": {
+      "name": "Odd Semester",
+      "start_date": "2024-07-01",
+      "end_date": "2024-11-30",
+      "exam_start": "2024-12-01",
+      "exam_end": "2024-12-20",
+      "result_declaration": "2025-01-15"
+    },
+    "semester_2": {
+      "name": "Even Semester",
+      "start_date": "2025-01-06",
+      "end_date": "2025-05-31",
+      "exam_start": "2025-06-01",
+      "exam_end": "2025-06-20",
+      "result_declaration": "2025-07-10"
+    },
+    "important_dates": [
+      {
+        "event": "Freshers Orientation",
+        "date": "TBD",
+        "description": "Orientation program for newly admitted students"
+      },
+      {
+        "event": "Annual Sports Day",
+        "date": "TBD",
+        "description": "University-level sports competitions"
+      },
+      {
+        "event": "Cultural Fest",
+        "date": "TBD",
+        "description": "Annual cultural festival of Parul University"
+      },
+      {
+        "event": "Convocation Ceremony",
+        "date": "TBD",
+        "description": "Annual degree award ceremony"
+      },
+      {
+        "event": "Republic Day",
+        "date": "2025-01-26",
+        "description": "National holiday — offices and academic blocks closed"
+      },
+      {
+        "event": "Independence Day",
+        "date": "2024-08-15",
+        "description": "National holiday — university flag hoisting ceremony"
+      }
+    ],
+    "holidays": {
+      "note": "Holiday list is announced at the beginning of each academic year. Check university portal or notice boards for the complete list.",
+      "fixed_national_holidays": [
+        "Republic Day — January 26",
+        "Independence Day — August 15",
+        "Gandhi Jayanti — October 2",
+        "Diwali — as per Hindu calendar",
+        "Holi — as per Hindu calendar",
+        "Eid — as per Islamic calendar",
+        "Christmas — December 25"
+      ]
+    }
+  }
+}

@@ -1,0 +1,448 @@
+[
+  {
+    "id": "dept_cse",
+    "name": "Computer Science & Engineering",
+    "short_name": "CSE",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 3,
+    "hod": {
+      "name": "TBD",
+      "room": "301",
+      "email": "hod.cse@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["BTech CSE", "BTech CSE (AI & ML)", "BTech CSE (Data Science)", "MTech CSE"],
+    "aliases": ["CSE", "computer science", "computer engineering", "cs department", "btech cse"],
+    "description": "The Department of Computer Science & Engineering at Parul University offers undergraduate and postgraduate programs in core computer science, artificial intelligence, machine learning, and data science. The department is housed in the C.V. Raman Centre (A25) and has state-of-the-art computer labs, coding labs, and research facilities. Students from BTech CSE, BTech AI/ML, and BTech Data Science attend classes and labs here.",
+    "subjects": ["Data Structures", "Algorithms", "DBMS", "Operating Systems", "Computer Networks", "Machine Learning", "Cloud Computing", "Web Development"],
+    "lab_floors": [1, 2, 3],
+    "class_floors": [3, 4, 5]
+  },
+  {
+    "id": "dept_it",
+    "name": "Information Technology",
+    "short_name": "IT",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 4,
+    "hod": {
+      "name": "TBD",
+      "room": "401",
+      "email": "hod.it@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["BTech IT"],
+    "aliases": ["IT", "information technology", "it department", "btech it"],
+    "description": "The Department of Information Technology is located in the C.V. Raman Centre (A25). It offers BTech IT programs with a focus on software development, networking, cybersecurity, and information systems. Labs and classrooms are on the 4th and 5th floors.",
+    "subjects": ["Software Engineering", "Cybersecurity", "Network Administration", "Web Technologies", "IoT"],
+    "lab_floors": [1, 2],
+    "class_floors": [4, 5]
+  },
+  {
+    "id": "dept_bca",
+    "name": "Computer Application (BCA)",
+    "short_name": "BCA",
+    "building_id": "A24",
+    "building_name": "Bhagat Singh Bhawan",
+    "floor": 2,
+    "hod": {
+      "name": "TBD",
+      "room": "201",
+      "email": "hod.bca@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["BCA", "BCA (Cloud Technology)", "BCA (Data Science)"],
+    "aliases": ["BCA", "computer application", "bca department", "bca block"],
+    "description": "The Department of Computer Application offers BCA and its specialized variants at Parul University. Classes are conducted in Bhagat Singh Bhawan (A24, N Block) from the 2nd to 6th floor. Labs are in the C.V. Raman Centre (A25). BCA students spend their practical sessions in A25 and theory classes in A24.",
+    "subjects": ["Programming in C", "Java", "Python", "Web Development", "DBMS", "Software Engineering", "Mobile App Development"],
+    "lab_floors": [1, 2],
+    "class_floors": [2, 3, 4],
+    "note": "BCA classes are in A24 (Bhagat Singh Bhawan). BCA labs are in A25 (CV Raman Centre)."
+  },
+  {
+    "id": "dept_mca",
+    "name": "Master of Computer Application (MCA)",
+    "short_name": "MCA",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 5,
+    "hod": {
+      "name": "TBD",
+      "room": "501",
+      "email": "hod.mca@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["MCA", "MCA (Cloud Technology)"],
+    "aliases": ["MCA", "master of computer application", "mca department", "mca block"],
+    "description": "The MCA department is located in the C.V. Raman Centre (A25). The program focuses on advanced software development, cloud computing, AI, and enterprise applications. Both classes and labs are on the 5th and 6th floors of A25.",
+    "subjects": ["Advanced Java", "Cloud Computing", "AI", "Data Warehousing", "Software Project Management"],
+    "lab_floors": [5, 6],
+    "class_floors": [5, 6]
+  },
+  {
+    "id": "dept_mech",
+    "name": "Mechanical Engineering",
+    "short_name": "Mech",
+    "building_id": "A1",
+    "building_name": "Parul Institute of Engineering & Technology",
+    "floor": 2,
+    "hod": {
+      "name": "TBD",
+      "room": "201",
+      "email": "hod.mech@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["BTech Mechanical Engineering", "MTech Mechanical Engineering"],
+    "aliases": ["mech", "mechanical", "mechanical engineering", "btech mech"],
+    "description": "The Department of Mechanical Engineering is located in the main PIET block (A1). It offers BTech and MTech programs covering design, manufacturing, thermal engineering, and robotics. The engineering workshop in A20 is extensively used for practical sessions.",
+    "subjects": ["Thermodynamics", "Fluid Mechanics", "Machine Design", "Manufacturing Processes", "Robotics & Automation"],
+    "lab_floors": [1, 2],
+    "class_floors": [2, 3],
+    "workshop_building": "A20"
+  },
+  {
+    "id": "dept_civil",
+    "name": "Civil Engineering",
+    "short_name": "Civil",
+    "building_id": "A1",
+    "building_name": "Parul Institute of Engineering & Technology",
+    "floor": 3,
+    "hod": {
+      "name": "TBD",
+      "room": "301",
+      "email": "hod.civil@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["BTech Civil Engineering", "MTech Civil Engineering"],
+    "aliases": ["civil", "civil engineering", "btech civil"],
+    "description": "The Department of Civil Engineering is located in PIET (A1). It covers structural engineering, construction technology, environmental engineering, and transportation. The department has dedicated survey and material testing labs.",
+    "subjects": ["Structural Analysis", "Concrete Technology", "Surveying", "Environmental Engineering", "Transportation Engineering"],
+    "lab_floors": [1, 3],
+    "class_floors": [3, 4]
+  },
+  {
+    "id": "dept_elec",
+    "name": "Electrical Engineering",
+    "short_name": "EE",
+    "building_id": "A1",
+    "building_name": "Parul Institute of Engineering & Technology",
+    "floor": 4,
+    "hod": {
+      "name": "TBD",
+      "room": "401",
+      "email": "hod.ee@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["BTech Electrical Engineering"],
+    "aliases": ["EE", "electrical", "electrical engineering", "btech electrical"],
+    "description": "The Department of Electrical Engineering is in PIET (A1). It covers power systems, control systems, electrical machines, and renewable energy. The department has dedicated power electronics and machines labs.",
+    "subjects": ["Power Systems", "Control Systems", "Electrical Machines", "Power Electronics", "Renewable Energy"],
+    "lab_floors": [1, 4],
+    "class_floors": [4, 5]
+  },
+  {
+    "id": "dept_ece",
+    "name": "Electronics & Communication Engineering",
+    "short_name": "EC / ECE",
+    "building_id": "A1",
+    "building_name": "Parul Institute of Engineering & Technology",
+    "floor": 5,
+    "hod": {
+      "name": "TBD",
+      "room": "501",
+      "email": "hod.ec@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["BTech Electronics & Communication Engineering"],
+    "aliases": ["EC", "ECE", "electronics", "communication engineering", "btech ec", "btech ece"],
+    "description": "The Department of Electronics & Communication Engineering is in PIET (A1). It covers digital electronics, communication systems, VLSI design, and embedded systems. The department has dedicated electronics and microprocessor labs.",
+    "subjects": ["Digital Electronics", "Communication Systems", "VLSI Design", "Embedded Systems", "Signal Processing"],
+    "lab_floors": [1, 5],
+    "class_floors": [5, 6]
+  },
+  {
+    "id": "dept_pharmacy",
+    "name": "Pharmacy",
+    "short_name": "Pharmacy",
+    "building_id": "A4",
+    "building_name": "Parul Institute of Pharmacy",
+    "floor": 1,
+    "hod": {
+      "name": "TBD",
+      "room": "101",
+      "email": "hod.pharmacy@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["B.Pharm", "M.Pharm", "D.Pharm", "Pharm.D"],
+    "aliases": ["pharmacy", "b.pharm", "m.pharm", "d.pharm", "pharm d", "pharmaceutical"],
+    "description": "The Department of Pharmacy at Parul University is spread across multiple buildings including A4, A8, A10, and A21. B.Pharm and D.Pharm programs are primarily in A4. M.Pharm and research programs are in A8. The department has pharmaceutical chemistry labs, pharmacology labs, and a pharmaceutical manufacturing unit.",
+    "subjects": ["Pharmaceutical Chemistry", "Pharmacology", "Pharmaceutics", "Pharmacognosy", "Clinical Pharmacy"],
+    "lab_floors": [1, 2, 3],
+    "class_floors": [2, 3, 4]
+  },
+  {
+    "id": "dept_nursing",
+    "name": "Nursing",
+    "short_name": "Nursing",
+    "building_id": "A6",
+    "building_name": "Parul Institute of Nursing",
+    "floor": 1,
+    "hod": {
+      "name": "TBD",
+      "room": "101",
+      "email": "hod.nursing@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["B.Sc Nursing", "M.Sc Nursing", "Post Basic B.Sc Nursing"],
+    "aliases": ["nursing", "b.sc nursing", "m.sc nursing", "nursing department"],
+    "description": "The Department of Nursing is in Parul Institute of Nursing (A6). It offers B.Sc Nursing, M.Sc Nursing, and Post Basic B.Sc Nursing programs. Students receive clinical training at Parul Sevashram Hospital (E2).",
+    "subjects": ["Anatomy", "Physiology", "Medical Surgical Nursing", "Community Health Nursing", "Obstetric Nursing"],
+    "lab_floors": [1, 2],
+    "class_floors": [2, 3],
+    "clinical_training": "E2"
+  },
+  {
+    "id": "dept_ayurved",
+    "name": "Ayurved",
+    "short_name": "Ayurved",
+    "building_id": "A13",
+    "building_name": "Parul Institute of Ayurved",
+    "floor": 1,
+    "hod": {
+      "name": "TBD",
+      "room": "101",
+      "email": "hod.ayurved@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["BAMS", "MD Ayurved"],
+    "aliases": ["ayurved", "ayurveda", "bams", "md ayurved", "ayurvedic medicine"],
+    "description": "The Department of Ayurved offers BAMS and MD Ayurved programs. Primary teaching block is A13, with advanced research at A18. Clinical training is conducted at Parul Ayurved Hospital (E1) and Khemdas Ayurved Hospital (E3).",
+    "subjects": ["Dravyaguna", "Rasa Shastra", "Kayachikitsa", "Shalya Tantra", "Panchakarma"],
+    "lab_floors": [1, 2],
+    "class_floors": [2, 3],
+    "clinical_training": "E1"
+  },
+  {
+    "id": "dept_homeopathy",
+    "name": "Homoeopathy",
+    "short_name": "Homeopathy",
+    "building_id": "A7",
+    "building_name": "Jawaharlal Nehru Homoeopathic Medical College",
+    "floor": 1,
+    "hod": {
+      "name": "TBD",
+      "room": "101",
+      "email": "hod.homeopathy@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["BHMS", "MD Homoeopathy"],
+    "aliases": ["homeopathy", "homoeopathy", "bhms", "md homeopathy", "homoeopathic medicine"],
+    "description": "The Department of Homoeopathy is in Jawaharlal Nehru Homoeopathic Medical College (A7) with research at A17. Clinical training is at E5. Offers BHMS and MD Homoeopathy programs.",
+    "subjects": ["Organon of Medicine", "Homoeopathic Materia Medica", "Repertory", "Practice of Medicine"],
+    "lab_floors": [1, 2],
+    "class_floors": [2, 3],
+    "clinical_training": "E5"
+  },
+  {
+    "id": "dept_mba",
+    "name": "Business Administration (MBA)",
+    "short_name": "MBA",
+    "building_id": "A14",
+    "building_name": "Parul Institute of Business Administration",
+    "floor": 2,
+    "hod": {
+      "name": "TBD",
+      "room": "201",
+      "email": "hod.mba@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["MBA", "BBA", "MBA (HR)", "MBA (Finance)", "MBA (Marketing)"],
+    "aliases": ["mba", "bba", "business administration", "management", "mba department", "finance", "marketing", "hr management"],
+    "description": "The Department of Business Administration is in Parul Institute of Business Administration (A14). It offers MBA and BBA programs with specializations in HR, Finance, Marketing, and Operations. The Faculty of Management Studies (A15) handles advanced management programs.",
+    "subjects": ["Marketing Management", "Financial Management", "Human Resource Management", "Operations Management", "Business Strategy"],
+    "lab_floors": [1],
+    "class_floors": [2, 3, 4, 5]
+  },
+  {
+    "id": "dept_law",
+    "name": "Law",
+    "short_name": "Law",
+    "building_id": "A23",
+    "building_name": "Subhash Chandra Bose Bhawan",
+    "floor": 2,
+    "hod": {
+      "name": "TBD",
+      "room": "201",
+      "email": "hod.law@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["BA LLB", "BBA LLB", "LLM"],
+    "aliases": ["law", "llb", "ba llb", "bba llb", "llm", "law department", "legal studies"],
+    "description": "The Department of Law is in Subhash Chandra Bose Bhawan (A23). It offers BA LLB, BBA LLB, and LLM programs. The department has a moot court room and a legal aid clinic.",
+    "subjects": ["Constitutional Law", "Criminal Law", "Contract Law", "Property Law", "Corporate Law"],
+    "lab_floors": [],
+    "class_floors": [2, 3, 4]
+  },
+  {
+    "id": "dept_architecture",
+    "name": "Architecture",
+    "short_name": "Architecture",
+    "building_id": "A16",
+    "building_name": "Parul Institute of Architecture & Research",
+    "floor": 1,
+    "hod": {
+      "name": "TBD",
+      "room": "101",
+      "email": "hod.arch@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["B.Arch", "M.Arch"],
+    "aliases": ["architecture", "arch", "b.arch", "m.arch", "piar", "architecture department"],
+    "description": "The Department of Architecture is in Parul Institute of Architecture & Research (A16). It offers B.Arch and M.Arch programs. The department has design studios, model-making labs, and a materials library.",
+    "subjects": ["Architectural Design", "Building Construction", "Urban Planning", "History of Architecture", "Environmental Design"],
+    "lab_floors": [1, 2],
+    "class_floors": [2, 3, 4, 5]
+  },
+  {
+    "id": "dept_design",
+    "name": "Design & Fine Arts",
+    "short_name": "Design",
+    "building_id": "A22",
+    "building_name": "Parul Institute of Design",
+    "floor": 1,
+    "hod": {
+      "name": "TBD",
+      "room": "101",
+      "email": "hod.design@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["B.Des", "M.Des", "BFA", "Performing Arts"],
+    "aliases": ["design", "fine arts", "performing arts", "b.des", "bfa", "pid", "arts"],
+    "description": "The Department of Design and Fine Arts is in A22. It includes Parul Institute of Design, Parul Institute of Fine Arts, and Parul Institute of Performing Arts. The building also houses the 24 Frames Studio (A26) for film and media production.",
+    "subjects": ["Graphic Design", "UI/UX Design", "Visual Arts", "Sculpture", "Photography", "Film Production"],
+    "lab_floors": [1, 2, 3],
+    "class_floors": [2, 3, 4]
+  },
+  {
+    "id": "dept_agriculture",
+    "name": "Agriculture",
+    "short_name": "Agriculture",
+    "building_id": "A23",
+    "building_name": "Subhash Chandra Bose Bhawan",
+    "floor": 3,
+    "hod": {
+      "name": "TBD",
+      "room": "301",
+      "email": "hod.agri@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["B.Sc Agriculture", "M.Sc Agriculture"],
+    "aliases": ["agriculture", "agri", "b.sc agriculture", "farming", "agricultural science"],
+    "description": "The Department of Agriculture is in Subhash Chandra Bose Bhawan (A23). It offers B.Sc and M.Sc Agriculture programs covering crop science, soil science, agronomy, and agricultural technology.",
+    "subjects": ["Agronomy", "Soil Science", "Plant Pathology", "Agricultural Economics", "Horticulture"],
+    "lab_floors": [3],
+    "class_floors": [3, 4]
+  },
+  {
+    "id": "dept_physiotherapy",
+    "name": "Physiotherapy",
+    "short_name": "Physiotherapy",
+    "building_id": "A7",
+    "building_name": "Parul Institute of Physiotherapy",
+    "floor": 2,
+    "hod": {
+      "name": "TBD",
+      "room": "201",
+      "email": "hod.physio@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["BPT", "MPT"],
+    "aliases": ["physiotherapy", "bpt", "mpt", "physio", "physical therapy"],
+    "description": "The Department of Physiotherapy offers BPT and MPT programs. Basic physiotherapy is in A7, while research-focused programs are in A16. Clinical training is conducted at Parul Sevashram Hospital (E2).",
+    "subjects": ["Anatomy", "Physiology", "Biomechanics", "Exercise Therapy", "Neurological Physiotherapy"],
+    "lab_floors": [2, 3],
+    "class_floors": [2, 3],
+    "clinical_training": "E2"
+  },
+  {
+    "id": "dept_commerce",
+    "name": "Commerce",
+    "short_name": "Commerce",
+    "building_id": "A23",
+    "building_name": "Subhash Chandra Bose Bhawan",
+    "floor": 4,
+    "hod": {
+      "name": "TBD",
+      "room": "401",
+      "email": "hod.commerce@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["B.Com", "M.Com", "B.Com (Hons)"],
+    "aliases": ["commerce", "b.com", "m.com", "accounts", "commerce department"],
+    "description": "The Department of Commerce is in Subhash Chandra Bose Bhawan (A23). It offers B.Com, B.Com (Hons), and M.Com programs covering accounting, finance, taxation, and business economics.",
+    "subjects": ["Financial Accounting", "Business Economics", "Taxation", "Auditing", "Cost Accounting"],
+    "lab_floors": [],
+    "class_floors": [4, 5]
+  },
+  {
+    "id": "dept_social_work",
+    "name": "Social Work",
+    "short_name": "MSW / BSW",
+    "building_id": "A23",
+    "building_name": "Subhash Chandra Bose Bhawan",
+    "floor": 5,
+    "hod": {
+      "name": "TBD",
+      "room": "501",
+      "email": "hod.sw@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["BSW", "MSW"],
+    "aliases": ["social work", "bsw", "msw", "social welfare"],
+    "description": "The Department of Social Work is in Subhash Chandra Bose Bhawan (A23). It offers BSW and MSW programs with field work placements in NGOs, hospitals, and community centres.",
+    "subjects": ["Social Case Work", "Community Organisation", "Social Research", "Social Policy", "Medical Social Work"],
+    "lab_floors": [],
+    "class_floors": [5, 6]
+  },
+  {
+    "id": "dept_hotel_mgmt",
+    "name": "Hotel Management & Catering Technology",
+    "short_name": "Hotel Management",
+    "building_id": "A19",
+    "building_name": "Parul Institute of Hotel Management & Catering Technology",
+    "floor": 1,
+    "hod": {
+      "name": "TBD",
+      "room": "101",
+      "email": "hod.hotelmanagement@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["B.Sc Hotel Management", "Diploma in Hotel Management"],
+    "aliases": ["hotel management", "catering", "hospitality", "hotel management department", "bsc hotel"],
+    "description": "The Department of Hotel Management is in A19. It offers B.Sc Hotel Management and Diploma programs. The department has a training kitchen, food production lab, and a housekeeping lab.",
+    "subjects": ["Food Production", "Food & Beverage Service", "Front Office Operations", "Housekeeping", "Bakery & Confectionery"],
+    "lab_floors": [1, 2],
+    "class_floors": [2, 3]
+  },
+  {
+    "id": "dept_applied_sciences",
+    "name": "Applied Sciences",
+    "short_name": "Applied Sciences",
+    "building_id": "A21",
+    "building_name": "Parul Institute of Applied Sciences",
+    "floor": 1,
+    "hod": {
+      "name": "TBD",
+      "room": "101",
+      "email": "hod.appliedsciences@paruluniversity.ac.in",
+      "phone": "TBD"
+    },
+    "programs": ["B.Sc Physics", "B.Sc Chemistry", "B.Sc Mathematics", "M.Sc"],
+    "aliases": ["applied sciences", "physics", "chemistry", "mathematics", "science department", "basic science"],
+    "description": "The Department of Applied Sciences is in A21. It offers B.Sc and M.Sc programs in Physics, Chemistry, and Mathematics. The department also provides foundational science courses to all engineering students in their first year.",
+    "subjects": ["Engineering Physics", "Engineering Chemistry", "Engineering Mathematics", "Environmental Science"],
+    "lab_floors": [1, 2],
+    "class_floors": [2, 3, 4]
+  }
+]

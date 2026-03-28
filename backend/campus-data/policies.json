@@ -1,0 +1,212 @@
+[
+  {
+    "id": "pol_attendance",
+    "title": "Attendance Policy",
+    "category": "academic",
+    "tags": ["attendance", "rules", "academic", "shortage", "condonation", "detain"],
+    "last_updated": "2024-07-01",
+    "source": "Student Handbook 2024",
+    "aliases": ["attendance", "attendance rule", "attendance policy", "minimum attendance", "attendance shortage", "75 percent attendance", "detained"],
+    "content": "Parul University mandates a minimum attendance of 75% in each subject for a student to be eligible to appear in the semester-end examinations. Attendance is calculated subject-wise, not overall. A student who fails to maintain 75% attendance in any subject will not be permitted to sit for the examination in that subject and will be marked as detained. Students with attendance between 65% and 74% may apply for attendance condonation on medical or valid grounds by submitting supporting documents to the respective HOD and the Exam Section within the notified deadline. Condonation is not a right and is granted at the discretion of the university. Students with attendance below 65% in any subject are not eligible for condonation and will be detained. Attendance is marked through the university's digital attendance system in most departments. Students must ensure their attendance is being recorded correctly and report discrepancies to their faculty immediately. Proxy attendance is a punishable offense and may lead to disciplinary action including rustication. Medical leave, participation in university-approved events, and sports representation with prior permission from the HOD may be considered for attendance relaxation on a case-by-case basis."
+  },
+  {
+    "id": "pol_exam_rules",
+    "title": "Examination Rules",
+    "category": "academic",
+    "tags": ["exam", "rules", "hall ticket", "malpractice", "unfair means", "examination"],
+    "last_updated": "2024-07-01",
+    "source": "Examination Manual 2024",
+    "aliases": ["exam rules", "examination rules", "exam policy", "malpractice", "unfair means", "exam conduct"],
+    "content": "Students must carry a valid Hall Ticket and University ID card to every examination. Hall tickets are issued by the Exam Section in Administrative Block C1 and will not be issued to students with pending fees or attendance shortages. The examination hall must be entered 10 minutes before the exam starts. No student will be allowed to enter the examination hall after 30 minutes of commencement of the exam. Students are not permitted to leave the hall within the first 30 minutes of the exam. All electronic devices including mobile phones, smartwatches, earphones, and calculators (unless permitted) must be switched off and kept outside the examination hall. Bringing chits, written notes, or any unauthorized material into the examination hall constitutes use of unfair means and is a serious offense. A student caught using unfair means will have their paper cancelled immediately and may face disciplinary action including suspension or cancellation of the semester. Answers must be written in blue or black ink only. The use of pencil is permitted only for diagrams and graphs. Students must not write their name anywhere other than the designated space on the answer sheet. Any communication between students during the exam is strictly prohibited. The invigilator's instructions must be followed at all times. In case of any grievance regarding the exam, students must contact the Exam Section within the notified period after result declaration."
+  },
+  {
+    "id": "pol_result_reeval",
+    "title": "Result, Re-evaluation and Backlog Policy",
+    "category": "academic",
+    "tags": ["result", "re-evaluation", "recheck", "backlog", "atkt", "marksheet", "grade card"],
+    "last_updated": "2024-07-01",
+    "source": "Examination Manual 2024",
+    "aliases": ["re-evaluation", "recheck", "result policy", "backlog", "atkt", "grade card", "marksheet", "fail result"],
+    "content": "Semester examination results are declared on the university portal within approximately 30 to 45 days after the completion of exams. Students can access their results and download their grade card from the student portal using their enrollment number and password. Physical marksheets are distributed at the Exam Section in C1. Students who wish to apply for re-evaluation of their answer sheet must submit an application to the Exam Section within 15 days of result declaration along with the prescribed fee. Re-evaluation involves a fresh marking of the answer sheet by a different examiner. The result of re-evaluation is final and binding. Students who fail in one or more subjects are classified as having a backlog or ATKT (Allowed to Keep Terms). They are permitted to appear in the supplementary examination conducted for that purpose. Supplementary examination schedules are announced on the university portal. Students must clear all backlogs within the stipulated number of attempts as per the program regulations. Students with pending backlogs may still progress to the next semester subject to the maximum backlog limit defined in their program curriculum. For duplicate marksheet or migration certificate, students must submit an application to the Exam Section with an affidavit and prescribed fee."
+  },
+  {
+    "id": "pol_hostel_rules",
+    "title": "Hostel Rules and Regulations",
+    "category": "hostel",
+    "tags": ["hostel", "rules", "hostel conduct", "warden", "hostel timing", "guests", "ragging"],
+    "last_updated": "2024-07-01",
+    "source": "Hostel Handbook 2024",
+    "aliases": ["hostel rules", "hostel regulations", "hostel policy", "warden rules", "hostel conduct", "hostel timing"],
+    "content": "All hostel residents of Parul University must adhere to the following rules and regulations. Students must return to the hostel by 10:00 PM. Any student wishing to stay out beyond this time must obtain prior written permission from the warden and inform their parents or guardians. Boys are not permitted in girls' hostels and vice versa under any circumstance. Violation of this rule will result in immediate disciplinary action. Guests including family members are permitted only in the common area of the hostel and must be registered at the hostel reception. Guests are not permitted to stay overnight in the hostel rooms. Alcohol, tobacco, drugs, and smoking are strictly prohibited anywhere within the hostel premises. Possession or consumption of prohibited substances will lead to immediate expulsion from the hostel and may result in rustication from the university. Students must maintain cleanliness of their rooms and common areas. Ragging in any form is a cognizable offense and is strictly prohibited. Any instance of ragging must be reported to the warden, the Anti-Ragging Committee, or the hostel superintendent immediately. Loud music, creating disturbance, or engaging in activities that disrupt the peace of other residents is prohibited between 10:00 PM and 6:00 AM. Electrical appliances including irons, heaters, and hotplates are not permitted in hostel rooms due to fire safety regulations. Students must keep their rooms locked when not in use. The university is not responsible for theft of personal belongings. Any maintenance issues in the room must be reported to the warden in writing. Students wishing to vacate the hostel must submit a no-dues clearance from the hostel office before leaving."
+  },
+  {
+    "id": "pol_library_rules",
+    "title": "Library Rules and Regulations",
+    "category": "library",
+    "tags": ["library", "rules", "book issue", "library card", "fine", "library conduct"],
+    "last_updated": "2024-07-01",
+    "source": "Library Manual 2024",
+    "aliases": ["library rules", "library regulations", "library policy", "book issue rules", "library fine", "library card rules"],
+    "content": "The Central Library at Parul University is open to all enrolled students, faculty, and staff. University ID card or Library card is mandatory for entry into the library. Personal belongings including bags must be deposited at the bag counter before entering. Only transparent bags or files are permitted inside the library. Strict silence must be maintained inside the library at all times. Mobile phones must be switched to silent mode. Phone calls must not be made inside the library. Food, beverages, and chewing gum are strictly not permitted inside the library premises. A student can borrow a maximum of 3 books at a time for a period of 15 days. Books can be renewed once if no other student has reserved them. Books not returned by the due date will attract a fine of Rs. 2 per day per book. Books can be renewed at the counter or through the library portal. Students who lose a library book must replace it with the same edition or pay the cost of the book plus a penalty as determined by the librarian. Reference books, journals, newspapers, and project reports cannot be taken out of the library and must be read inside only. Marking, underlining, or damaging library books is a punishable offense. The library has a dedicated digital section with computers providing access to e-journals, NPTEL, INFLIBNET, and other online resources. Use of library computers for personal social media or non-academic purposes is not permitted."
+  },
+  {
+    "id": "pol_code_of_conduct",
+    "title": "Student Code of Conduct",
+    "category": "conduct",
+    "tags": ["conduct", "discipline", "code of conduct", "behavior", "dress code", "ragging", "misconduct"],
+    "last_updated": "2024-07-01",
+    "source": "Student Handbook 2024",
+    "aliases": ["code of conduct", "conduct rules", "discipline policy", "student behavior", "dress code", "misconduct", "ragging policy"],
+    "content": "Parul University expects all students to maintain the highest standards of conduct and discipline on campus. Students must carry their university ID card at all times within the campus premises. The university follows a formal dress code. Students are expected to dress modestly and professionally. Sleeveless tops, shorts, torn jeans, and revealing clothing are not permitted in academic buildings and administrative offices. Proper footwear must be worn at all times. Ragging in any form — physical, verbal, psychological, or online — is a cognizable offense under the UGC Anti-Ragging regulations and the Supreme Court directives. Any student found guilty of ragging will be expelled from the university and a police complaint will be filed. Students must treat all faculty, staff, and fellow students with respect. Use of abusive language, harassment, or intimidation is a serious disciplinary offense. Students must not engage in any political activity, demonstration, or procession within the campus without prior permission from university authorities. Vandalism, destruction of university property, or tampering with fire safety equipment is a criminal offense. Students must not engage in any activity that brings disrepute to the university including misconduct on social media directed at the institution or its members. Smoking and consumption of tobacco products anywhere on campus is strictly prohibited. Vehicles on campus must be parked only in designated parking zones and driven at a safe speed. Rash driving or use of vehicles without a valid license is prohibited. Disciplinary action for misconduct ranges from a written warning to suspension, rustication, and police complaint depending on the severity of the offense."
+  },
+  {
+    "id": "pol_fee_structure",
+    "title": "Fee Structure and Payment Policy",
+    "category": "fees",
+    "tags": ["fee", "fees", "fee payment", "fee structure", "due date", "late fee", "refund", "fee receipt"],
+    "last_updated": "2024-07-01",
+    "source": "Accounts Section 2024",
+    "aliases": ["fee structure", "fee payment", "fees", "tuition fee", "late fee", "fee refund", "how to pay fee", "fee due date"],
+    "content": "Fee structure at Parul University varies by program, year of study, and category of the student. The detailed fee structure for each program is available at the Accounts Section in Administrative Block C1 and on the university website. Fees are typically paid semester-wise. The fee payment deadline for each semester is announced at the beginning of the semester. Students who do not pay fees by the deadline will be charged a late fee of Rs. 100 per day until the fees are cleared. Students with pending fees will not receive their hall ticket for examinations, will not be issued bonafide certificates, and may be denied access to library and other services. Fees can be paid online through the student portal using net banking, debit card, or credit card. Fees can also be paid in cash or demand draft at the Accounts Section in C1. Students must collect a fee receipt after every payment and preserve it for future reference. In case of any discrepancy in fee records, students must approach the Accounts Section immediately with their fee receipt. Fee refund policy is applicable only in cases of admission cancellation within the stipulated period as per UGC guidelines. Government scholarship amounts are directly credited to the student's bank account linked with the scholarship portal and may be adjusted against pending fees as per university policy."
+  },
+  {
+    "id": "pol_anti_ragging",
+    "title": "Anti-Ragging Policy",
+    "category": "conduct",
+    "tags": ["ragging", "anti-ragging", "ragging complaint", "ragging committee", "ragging helpline"],
+    "last_updated": "2024-07-01",
+    "source": "UGC Anti-Ragging Regulations / Student Handbook 2024",
+    "aliases": ["ragging", "anti ragging", "ragging policy", "ragging complaint", "ragging helpline", "ragging committee"],
+    "content": "Parul University has a zero-tolerance policy against ragging in compliance with UGC Anti-Ragging Regulations and the Hon'ble Supreme Court of India directives. Ragging includes any act of physical or mental abuse, harassment, humiliation, or intimidation of any student — especially freshers — by senior students. Ragging is a cognizable criminal offense. Any student found guilty of ragging will face immediate expulsion from the university, cancellation of admission, and a police complaint. The university has an active Anti-Ragging Committee and Anti-Ragging Squad that conducts regular checks especially during the first weeks of a new academic year. Students who experience or witness ragging must report it immediately to the warden, Anti-Ragging Committee member, or the university Anti-Ragging Helpline. Complaints can also be made on the national anti-ragging helpline number 1800-180-5522 or at www.antiragging.in. All ragging complaints are treated with complete confidentiality. Fresher students are advised to report any uncomfortable situation immediately without fear. All students must submit an anti-ragging undertaking at the time of admission each year."
+  },
+  {
+    "id": "pol_wifi_it",
+    "title": "IT and WiFi Usage Policy",
+    "category": "it",
+    "tags": ["wifi", "internet", "it policy", "cybersecurity", "computer use", "social media"],
+    "last_updated": "2024-07-01",
+    "source": "IT Policy 2024",
+    "aliases": ["wifi policy", "internet policy", "it policy", "computer lab rules", "cyber rules", "wifi rules"],
+    "content": "Parul University provides campus-wide WiFi connectivity to all enrolled students and staff. WiFi credentials are issued to each student at the time of enrollment and are strictly personal. Sharing of WiFi credentials with any other person including friends or family is strictly prohibited. Internet usage on campus is monitored and filtered. Access to websites containing inappropriate content, pirated material, gambling, or any illegal activity is blocked and attempts to access such sites are logged. Use of VPN to bypass the university's internet filter is a violation of IT policy and may result in disciplinary action. Students must not engage in cyberbullying, harassment, or defamation of any individual through university internet resources. Computer labs are for academic use only. Social media, gaming, and streaming on lab computers during lab sessions is not permitted. Students must log out of all accounts before leaving a shared computer. Any cybersecurity incident, hacking attempt, or data breach must be reported to the System Support Cell in A25 immediately. Students must not attempt to access university servers, databases, or administrative systems without authorization. Violation of the IT policy may result in suspension of internet access and further disciplinary action."
+  },
+  {
+    "id": "pol_sports_participation",
+    "title": "Sports Participation and Representation Policy",
+    "category": "sports",
+    "tags": ["sports", "sports policy", "representation", "inter college sports", "sports registration", "sports certificate"],
+    "last_updated": "2024-07-01",
+    "source": "Sports Department Guidelines 2024",
+    "aliases": ["sports policy", "sports rules", "sports participation", "inter college", "sports representation", "sports certificate"],
+    "content": "Parul University encourages student participation in sports at institutional, inter-collegiate, state, and national levels. Students wishing to participate in university sports teams must register with the Sports Department at the beginning of the academic year. Selection trials are conducted for each sport. Students selected to represent the university in inter-college or higher-level competitions will be granted duty leave, which will be counted as attendance for the days of the competition provided the student submits a prior approval letter from the Sports Department to their HOD. Equipment for various sports is available at the sports store and can be borrowed against a student ID card. Students using sports grounds must maintain the ground and return borrowed equipment in good condition. Damage to sports equipment will be charged to the student. Students must wear proper sports attire on all courts and grounds. Sports grounds are available for open use during morning and evening sessions as per the scheduled timings. For organizing inter-department or intra-college sports events, prior permission from the Sports Department is required."
+  },
+  {
+    "id": "pol_grievance",
+    "title": "Student Grievance Redressal Policy",
+    "category": "welfare",
+    "tags": ["grievance", "complaint", "student complaint", "grievance committee", "redressal", "student welfare"],
+    "last_updated": "2024-07-01",
+    "source": "Student Welfare Office Guidelines 2024",
+    "aliases": ["grievance", "complaint", "student grievance", "how to complain", "grievance redressal", "student complaint process"],
+    "content": "Parul University has a structured grievance redressal mechanism for students. Any student with an academic or administrative grievance must first approach their respective faculty member or HOD for resolution. If the issue is not resolved at the department level within 7 working days, the student may escalate the complaint to the Dean or Director of the institute. For issues not resolved at the institute level, students may approach the Office of Student Welfare in Administrative Block C3. A formal written complaint must be submitted along with supporting documents. The Student Grievance Redressal Committee reviews and resolves such complaints within 15 working days of receipt. For hostel-related grievances, the first point of contact is the warden, followed by the Hostel Superintendent in C5. For sexual harassment complaints, students must approach the Internal Complaints Committee (ICC) as per the POSH Act. All grievances are treated with complete confidentiality. Victimization of a student for filing a legitimate grievance is a serious disciplinary offense."
+  },
+  {
+    "id": "pol_bonafide_docs",
+    "title": "Bonafide Certificate and Document Policy",
+    "category": "administrative",
+    "tags": ["bonafide", "certificate", "documents", "bonafide certificate", "character certificate", "migration", "transfer certificate"],
+    "last_updated": "2024-07-01",
+    "source": "Administrative Guidelines 2024",
+    "aliases": ["bonafide certificate", "character certificate", "migration certificate", "transfer certificate", "documents", "student certificate"],
+    "content": "Parul University issues various official documents to students on request. A Bonafide Certificate confirming enrollment status is issued by the Student Section in Administrative Block C1. Students must submit an application form along with their university ID. Processing time is typically 2 to 3 working days. Bonafide certificates will not be issued to students with pending fee dues. A Character Certificate is issued at the time of leaving the institution or upon request. A Migration Certificate is required when transferring to another university and is issued by the Exam Section after clearance of all dues. A Transfer Certificate is issued after the student's account is settled and all library books and hostel property is returned. Duplicate copies of any certificate will require a written application, an affidavit, and a prescribed fee. All certificate requests should be submitted in person at the respective office during working hours. Students requiring urgent certificates for visa applications, scholarship applications, or government purposes should clearly mention the urgency at the time of application."
+  },
+  {
+    "id": "pol_id_card",
+    "title": "University ID Card Policy",
+    "category": "administrative",
+    "tags": ["id card", "identity card", "id card lost", "duplicate id", "id card rules"],
+    "last_updated": "2024-07-01",
+    "source": "Administrative Guidelines 2024",
+    "aliases": ["id card", "identity card", "student id", "id card lost", "duplicate id card", "new id card"],
+    "content": "Every enrolled student at Parul University is issued a University ID Card at the time of admission. The ID card serves as proof of enrollment and must be carried at all times on campus. It is required for entry into the library, examination hall, labs, hostel, and for availing any university service. Loss of the ID card must be reported to the Student Section in C1 immediately. A First Information Report (FIR) or police complaint may be required for issuance of a duplicate card. The fee for a duplicate ID card is Rs. 200. The ID card is non-transferable and must not be lent to any other person. Misuse of the ID card is a disciplinary offense. Students must return the ID card at the time of leaving the institution."
+  },
+  {
+    "id": "faq_001",
+    "title": "FAQ: How do I get a bus pass?",
+    "category": "faq",
+    "tags": ["bus pass", "transport", "faq", "how to get bus pass"],
+    "last_updated": "2024-07-01",
+    "source": "FAQ Bank",
+    "aliases": ["bus pass", "how to get bus pass", "bus pass process", "transport card"],
+    "content": "To get a bus pass at Parul University, visit the Transport Office (TS) located in the central-west zone of the campus. The Transport Office is open Monday to Saturday from 9:00 AM to 5:00 PM. You will need to fill out a bus pass application form available at the office, submit a passport-size photograph, your university ID card, and pay the applicable route fee. Bus pass charges vary based on the route distance. The pass is typically issued on the same day or the next working day. You must carry your bus pass while travelling on the university bus. Students who travel without a valid bus pass may be denied boarding."
+  },
+  {
+    "id": "faq_002",
+    "title": "FAQ: How do I apply for a scholarship?",
+    "category": "faq",
+    "tags": ["scholarship", "faq", "how to apply scholarship", "scholarship process"],
+    "last_updated": "2024-07-01",
+    "source": "FAQ Bank",
+    "aliases": ["scholarship apply", "how to apply scholarship", "scholarship process", "scholarship documents"],
+    "content": "To apply for a government scholarship at Parul University, first register on the relevant government scholarship portal (National Scholarship Portal at scholarships.gov.in or the Gujarat state scholarship portal). Complete the online application and upload all required documents including marksheets, income certificate, caste certificate, bank account details, and admission proof. After submitting the online application, take a printout of the application and submit it along with self-attested copies of all documents to the Scholarship Section in Administrative Block C1 (ground floor). The Scholarship Section will verify the documents and forward the application for processing. For university merit scholarships, no separate application is needed as they are awarded automatically based on academic performance. For queries about scholarship status or eligibility, visit the Scholarship Section during office hours."
+  },
+  {
+    "id": "faq_003",
+    "title": "FAQ: What should I do if I am sick on campus?",
+    "category": "faq",
+    "tags": ["sick", "medical", "health", "faq", "hospital", "emergency"],
+    "last_updated": "2024-07-01",
+    "source": "FAQ Bank",
+    "aliases": ["sick on campus", "medical emergency", "health problem", "feel sick", "campus doctor", "medical help"],
+    "content": "If you fall sick on campus, proceed to Parul Sevashram Hospital (E2) which is the main campus hospital. The hospital operates 24 hours a day for emergency and casualty services. For non-emergency medical issues, the OPD is available Monday to Saturday from 9:00 AM to 5:00 PM. Show your university ID card for subsidised treatment. A 24-hour pharmacy is available inside the hospital for medicines. If you are a hostel resident and feel unwell at night, inform your hostel warden immediately who will assist in arranging medical help. For a mental health concern, visit the Insights Centre for Counselling in building A11 (1st floor) during working hours. In case of a serious medical emergency, contact campus security at the nearest gate who will assist in getting immediate help."
+  },
+  {
+    "id": "faq_004",
+    "title": "FAQ: How do I get my hall ticket?",
+    "category": "faq",
+    "tags": ["hall ticket", "admit card", "faq", "exam", "how to get hall ticket"],
+    "last_updated": "2024-07-01",
+    "source": "FAQ Bank",
+    "aliases": ["hall ticket", "admit card", "how to get hall ticket", "exam card", "hall ticket not received"],
+    "content": "Hall tickets for semester examinations are issued by the Exam Section in Administrative Block C1 on the 1st floor. The Exam Section announces the dates for hall ticket collection before each exam. Hall tickets are not issued to students who have pending fee dues, attendance shortage, or unfulfilled academic requirements. To collect your hall ticket, visit the Exam Section during office hours (Monday to Saturday, 9:00 AM to 5:00 PM) with your university ID card. In many cases, hall tickets may also be downloadable from the student portal. Always verify all details on the hall ticket including name, enrollment number, exam centre, and subjects. Report any discrepancies immediately to the Exam Section."
+  },
+  {
+    "id": "faq_005",
+    "title": "FAQ: Where do I go for a duplicate ID card?",
+    "category": "faq",
+    "tags": ["id card lost", "duplicate id", "faq", "lost id card"],
+    "last_updated": "2024-07-01",
+    "source": "FAQ Bank",
+    "aliases": ["lost id card", "duplicate id card", "id card lost process", "new id card"],
+    "content": "If you have lost your university ID card, report it immediately to the Student Section in Administrative Block C1 (ground floor). You may be required to submit an FIR or police complaint for theft cases. Fill in the duplicate ID card application form, pay the fee of Rs. 200, and submit a passport-size photograph. The duplicate ID card is usually issued within 2 to 3 working days. Until you receive the duplicate card, carry any other valid government photo ID for campus access and inform security at the gate of your situation."
+  },
+  {
+    "id": "faq_006",
+    "title": "FAQ: How do I connect to campus WiFi?",
+    "category": "faq",
+    "tags": ["wifi", "connect wifi", "faq", "internet", "wifi password", "wifi login"],
+    "last_updated": "2024-07-01",
+    "source": "FAQ Bank",
+    "aliases": ["how to connect wifi", "wifi login", "wifi password", "campus wifi setup", "connect to internet"],
+    "content": "To connect to the campus WiFi at Parul University, use the university-issued WiFi credentials provided to you at the time of enrollment or available from the System Support Cell in C.V. Raman Centre (A25), 4th floor. Select the university WiFi network on your device and log in using your student ID as the username and your assigned password. If you have forgotten your password or are unable to connect, visit the System Support Cell in A25 or raise a support ticket at the IT helpdesk. WiFi is available across all academic blocks, administrative buildings, and hostel areas. Do not share your WiFi credentials with anyone as usage is monitored per account."
+  },
+  {
+    "id": "faq_007",
+    "title": "FAQ: How do I report ragging?",
+    "category": "faq",
+    "tags": ["ragging", "report ragging", "faq", "anti ragging", "ragging complaint"],
+    "last_updated": "2024-07-01",
+    "source": "FAQ Bank",
+    "aliases": ["report ragging", "ragging complaint", "how to report ragging", "anti ragging contact"],
+    "content": "If you experience or witness ragging at Parul University, report it immediately using any of the following channels: Inform your hostel warden or the nearest faculty member. Visit or call the Anti-Ragging Committee at the Office of Student Welfare in Administrative Block C3. Call the national anti-ragging helpline at 1800-180-5522 (toll-free, available 24/7). File a complaint at www.antiragging.in. All complaints are treated with complete confidentiality and the identity of the complainant is protected. Parul University has zero tolerance for ragging. The accused will face immediate inquiry and if found guilty, will be expelled and a police case will be filed. You are encouraged to report ragging without any fear of retaliation."
+  },
+  {
+    "id": "faq_008",
+    "title": "FAQ: How do I apply for leave from college?",
+    "category": "faq",
+    "tags": ["leave", "leave application", "faq", "absence", "medical leave", "how to apply leave"],
+    "last_updated": "2024-07-01",
+    "source": "FAQ Bank",
+    "aliases": ["leave application", "how to apply leave", "college leave", "absence", "medical leave", "leave process"],
+    "content": "To apply for leave from college at Parul University, submit a written leave application to your class teacher or faculty in-charge mentioning the reason for leave and the dates. For medical leave, a medical certificate from a registered doctor must be attached. For leaves of more than 3 days, the application must also be submitted to the HOD with supporting documents. Hostel residents must additionally inform their hostel warden before availing leave. Leave does not exempt the student from attendance calculation. Any shortage in attendance due to leave must still be addressed through the condonation process if applicable. Prior intimation for planned leaves is always preferred over post-facto applications."
+  }
+]

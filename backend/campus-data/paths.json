@@ -1,0 +1,696 @@
+{
+  "meta": {
+    "description": "Walkable paths between key campus buildings. Distances are approximate, derived from GPS coordinates. Walking speed assumed at 80 metres per minute (average campus walk). All paths are bidirectional unless noted.",
+    "distance_unit": "metres",
+    "time_unit": "minutes",
+    "last_updated": "2024-07-01"
+  },
+  "paths": [
+    {
+      "id": "path_001",
+      "from": "GATE_MAIN",
+      "from_name": "Main Entry Gate",
+      "to": "PU_CIRCLE",
+      "to_name": "Parul University Circle",
+      "distance_m": 80,
+      "walk_minutes": 1,
+      "route_description": "Walk straight from the main gate into campus. The PU Circle roundabout is immediately ahead.",
+      "landmarks": ["Main Gate Security Post"]
+    },
+    {
+      "id": "path_002",
+      "from": "PU_CIRCLE",
+      "from_name": "Parul University Circle",
+      "to": "C1",
+      "to_name": "Administrative Block C1",
+      "distance_m": 120,
+      "walk_minutes": 2,
+      "route_description": "From PU Circle, take the right fork towards the administrative buildings. C1 is the large block on your right.",
+      "landmarks": ["PU Circle", "Visitor Parking P1"]
+    },
+    {
+      "id": "path_003",
+      "from": "PU_CIRCLE",
+      "from_name": "Parul University Circle",
+      "to": "C2",
+      "to_name": "Administrative Block C2",
+      "distance_m": 130,
+      "walk_minutes": 2,
+      "route_description": "From PU Circle, head towards the admin zone. C2 is adjacent to C1.",
+      "landmarks": ["PU Circle", "C1"]
+    },
+    {
+      "id": "path_004",
+      "from": "PU_CIRCLE",
+      "from_name": "Parul University Circle",
+      "to": "A1",
+      "to_name": "PIET Main Block",
+      "distance_m": 150,
+      "walk_minutes": 2,
+      "route_description": "From PU Circle head north-east along the main campus road. A1 (PIET main) is on your left.",
+      "landmarks": ["PU Circle", "P1 Visitor Parking"]
+    },
+    {
+      "id": "path_005",
+      "from": "C1",
+      "from_name": "Administrative Block C1",
+      "to": "C2",
+      "to_name": "Administrative Block C2",
+      "distance_m": 60,
+      "walk_minutes": 1,
+      "route_description": "C1 and C2 are adjacent blocks. Walk through the connecting corridor or step outside and enter C2 from the main entrance.",
+      "landmarks": []
+    },
+    {
+      "id": "path_006",
+      "from": "C2",
+      "from_name": "Administrative Block C2",
+      "to": "C3",
+      "to_name": "Administrative Block C3",
+      "distance_m": 70,
+      "walk_minutes": 1,
+      "route_description": "C3 is directly next to C2 in the admin block cluster.",
+      "landmarks": []
+    },
+    {
+      "id": "path_007",
+      "from": "A1",
+      "from_name": "PIET Main Block",
+      "to": "A3",
+      "to_name": "PIET D Block",
+      "distance_m": 200,
+      "walk_minutes": 3,
+      "route_description": "From A1 walk north along the internal road. A3 (D Block) is ahead on the same side.",
+      "landmarks": ["FAB LAB", "Parul University Auditorium"]
+    },
+    {
+      "id": "path_008",
+      "from": "A3",
+      "from_name": "PIET D Block",
+      "to": "A13",
+      "to_name": "Parul Institute of Ayurved",
+      "distance_m": 150,
+      "walk_minutes": 2,
+      "route_description": "From D Block head north. A13 (Ayurved) is on your right after the football ground gate.",
+      "landmarks": ["Football Ground Gate"]
+    },
+    {
+      "id": "path_009",
+      "from": "A13",
+      "from_name": "Parul Institute of Ayurved",
+      "to": "A14",
+      "to_name": "Parul Institute of Business Administration",
+      "distance_m": 120,
+      "walk_minutes": 2,
+      "route_description": "From A13 walk west slightly. A14 (PIBA) is the adjacent block.",
+      "landmarks": []
+    },
+    {
+      "id": "path_010",
+      "from": "A14",
+      "from_name": "Parul Institute of Business Administration",
+      "to": "A16",
+      "to_name": "Parul Institute of Architecture & Research",
+      "distance_m": 180,
+      "walk_minutes": 2,
+      "route_description": "From A14 walk north-west. A16 (Architecture) is across the internal road.",
+      "landmarks": ["Parul University Car Parking"]
+    },
+    {
+      "id": "path_011",
+      "from": "A16",
+      "from_name": "Parul Institute of Architecture & Research",
+      "to": "A15",
+      "to_name": "Faculty of Management Studies",
+      "distance_m": 150,
+      "walk_minutes": 2,
+      "route_description": "A15 and A16 are adjacent blocks in the central-west zone.",
+      "landmarks": []
+    },
+    {
+      "id": "path_012",
+      "from": "A3",
+      "from_name": "PIET D Block",
+      "to": "G2",
+      "to_name": "Football Ground",
+      "distance_m": 100,
+      "walk_minutes": 2,
+      "route_description": "From D Block walk towards the Football Ground Gate. The main PU football ground (G2) is right there.",
+      "landmarks": ["Football Ground Gate"]
+    },
+    {
+      "id": "path_013",
+      "from": "G2",
+      "from_name": "Football Ground",
+      "to": "A5",
+      "to_name": "PIET Diploma / Gymnasium",
+      "distance_m": 200,
+      "walk_minutes": 3,
+      "route_description": "From the football ground walk east past the sports courts. A5 with the gymnasium is on your right.",
+      "landmarks": ["Volleyball Court G6", "Tennis Court G5", "Basketball Court G4"]
+    },
+    {
+      "id": "path_014",
+      "from": "A5",
+      "from_name": "PIET Diploma / Gymnasium",
+      "to": "T1",
+      "to_name": "Shree Sai Temple",
+      "distance_m": 120,
+      "walk_minutes": 2,
+      "route_description": "From A5 walk east past the basketball court. The Shree Sai Temple is visible ahead.",
+      "landmarks": ["Basketball Court G4"]
+    },
+    {
+      "id": "path_015",
+      "from": "T1",
+      "from_name": "Shree Sai Temple",
+      "to": "A7",
+      "to_name": "JNHMC / Physiotherapy",
+      "distance_m": 180,
+      "walk_minutes": 2,
+      "route_description": "From the temple walk east. A7 (Homoeopathic Medical College) is ahead on the main road.",
+      "landmarks": []
+    },
+    {
+      "id": "path_016",
+      "from": "A7",
+      "from_name": "JNHMC / Physiotherapy",
+      "to": "A11",
+      "to_name": "Medical Library & Counselling",
+      "distance_m": 350,
+      "walk_minutes": 4,
+      "route_description": "From A7 follow the road north-east towards the medical zone. A11 (Medical Library) is in the east zone near A12.",
+      "landmarks": ["Watcher's Park"]
+    },
+    {
+      "id": "path_017",
+      "from": "A11",
+      "from_name": "Medical Library & Counselling",
+      "to": "A12",
+      "to_name": "Parul Institute of Medical Sciences / Symphony Hall",
+      "distance_m": 120,
+      "walk_minutes": 2,
+      "route_description": "A11 and A12 are adjacent in the medical zone. Walk east from A11 to reach A12.",
+      "landmarks": ["Medical Auditorium"]
+    },
+    {
+      "id": "path_018",
+      "from": "A12",
+      "from_name": "Parul Institute of Medical Sciences",
+      "to": "F2",
+      "to_name": "Capitol Crust",
+      "distance_m": 250,
+      "walk_minutes": 3,
+      "route_description": "From A12 walk north-east. Capitol Crust food outlet is ahead in the east zone.",
+      "landmarks": []
+    },
+    {
+      "id": "path_019",
+      "from": "C1",
+      "from_name": "Administrative Block C1",
+      "to": "A13",
+      "to_name": "Parul Institute of Ayurved",
+      "distance_m": 170,
+      "walk_minutes": 2,
+      "route_description": "From C1 walk north along the main road. A13 (Ayurved) is on your right past the football ground gate.",
+      "landmarks": ["Football Ground Gate"]
+    },
+    {
+      "id": "path_020",
+      "from": "A13",
+      "from_name": "Parul Institute of Ayurved",
+      "to": "A24",
+      "to_name": "Bhagat Singh Bhawan (N Block)",
+      "distance_m": 380,
+      "walk_minutes": 5,
+      "route_description": "From A13 walk north along the main campus road passing G2 (football ground) and the Watcher's Park area. A24 (Bhagat Singh Bhawan / N Block) is on the left.",
+      "landmarks": ["Watcher's Park", "G1 Central Ground", "Greenzy Food Court"]
+    },
+    {
+      "id": "path_021",
+      "from": "A24",
+      "from_name": "Bhagat Singh Bhawan (N Block)",
+      "to": "A25",
+      "to_name": "C.V. Raman Centre",
+      "distance_m": 100,
+      "walk_minutes": 1,
+      "route_description": "A24 and A25 are directly adjacent. Walk from the entrance of N Block and A25 (CV Raman) is immediately beside it.",
+      "landmarks": []
+    },
+    {
+      "id": "path_022",
+      "from": "A25",
+      "from_name": "C.V. Raman Centre",
+      "to": "A23",
+      "to_name": "Subhash Chandra Bose Bhawan",
+      "distance_m": 150,
+      "walk_minutes": 2,
+      "route_description": "From CV Raman walk north. Subhash Chandra Bose Bhawan (A23) is the next large block ahead.",
+      "landmarks": []
+    },
+    {
+      "id": "path_023",
+      "from": "A25",
+      "from_name": "C.V. Raman Centre",
+      "to": "F1",
+      "to_name": "Greenzy Food Court",
+      "distance_m": 130,
+      "walk_minutes": 2,
+      "route_description": "From CV Raman Centre walk south-east. Greenzy Food Court is visible between A24 and A25.",
+      "landmarks": ["G7 Kabaddi Ground"]
+    },
+    {
+      "id": "path_024",
+      "from": "F1",
+      "from_name": "Greenzy Food Court",
+      "to": "G1",
+      "to_name": "Watcher's Park",
+      "distance_m": 80,
+      "walk_minutes": 1,
+      "route_description": "Greenzy Food Court is right next to Watcher's Park. Walk across the open area.",
+      "landmarks": []
+    },
+    {
+      "id": "path_025",
+      "from": "A23",
+      "from_name": "Subhash Chandra Bose Bhawan",
+      "to": "A22",
+      "to_name": "Parul Institute of Design",
+      "distance_m": 350,
+      "walk_minutes": 4,
+      "route_description": "From SCB Bhawan walk north-east along the campus road. A22 (Design / Fine Arts / Performing Arts) is in the north-east zone.",
+      "landmarks": ["H33 Azad Bhawan"]
+    },
+    {
+      "id": "path_026",
+      "from": "A23",
+      "from_name": "Subhash Chandra Bose Bhawan",
+      "to": "F3",
+      "to_name": "Champions Cove",
+      "distance_m": 160,
+      "walk_minutes": 2,
+      "route_description": "From SCB Bhawan walk west slightly. Champions Cove food outlet is nearby in the north-central zone.",
+      "landmarks": []
+    },
+    {
+      "id": "path_027",
+      "from": "A23",
+      "from_name": "Subhash Chandra Bose Bhawan",
+      "to": "A18",
+      "to_name": "Parul Institute of Ayurved & Research",
+      "distance_m": 500,
+      "walk_minutes": 6,
+      "route_description": "From SCB Bhawan walk west towards the north-west zone. A18 (Ayurved Research) is in the far north-west corner.",
+      "landmarks": ["A17 Homeopathy Research", "E4 Homeopathy Hospital"]
+    },
+    {
+      "id": "path_028",
+      "from": "A18",
+      "from_name": "Parul Institute of Ayurved & Research",
+      "to": "H27",
+      "to_name": "Milkha Bhawan (Hostel)",
+      "distance_m": 120,
+      "walk_minutes": 2,
+      "route_description": "From A18 walk north-west. Milkha Bhawan hostel is in the adjacent area of the north-west zone.",
+      "landmarks": ["Milkha-Messi Sports Complex"]
+    },
+    {
+      "id": "path_029",
+      "from": "H27",
+      "from_name": "Milkha Bhawan",
+      "to": "G9",
+      "to_name": "Cricket Net Practice Ground",
+      "distance_m": 200,
+      "walk_minutes": 3,
+      "route_description": "From Milkha Bhawan walk north-east. Cricket net practice ground is in the north zone.",
+      "landmarks": ["Atal Bhawan H32"]
+    },
+    {
+      "id": "path_030",
+      "from": "G9",
+      "from_name": "Cricket Net Practice",
+      "to": "A22",
+      "to_name": "Parul Institute of Design",
+      "distance_m": 450,
+      "walk_minutes": 6,
+      "route_description": "From cricket net practice ground walk south-east along the north boundary road. A22 (Design block) is ahead.",
+      "landmarks": ["H33 Azad Bhawan", "G10 PID Ground"]
+    },
+    {
+      "id": "path_031",
+      "from": "A22",
+      "from_name": "Parul Institute of Design",
+      "to": "G8",
+      "to_name": "Hockey Ground",
+      "distance_m": 250,
+      "walk_minutes": 3,
+      "route_description": "From A22 walk north-east to the hockey ground in the far north-east zone.",
+      "landmarks": ["G10 PID Ground"]
+    },
+    {
+      "id": "path_032",
+      "from": "A12",
+      "from_name": "Parul Institute of Medical Sciences",
+      "to": "S1",
+      "to_name": "Swimming Pool",
+      "distance_m": 380,
+      "walk_minutes": 5,
+      "route_description": "From A12 walk north-west towards the east hostel zone. The swimming pool is near the hostel cluster in the east.",
+      "landmarks": ["H15 Tagore Bhawan", "H18 Janki Bhawan"]
+    },
+    {
+      "id": "path_033",
+      "from": "S1",
+      "from_name": "Swimming Pool",
+      "to": "H23",
+      "to_name": "Shakuntala Bhawan (Hostel)",
+      "distance_m": 100,
+      "walk_minutes": 1,
+      "route_description": "The swimming pool is directly adjacent to the Shakuntala Bhawan hostel cluster.",
+      "landmarks": []
+    },
+    {
+      "id": "path_034",
+      "from": "C1",
+      "from_name": "Administrative Block C1",
+      "to": "B1",
+      "to_name": "Central Bank of India",
+      "distance_m": 200,
+      "walk_minutes": 3,
+      "route_description": "From C1 walk towards the west side of the campus near the exit gate area. The bank is in the central zone.",
+      "landmarks": ["P1 Visitor Parking"]
+    },
+    {
+      "id": "path_035",
+      "from": "GATE_MAIN",
+      "from_name": "Main Entry Gate",
+      "to": "GATE3",
+      "to_name": "Gate No. 3",
+      "distance_m": 150,
+      "walk_minutes": 2,
+      "route_description": "Gate 3 is slightly to the west of the main entry gate along the southern boundary road.",
+      "landmarks": ["V1 Security Office"]
+    },
+    {
+      "id": "path_036",
+      "from": "A19",
+      "from_name": "PIT / Hotel Management",
+      "to": "A20",
+      "to_name": "Engineering Workshop",
+      "distance_m": 120,
+      "walk_minutes": 2,
+      "route_description": "A19 and A20 are adjacent blocks in the south zone of campus.",
+      "landmarks": []
+    },
+    {
+      "id": "path_037",
+      "from": "A20",
+      "from_name": "Engineering Workshop",
+      "to": "A21",
+      "to_name": "Parul Institute of Applied Sciences",
+      "distance_m": 130,
+      "walk_minutes": 2,
+      "route_description": "From Engineering Workshop walk south. A21 (Applied Sciences) is the next block.",
+      "landmarks": []
+    },
+    {
+      "id": "path_038",
+      "from": "A21",
+      "from_name": "Applied Sciences",
+      "to": "H30",
+      "to_name": "Sardar Bhawan A (Hostel)",
+      "distance_m": 80,
+      "walk_minutes": 1,
+      "route_description": "Sardar Bhawan hostels are directly adjacent to A21 in the south zone.",
+      "landmarks": []
+    },
+    {
+      "id": "path_039",
+      "from": "H30",
+      "from_name": "Sardar Bhawan A",
+      "to": "H31",
+      "to_name": "Sardar Bhawan B",
+      "distance_m": 40,
+      "walk_minutes": 1,
+      "route_description": "H30 and H31 are side-by-side in the south hostel cluster.",
+      "landmarks": []
+    },
+    {
+      "id": "path_040",
+      "from": "GATE_MAIN",
+      "from_name": "Main Entry Gate",
+      "to": "A19",
+      "to_name": "PIT / Hotel Management",
+      "distance_m": 350,
+      "walk_minutes": 4,
+      "route_description": "From the main gate follow the southern campus road east. A19 (PIT) is on your left side.",
+      "landmarks": ["P3 Student Parking", "PIT Library"]
+    },
+    {
+      "id": "path_041",
+      "from": "A24",
+      "from_name": "Bhagat Singh Bhawan",
+      "to": "G4",
+      "to_name": "Basketball Court",
+      "distance_m": 300,
+      "walk_minutes": 4,
+      "route_description": "From N Block walk south past the Kabaddi ground and Watcher's Park. The basketball court is near A5.",
+      "landmarks": ["G7 Kabaddi Ground", "G1 Watcher's Park"]
+    },
+    {
+      "id": "path_042",
+      "from": "A25",
+      "from_name": "C.V. Raman Centre",
+      "to": "A26",
+      "to_name": "24 Frames Studio",
+      "distance_m": 100,
+      "walk_minutes": 1,
+      "route_description": "24 Frames Studio is directly adjacent to CV Raman Centre.",
+      "landmarks": []
+    },
+    {
+      "id": "path_043",
+      "from": "C1",
+      "from_name": "Administrative Block C1",
+      "to": "A24",
+      "to_name": "Bhagat Singh Bhawan",
+      "distance_m": 550,
+      "walk_minutes": 7,
+      "route_description": "From C1 walk north along the main campus road past A13, the football ground, Watcher's Park, and Greenzy Food Court. A24 (N Block) is on your left.",
+      "landmarks": ["A13 Ayurved", "Football Ground Gate", "G1 Watcher's Park", "F1 Greenzy"]
+    },
+    {
+      "id": "path_044",
+      "from": "C1",
+      "from_name": "Administrative Block C1",
+      "to": "A25",
+      "to_name": "C.V. Raman Centre",
+      "distance_m": 620,
+      "walk_minutes": 8,
+      "route_description": "From C1 walk north along the main road through the central campus zone. CV Raman (A25) is just past Bhagat Singh Bhawan (A24).",
+      "landmarks": ["A13 Ayurved", "G2 Football Ground", "G1 Watcher's Park", "F1 Greenzy", "A24 N Block"]
+    },
+    {
+      "id": "path_045",
+      "from": "GATE_MAIN",
+      "from_name": "Main Entry Gate",
+      "to": "C1",
+      "to_name": "Administrative Block C1",
+      "distance_m": 200,
+      "walk_minutes": 3,
+      "route_description": "From the main gate walk straight in past PU Circle. Turn right at the circle. C1 Admin block is clearly visible ahead.",
+      "landmarks": ["PU Circle", "P1 Visitor Parking"]
+    },
+    {
+      "id": "path_046",
+      "from": "GATE_MAIN",
+      "from_name": "Main Entry Gate",
+      "to": "A25",
+      "to_name": "C.V. Raman Centre",
+      "distance_m": 820,
+      "walk_minutes": 10,
+      "route_description": "From the main gate walk straight in, pass PU Circle, go north along the main campus road past C1, A13, the football ground, Watcher's Park, and Greenzy Food Court. CV Raman (A25) is at the end of the main road on the left.",
+      "landmarks": ["PU Circle", "C1 Admin Block", "A13 Ayurved", "Football Ground", "Watcher's Park", "Greenzy Food Court", "A24 N Block"]
+    },
+    {
+      "id": "path_047",
+      "from": "A25",
+      "from_name": "C.V. Raman Centre",
+      "to": "M1",
+      "to_name": "Student Mess",
+      "distance_m": 600,
+      "walk_minutes": 8,
+      "route_description": "From CV Raman walk south-east past the hostel zone. The main mess (M1) is in the central-east hostel area near Shastri Bhawan.",
+      "landmarks": ["G7 Kabaddi Ground", "Watcher's Park", "H1 Shastri Bhawan"]
+    },
+    {
+      "id": "path_048",
+      "from": "A24",
+      "from_name": "Bhagat Singh Bhawan",
+      "to": "M1",
+      "to_name": "Student Mess",
+      "distance_m": 550,
+      "walk_minutes": 7,
+      "route_description": "From N Block walk east towards the hostel zone. The mess is near the central hostel cluster.",
+      "landmarks": ["G7 Kabaddi Ground", "H1 Shastri Bhawan"]
+    },
+    {
+      "id": "path_049",
+      "from": "A12",
+      "from_name": "Parul Institute of Medical Sciences",
+      "to": "E2",
+      "to_name": "Parul Sevashram Hospital",
+      "distance_m": 300,
+      "walk_minutes": 4,
+      "route_description": "From A12 walk south-west towards the hospital zone. Parul Sevashram Hospital (E2) is in the central zone near E1.",
+      "landmarks": ["Medical Auditorium"]
+    },
+    {
+      "id": "path_050",
+      "from": "E2",
+      "from_name": "Parul Sevashram Hospital",
+      "to": "B1",
+      "to_name": "Central Bank of India",
+      "distance_m": 250,
+      "walk_minutes": 3,
+      "route_description": "From the hospital walk west towards the bank in the central zone.",
+      "landmarks": ["C1 Admin Block"]
+    },
+    {
+      "id": "path_051",
+      "from": "TS",
+      "from_name": "Transport Office",
+      "to": "P4",
+      "to_name": "Bus Parking / Pick and Drop Point",
+      "distance_m": 400,
+      "walk_minutes": 5,
+      "route_description": "From the Transport Office walk north along the west side road to reach the bus parking and pick-and-drop point near the north zone.",
+      "landmarks": ["Exit Gate", "A15 Management Studies"]
+    },
+    {
+      "id": "path_052",
+      "from": "GATE_MAIN",
+      "from_name": "Main Entry Gate",
+      "to": "E2",
+      "to_name": "Parul Sevashram Hospital",
+      "distance_m": 450,
+      "walk_minutes": 6,
+      "route_description": "From the main gate walk in through PU Circle, continue past C1 and then head east towards the hospital zone.",
+      "landmarks": ["PU Circle", "C1 Admin Block", "E1 Ayurved Hospital"]
+    },
+    {
+      "id": "path_053",
+      "from": "A25",
+      "from_name": "C.V. Raman Centre",
+      "to": "H32",
+      "to_name": "Atal Bhawan B (Hostel)",
+      "distance_m": 550,
+      "walk_minutes": 7,
+      "route_description": "From CV Raman walk north-west along the boundary road towards the Atal and Milkha Bhawan hostel cluster in the north-west zone.",
+      "landmarks": ["A23 SCB Bhawan", "A18 Ayurved Research"]
+    },
+    {
+      "id": "path_054",
+      "from": "A24",
+      "from_name": "Bhagat Singh Bhawan",
+      "to": "C1",
+      "to_name": "Administrative Block C1",
+      "distance_m": 550,
+      "walk_minutes": 7,
+      "route_description": "From N Block walk south along the main campus road past Greenzy, Watcher's Park, the football ground, and A13. C1 Admin Block is at the south end of the road.",
+      "landmarks": ["F1 Greenzy", "G1 Watcher's Park", "A13 Ayurved", "Football Ground Gate"]
+    },
+    {
+      "id": "path_055",
+      "from": "G4",
+      "from_name": "Basketball Court",
+      "to": "G5",
+      "to_name": "Tennis Court",
+      "distance_m": 80,
+      "walk_minutes": 1,
+      "route_description": "Basketball court and tennis court are adjacent sports facilities near A5.",
+      "landmarks": []
+    },
+    {
+      "id": "path_056",
+      "from": "G5",
+      "from_name": "Tennis Court",
+      "to": "G6",
+      "to_name": "Volleyball Court",
+      "distance_m": 60,
+      "walk_minutes": 1,
+      "route_description": "Tennis and volleyball courts are next to each other in the central sports zone.",
+      "landmarks": []
+    },
+    {
+      "id": "path_057",
+      "from": "A5",
+      "from_name": "Gymnasium Block",
+      "to": "G4",
+      "to_name": "Basketball Court",
+      "distance_m": 120,
+      "walk_minutes": 2,
+      "route_description": "From A5 (gym) walk east. The basketball court is right beside the gym block.",
+      "landmarks": []
+    }
+  ],
+
+  "key_routes": [
+    {
+      "label": "Main Gate to CV Raman (A25)",
+      "path_ids": ["path_001", "path_004", "path_020", "path_021"],
+      "total_distance_m": 820,
+      "total_walk_minutes": 10,
+      "summary": "Enter from Main Gate → PU Circle → north on main road → past C1, A13, Watcher's Park, Greenzy → A24 N Block → A25 CV Raman"
+    },
+    {
+      "label": "Main Gate to Admin Block (C1)",
+      "path_ids": ["path_001", "path_002"],
+      "total_distance_m": 200,
+      "total_walk_minutes": 3,
+      "summary": "Enter from Main Gate → PU Circle → turn right → C1 Admin Block"
+    },
+    {
+      "label": "CV Raman (A25) to Greenzy Food Court",
+      "path_ids": ["path_023"],
+      "total_distance_m": 130,
+      "total_walk_minutes": 2,
+      "summary": "From A25 walk south-east → Greenzy Food Court"
+    },
+    {
+      "label": "CV Raman (A25) to Central Library (C1)",
+      "path_ids": ["path_054", "path_005"],
+      "total_distance_m": 610,
+      "total_walk_minutes": 8,
+      "summary": "From A25 → south on main road past Greenzy, Watcher's Park, A13 → C1 Admin Block → Library on 1st floor"
+    },
+    {
+      "label": "Main Gate to Hospital (E2)",
+      "path_ids": ["path_052"],
+      "total_distance_m": 450,
+      "total_walk_minutes": 6,
+      "summary": "Enter from Main Gate → PU Circle → past C1 → east to hospital zone → E2 Sevashram Hospital"
+    },
+    {
+      "label": "N Block (A24) to Mess (M1)",
+      "path_ids": ["path_048"],
+      "total_distance_m": 550,
+      "total_walk_minutes": 7,
+      "summary": "From A24 → east past Kabaddi ground → hostel zone → M1 Mess near Shastri Bhawan"
+    },
+    {
+      "label": "A25 to SCB Bhawan (A23)",
+      "path_ids": ["path_022"],
+      "total_distance_m": 150,
+      "total_walk_minutes": 2,
+      "summary": "From CV Raman (A25) → walk north → Subhash Chandra Bose Bhawan (A23)"
+    },
+    {
+      "label": "Main Gate to Swimming Pool (S1)",
+      "path_ids": ["path_046", "path_032"],
+      "total_distance_m": 1200,
+      "total_walk_minutes": 15,
+      "summary": "From Main Gate → north along main road → A25 CV Raman → east towards medical zone → A12 → S1 Swimming Pool"
+    }
+  ]
+}

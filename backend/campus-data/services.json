@@ -1,0 +1,662 @@
+[
+  {
+    "id": "svc_central_library",
+    "name": "Central Library",
+    "type": "library",
+    "building_id": "C1",
+    "building_name": "Administrative Block C1",
+    "floor": 1,
+    "contact_email": "library@paruluniversity.ac.in",
+    "contact_phone": "TBD",
+    "aliases": [
+      "library", "central library", "main library", "gyanoday bhawan",
+      "reading room", "book issue", "library card", "e-library"
+    ],
+    "timings": {
+      "monday_to_saturday": "07:00 AM - 08:00 PM",
+      "sunday": "09:30 AM - 04:30 PM",
+      "holidays": "Closed on national holidays unless notified"
+    },
+    "description": "The Central Library of Parul University is located in Administrative Block C1 on the 1st floor. It is open Monday to Saturday from 7:00 AM to 8:00 PM, and on Sundays from 9:30 AM to 4:30 PM. The library is closed on national holidays unless a special notification is issued. The university has a network of over 10 subject-specific libraries linked to the central system, covering Engineering, Medical, Pharmacy, Management, Law, and other disciplines. Students can borrow books using their library card, which is issued at the library counter on the ground floor of C1. The library offers digital resources, e-journals, research databases, NPTEL access, and dedicated reading rooms. Photocopying and printing services are available inside the library. Students must maintain silence inside and must carry their university ID card at all times. Books can be renewed online or at the counter. Late return of books attracts a fine per day.",
+    "facilities": [
+      "Book issuing and return",
+      "Digital resources and e-journals",
+      "Reading rooms",
+      "NPTEL and online course access",
+      "Photocopying and printing",
+      "Reference section",
+      "Periodicals and newspapers"
+    ],
+    "rules": [
+      "University ID card is mandatory for entry",
+      "Maintain silence inside the library",
+      "Mobile phones must be on silent mode",
+      "Food and beverages are not allowed inside",
+      "Books must be returned on or before due date",
+      "Late return attracts fine per day"
+    ]
+  },
+  {
+    "id": "svc_medical_library",
+    "name": "Medical Library",
+    "type": "library",
+    "building_id": "A11",
+    "building_name": "Medical Library & Insights Centre",
+    "floor": 0,
+    "contact_email": "medlibrary@paruluniversity.ac.in",
+    "contact_phone": "TBD",
+    "aliases": [
+      "medical library", "health library", "a11 library", "medical books", "mbbs library"
+    ],
+    "timings": {
+      "monday_to_saturday": "08:00 AM - 07:00 PM",
+      "sunday": "Closed",
+      "holidays": "Closed"
+    },
+    "description": "The Medical Library is located in building A11 on the ground floor. It is a specialized library catering exclusively to health sciences students including MBBS, BDS, BAMS, BHMS, B.Sc Nursing, BPT, and allied health programs. The library holds an extensive collection of medical textbooks, clinical references, anatomy atlases, and medical journals. Students from medical programs are required to use this library for their subject references. The library is open Monday to Saturday from 8:00 AM to 7:00 PM and is closed on Sundays and holidays. ID card is mandatory for entry and borrowing.",
+    "facilities": [
+      "Medical textbooks and references",
+      "Medical journals and publications",
+      "Digital medical databases",
+      "Reading room"
+    ],
+    "rules": [
+      "For health sciences students only",
+      "ID card mandatory",
+      "Silence to be maintained",
+      "No food or beverages"
+    ]
+  },
+  {
+    "id": "svc_greenzy_food_court",
+    "name": "Greenzy Food Court",
+    "type": "food_court",
+    "building_id": "F1",
+    "building_name": "Greenzy Food Court",
+    "floor": 0,
+    "contact_email": "TBD",
+    "contact_phone": "TBD",
+    "aliases": [
+      "greenzy", "food court", "canteen", "main canteen", "campus canteen",
+      "food", "lunch", "breakfast", "dinner", "snacks", "tea", "juice"
+    ],
+    "timings": {
+      "monday_to_saturday": "08:00 AM - 09:00 PM",
+      "sunday": "09:00 AM - 08:00 PM",
+      "holidays": "Open on most holidays, may have reduced stalls"
+    },
+    "description": "Greenzy Food Court is the main food court on the Parul University campus, located near Bhagat Singh Bhawan (A24) and C.V. Raman Centre (A25). It is open Monday to Saturday from 8:00 AM to 9:00 PM and on Sundays from 9:00 AM to 8:00 PM. The food court has multiple stalls offering a wide variety of food including South Indian (idli, dosa, vada), North Indian (sabzi, roti, paratha), Chinese, fast food, snacks, beverages, juices, tea, coffee, and desserts. It is the most popular eating spot on campus and is frequented by students between classes and during lunch hours. The food court is centrally located and easily accessible from both the academic and hostel zones. Prices are student-friendly. Seating is available both indoors and outdoors.",
+    "facilities": [
+      "Multiple food stalls",
+      "Indoor and outdoor seating",
+      "South Indian, North Indian, Chinese, Fast food",
+      "Beverages, juices, tea, coffee",
+      "Snacks and desserts"
+    ],
+    "rules": [
+      "Students must dispose of waste in designated bins",
+      "No outside food vendor allowed inside",
+      "Maintain cleanliness and order"
+    ]
+  },
+  {
+    "id": "svc_capitol_crust",
+    "name": "Capitol Crust",
+    "type": "restaurant",
+    "building_id": "F2",
+    "building_name": "Capitol Crust",
+    "floor": 0,
+    "contact_email": "TBD",
+    "contact_phone": "TBD",
+    "aliases": [
+      "capitol crust", "capitol", "pizza", "east canteen", "medical canteen", "east food"
+    ],
+    "timings": {
+      "monday_to_saturday": "09:00 AM - 09:00 PM",
+      "sunday": "10:00 AM - 08:00 PM",
+      "holidays": "May vary"
+    },
+    "description": "Capitol Crust is a food outlet located in the east zone of the campus near the medical and hospital buildings (A12, E2). It offers pizzas, burgers, sandwiches, wraps, pasta, cold drinks, and beverages. It is a popular spot for medical and paramedical students due to its proximity to the A12 complex. Open Monday to Saturday 9:00 AM to 9:00 PM.",
+    "facilities": [
+      "Pizza, burgers, sandwiches",
+      "Pasta and wraps",
+      "Cold drinks and beverages",
+      "Seating area"
+    ],
+    "rules": []
+  },
+  {
+    "id": "svc_champions_cove",
+    "name": "Champions Cove",
+    "type": "restaurant",
+    "building_id": "F3",
+    "building_name": "Champions Cove",
+    "floor": 0,
+    "contact_email": "TBD",
+    "contact_phone": "TBD",
+    "aliases": [
+      "champions cove", "champions", "cove", "sports canteen", "north canteen", "north food"
+    ],
+    "timings": {
+      "monday_to_saturday": "08:30 AM - 09:00 PM",
+      "sunday": "09:00 AM - 07:00 PM",
+      "holidays": "May vary"
+    },
+    "description": "Champions Cove is a food outlet near the sports complex and north academic zone, close to C.V. Raman Centre (A25) and Subhash Chandra Bose Bhawan (A23). It is popular with students from the north zone and those visiting the sports facilities. Offers snacks, meals, beverages, and energy drinks. Open Monday to Saturday from 8:30 AM to 9:00 PM.",
+    "facilities": [
+      "Snacks and meals",
+      "Beverages and energy drinks",
+      "Quick service counter"
+    ],
+    "rules": []
+  },
+  {
+    "id": "svc_mess",
+    "name": "Student Mess",
+    "type": "mess",
+    "building_id": "M1",
+    "building_name": "Mess",
+    "floor": 0,
+    "contact_email": "hostel@paruluniversity.ac.in",
+    "contact_phone": "TBD",
+    "aliases": [
+      "mess", "hostel mess", "dining hall", "mess food", "breakfast mess",
+      "lunch mess", "dinner mess", "student dining"
+    ],
+    "timings": {
+      "breakfast": "07:00 AM - 09:00 AM",
+      "lunch": "12:00 PM - 02:00 PM",
+      "dinner": "07:00 PM - 09:00 PM",
+      "sunday_brunch": "08:00 AM - 11:00 AM"
+    },
+    "description": "The Student Mess (M1) is the main dining facility for hostel residents at Parul University. It serves breakfast from 7:00 AM to 9:00 AM, lunch from 12:00 PM to 2:00 PM, and dinner from 7:00 PM to 9:00 PM. On Sundays, a special brunch is served from 8:00 AM to 11:00 AM. The mess follows a weekly rotating menu. Vegetarian and non-vegetarian options are available on designated days. Mess fees are included in hostel charges. Students must carry their mess card or ID card to avail meals. Additional mess facilities are also spread across the campus for different hostel zones.",
+    "facilities": [
+      "Breakfast, lunch and dinner",
+      "Vegetarian and non-vegetarian options",
+      "Weekly rotating menu",
+      "Large seating hall"
+    ],
+    "rules": [
+      "Mess card or ID card mandatory",
+      "Outside food not allowed inside mess",
+      "Maintain hygiene and discipline",
+      "No wastage of food",
+      "Dress code: decent attire required"
+    ]
+  },
+  {
+    "id": "svc_transport",
+    "name": "Campus Transport Service",
+    "type": "transport",
+    "building_id": "TS",
+    "building_name": "Transport Office",
+    "floor": 0,
+    "contact_email": "transport@paruluniversity.ac.in",
+    "contact_phone": "TBD",
+    "aliases": [
+      "transport", "bus", "bus service", "bus pass", "bus route", "campus bus",
+      "shuttle", "pick and drop", "transport office", "bus timing", "bus stop"
+    ],
+    "timings": {
+      "office_hours": "09:00 AM - 05:00 PM (Monday to Saturday)",
+      "first_bus": "Approximately 07:00 AM from city",
+      "last_bus": "Approximately 06:00 PM return from campus"
+    },
+    "description": "Parul University operates a large fleet of over 63 buses serving students from Vadodara city and nearby towns. The Transport Office (TS) is located in the central-west zone of campus near the exit gate. Bus passes can be obtained from the Transport Office by submitting the required form and fee. Routes cover Vadodara city, Waghodia, and surrounding areas. The campus has a designated Pick and Drop Point (P4) for buses. Students must carry their bus pass while travelling. Bus timings may vary based on route and season. For route information and bus pass queries, visit the Transport Office during office hours 9:00 AM to 5:00 PM Monday to Saturday.",
+    "facilities": [
+      "63+ buses covering Vadodara and surrounding routes",
+      "Bus pass issuance",
+      "Pick and drop point (P4)",
+      "Route information"
+    ],
+    "rules": [
+      "Bus pass is mandatory while travelling",
+      "No bus pass, no boarding",
+      "Students must board and alight only at designated stops",
+      "Maintain discipline on the bus",
+      "Report bus issues to Transport Office"
+    ]
+  },
+  {
+    "id": "svc_hospital",
+    "name": "Parul Sevashram Hospital",
+    "type": "hospital",
+    "building_id": "E2",
+    "building_name": "Parul Sevashram Hospital",
+    "floor": 0,
+    "contact_email": "hospital@paruluniversity.ac.in",
+    "contact_phone": "TBD",
+    "aliases": [
+      "hospital", "sevashram hospital", "main hospital", "campus hospital",
+      "doctor", "medical", "emergency", "casualty", "opd", "ambulance", "health centre"
+    ],
+    "timings": {
+      "emergency": "24 hours, 7 days",
+      "opd": "09:00 AM - 05:00 PM (Monday to Saturday)",
+      "pharmacy": "24 hours"
+    },
+    "description": "Parul Sevashram Hospital (E2) is the main multi-specialty hospital on campus. It is NABH-accredited with 750 beds and provides comprehensive healthcare services. The hospital operates 24/7 for emergency and casualty services. OPD is available Monday to Saturday from 9:00 AM to 5:00 PM. The hospital has specialist departments including general medicine, surgery, orthopaedics, gynaecology, paediatrics, ENT, dermatology, ophthalmology, and psychiatry. A pharmacy is available 24 hours inside the hospital. Students and staff can avail medical treatment at subsidised rates. For medical emergencies on campus, students should proceed directly to the casualty of E2 or contact campus security at the nearest gate.",
+    "facilities": [
+      "750-bed multi-specialty hospital",
+      "24/7 emergency and casualty",
+      "OPD with multiple specialties",
+      "24-hour pharmacy",
+      "Diagnostic and pathology labs",
+      "Radiology and imaging",
+      "Ambulance service"
+    ],
+    "rules": [
+      "Carry university ID for subsidised treatment",
+      "OPD timings must be followed for non-emergency visits",
+      "Emergency cases will be treated 24/7 regardless",
+      "Visitors must follow hospital visiting hours"
+    ]
+  },
+  {
+    "id": "svc_hostel",
+    "name": "Hostel Services",
+    "type": "hostel",
+    "building_id": "C5",
+    "building_name": "Office of Hostel Superintendent",
+    "floor": 0,
+    "contact_email": "hostel@paruluniversity.ac.in",
+    "contact_phone": "TBD",
+    "aliases": [
+      "hostel", "hostel admission", "room allotment", "hostel fee", "hostel complaint",
+      "hostel superintendent", "chief rector", "hostel rules", "hostel wifi", "hostel room"
+    ],
+    "timings": {
+      "office_hours": "09:00 AM - 05:00 PM (Monday to Saturday)",
+      "hostel_gate_in_time": "10:00 PM (general)",
+      "hostel_gate_out_time": "06:00 AM (morning open)"
+    },
+    "description": "Parul University has 34 hostel blocks accommodating thousands of students across boys and girls hostels. Hostel administration is managed from the Office of the Hostel Superintendent and Chief Rector in building C5. Hostels are named after notable personalities including Shastri Bhawan, Kalam Bhawan, Tagore Bhawan, Teresa Bhawan, Atal Bhawan, Milkha Bhawan, Sardar Bhawan, Azad Bhawan, Marie Curie Residence, and Albert Einstein Residence. Room allotment is done at the beginning of each academic year. Hostel fees cover accommodation, mess, and basic amenities. Wifi is available in hostel rooms. Each hostel has a warden responsible for discipline and welfare. Students must follow hostel rules regarding entry/exit timings, guests, and conduct. For room allotment, complaints, or hostel queries, visit the Office of the Hostel Superintendent in C5.",
+    "facilities": [
+      "34 hostel blocks for boys and girls",
+      "Attached mess",
+      "Wifi in rooms",
+      "24-hour water and electricity",
+      "Common rooms",
+      "Warden on duty",
+      "Laundry facilities in select hostels"
+    ],
+    "rules": [
+      "Entry after 10 PM requires prior permission from warden",
+      "Guests are not allowed inside hostel rooms without permission",
+      "Ragging is strictly prohibited — zero tolerance policy",
+      "Alcohol, smoking, and drugs are strictly prohibited",
+      "Students must carry their hostel ID",
+      "Damage to hostel property will be charged to the student",
+      "Cleanliness of rooms is the student's responsibility"
+    ]
+  },
+  {
+    "id": "svc_gym",
+    "name": "PU Fitness Gym",
+    "type": "gym",
+    "building_id": "A5",
+    "building_name": "PIET Diploma / Gymnasium",
+    "floor": 0,
+    "contact_email": "TBD",
+    "contact_phone": "TBD",
+    "aliases": [
+      "gym", "gymnasium", "fitness centre", "workout", "pu gym", "fitness",
+      "weight training", "cardio"
+    ],
+    "timings": {
+      "morning": "06:00 AM - 09:00 AM",
+      "evening": "04:00 PM - 08:00 PM",
+      "sunday": "07:00 AM - 11:00 AM"
+    },
+    "description": "The PU Fitness Gym is located inside building A5 on the ground floor. It is equipped with modern fitness equipment including treadmills, ellipticals, weight training machines, free weights, and cardio equipment. The gym is open to all enrolled students and staff. Morning sessions run from 6:00 AM to 9:00 AM and evening sessions from 4:00 PM to 8:00 PM. On Sundays the gym is open from 7:00 AM to 11:00 AM. A trained gym instructor is available during session hours. Students are advised to carry a towel and water bottle. Proper workout attire is mandatory.",
+    "facilities": [
+      "Cardio equipment (treadmills, ellipticals)",
+      "Weight training machines",
+      "Free weights",
+      "Trained gym instructor",
+      "Changing room and washroom"
+    ],
+    "rules": [
+      "Proper workout attire mandatory",
+      "Carry a towel and water bottle",
+      "Return weights to their place after use",
+      "No outside persons allowed",
+      "University ID required for entry"
+    ]
+  },
+  {
+    "id": "svc_swimming_pool",
+    "name": "Swimming Pool",
+    "type": "swimming_pool",
+    "building_id": "S1",
+    "building_name": "Swimming Pool",
+    "floor": 0,
+    "contact_email": "TBD",
+    "contact_phone": "TBD",
+    "aliases": [
+      "swimming pool", "pool", "swim", "aquatics", "swimming", "water sports"
+    ],
+    "timings": {
+      "boys_morning": "06:00 AM - 08:00 AM",
+      "girls_morning": "08:00 AM - 10:00 AM",
+      "boys_evening": "04:00 PM - 06:00 PM",
+      "girls_evening": "06:00 PM - 08:00 PM",
+      "sunday": "Closed for general use, open for competitive training"
+    },
+    "description": "The Parul University Swimming Pool (S1) is located in the east zone of the campus. It is a full-size pool used for both recreation and competitive training. Separate time slots are allotted for boys and girls. Boys can swim in the morning from 6:00 AM to 8:00 AM and in the evening from 4:00 PM to 6:00 PM. Girls have slots from 8:00 AM to 10:00 AM in the morning and 6:00 PM to 8:00 PM in the evening. A trained swimming coach and lifeguard are present at all times. Separate changing rooms with lockers are available for boys and girls. Students interested in competitive swimming can register with the sports department.",
+    "facilities": [
+      "Full-size swimming pool",
+      "Trained swimming coach",
+      "Lifeguard on duty",
+      "Separate changing rooms for boys and girls",
+      "Lockers"
+    ],
+    "rules": [
+      "Proper swimwear mandatory",
+      "No street clothes in pool",
+      "Follow designated time slots strictly",
+      "Non-swimmers must not enter deep end",
+      "Coach and lifeguard instructions must be followed",
+      "University ID required"
+    ]
+  },
+  {
+    "id": "svc_bank",
+    "name": "Central Bank of India (Campus Branch)",
+    "type": "bank",
+    "building_id": "B1",
+    "building_name": "Central Bank of India",
+    "floor": 0,
+    "contact_email": "TBD",
+    "contact_phone": "TBD",
+    "aliases": [
+      "bank", "central bank", "campus bank", "atm", "cash", "banking",
+      "account", "cheque", "dd", "demand draft", "scholarship transfer"
+    ],
+    "timings": {
+      "monday_to_friday": "10:00 AM - 04:00 PM",
+      "saturday": "10:00 AM - 01:00 PM",
+      "sunday": "Closed",
+      "atm": "24 hours"
+    },
+    "description": "The Central Bank of India campus branch (B1) is located in the central zone of campus. It provides full banking services to students and staff including account opening, cash deposit and withdrawal, demand drafts, NEFT/RTGS, and scholarship fund transfers. Banking hours are Monday to Friday 10:00 AM to 4:00 PM and Saturday 10:00 AM to 1:00 PM. The bank is closed on Sundays and national holidays. An ATM is available 24 hours a day outside the branch for cash withdrawals. New students are encouraged to open a bank account in the first week to facilitate scholarship credits and fee transactions.",
+    "facilities": [
+      "Full banking services",
+      "Account opening",
+      "Demand drafts",
+      "NEFT and RTGS",
+      "24-hour ATM"
+    ],
+    "rules": [
+      "Follow banking hours for counter services",
+      "ATM is accessible 24/7",
+      "University ID required to open account",
+      "Passbook updation available at branch"
+    ]
+  },
+  {
+    "id": "svc_wifi",
+    "name": "Campus WiFi",
+    "type": "wifi",
+    "building_id": null,
+    "building_name": "Campus-wide",
+    "floor": null,
+    "contact_email": "systemsupport@paruluniversity.ac.in",
+    "contact_phone": "TBD",
+    "aliases": [
+      "wifi", "internet", "wi-fi", "campus wifi", "network", "broadband",
+      "wifi password", "wifi not working", "internet issue"
+    ],
+    "timings": {
+      "availability": "24 hours, 7 days"
+    },
+    "description": "Parul University provides campus-wide WiFi connectivity across all academic blocks, administrative buildings, and hostel zones. WiFi is available 24 hours a day, 7 days a week. Students can connect using their university-issued credentials (student ID and password). The WiFi network is managed by the System Support Cell located in C.V. Raman Centre (A25), Room on the 4th floor. For WiFi connectivity issues, login problems, or password resets, students should visit the System Support Cell or raise a ticket at the helpdesk. Hostel rooms are also covered under the campus WiFi network. Internet access is filtered and monitored as per university IT policy.",
+    "facilities": [
+      "Campus-wide WiFi coverage",
+      "Hostel room connectivity",
+      "High-speed internet access",
+      "IT helpdesk for support"
+    ],
+    "rules": [
+      "WiFi credentials are personal and must not be shared",
+      "Internet use is filtered and monitored",
+      "Use of VPN for bypassing filters is prohibited",
+      "Report connectivity issues to System Support Cell in A25"
+    ]
+  },
+  {
+    "id": "svc_sports",
+    "name": "Sports Complex & Facilities",
+    "type": "sports",
+    "building_id": null,
+    "building_name": "Various sports grounds across campus",
+    "floor": null,
+    "contact_email": "sports@paruluniversity.ac.in",
+    "contact_phone": "TBD",
+    "aliases": [
+      "sports", "sports complex", "sports facilities", "sports registration",
+      "football", "cricket", "basketball", "volleyball", "tennis", "hockey",
+      "kabaddi", "athletics", "sports day", "inter college sports"
+    ],
+    "timings": {
+      "morning": "06:00 AM - 09:00 AM",
+      "evening": "04:00 PM - 07:00 PM",
+      "sunday": "Open for practice sessions"
+    },
+    "description": "Parul University has extensive sports infrastructure spread across the campus. Facilities include a football and multi-purpose ground (G2, G3), basketball court (G4), tennis court (G5), volleyball court (G6), kabaddi ground (G7), hockey ground (G8), cricket net practice (G9), and the PID Ground (G10). The Milkha-Messi Sports Complex in the north-west zone is the main hub for indoor and outdoor sports. The swimming pool (S1) and gymnasium (A5) are also part of the sports infrastructure. Sports grounds are open for use in the morning from 6:00 AM to 9:00 AM and in the evening from 4:00 PM to 7:00 PM. Students interested in representing the university in inter-college or state-level competitions should register with the Sports Department. Equipment for various sports can be borrowed from the sports store against the student ID card.",
+    "facilities": [
+      "Football ground (G2, G3)",
+      "Basketball court (G4)",
+      "Tennis court (G5)",
+      "Volleyball court (G6)",
+      "Kabaddi ground (G7)",
+      "Hockey ground (G8)",
+      "Cricket net practice (G9)",
+      "Swimming pool (S1)",
+      "Gymnasium (A5)",
+      "Milkha-Messi Sports Complex"
+    ],
+    "rules": [
+      "Sports grounds are for students and staff only",
+      "Proper sports attire required on all courts and grounds",
+      "Equipment must be returned after use",
+      "No sports activity after 9:00 PM",
+      "Inter-college sports participation requires registration with Sports Department"
+    ]
+  },
+  {
+    "id": "svc_counselling",
+    "name": "Insights Centre for Counselling & Psychological Support",
+    "type": "counselling",
+    "building_id": "A11",
+    "building_name": "Medical Library & Insights Centre",
+    "floor": 1,
+    "contact_email": "counselling@paruluniversity.ac.in",
+    "contact_phone": "TBD",
+    "aliases": [
+      "counselling", "counselling centre", "psychologist", "mental health",
+      "stress", "anxiety", "depression", "counsellor", "therapy", "psychological support",
+      "insights centre", "emotional support"
+    ],
+    "timings": {
+      "monday_to_friday": "09:00 AM - 05:00 PM",
+      "saturday": "09:00 AM - 01:00 PM",
+      "sunday": "Closed"
+    },
+    "description": "The Insights Centre for Counselling and Psychological Support is located in building A11 on the 1st floor. It provides free and confidential psychological counselling services to all students and staff. The centre is staffed by qualified psychologists and counsellors. Services include individual counselling for stress, anxiety, depression, academic pressure, relationship issues, homesickness, and career counselling. Sessions are by appointment and walk-in slots are also available. The centre maintains strict confidentiality of all sessions. Students feeling overwhelmed, stressed, or emotionally troubled are encouraged to visit the centre without hesitation. Open Monday to Friday 9:00 AM to 5:00 PM and Saturday 9:00 AM to 1:00 PM.",
+    "facilities": [
+      "Individual counselling sessions",
+      "Group therapy sessions",
+      "Career counselling",
+      "Stress management workshops",
+      "Confidential and free service"
+    ],
+    "rules": [
+      "All sessions are strictly confidential",
+      "Appointment preferred but walk-in also accepted",
+      "Service is free for all enrolled students",
+      "Students under 18 may require parental consent for certain sessions"
+    ]
+  },
+  {
+    "id": "svc_placement",
+    "name": "Placement Cell",
+    "type": "placement",
+    "building_id": "C2",
+    "building_name": "Administrative Block C2",
+    "floor": 1,
+    "contact_email": "placement@paruluniversity.ac.in",
+    "contact_phone": "TBD",
+    "aliases": [
+      "placement", "placement cell", "campus recruitment", "job", "internship",
+      "t&p", "training and placement", "campus drive", "placement officer",
+      "offer letter", "company visit"
+    ],
+    "timings": {
+      "monday_to_saturday": "09:00 AM - 05:00 PM"
+    },
+    "description": "The Placement Cell is located in Administrative Block C2 on the 1st floor. It is the central office for all campus recruitment activities, internship placements, and industry interactions. The cell coordinates with companies for on-campus and off-campus placement drives. Students can register for placements through the placement portal. Pre-placement training, aptitude tests, mock interviews, and resume building workshops are regularly conducted. Final year students are eligible for campus placements. Internship coordination is done in collaboration with the Internship Cell in C3. Students with placement-related queries, company visit schedules, or offer letter issues should contact the Placement Cell during office hours.",
+    "facilities": [
+      "Campus recruitment coordination",
+      "Placement portal registration",
+      "Pre-placement training",
+      "Mock interviews",
+      "Resume building workshops",
+      "Industry interaction events"
+    ],
+    "rules": [
+      "Final year students are eligible for placements",
+      "Register on placement portal before applying",
+      "Maintain professional conduct during drives",
+      "Dress code: formal attire for placement drives",
+      "No simultaneous acceptance of multiple offers without informing the cell"
+    ]
+  },
+  {
+    "id": "svc_admission",
+    "name": "Admission Cell",
+    "type": "admission",
+    "building_id": "C2",
+    "building_name": "Administrative Block C2",
+    "floor": 0,
+    "contact_email": "admission@paruluniversity.ac.in",
+    "contact_phone": "TBD",
+    "aliases": [
+      "admission", "admission cell", "new admission", "admission office",
+      "admission form", "prospectus", "apply", "application", "document verification",
+      "admission status", "admission query"
+    ],
+    "timings": {
+      "monday_to_saturday": "09:00 AM - 05:00 PM"
+    },
+    "description": "The Admission Cell is located on the ground floor of Administrative Block C2. It handles all aspects of student admissions including new admissions, application form processing, document verification, admission confirmation, and prospectus distribution. Students seeking admission to any program at Parul University should visit the Admission Cell or apply online through the university website. The cell is open Monday to Saturday from 9:00 AM to 5:00 PM. Required documents typically include 10th and 12th marksheets, transfer certificate, migration certificate, passport-size photos, and category certificate if applicable.",
+    "facilities": [
+      "New admission processing",
+      "Application and form assistance",
+      "Document verification",
+      "Prospectus and brochure",
+      "Admission status tracking"
+    ],
+    "rules": [
+      "Original documents must be submitted at the time of admission",
+      "Admission is subject to eligibility criteria",
+      "Fees must be paid within the stipulated deadline"
+    ]
+  },
+  {
+    "id": "svc_exam",
+    "name": "Examination Section",
+    "type": "exam",
+    "building_id": "C1",
+    "building_name": "Administrative Block C1",
+    "floor": 1,
+    "contact_email": "exam@paruluniversity.ac.in",
+    "contact_phone": "TBD",
+    "aliases": [
+      "exam", "examination", "exam section", "hall ticket", "admit card",
+      "result", "marksheet", "grade card", "re-evaluation", "recheck",
+      "exam schedule", "exam timetable", "backlog", "atkt"
+    ],
+    "timings": {
+      "monday_to_saturday": "09:00 AM - 05:00 PM"
+    },
+    "description": "The Examination Section is located in Administrative Block C1 on the 1st floor. It handles all examination-related activities including issuance of hall tickets, declaration of results, marksheet distribution, grade cards, re-evaluation requests, and backlog/ATKT processes. The exam timetable is announced on the university portal and notice boards. Students must collect their hall ticket from the Exam Section before each exam. For result queries, re-evaluation applications, or duplicate marksheet requests, students should visit the Exam Section in C1 during office hours.",
+    "facilities": [
+      "Hall ticket issuance",
+      "Result declaration",
+      "Marksheet and grade card distribution",
+      "Re-evaluation application",
+      "Backlog and ATKT processing",
+      "Duplicate document issuance"
+    ],
+    "rules": [
+      "Hall ticket is mandatory for appearing in exams",
+      "No hall ticket will be issued if dues are pending",
+      "Re-evaluation requests must be submitted within the notified deadline",
+      "Students must verify all details on marksheet upon receipt"
+    ]
+  },
+  {
+    "id": "svc_scholarship",
+    "name": "Scholarship Section",
+    "type": "scholarship",
+    "building_id": "C1",
+    "building_name": "Administrative Block C1",
+    "floor": 0,
+    "contact_email": "scholarship@paruluniversity.ac.in",
+    "contact_phone": "TBD",
+    "aliases": [
+      "scholarship", "scholarship office", "financial aid", "fee waiver",
+      "government scholarship", "merit scholarship", "scholarship form",
+      "scholarship status", "scholarship amount"
+    ],
+    "timings": {
+      "monday_to_saturday": "09:00 AM - 05:00 PM"
+    },
+    "description": "The Scholarship Section is located in Administrative Block C1 on the ground floor. It handles government scholarships (including SC/ST/OBC scholarships), university merit scholarships, fee waivers, and other financial aid schemes. Students eligible for government scholarships must apply through the national or state scholarship portal and submit the required documents at the Scholarship Section. University merit scholarships are awarded based on academic performance. Students with queries about scholarship eligibility, application status, or scholarship credits should visit the Scholarship Section during office hours.",
+    "facilities": [
+      "Government scholarship processing",
+      "University merit scholarship",
+      "Fee waiver processing",
+      "Financial aid guidance"
+    ],
+    "rules": [
+      "Apply through appropriate government portal for government scholarships",
+      "Submit physical documents to Scholarship Section after online application",
+      "Scholarship is subject to maintaining minimum attendance and academic performance",
+      "Any misrepresentation of documents will lead to cancellation"
+    ]
+  },
+  {
+    "id": "svc_security",
+    "name": "Campus Security",
+    "type": "security",
+    "building_id": "V1",
+    "building_name": "Security Office",
+    "floor": 0,
+    "contact_email": "security@paruluniversity.ac.in",
+    "contact_phone": "TBD",
+    "aliases": [
+      "security", "campus security", "guard", "security office", "lost and found",
+      "emergency", "security complaint", "visitor pass", "gate pass"
+    ],
+    "timings": {
+      "availability": "24 hours, 7 days"
+    },
+    "description": "The Campus Security Office (V) is located near the main gates of Parul University and operates 24 hours a day, 7 days a week. Security personnel are posted at all campus gates including the Main Entry Gate, Exit Gate, and Gate No. 3. Visitors must register at the security office and obtain a visitor pass before entering the campus. Students must carry their university ID at all times on campus. The security office also handles lost and found items. In case of any emergency, theft, or security threat on campus, students should immediately contact the nearest security post or call the security helpline.",
+    "facilities": [
+      "24/7 gate security",
+      "Visitor pass issuance",
+      "Lost and found",
+      "Emergency response",
+      "CCTV monitoring"
+    ],
+    "rules": [
+      "All visitors must register at security office",
+      "University ID is mandatory on campus",
+      "Vehicles must be parked in designated parking zones",
+      "No unauthorized vehicles inside campus",
+      "Report any suspicious activity to security immediately"
+    ]
+  }
+]
