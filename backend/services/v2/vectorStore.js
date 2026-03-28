@@ -238,6 +238,21 @@ const findBuildingForQuery = (query) => {
     .sort((a, b) => b.score - a.score)[0]?.building;
 };
 
+const findBuildingFromMetadata = (metadata = {}) =>
+  campusData.buildings.find((building) => building.id === metadata.id) ||
+  campusData.buildings.find((building) => building.code === metadata.code) ||
+  campusData.buildings.find((building) => building.id === metadata.building_id) ||
+  campusData.buildings.find((building) => building.name === metadata.building_name) ||
+  campusData.buildings.find(
+    (building) =>
+      metadata.building_name &&
+      includesNormalized(building.name, metadata.building_name),
+  ) ||
+  campusData.buildings.find(
+    (building) => metadata.name && includesNormalized(building.name, metadata.name),
+  ) ||
+  null;
+
 export const getCampusPlaceBundle = (query) => {
   const building = findBuildingForQuery(query);
   if (!building) return null;
@@ -299,6 +314,54 @@ export const getCampusPlaceBundle = (query) => {
         }
       : null,
     related_departments: relatedDepartments,
+  };
+};
+
+export const getRelevantPlaceBundleFromResults = (query, searchResults = []) => {
+  const candidates = searchResults
+    .map(([doc, similarity]) => {
+      const metadata = doc?.metadata || {};
+      const building = findBuildingFromMetadata(metadata);
+      if (!building?.lat || !building?.lng) return null;
+
+      return {
+        building,
+        metadata,
+        similarity,
+        queryScore: scoreCandidate(query, [
+          metadata.name,
+          metadata.label,
+          metadata.title,
+          metadata.building_name,
+          building.name,
+          building.short_name,
+          building.code,
+          ...(metadata.aliases || []),
+          ...(building.aliases || []),
+        ]),
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => {
+      if (b.queryScore !== a.queryScore) return b.queryScore - a.queryScore;
+      return b.similarity - a.similarity;
+    });
+
+  if (candidates.length === 0) return null;
+
+  const best = candidates[0];
+  const bundle = getCampusPlaceBundle(best.metadata.building_name || best.metadata.name || best.building.name);
+  if (!bundle) return null;
+
+  return {
+    ...bundle,
+    matched_entity: {
+      id: best.metadata.id || null,
+      name: best.metadata.name || best.metadata.label || best.metadata.title || null,
+      category: best.metadata.category || null,
+      building_id: best.metadata.building_id || best.building.id,
+      building_name: best.metadata.building_name || best.building.name,
+    },
   };
 };
 

@@ -13,7 +13,11 @@ import {
   SystemMessage,
   AIMessage,
 } from "@langchain/core/messages";
-import { getCampusPlaceBundle, searchCampusData } from "./vectorStore.js";
+import {
+  getCampusPlaceBundle,
+  getRelevantPlaceBundleFromResults,
+  searchCampusData,
+} from "./vectorStore.js";
 import { TavilySearchResults } from "@langchain/community/tools/tavily_search";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -52,6 +56,7 @@ const callLocalData = async (state) => {
 
   // Search the 8-9 JSON files indexed in vectorStore.js
   const searchResults = await searchCampusData(lastUserMsg, 4);
+  const resultBundle = getRelevantPlaceBundleFromResults(lastUserMsg, searchResults);
   console.log(`Found ${searchResults.length} local matches. Best score: ${searchResults[0]?.[1]}`);
 
   // MemoryVectorStore returns cosine similarity, so higher score means a closer match.
@@ -96,12 +101,13 @@ Structured Destination Bundle:
     ]);
 
     if (!response.content.includes("NOT_FOUND_IN_DATA")) {
+      const responseMetadata = resultBundle || placeBundle || bestMatch?.metadata || null;
       return {
         messages: [
           new AIMessage({
             content: response.content,
             additional_kwargs: {
-              metadata: placeBundle || bestMatch?.metadata || null,
+              metadata: responseMetadata,
             },
           }),
         ],
