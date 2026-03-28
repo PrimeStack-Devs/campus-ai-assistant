@@ -10,6 +10,7 @@ import { extractPDFDocs } from "./services/pdfProcessor.js";
 import { initializeRAG } from "./services/ragPipeline.js";
 import { initializeRouter } from "./services/router.js";
 import { initializeStore } from "./services/v2/vectorStore.js";
+import { connectRedis } from "./config/redis.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
