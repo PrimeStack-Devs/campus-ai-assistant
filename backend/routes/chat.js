@@ -12,7 +12,6 @@ router.post("/", async (req, res) => {
     }
 
     const result = await askQuestion(message);
-
     // 🔥 Return FULL result object
     return res.json(result);
 

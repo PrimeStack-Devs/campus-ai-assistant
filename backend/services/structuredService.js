@@ -1,4 +1,4 @@
-import professors from "../data/professors.json" assert { type: "json" };
+// import professors from "../data/professors.json" assert { type: "json" };
 import { pipeline } from "@xenova/transformers";
 import { cosineSimilarity } from "../utils/similarity.js";
 
@@ -19,27 +19,27 @@ export const initializeProfessorService = async () => {
 
   professorVectors = [];
 
-  for (const prof of professors) {
-    const profileText = `
-      Name: ${prof.name}
-      Role: ${prof.role}
-      Department: ${prof.department || ""}
-    `;
+  // for (const prof of professors) {
+  //   const profileText = `
+  //     Name: ${prof.name}
+  //     Role: ${prof.role}
+  //     Department: ${prof.department || ""}
+  //   `;
 
-    const output = await embedder(profileText, {
-      pooling: "mean",
-      normalize: true,
-    });
+  //   const output = await embedder(profileText, {
+  //     pooling: "mean",
+  //     normalize: true,
+  //   });
 
-    const vector = Array.from(
-      output.data ?? output[0]?.data ?? output[0]
-    );
+  //   const vector = Array.from(
+  //     output.data ?? output[0]?.data ?? output[0]
+  //   );
 
-    professorVectors.push({
-      ...prof,
-      vector,
-    });
-  }
+  //   professorVectors.push({
+  //     ...prof,
+  //     vector,
+  //   });
+  // }
 
   console.log("Professor semantic matcher ready.");
 };
