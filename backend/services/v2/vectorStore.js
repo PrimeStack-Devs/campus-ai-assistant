@@ -175,6 +175,102 @@ const includesNormalized = (left, right) => {
   );
 };
 
+const HEALTH_KEYWORDS = [
+  "fever",
+  "sick",
+  "ill",
+  "pain",
+  "vomit",
+  "vomiting",
+  "headache",
+  "injury",
+  "bleeding",
+  "doctor",
+  "hospital",
+  "medical",
+  "medicine",
+  "emergency",
+  "first aid",
+  "ambulance",
+  "pharmacy",
+  "health",
+];
+
+const FOOD_KEYWORDS = [
+  "canteen",
+  "food",
+  "food court",
+  "mess",
+  "breakfast",
+  "lunch",
+  "dinner",
+  "snacks",
+  "tea",
+  "coffee",
+  "eat",
+];
+
+const HOSTEL_KEYWORDS = [
+  "hostel",
+  "warden",
+  "room",
+  "allotment",
+  "rector",
+  "superintendent",
+];
+
+const queryHasAny = (query, keywords) => {
+  const normalizedQuery = normalizeText(query);
+  return keywords.some((keyword) => normalizedQuery.includes(normalizeText(keyword)));
+};
+
+const getIntentAwareScore = (query, metadata = {}, building = {}) => {
+  const values = [
+    metadata.type,
+    metadata.category,
+    metadata.name,
+    metadata.label,
+    metadata.title,
+    metadata.notes,
+    metadata.description,
+    building.category,
+    building.name,
+    building.description,
+    ...(metadata.aliases || []),
+    ...(building.aliases || []),
+  ]
+    .filter(Boolean)
+    .map((value) => normalizeText(value));
+
+  let score = 0;
+
+  if (queryHasAny(query, HEALTH_KEYWORDS)) {
+    if (values.some((value) => /hospital|medical|doctor|emergency|first aid|pharmacy|health/.test(value))) {
+      score += 10;
+    }
+    if (values.some((value) => /mess|canteen|food court|restaurant|temple/.test(value))) {
+      score -= 6;
+    }
+  }
+
+  if (queryHasAny(query, FOOD_KEYWORDS)) {
+    if (values.some((value) => /mess|canteen|food court|restaurant|dining|snacks|tea|coffee/.test(value))) {
+      score += 10;
+    }
+    if (values.some((value) => /temple|hospital/.test(value))) {
+      score -= 5;
+    }
+  }
+
+  if (queryHasAny(query, HOSTEL_KEYWORDS)) {
+    if (values.some((value) => /hostel|warden|rector|superintendent/.test(value))) {
+      score += 4;
+    }
+  }
+
+  return score;
+};
+
 const scoreCandidate = (query, values) => {
   const normalizedQuery = normalizeText(query);
   let score = 0;
@@ -339,10 +435,14 @@ export const getRelevantPlaceBundleFromResults = (query, searchResults = []) => 
           ...(metadata.aliases || []),
           ...(building.aliases || []),
         ]),
+        intentScore: getIntentAwareScore(query, metadata, building),
       };
     })
     .filter(Boolean)
     .sort((a, b) => {
+      const totalA = a.queryScore + a.intentScore;
+      const totalB = b.queryScore + b.intentScore;
+      if (totalB !== totalA) return totalB - totalA;
       if (b.queryScore !== a.queryScore) return b.queryScore - a.queryScore;
       return b.similarity - a.similarity;
     });
