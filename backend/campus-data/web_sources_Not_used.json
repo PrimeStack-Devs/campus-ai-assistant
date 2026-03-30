@@ -1,0 +1,518 @@
+{
+  "meta": {
+    "description": "Web search fallback index for the Parul University Smart Campus Assistant. Used ONLY when internal data files (buildings, departments, faculty, services, policies, schedules) cannot answer the query. The agent must first exhaust local data before consulting this file. Each source has intent_keywords, a type, and a fetch_strategy so the agent knows exactly how to retrieve and use the data.",
+    "usage_rule": "Check local JSON files first. If confidence < 0.6 or data not found locally, match the user query against intent_keywords in this file, select the best source, fetch the URL, extract the answer, and cite the source.",
+    "last_updated": "2024-07-01",
+    "fetch_timeout_seconds": 10,
+    "max_content_tokens": 2000
+  },
+
+  "sources": [
+    {
+      "id": "src_about",
+      "label": "About Parul University",
+      "url": "https://paruluniversity.ac.in/about-us/",
+      "description": "Official overview of Parul University including history, founding year, mission, vision, leadership, campus overview, and institutional profile.",
+      "intent_keywords": [
+        "about parul university",
+        "history of parul university",
+        "when was parul university founded",
+        "parul university established",
+        "mission of parul university",
+        "vision of parul university",
+        "parul university overview",
+        "who founded parul university",
+        "parul university leadership",
+        "institutional profile",
+        "parul university naac",
+        "parul university facts",
+        "tell me about parul university"
+      ],
+      "type": "informational",
+      "priority": 1,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "main content paragraphs",
+        "cache_hours": 168
+      }
+    },
+
+    {
+      "id": "src_research",
+      "label": "Research & Development",
+      "url": "https://paruluniversity.ac.in/research-and-development-centre/",
+      "description": "Information about research activities, innovation centres, patents, funded projects, publications, and academic research initiatives at Parul University.",
+      "intent_keywords": [
+        "research at parul university",
+        "research and development",
+        "r&d centre",
+        "patents parul university",
+        "publications parul university",
+        "funded research projects",
+        "innovation centre",
+        "phd research",
+        "research centre parul",
+        "academic research",
+        "tinkering hub research",
+        "parul university journal"
+      ],
+      "type": "informational",
+      "priority": 2,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "research highlights, stats, and project listings",
+        "cache_hours": 72
+      }
+    },
+
+    {
+      "id": "src_awards",
+      "label": "Awards, Rankings & Accreditations",
+      "url": "https://paruluniversity.ac.in/about-us/awards-rankings-ratings/",
+      "description": "Details about university rankings, awards, recognitions, ratings, accreditations including NAAC, NIRF, and other institutional achievements.",
+      "intent_keywords": [
+        "parul university ranking",
+        "nirf ranking parul",
+        "naac grade parul university",
+        "awards parul university",
+        "recognition parul university",
+        "accreditation parul",
+        "parul university rating",
+        "parul university achievements",
+        "best university ranking",
+        "parul university naac grade",
+        "parul university grade a",
+        "parul university certification"
+      ],
+      "type": "informational",
+      "priority": 2,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "awards list, rankings table, accreditation details",
+        "cache_hours": 168
+      }
+    },
+
+    {
+      "id": "src_placements",
+      "label": "Training & Placement Cell",
+      "url": "https://paruluniversity.ac.in/training-placement-cell/",
+      "description": "Information about campus placements including companies visiting the university, campus recruitment drives, placement statistics, internship programs, and student placement records.",
+      "intent_keywords": [
+        "placement parul university",
+        "campus placement",
+        "companies visiting parul",
+        "placement statistics",
+        "highest package parul university",
+        "average salary placement",
+        "internship companies",
+        "recruitment drive parul",
+        "top recruiters parul",
+        "placement record",
+        "t&p cell",
+        "training and placement",
+        "job offers parul university",
+        "which companies come to parul"
+      ],
+      "type": "dynamic",
+      "priority": 1,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "company names, placement stats, package details",
+        "cache_hours": 24
+      }
+    },
+
+    {
+      "id": "src_life_at_pu",
+      "label": "Life at Parul University",
+      "url": "https://paruluniversity.ac.in/life-at-pu/",
+      "description": "Details about campus life, student activities, clubs, cultural festivals, sports events, extracurricular programs, and student engagement opportunities.",
+      "intent_keywords": [
+        "life at parul university",
+        "campus life",
+        "student clubs parul",
+        "cultural fest parul",
+        "extracurricular activities",
+        "student activities",
+        "sports events parul",
+        "parul university fest",
+        "annual fest",
+        "clubs and societies",
+        "student life",
+        "events at parul university",
+        "what to do at parul",
+        "campus activities"
+      ],
+      "type": "dynamic",
+      "priority": 2,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "clubs list, events, student activity descriptions",
+        "cache_hours": 48
+      }
+    },
+
+    {
+      "id": "src_iqac",
+      "label": "IQAC — Internal Quality Assurance Cell",
+      "url": "https://paruluniversity.ac.in/iqac-page/",
+      "description": "Information about the Internal Quality Assurance Cell including academic quality standards, institutional governance, audits, compliance mechanisms, and NAAC-related information.",
+      "intent_keywords": [
+        "iqac parul university",
+        "internal quality assurance",
+        "iqac committee",
+        "iqac report",
+        "naac iqac",
+        "academic quality",
+        "quality assurance parul",
+        "institutional governance",
+        "audit parul university",
+        "iqac members"
+      ],
+      "type": "informational",
+      "priority": 3,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "IQAC committee details, reports, quality initiatives",
+        "cache_hours": 168
+      }
+    },
+
+    {
+      "id": "src_student_services",
+      "label": "Student Services",
+      "url": "https://paruluniversity.ac.in/student-services/",
+      "description": "Details about student support services including hostel facilities, counselling, scholarships, welfare programs, grievance redressal, and student assistance systems.",
+      "intent_keywords": [
+        "student services parul",
+        "student support",
+        "hostel facilities",
+        "student welfare parul",
+        "grievance redressal",
+        "student assistance",
+        "student portal",
+        "student helpdesk",
+        "student benefits",
+        "services for students",
+        "student care parul"
+      ],
+      "type": "dynamic",
+      "priority": 2,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "services list, contact details, support programs",
+        "cache_hours": 48
+      }
+    },
+
+    {
+      "id": "src_connect",
+      "label": "Contact & Connect",
+      "url": "https://paruluniversity.ac.in/connect-with-us/",
+      "description": "Official contact details of Parul University including address, phone numbers, email contacts, enquiry forms, and communication channels.",
+      "intent_keywords": [
+        "contact parul university",
+        "parul university phone number",
+        "parul university email",
+        "parul university address",
+        "parul university location",
+        "how to contact parul",
+        "parul university enquiry",
+        "parul university helpline",
+        "parul university reception",
+        "get in touch parul",
+        "parul university office number",
+        "where is parul university"
+      ],
+      "type": "informational",
+      "priority": 1,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "address, phone numbers, email IDs, map embed",
+        "cache_hours": 168
+      }
+    },
+
+    {
+      "id": "src_admissions_overview",
+      "label": "Admissions Overview (Online Portal)",
+      "url": "https://paruluniversity.online/",
+      "description": "Overview of online admissions including available programs, admission announcements, and application-related updates.",
+      "intent_keywords": [
+        "admission parul university",
+        "online admission",
+        "apply to parul university",
+        "parul university enrollment",
+        "admission open",
+        "new admission parul",
+        "parul university 2024 admission",
+        "parul university 2025 admission",
+        "how to enroll",
+        "admission announcement"
+      ],
+      "type": "dynamic",
+      "priority": 1,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "admission announcements, open programs, deadlines",
+        "cache_hours": 12
+      }
+    },
+
+    {
+      "id": "src_how_to_apply",
+      "label": "How to Apply",
+      "url": "https://paruluniversity.ac.in/admission/how-to-apply/",
+      "description": "Step-by-step admission process including eligibility criteria, required documents, application procedure, and admission guidelines.",
+      "intent_keywords": [
+        "how to apply parul university",
+        "admission process",
+        "admission procedure",
+        "eligibility for admission",
+        "documents required for admission",
+        "application steps",
+        "admission form parul",
+        "apply parul university steps",
+        "admission guidelines",
+        "how do i get admission",
+        "application procedure parul"
+      ],
+      "type": "dynamic",
+      "priority": 1,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "step-by-step process, eligibility criteria, document list",
+        "cache_hours": 24
+      }
+    },
+
+    {
+      "id": "src_apply_portal",
+      "label": "Admissions Application Portal",
+      "url": "https://admissions.paruluniversity.ac.in/",
+      "description": "Official online application portal where students submit admission forms and track application status.",
+      "intent_keywords": [
+        "apply now parul university",
+        "admission portal",
+        "application form link",
+        "online application parul",
+        "submit admission form",
+        "check application status",
+        "admission form online",
+        "register for admission"
+      ],
+      "type": "dynamic",
+      "priority": 1,
+      "fetch_strategy": {
+        "method": "redirect_url",
+        "extract": "direct link only",
+        "cache_hours": 0,
+        "note": "Do not scrape — just provide the URL directly to the user"
+      }
+    },
+
+    {
+      "id": "src_all_programs",
+      "label": "All Programs & Courses",
+      "url": "https://paruluniversity.ac.in/admission/all-programs/",
+      "description": "Comprehensive list of all undergraduate, postgraduate, diploma, and doctoral programs offered at Parul University across all faculties.",
+      "intent_keywords": [
+        "all programs parul university",
+        "courses offered parul",
+        "list of courses",
+        "ug programs parul",
+        "pg programs parul",
+        "diploma courses parul",
+        "doctoral programs parul",
+        "phd programs parul",
+        "btech programs",
+        "mba programs parul",
+        "what courses does parul offer",
+        "total programs parul",
+        "all degrees parul university",
+        "program list",
+        "available courses"
+      ],
+      "type": "informational",
+      "priority": 1,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "full program list with faculty groupings",
+        "cache_hours": 72
+      }
+    },
+
+    {
+      "id": "src_careers",
+      "label": "Careers & Job Vacancies at Parul University",
+      "url": "https://vacancies.paruluniversity.ac.in/",
+      "description": "Information about job vacancies at Parul University including faculty recruitment, staff openings, administrative positions, and employment opportunities within the university.",
+      "intent_keywords": [
+        "job vacancy parul university",
+        "faculty recruitment parul",
+        "staff opening parul",
+        "career at parul university",
+        "teaching job parul",
+        "apply for job parul",
+        "parul university hiring",
+        "employment parul university",
+        "professor vacancy parul",
+        "non teaching vacancy parul",
+        "administrative job parul",
+        "work at parul university"
+      ],
+      "type": "dynamic",
+      "priority": 1,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "open positions, designation, department, application link",
+        "cache_hours": 12
+      }
+    },
+
+    {
+      "id": "src_privacy_policy",
+      "label": "Privacy Policy",
+      "url": "https://paruluniversity.ac.in/privacy-policy/",
+      "description": "Official privacy policy explaining how Parul University handles user data, data protection practices, and website privacy guidelines.",
+      "intent_keywords": [
+        "privacy policy parul",
+        "data protection parul",
+        "parul university privacy",
+        "how parul uses my data",
+        "data policy",
+        "website privacy"
+      ],
+      "type": "legal",
+      "priority": 3,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "full policy text",
+        "cache_hours": 720
+      }
+    },
+
+    {
+      "id": "src_terms_of_use",
+      "label": "Terms of Use",
+      "url": "https://paruluniversity.ac.in/terms-of-use/",
+      "description": "Terms and conditions governing the use of Parul University website and online services.",
+      "intent_keywords": [
+        "terms of use parul",
+        "terms and conditions parul",
+        "website terms parul",
+        "usage policy parul",
+        "legal terms parul university"
+      ],
+      "type": "legal",
+      "priority": 3,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "full terms text",
+        "cache_hours": 720
+      }
+    },
+
+    {
+      "id": "src_wikipedia",
+      "label": "Wikipedia — Parul University",
+      "url": "https://en.wikipedia.org/wiki/Parul_University",
+      "description": "Encyclopedic third-party overview of Parul University including public history, academic structure, notable facts, and general information. Use as a fallback for general public knowledge queries.",
+      "intent_keywords": [
+        "parul university wikipedia",
+        "general info parul university",
+        "parul university history public",
+        "parul university facts",
+        "parul university overview third party",
+        "when was parul university started",
+        "parul university type",
+        "parul university location",
+        "parul university state",
+        "parul university state university"
+      ],
+      "type": "external",
+      "priority": 4,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "first 5 paragraphs of article body",
+        "cache_hours": 168,
+        "note": "Use only for general/public knowledge queries. Do not use for live data like placements, events, or timings."
+      }
+    },
+
+    {
+      "id": "src_shiksha",
+      "label": "Shiksha Profile — Student Reviews & Ratings",
+      "url": "https://www.shiksha.com/university/parul-university-vadodara-30821",
+      "description": "External educational profile including student reviews, ratings, program comparisons, and admission insights from a third-party aggregator.",
+      "intent_keywords": [
+        "parul university reviews",
+        "parul university student reviews",
+        "parul university rating",
+        "is parul university good",
+        "parul university feedback",
+        "student opinion parul",
+        "parul university shiksha",
+        "parul university pros cons",
+        "parul university worth it"
+      ],
+      "type": "external",
+      "priority": 4,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "overall rating, top reviews, pros and cons",
+        "cache_hours": 168,
+        "note": "Use only when student asks for reviews or external opinions. Always clarify this is from a third-party source."
+      }
+    }
+  ],
+
+  "routing_rules": {
+    "description": "Rules the agent follows to decide when and how to use web sources.",
+    "rules": [
+      {
+        "rule_id": "R1",
+        "name": "Local First",
+        "description": "Always check local JSON files first — buildings.json, departments.json, faculty.json, services.json, schedules.json, policies.json, facilities.json, paths.json. Only fall back to web sources if local data does not contain a confident answer."
+      },
+      {
+        "rule_id": "R2",
+        "name": "Keyword Match",
+        "description": "Match the user query against intent_keywords in each source. Select the source with the highest keyword overlap. If multiple sources match, prefer the one with lower priority number (1 = highest priority)."
+      },
+      {
+        "rule_id": "R3",
+        "name": "Dynamic vs Static",
+        "description": "For sources with type 'dynamic' (placements, admissions, careers, life_at_pu), always fetch fresh data — do not rely on cached or assumed information. For type 'informational', cached data is acceptable."
+      },
+      {
+        "rule_id": "R4",
+        "name": "Portal URLs",
+        "description": "For sources with fetch_strategy.method = 'redirect_url', do NOT attempt to scrape. Simply return the URL to the user with a brief description."
+      },
+      {
+        "rule_id": "R5",
+        "name": "External Source Disclosure",
+        "description": "When using sources with type 'external' (Wikipedia, Shiksha), always inform the user that the information is from a third-party source and may not represent the official university position."
+      },
+      {
+        "rule_id": "R6",
+        "name": "Legal Source Handling",
+        "description": "For type 'legal' sources (privacy policy, terms of use), retrieve and summarise — do not reproduce the full text. Always link to the original URL."
+      },
+      {
+        "rule_id": "R7",
+        "name": "Cache Respect",
+        "description": "Respect cache_hours per source. Do not re-fetch a source if it was fetched within the cache window and the data is still valid. For cache_hours = 0, always fetch fresh."
+      },
+      {
+        "rule_id": "R8",
+        "name": "Fallback Message",
+        "description": "If no local data and no web source matches the query, respond: 'I could not find this information in my current knowledge base. Please contact the relevant university office directly or visit paruluniversity.ac.in for the most accurate information.'"
+      }
+    ]
+  },
+
+  "agent_prompt_hint": "You are the Parul University Smart Campus Assistant. You have access to local JSON knowledge files and this web source index as a fallback. When a user asks a question: (1) Check local files first. (2) If not found locally, look up the best matching source in this file using intent_keywords. (3) Fetch the URL using the fetch_strategy. (4) Extract the relevant answer. (5) Always cite the source URL in your response. (6) For dynamic sources, mention that information may change and the user should verify from the official site."
+}
