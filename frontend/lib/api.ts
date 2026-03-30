@@ -1,5 +1,5 @@
 import { events, facilities, clubs, academicInfo, contacts, locations } from './mockData';
-
+import axios from 'axios';
 export interface LocationData {
   name: string;
   building?: string;
@@ -12,9 +12,20 @@ export interface AIResponse {
   answer: string;
   location?: LocationData;
 }
-
+const fecher = async (url: string, data?: any) => {
+  try {
+    const response = await axios.post(url, data);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching from ${url}:`, error);
+    throw error;
+  }
+}
 // Mock AI response generator - Replace with real API call to /api/chat
 export async function askCampusAI(query: string): Promise<AIResponse> {
+  const response = await fecher('http://localhost:5000/api/v2/chat', { query });
+  console.log('Received response from backend:', response);
+  return response;
   const lowerQuery = query.toLowerCase();
 
   // Events
