@@ -1,3 +1,4 @@
+
 import { events, facilities, clubs, academicInfo, contacts, locations } from './mockData';
 import axios from 'axios';
 export interface LocationData {
@@ -7,6 +8,7 @@ export interface LocationData {
   latitude: number;
   longitude: number;
 }
+import useSWR from 'swr';
 
 export interface AIResponse {
   answer: string;
@@ -14,7 +16,7 @@ export interface AIResponse {
 }
 const fecher = async (url: string, data?: any) => {
   try {
-    const response = await axios.post(url, data);
+    const response = await axios.post(url, { message: data, sessionId: 'dummy-session-id' });
     return response.data;
   } catch (error) {
     console.error(`Error fetching from ${url}:`, error);
@@ -23,9 +25,22 @@ const fecher = async (url: string, data?: any) => {
 }
 // Mock AI response generator - Replace with real API call to /api/chat
 export async function askCampusAI(query: string): Promise<AIResponse> {
-  const response = await fecher('http://localhost:5000/api/v2/chat', { query });
-  console.log('Received response from backend:', response);
-  return response;
+  console.log("ksdjf;lsejfs'ljfkl")
+  // const { data, isLoading } = useSWR(query ? ['/api/v2/chat', query] : null, ([url, query]) => fecher("http://localhost:5000/api/v2/chat", query));
+  const response:any = await axios.post("http://localhost:5000/api/v2/chat", { message: query, sessionId: 'dummy-session-id' });
+  // console.log('Received response from backend:', data);
+  const data = response.data;
+  return {
+    answer: data?.reply,
+    location: {
+      name: data?.data?.destination?.name ,
+      building: data?.location?.building || undefined,
+      floor: data?.location?.floor || undefined,
+      latitude: data?.data?.destination?.coordinates?.lat || 0,
+      longitude: data?.data?.destination?.coordinates?.lng || 0,
+
+    }
+  }
   const lowerQuery = query.toLowerCase();
 
   // Events
@@ -56,7 +71,7 @@ Would you like more details about any of these?`,
         name: 'Science Library',
         building: 'Science Building',
         floor: '2nd Floor',
-        latitude: 22.292454981815624, 
+        latitude: 22.292454981815624,
         longitude: 73.36299750573762,
       },
     };

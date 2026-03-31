@@ -28,13 +28,15 @@ export default function ChatPage() {
     };
 
     setMessages((prev) => [...prev, userMessage]);
-    setIsLoading(true);
+    // setIsLoading(true);
 
     // Simulate API delay
     await new Promise((resolve) => setTimeout(resolve, 600));
 
     // Get AI response
+    console.log('Sending query to backend:', content);
     const aiResponse = await askCampusAI(content);
+    console.log("AI Response received:", aiResponse);
 
     const aiMessage: Message = {
       id: (Date.now() + 1).toString(),
@@ -43,6 +45,7 @@ export default function ChatPage() {
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       location: aiResponse.location,
     };
+    console.log('Adding AI message to chat:', aiMessage);
 
     setMessages((prev) => [...prev, aiMessage]);
     setIsLoading(false);

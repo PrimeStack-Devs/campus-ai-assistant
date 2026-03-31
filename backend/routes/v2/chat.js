@@ -39,10 +39,12 @@ router.post("/", async (req, res) => {
 
     // 5. Extract the Final Response
     // LangGraph returns the full state; we want the last message generated
+console.log("💬 Full LangGraph Result:", JSON.stringify(result, null, 2));
     const lastMsg = result.messages[result.messages.length - 1];
-    console.log("💬 Final Response:",
-       lastMsg.content,
-       lastMsg.additional_kwargs?.metadata || null,);
+    console.log("💬 Last Message Extracted:", lastMsg);
+    // console.log("💬 Final Response:",
+    //    lastMsg.content,
+    //    lastMsg.additional_kwargs?.metadata || null,);
 
     // 6. Perfect Response Object
     return res.json({

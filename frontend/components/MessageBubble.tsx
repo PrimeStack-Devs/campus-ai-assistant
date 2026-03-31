@@ -28,14 +28,14 @@ export function MessageBubble({ content, isUser, timestamp, location }: MessageB
               : 'bg-gray-200 text-gray-900 rounded-bl-none'
           }`}
         >
-          <p className="text-sm leading-relaxed">{content}</p>
+          <p className="text-md leading-relaxed">{content}</p>
           {timestamp && (
             <p className={`text-xs mt-1 ${isUser ? 'text-blue-100' : 'text-gray-500'}`}>
               {timestamp}
             </p>
           )}
         </div>
-        {!isUser && location && <LocationCard location={location} />}
+        {!isUser && location?.name && <LocationCard location={location} />}
       </div>
     </div>
   );
