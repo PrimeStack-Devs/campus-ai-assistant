@@ -1,6 +1,5 @@
 import express from "express";
-import { campusBot } from "../../services/v2/ragPipeline.js";
-import { HumanMessage } from "@langchain/core/messages";
+import { runCampusBot } from "../../services/v2/ragPipeline.js";
 
 const router = express.Router();
 
@@ -23,36 +22,17 @@ router.post("/", async (req, res) => {
     // If no sessionId is provided by frontend, we fallback to a global one (not recommended for production)
     const threadId = sessionId || "temp_session_" + Date.now();
 
-    // 3. Configure the Graph Execution
-    // The 'thread_id' tells LangGraph which conversation history to load from MemorySaver
-    const config = {
-      configurable: { thread_id: threadId },
-    };
+    // 3. Invoke the Guardrail-aware Campus Bot wrapper
+    const result = await runCampusBot(message, threadId);
 
-    // 4. Invoke the Pipeline
-    const result = await campusBot.invoke(
-      {
-        messages: [new HumanMessage(message)],
-      },
-      config,
-    );
-
-    // 5. Extract the Final Response
-    // LangGraph returns the full state; we want the last message generated
-console.log("💬 Full LangGraph Result:", JSON.stringify(result, null, 2));
-    const lastMsg = result.messages[result.messages.length - 1];
-    console.log("💬 Last Message Extracted:", lastMsg);
-    // console.log("💬 Final Response:",
-    //    lastMsg.content,
-    //    lastMsg.additional_kwargs?.metadata || null,);
-
-    // 6. Perfect Response Object
+    // 4. Perfect Response Object
     return res.json({
       success: true,
       sessionId: threadId,
-      reply: lastMsg.content,
-      // If we found specific JSON metadata (like building coordinates), send it back
-      data: lastMsg.additional_kwargs?.metadata || null,
+      reply: result.response,
+      data: result.metadata || null,
+      queryType: result.query_type || null,
+      source: result.source || null,
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
