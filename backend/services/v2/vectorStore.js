@@ -136,9 +136,8 @@ export const initializeStore = async () => {
     });
   }
 
-  // 2. Create the Memory Vector Store
-  // Add documents in small batches so local embeddings do not try to process
-  // the full campus dataset in one large allocation.
+
+  // Creating the Memory Vector Store
   vectorStore = new MemoryVectorStore(embeddings);
   const batchSize = 8;
 
@@ -148,16 +147,16 @@ export const initializeStore = async () => {
   console.log(`✅ Indexed ${allDocs.length} campus documents.`);
 };
 
-/**
- * Perform semantic search
- */
+
+ // Perform semantic search 
 export const searchCampusData = async (query, limit = 2) => {
   if (!vectorStore) throw new Error("Vector Store not initialized!");
 
-  // Returns [Document, score]. Lower score = Higher similarity.
+  // it returns [Document, score]. Lower score = Higher similarity.
   return await vectorStore.similaritySearchWithScore(query, limit);
 };
 
+// Normalizes strings (lowercase, no symbols) to catch matches like "first-aid" vs "first aid".
 const normalizeText = (value) =>
   String(value || "")
     .toLowerCase()

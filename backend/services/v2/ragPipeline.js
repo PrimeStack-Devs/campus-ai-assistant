@@ -35,36 +35,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
-// ─── Constants ────────────────────────────────────────────────────────────────
-
-/**
- * VECTOR_SCORE_THRESHOLD
- *
- * MemoryVectorStore.similaritySearchWithScore() returns cosine SIMILARITY.
- * Higher = more similar. Range: 0.0 to 1.0.
- *
- * 0.55 = we need at least 55% similarity to trust local vector results.
- * Below this, the query likely has no good local match → fall to web search.
- *
- * Tune this value if you observe too many false positives (lower it)
- * or too many unnecessary web fallbacks (raise it).
- */
 const VECTOR_SCORE_THRESHOLD = 0.55;
 
-/**
- * LOCATION_INTENT_PATTERN
- *
- * Used to guard getCampusPlaceBundle() — only trust its result
- * when the user is actually asking about a location.
- *
- * Without this guard, queries like "placement stats" or "hostel fee"
- * would match a building via keyword scoring and incorrectly suppress
- * the web search fallback.
- */
 const LOCATION_INTENT_PATTERN =
   /\b(where (is|are|can i find|do i go)|location (of|for)|find|how to (reach|get to|find)|directions? (to|for)|route (to|from)|nearest|which (block|building|floor)|take me to)\b/i;
-
-// ─── Format Template Map ──────────────────────────────────────────────────────
 
 const FORMAT_MAP = {
   location: FORMAT_LOCATION,
@@ -80,8 +54,6 @@ function buildSystemPrompt(queryType) {
   return `${CAMPUS_ASSISTANT_SYSTEM_PROMPT}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n${template}`;
 }
 
-// ─── Graph State ──────────────────────────────────────────────────────────────
-
 const GraphState = Annotation.Root({
   messages: Annotation({
     reducer: messagesStateReducer,
@@ -89,15 +61,13 @@ const GraphState = Annotation.Root({
   }),
 });
 
-// ─── LLM ─────────────────────────────────────────────────────────────────────
-
 const llm = new ChatGroq({
   apiKey: process.env.GROQ_API_KEY,
   model: "llama-3.1-8b-instant",
   temperature: 0.1,
 });
 
-// ─── Node 1: Local Data Search ────────────────────────────────────────────────
+//   Node 1: Local Data Search
 
 const callLocalData = async (state) => {
   const lastUserMsg = state.messages[state.messages.length - 1].content;
@@ -108,11 +78,7 @@ const callLocalData = async (state) => {
     `[Graph] Local search | query: "${lastUserMsg}" | type: ${queryType}`,
   );
 
-  // ── Routing Decision 1: Place Bundle ────────────────────────────────────────
-  // Only use getCampusPlaceBundle() when the query has clear location intent.
-  // Without this guard, keyword scoring returns a building for almost any query
-  // (e.g. "placement stats" matches "Placement Cell → C2") and incorrectly
-  // suppresses the web fallback.
+  // Routing Decision 1: Place Bundle
   const isLocationQuery = LOCATION_INTENT_PATTERN.test(lastUserMsg);
   const placeBundle = isLocationQuery
     ? getCampusPlaceBundle(lastUserMsg)
@@ -126,7 +92,7 @@ const callLocalData = async (state) => {
     console.log(`[Graph] Skipping place bundle — not a location query`);
   }
 
-  // ── Semantic Vector Search ───────────────────────────────────────────────────
+  // Semantic Vector Search
   const searchResults = await searchCampusData(lastUserMsg, 4);
   const bestScore = searchResults[0]?.[1] ?? 0;
   const bestMatch = searchResults[0]?.[0];
@@ -135,12 +101,11 @@ const callLocalData = async (state) => {
     `[Graph] Vector search | results: ${searchResults.length} | best score: ${bestScore.toFixed(3)} | threshold: ${VECTOR_SCORE_THRESHOLD}`,
   );
 
-  // ── Routing Decision 2: Vector Match ─────────────────────────────────────────
-  // MemoryVectorStore returns cosine SIMILARITY (higher = better).
-  // Only proceed with local data if score clears the threshold.
+  // Vector search needs to beat the threshold to count as a real match.
+  // Higher score = better similarity.
   const hasGoodVectorMatch = bestMatch && bestScore >= VECTOR_SCORE_THRESHOLD;
 
-  // ── Route: No local data → Web search ────────────────────────────────────────
+  // ── Route: No local data → Web search
   if (!placeBundle && !hasGoodVectorMatch) {
     console.log(
       `[Graph] No confident local match (score: ${bestScore.toFixed(3)}) → routing to web search`,
@@ -148,7 +113,7 @@ const callLocalData = async (state) => {
     return { messages: [new AIMessage("NOT_FOUND_IN_DATA")] };
   }
 
-  // ── Build Context for LLM ────────────────────────────────────────────────────
+  //  Build Context for LLM
   const resultBundle = getRelevantPlaceBundleFromResults(
     lastUserMsg,
     searchResults,
@@ -185,7 +150,7 @@ Structured Campus Data Bundle:
 `.trim()
     : "";
 
-  // ── LLM Call ─────────────────────────────────────────────────────────────────
+  //  LLM Call
   const response = await llm.invoke([
     new SystemMessage(systemPrompt),
     ...state.messages.slice(-3),
@@ -200,9 +165,8 @@ Structured Campus Data Bundle:
     ),
   ]);
 
-  // ── NOT_FOUND_IN_DATA check ───────────────────────────────────────────────────
-  // Must be an exact trim match — LLM sometimes wraps the token in a sentence.
-  // The system prompt instructs it not to, but we guard here too.
+  // Safety check: trim the content because LLMs love to add stray whitespace/punctuation.
+  // If we get the 'not found' token, pivot to a web search.
   if (response.content.trim() === "NOT_FOUND_IN_DATA") {
     console.log("[Graph] LLM signalled NOT_FOUND → routing to web search");
     return { messages: [new AIMessage("NOT_FOUND_IN_DATA")] };
@@ -225,7 +189,7 @@ Structured Campus Data Bundle:
   };
 };
 
-// ─── Node 2: Web Search Fallback ──────────────────────────────────────────────
+//  Node 2: Web Search Fallback
 
 const callWebSearch = async (state) => {
   // Original user query is at length - 2
@@ -236,7 +200,6 @@ const callWebSearch = async (state) => {
 
   const webAnswer = await getWebAnswer(userQuery);
 
-  // ── Nothing found anywhere ────────────────────────────────────────────────────
   if (!webAnswer) {
     console.log("[Graph] Web fallback returned nothing → not found response");
 
@@ -258,7 +221,7 @@ const callWebSearch = async (state) => {
     };
   }
 
-  // ── URL-only source — no scraping, return link directly ──────────────────────
+  //  URL-only source — no scraping, return link directly
   if (webAnswer.is_url_only) {
     return {
       messages: [
@@ -280,7 +243,7 @@ const callWebSearch = async (state) => {
     };
   }
 
-  // ── Scraped content — pass through LLM with web fallback prompt ───────────────
+  //  Scraped content — pass through LLM with web fallback prompt
   const response = await llm.invoke([
     new SystemMessage(WEB_FALLBACK_SYSTEM_PROMPT),
     new HumanMessage(
@@ -319,7 +282,7 @@ const callWebSearch = async (state) => {
   };
 };
 
-// ─── Graph Definition ─────────────────────────────────────────────────────────
+//   Graph Definition
 
 const workflow = new StateGraph(GraphState)
   .addNode("local_search", callLocalData)
@@ -337,17 +300,11 @@ const checkpointer = new MemorySaver();
 
 export const campusBot = workflow.compile({ checkpointer });
 
-// ─── Guardrail-Aware Entry Point ──────────────────────────────────────────────
+//  Guardrail-Aware Entry Point
 
 /**
- * runCampusBot(userMessage, threadId)
- *
- * Single entry point for all queries.
- * Applies guardrails before the graph runs.
- *
- * @param {string} userMessage
- * @param {string} threadId
- * @returns {{ response, metadata, query_type, source }}
+ * Main bot entry point. Applies guardrails before the graph runs.
+ * @returns {Promise<{response, metadata, query_type, source}>}
  */
 export async function runCampusBot(userMessage, threadId = "default") {
   const guardrail = applyGuardrails(userMessage);

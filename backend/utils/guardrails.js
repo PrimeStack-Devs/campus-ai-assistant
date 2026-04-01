@@ -1,18 +1,14 @@
 /**
- * guardrails.js
- * Parul University Smart Campus Assistant
- *
- * Pre-graph guardrail layer. Call applyGuardrails(query) BEFORE
- * the LangGraph workflow runs. If it returns a result, short-circuit
- * the graph and return that response directly to the user.
- *
+ * Guardrail logic for the Campus Assistant.
+* Run this before the main graph to catch blocked or sensitive queries.
+
  * Three tiers:
  *   BLOCKED    → hard stop, no LLM call at all
  *   SENSITIVE  → immediate empathetic response + redirect
  *   OFF_TOPIC  → polite redirect back to campus topics
  */
 
-// ─── Tier 1: Blocked Topics ───────────────────────────────────────────────────
+//  Tier 1: Blocked Topics 
 
 const BLOCKED_PATTERNS = [
   // Harmful content
@@ -37,7 +33,7 @@ const BLOCKED_PATTERNS = [
   /\b(what (is|are) your (system prompt|instructions|rules|constraints))\b/i,
 ];
 
-// ─── Tier 2: Sensitive Topics ─────────────────────────────────────────────────
+//  Tier 2: Sensitive Topics 
 
 const SENSITIVE_TOPICS = [
   {
@@ -149,7 +145,7 @@ Both offices are open Mon–Sat, 9:00 AM – 5:00 PM. They can walk you through 
   },
 ];
 
-// ─── Tier 3: Off-Topic Patterns ───────────────────────────────────────────────
+//  Tier 3: Off-Topic Patterns 
 
 const OFF_TOPIC_PATTERNS = [
   // Coding tutorials / general CS
@@ -177,7 +173,7 @@ const OFF_TOPIC_RESPONSE = `I'm specifically here to help with everything relate
 
 That's a bit outside what I can help with. Is there anything about the campus I can assist you with?`;
 
-// ─── Normalize ────────────────────────────────────────────────────────────────
+//  Normalize 
 
 const normalize = (text) =>
   String(text || "")
@@ -186,27 +182,10 @@ const normalize = (text) =>
     .replace(/\s+/g, " ")
     .trim();
 
-// ─── Main Exports ─────────────────────────────────────────────────────────────
-
+//  Main Exports 
 /**
- * applyGuardrails(query)
- *
- * Call this BEFORE the LangGraph workflow.
- * Returns a guardrail result to short-circuit the graph,
- * or null if the query is safe to proceed.
- *
- * @param {string} query — raw user message
- * @returns {{ tier, id, response, is_critical } | null}
- *
- * Usage:
- *   const guardrail = applyGuardrails(userMessage);
- *   if (guardrail) {
- *     return res.json({
- *       response: guardrail.response,
- *       metadata: { guardrail: true, tier: guardrail.tier, id: guardrail.id }
- *     });
- *   }
- *   // proceed to graph
+ * Checks for blocked or sensitive topics before running the graph.
+ * Returns a response object to short-circuit the flow, or null if safe.
  */
 export function applyGuardrails(query) {
   const normalized = normalize(query);
@@ -255,14 +234,10 @@ export function applyGuardrails(query) {
 }
 
 /**
- * detectQueryType(query)
- *
- * Lightweight classifier that helps select the right
- * response format template from prompts.js.
- *
- * @param {string} query
- * @returns {"location"|"directions"|"person"|"service"|"policy"|"general"}
+ * Picks the best response template for the query.
+ * Returns: location | directions | person | service | policy | general
  */
+
 export function detectQueryType(query) {
   const q = normalize(query);
 

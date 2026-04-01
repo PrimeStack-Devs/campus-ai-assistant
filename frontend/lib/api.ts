@@ -23,7 +23,6 @@ const fecher = async (url: string, data?: any) => {
 }
 // Mock AI response generator - Replace with real API call to /api/chat
 export async function askCampusAI(query: string): Promise<AIResponse> {
-  console.log("ksdjf;lsejfs'ljfkl")
   const response: any = await axios.post("http://localhost:5000/api/v2/chat", { message: query, sessionId: 'dummy-session-id' });
   const data = response.data;
 
