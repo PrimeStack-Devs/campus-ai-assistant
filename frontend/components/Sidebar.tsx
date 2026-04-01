@@ -18,7 +18,7 @@ export function Sidebar() {
     <aside className="w-64 bg-gradient-to-b from-slate-900 to-slate-800 text-white p-6 flex flex-col h-screen">
       <div className="mb-8">
         <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-          Campus AI
+          Dexa AI
         </h1>
         <p className="text-xs text-slate-400 mt-1">Your campus assistant</p>
       </div>
@@ -44,7 +44,7 @@ export function Sidebar() {
       </nav>
 
       <div className="pt-6 border-t border-slate-700">
-        <p className="text-xs text-slate-400 text-center">Made with ❤️ for students</p>
+        <p className="text-xs text-slate-400 text-center">HireMnd</p>
       </div>
     </aside>
   );

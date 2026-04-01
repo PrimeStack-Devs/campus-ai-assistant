@@ -6,7 +6,7 @@ import { InfoCard } from '@/components/InfoCard';
 export default function AboutPage() {
   return (
     <DashboardLayout title="About Campus AI">
-      <div className="p-8 space-y-8 max-w-4xl">
+      <div className="p-8 space-y-8 max-w-4xl--">
         {/* Overview */}
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-8 border border-blue-200">
           <h1 className="text-3xl font-bold text-gray-900 mb-3">Campus AI Assistant</h1>
@@ -55,7 +55,7 @@ export default function AboutPage() {
         </div>
 
         {/* Tech Stack */}
-        <div>
+        {/* <div>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Built With</h2>
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -85,7 +85,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Future Roadmap */}
         <div>
