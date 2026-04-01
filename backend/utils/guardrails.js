@@ -1,14 +1,18 @@
 /**
- * Guardrail logic for the Campus Assistant.
-* Run this before the main graph to catch blocked or sensitive queries.
-
+ * guardrails.js
+ * Parul University Smart Campus Assistant
+ *
+ * Pre-graph guardrail layer. Call applyGuardrails(query) BEFORE
+ * the LangGraph workflow runs. If it returns a result, short-circuit
+ * the graph and return that response directly to the user.
+ *
  * Three tiers:
  *   BLOCKED    → hard stop, no LLM call at all
  *   SENSITIVE  → immediate empathetic response + redirect
  *   OFF_TOPIC  → polite redirect back to campus topics
  */
 
-//  Tier 1: Blocked Topics 
+// ─── Tier 1: Blocked Topics ───────────────────────────────────────────────────
 
 const BLOCKED_PATTERNS = [
   // Harmful content
@@ -33,7 +37,7 @@ const BLOCKED_PATTERNS = [
   /\b(what (is|are) your (system prompt|instructions|rules|constraints))\b/i,
 ];
 
-//  Tier 2: Sensitive Topics 
+// ─── Tier 2: Sensitive Topics ─────────────────────────────────────────────────
 
 const SENSITIVE_TOPICS = [
   {
@@ -145,17 +149,30 @@ Both offices are open Mon–Sat, 9:00 AM – 5:00 PM. They can walk you through 
   },
 ];
 
-//  Tier 3: Off-Topic Patterns 
+// ─── Tier 3: Off-Topic Patterns ───────────────────────────────────────────────
+// ⚠️  Be careful with generic patterns — they can accidentally catch campus queries.
+// Rule: always add a negative lookahead for Parul/university context where needed.
 
 const OFF_TOPIC_PATTERNS = [
-  // Coding tutorials / general CS
+  // Coding tutorials / general CS (not campus-related)
   /\b(write (a |me )?(code|program|function|script) (for|that|to))\b/i,
   /\b(explain (recursion|sorting algorithm|data structure|neural network|blockchain))\b/i,
   /\b(what is (python|javascript|react|html|css|node\.?js) (used for|language|framework))\b/i,
 
-  // General knowledge
-  /\b(capital of|prime minister of|president of|currency of|population of)\b/i,
-  /\b(who (invented|discovered|founded) (?!parul))\b/i,
+  // General knowledge — capital/currency/population are never campus queries
+  /\b(capital of|currency of|population of)\b/i,
+
+  // "prime minister of" is never campus-related
+  /\bprime minister of\b/i,
+
+  // ✅ FIX: "president of" was catching "president of Parul University".
+  // Negative lookahead excludes Parul, PU, and "the university" references.
+  /\bpresident of\s+(?!parul|pu\b|the university|our university)/i,
+
+  // "who founded" — exclude Parul University references
+  /\bwho (invented|discovered|founded)\s+(?!parul|pu\b)/i,
+
+  // Entertainment / sports — clearly off-topic
   /\b(cricket (score|match today|ipl result)|bollywood|movie review|song lyrics)\b/i,
   /\b(stock (market|price)|bitcoin|cryptocurrency)\b/i,
   /\b(recipe (for|of)|how to (cook|make) (food|dish|cake|biryani))\b/i,
@@ -165,7 +182,7 @@ const OFF_TOPIC_PATTERNS = [
   /\b(should i (break up|propose|date)|relationship (advice|problem|issue))\b/i,
   /\b(my (boyfriend|girlfriend|wife|husband) is)\b/i,
 
-  // National politics (not university-related)
+  // National politics — exclude scholarship/education policy references
   /\b(modi|bjp|congress|aap|election result|vote for|political party)\b/i,
 ];
 
@@ -173,7 +190,7 @@ const OFF_TOPIC_RESPONSE = `I'm specifically here to help with everything relate
 
 That's a bit outside what I can help with. Is there anything about the campus I can assist you with?`;
 
-//  Normalize 
+// ─── Normalize ────────────────────────────────────────────────────────────────
 
 const normalize = (text) =>
   String(text || "")
@@ -182,10 +199,17 @@ const normalize = (text) =>
     .replace(/\s+/g, " ")
     .trim();
 
-//  Main Exports 
+// ─── Main Exports ─────────────────────────────────────────────────────────────
+
 /**
- * Checks for blocked or sensitive topics before running the graph.
- * Returns a response object to short-circuit the flow, or null if safe.
+ * applyGuardrails(query)
+ *
+ * Call this BEFORE the LangGraph workflow.
+ * Returns a guardrail result to short-circuit the graph,
+ * or null if the query is safe to proceed.
+ *
+ * @param {string} query — raw user message
+ * @returns {{ tier, id, response, is_critical } | null}
  */
 export function applyGuardrails(query) {
   const normalized = normalize(query);
@@ -203,7 +227,7 @@ export function applyGuardrails(query) {
     }
   }
 
-  // Tier 2 — Sensitive (check critical first, order matters)
+  // Tier 2 — Sensitive (critical topics checked first — order matters)
   for (const topic of SENSITIVE_TOPICS) {
     for (const pattern of topic.patterns) {
       if (pattern.test(normalized)) {
@@ -234,39 +258,54 @@ export function applyGuardrails(query) {
 }
 
 /**
- * Picks the best response template for the query.
- * Returns: location | directions | person | service | policy | general
+ * detectQueryType(query)
+ *
+ * Lightweight classifier to select the right response format template.
+ *
+ * @param {string} query
+ * @returns {"location"|"directions"|"person"|"service"|"policy"|"general"}
  */
-
 export function detectQueryType(query) {
   const q = normalize(query);
 
   if (
-    /\b(how to reach|how do i get|directions? to|route (to|from)|walk(ing)? (to|from)|from (main gate|gate|hostel|block))\b/.test(q)
+    /\b(how to reach|how do i get|directions? to|route (to|from)|walk(ing)? (to|from)|from (main gate|gate|hostel|block))\b/.test(
+      q,
+    )
   ) {
     return "directions";
   }
 
   if (
-    /\b(where is|location of|find|how to find|nearest|where (can i find|do i go))\b/.test(q)
+    /\b(where is|location of|find|how to find|nearest|where (can i find|do i go))\b/.test(
+      q,
+    )
   ) {
     return "location";
   }
 
+  // ✅ Expanded person detection — covers HOD, dean, president, vice chancellor,
+  // registrar, director, and faculty name lookups
   if (
-    /\b(who is|hod|head of department|dean|professor|faculty|staff|contact (of|for)|email (of|for)|phone (of|for))\b/.test(q)
+    /\b(who is|hod|head of department|head of|dean|professor|faculty|staff|contact (of|for)|email (of|for)|phone (of|for)|vice chancellor|registrar|director|president of parul|president of pu|chancellor)\b/.test(
+      q,
+    )
   ) {
     return "person";
   }
 
   if (
-    /\b(timing|timings|open|close|hours|when (does|is|are)|schedule|bus|canteen|mess|library|gym|pool|bank|atm)\b/.test(q)
+    /\b(timing|timings|open|close|hours|when (does|is|are)|schedule|bus|canteen|mess|library|gym|pool|bank|atm)\b/.test(
+      q,
+    )
   ) {
     return "service";
   }
 
   if (
-    /\b(rule|policy|attendance|exam (rule|policy)|backlog|atkt|fine|hostel rule|dress code|conduct|scholarship (rule|process|eligibility))\b/.test(q)
+    /\b(rule|policy|attendance|exam (rule|policy)|backlog|atkt|fine|hostel rule|dress code|conduct|scholarship (rule|process|eligibility))\b/.test(
+      q,
+    )
   ) {
     return "policy";
   }

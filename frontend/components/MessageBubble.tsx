@@ -1,23 +1,44 @@
 'use client';
 
 import { LocationCard } from './LocationCard';
-
-interface LocationData {
-  name: string;
-  building?: string;
-  floor?: string;
-  latitude: number;
-  longitude: number;
-}
+import { SourceCard } from './SourceCard';
+import type { ReactNode } from 'react';
+import type { LocationData, WebSourceData } from '@/lib/api';
 
 interface MessageBubbleProps {
   content: string;
   isUser: boolean;
   timestamp?: string;
   location?: LocationData;
+  webSource?: WebSourceData;
 }
 
-export function MessageBubble({ content, isUser, timestamp, location }: MessageBubbleProps) {
+const URL_PATTERN = /(https?:\/\/[^\s]+)/g;
+const SINGLE_URL_PATTERN = /^https?:\/\/[^\s]+$/;
+
+function renderLineWithLinks(line: string): ReactNode[] {
+  return line.split(URL_PATTERN).map((part, index) => {
+    if (!part) return '';
+
+    if (SINGLE_URL_PATTERN.test(part)) {
+      return (
+        <a
+          key={`${part}-${index}`}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="break-all underline underline-offset-2 hover:opacity-80"
+        >
+          {part}
+        </a>
+      );
+    }
+
+    return part;
+  });
+}
+
+export function MessageBubble({ content, isUser, timestamp, location, webSource }: MessageBubbleProps) {
   console.log('Rendering MessageBubble with content:', content);
   return (
     <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} mb-4`}>
@@ -28,12 +49,13 @@ export function MessageBubble({ content, isUser, timestamp, location }: MessageB
               : 'bg-gray-200 text-gray-900 rounded-bl-none'
             }`}
         >
-
-          <p className="text-md leading-relaxed"> {content.split('\n').map((line, index) => (
-            <p key={index} className="text-md leading-relaxed">
-              {line}
-            </p>
-          ))}</p>
+          <div className="space-y-1">
+            {content.split('\n').map((line, index) => (
+              <p key={index} className="text-md leading-relaxed whitespace-pre-wrap">
+                {renderLineWithLinks(line)}
+              </p>
+            ))}
+          </div>
           {timestamp && (
             <p className={`text-xs mt-1 ${isUser ? 'text-blue-100' : 'text-gray-500'}`}>
               {timestamp}
@@ -41,6 +63,7 @@ export function MessageBubble({ content, isUser, timestamp, location }: MessageB
           )}
         </div>
         {!isUser && location?.name && <LocationCard location={location} />}
+        {!isUser && webSource?.sourceUrl && <SourceCard source={webSource} />}
       </div>
     </div>
   );

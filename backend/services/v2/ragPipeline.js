@@ -35,10 +35,42 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
+// ─── Thresholds ───────────────────────────────────────────────────────────────
+
+/**
+ * VECTOR_SCORE_THRESHOLD
+ * Default minimum cosine similarity to trust a local vector match.
+ * MemoryVectorStore returns similarity (higher = better, range 0–1).
+ */
 const VECTOR_SCORE_THRESHOLD = 0.55;
 
+/**
+ * PERSON_SCORE_THRESHOLD
+ * Lower threshold for person/faculty queries.
+ *
+ * Why lower? Because all-MiniLM-L6-v2 doesn't strongly connect:
+ *   "HOD of MCA"  →  "Head of Department for Master of Computer Application"
+ *   "president of PU"  →  "Vice Chancellor / Managing Trustee"
+ *
+ * A lower threshold ensures we reach the local faculty.json data
+ * instead of incorrectly falling through to web search.
+ *
+ * Tune this down if person queries still miss. Tune up if you get
+ * irrelevant faculty results for non-person queries.
+ */
+const PERSON_SCORE_THRESHOLD = 0.3;
+
+/**
+ * LOCATION_INTENT_PATTERN
+ * Guards getCampusPlaceBundle() — only fires on real location queries.
+ * Without this guard, keyword scoring returns a building for almost any
+ * query (e.g. "placement stats" → Placement Cell → C2) and suppresses
+ * the web fallback unnecessarily.
+ */
 const LOCATION_INTENT_PATTERN =
   /\b(where (is|are|can i find|do i go)|location (of|for)|find|how to (reach|get to|find)|directions? (to|for)|route (to|from)|nearest|which (block|building|floor)|take me to)\b/i;
+
+// ─── Format Templates ─────────────────────────────────────────────────────────
 
 const FORMAT_MAP = {
   location: FORMAT_LOCATION,
@@ -54,6 +86,8 @@ function buildSystemPrompt(queryType) {
   return `${CAMPUS_ASSISTANT_SYSTEM_PROMPT}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n${template}`;
 }
 
+// ─── Graph State ──────────────────────────────────────────────────────────────
+
 const GraphState = Annotation.Root({
   messages: Annotation({
     reducer: messagesStateReducer,
@@ -61,13 +95,15 @@ const GraphState = Annotation.Root({
   }),
 });
 
+// ─── LLM ─────────────────────────────────────────────────────────────────────
+
 const llm = new ChatGroq({
   apiKey: process.env.GROQ_API_KEY,
   model: "llama-3.1-8b-instant",
   temperature: 0.1,
 });
 
-//   Node 1: Local Data Search
+// ─── Node 1: Local Data Search ────────────────────────────────────────────────
 
 const callLocalData = async (state) => {
   const lastUserMsg = state.messages[state.messages.length - 1].content;
@@ -78,7 +114,8 @@ const callLocalData = async (state) => {
     `[Graph] Local search | query: "${lastUserMsg}" | type: ${queryType}`,
   );
 
-  // Routing Decision 1: Place Bundle
+  // ── Routing Decision 1: Place Bundle ────────────────────────────────────────
+  // Only call getCampusPlaceBundle() for real location queries.
   const isLocationQuery = LOCATION_INTENT_PATTERN.test(lastUserMsg);
   const placeBundle = isLocationQuery
     ? getCampusPlaceBundle(lastUserMsg)
@@ -92,28 +129,35 @@ const callLocalData = async (state) => {
     console.log(`[Graph] Skipping place bundle — not a location query`);
   }
 
-  // Semantic Vector Search
-  const searchResults = await searchCampusData(lastUserMsg, 4);
+  // ── Semantic Vector Search ───────────────────────────────────────────────────
+  // Person queries get more results because the exact faculty entry
+  // may be ranked lower due to embedding distance between abbreviated
+  // terms ("HOD", "MCA") and their full forms in the data.
+  const searchLimit = queryType === "person" ? 8 : 4;
+  const searchResults = await searchCampusData(lastUserMsg, searchLimit);
   const bestScore = searchResults[0]?.[1] ?? 0;
   const bestMatch = searchResults[0]?.[0];
 
+  // ── Routing Decision 2: Type-aware threshold ──────────────────────────────
+  // Person queries use a lower threshold because semantic distance between
+  // query terms ("HOD of MCA") and document text ("Head of Department for
+  // Master of Computer Application") is larger than for other query types.
+  const threshold =
+    queryType === "person" ? PERSON_SCORE_THRESHOLD : VECTOR_SCORE_THRESHOLD;
+
+  const hasGoodVectorMatch = bestMatch && bestScore >= threshold;
+
   console.log(
-    `[Graph] Vector search | results: ${searchResults.length} | best score: ${bestScore.toFixed(3)} | threshold: ${VECTOR_SCORE_THRESHOLD}`,
+    `[Graph] Vector search | results: ${searchResults.length} | best score: ${bestScore.toFixed(3)} | threshold: ${threshold} | match: ${hasGoodVectorMatch}`,
   );
 
-  // Vector search needs to beat the threshold to count as a real match.
-  // Higher score = better similarity.
-  const hasGoodVectorMatch = bestMatch && bestScore >= VECTOR_SCORE_THRESHOLD;
-
-  // ── Route: No local data → Web search
+  // ── Route: No local data → Web search ────────────────────────────────────────
   if (!placeBundle && !hasGoodVectorMatch) {
-    console.log(
-      `[Graph] No confident local match (score: ${bestScore.toFixed(3)}) → routing to web search`,
-    );
+    console.log(`[Graph] No confident local match → routing to web search`);
     return { messages: [new AIMessage("NOT_FOUND_IN_DATA")] };
   }
 
-  //  Build Context for LLM
+  // ── Build Context for LLM ────────────────────────────────────────────────────
   const resultBundle = getRelevantPlaceBundleFromResults(
     lastUserMsg,
     searchResults,
@@ -150,7 +194,7 @@ Structured Campus Data Bundle:
 `.trim()
     : "";
 
-  //  LLM Call
+  // ── LLM Call ─────────────────────────────────────────────────────────────────
   const response = await llm.invoke([
     new SystemMessage(systemPrompt),
     ...state.messages.slice(-3),
@@ -165,8 +209,9 @@ Structured Campus Data Bundle:
     ),
   ]);
 
-  // Safety check: trim the content because LLMs love to add stray whitespace/punctuation.
-  // If we get the 'not found' token, pivot to a web search.
+  // ── NOT_FOUND_IN_DATA guard ───────────────────────────────────────────────────
+  // Must be exact trim match. System prompt instructs no wrapping,
+  // but we guard here too in case the LLM adds stray punctuation.
   if (response.content.trim() === "NOT_FOUND_IN_DATA") {
     console.log("[Graph] LLM signalled NOT_FOUND → routing to web search");
     return { messages: [new AIMessage("NOT_FOUND_IN_DATA")] };
@@ -189,7 +234,7 @@ Structured Campus Data Bundle:
   };
 };
 
-//  Node 2: Web Search Fallback
+// ─── Node 2: Web Search Fallback ──────────────────────────────────────────────
 
 const callWebSearch = async (state) => {
   // Original user query is at length - 2
@@ -200,6 +245,7 @@ const callWebSearch = async (state) => {
 
   const webAnswer = await getWebAnswer(userQuery);
 
+  // ── Nothing found anywhere ────────────────────────────────────────────────────
   if (!webAnswer) {
     console.log("[Graph] Web fallback returned nothing → not found response");
 
@@ -221,7 +267,7 @@ const callWebSearch = async (state) => {
     };
   }
 
-  //  URL-only source — no scraping, return link directly
+  // ── URL-only source ───────────────────────────────────────────────────────────
   if (webAnswer.is_url_only) {
     return {
       messages: [
@@ -243,7 +289,7 @@ const callWebSearch = async (state) => {
     };
   }
 
-  //  Scraped content — pass through LLM with web fallback prompt
+  // ── Scraped content → LLM ────────────────────────────────────────────────────
   const response = await llm.invoke([
     new SystemMessage(WEB_FALLBACK_SYSTEM_PROMPT),
     new HumanMessage(
@@ -282,7 +328,8 @@ const callWebSearch = async (state) => {
   };
 };
 
-//   Graph Definition
+// ─── Graph Definition ─────────────────────────────────────────────────────────
+
 const workflow = new StateGraph(GraphState)
   .addNode("local_search", callLocalData)
   .addNode("web_search", callWebSearch)
@@ -299,11 +346,17 @@ const checkpointer = new MemorySaver();
 
 export const campusBot = workflow.compile({ checkpointer });
 
-//  Guardrail-Aware Entry Point
+// ─── Guardrail-Aware Entry Point ──────────────────────────────────────────────
 
 /**
- * Main bot entry point. Applies guardrails before the graph runs.
- * @returns {Promise<{response, metadata, query_type, source}>}
+ * runCampusBot(userMessage, threadId)
+ *
+ * Single entry point for all queries.
+ * Always call this — never call campusBot.invoke() directly.
+ *
+ * @param {string} userMessage
+ * @param {string} threadId
+ * @returns {{ response, metadata, query_type, source }}
  */
 export async function runCampusBot(userMessage, threadId = "default") {
   const guardrail = applyGuardrails(userMessage);

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { DashboardLayout } from '@/components/DashboardLayout';
 import { ChatWindow } from '@/components/ChatWindow';
 import { ChatInput } from '@/components/ChatInput';
-import { askCampusAI, type LocationData } from '@/lib/api';
+import { askCampusAI, type LocationData, type WebSourceData } from '@/lib/api';
 
 interface Message {
   id: string;
@@ -12,6 +12,7 @@ interface Message {
   isUser: boolean;
   timestamp: string;
   location?: LocationData;
+  webSource?: WebSourceData;
 }
 
 export default function ChatPage() {
@@ -28,7 +29,7 @@ export default function ChatPage() {
     };
 
     setMessages((prev) => [...prev, userMessage]);
-    // setIsLoading(true);
+    setIsLoading(true);
 
     // Simulate API delay
     await new Promise((resolve) => setTimeout(resolve, 600));
@@ -44,6 +45,7 @@ export default function ChatPage() {
       isUser: false,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       location: aiResponse.location,
+      webSource: aiResponse.webSource,
     };
     console.log('Adding AI message to chat:', aiMessage);
 

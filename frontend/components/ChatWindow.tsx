@@ -3,14 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { MessageBubble } from './MessageBubble';
 import { TypingIndicator } from './TypingIndicator';
-
-interface LocationData {
-  name: string;
-  building?: string;
-  floor?: string;
-  latitude: number;
-  longitude: number;
-}
+import type { LocationData, WebSourceData } from '@/lib/api';
 
 interface Message {
   id: string;
@@ -18,6 +11,7 @@ interface Message {
   isUser: boolean;
   timestamp: string;
   location?: LocationData;
+  webSource?: WebSourceData;
 }
 
 interface ChatWindowProps {
@@ -56,6 +50,7 @@ export function ChatWindow({ messages, isLoading }: ChatWindowProps) {
                 isUser={message.isUser}
                 timestamp={message.timestamp}
                 location={message.location}
+                webSource={message.webSource}
               />
             ))}
             {isLoading && (
