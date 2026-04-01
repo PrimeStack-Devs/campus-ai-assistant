@@ -1,14 +1,3 @@
-/**
- * prompts.js
- * Parul University Smart Campus Assistant
- *
- * All LLM system prompts live here.
- * Import the one you need — never write prompts inline in the graph.
- */
-
-// ─── 1. Main System Prompt ────────────────────────────────────────────────────
-// Used in callLocalData → injected with structured campus data context.
-// The LLM must feel like a knowledgeable campus guide, not a database reader.
 
 export const CAMPUS_ASSISTANT_SYSTEM_PROMPT = `
 You are Parul — the official Smart Campus Assistant of Parul University, Vadodara.
@@ -108,10 +97,7 @@ This triggers the next pipeline stage automatically.
 `.trim();
 
 
-// ─── 2. Web Fallback Prompt ───────────────────────────────────────────────────
-// Used in callWebSearch → content came from a scraped/cached web page.
-// The student must never know it came from a website scrape.
-// It must feel like a seamless, natural answer.
+// Web Fallback Prompt 
 
 export const WEB_FALLBACK_SYSTEM_PROMPT = `
 You are Parul — the official Smart Campus Assistant of Parul University, Vadodara.
@@ -156,9 +142,6 @@ WHAT YOU NEVER DO
 `.trim();
 
 
-// ─── 3. Not Found Prompt ──────────────────────────────────────────────────────
-// Used when BOTH local data and web fallback return nothing.
-// Should feel empathetic and genuinely helpful, not like an error message.
 
 export const NOT_FOUND_PROMPT = `
 You are Parul — the official Smart Campus Assistant of Parul University, Vadodara.
@@ -189,7 +172,7 @@ WHAT YOU NEVER DO
 `.trim();
 
 
-// ─── 4. Response Format Templates ────────────────────────────────────────────
+// Response Format Templates 
 // Reference strings injected as additional context for specific query types.
 // Append the relevant template to the system prompt when the query type is known.
 
