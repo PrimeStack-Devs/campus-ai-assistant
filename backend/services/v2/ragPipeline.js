@@ -286,8 +286,7 @@ const callWebSearch = async (state) => {
 const workflow = new StateGraph(GraphState)
   .addNode("local_search", callLocalData)
   .addNode("web_search", callWebSearch)
-  // .setEntryPoint("local_search")
-  .addEdge(START, "local_search")
+  .setEntryPoint("local_search")
   .addConditionalEdges("local_search", (state) => {
     const lastMsg = state.messages[state.messages.length - 1];
     return lastMsg.content.trim() === "NOT_FOUND_IN_DATA"
