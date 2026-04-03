@@ -1,5 +1,6 @@
 import express from "express";
 import { runCampusBot } from "../../services/v2/ragPipeline.js";
+import { formatGuardrailResponse, formatResponse } from "../../utils/formatResponse.js";
 
 const router = express.Router();
 
@@ -19,15 +20,30 @@ router.post("/", async (req, res) => {
     //  Invoke the Guardrail-aware Campus Bot wrapper
     const result = await runCampusBot(message, threadId);
 
+    const { reply, replyPlain } =
+      result.metadata?.source === "guardrail" || result.metadata?.guardrail
+        ? formatGuardrailResponse(result.response)
+        : formatResponse(result.response);
+
     return res.json({
       success: true,
       sessionId: threadId,
-      reply: result.response,
+
+      // ── Web (Next.js) ─────────────────────────────────────────────────────
+      // Render this with react-markdown or similar.
+      reply,
+
+      // ── Mobile (React Native) ─────────────────────────────────────────────
+      // Plain text — no markdown symbols. Safe to display in <Text> directly.
+      replyPlain,
+
+      // ── Metadata ──────────────────────────────────────────────────────────
       data: result.metadata || null,
       queryType: result.query_type || null,
       source: result.source || null,
       timestamp: new Date().toISOString(),
     });
+
   } catch (error) {
     console.error("❌ Route Error:", error);
 

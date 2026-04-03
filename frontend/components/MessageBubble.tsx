@@ -4,6 +4,8 @@ import { LocationCard } from './LocationCard';
 import { SourceCard } from './SourceCard';
 import type { ReactNode } from 'react';
 import type { LocationData, WebSourceData } from '@/lib/api';
+import ReactMarkdown from "react-markdown";
+import remarkGfm from 'remark-gfm';
 
 interface MessageBubbleProps {
   content: string;
@@ -49,13 +51,14 @@ export function MessageBubble({ content, isUser, timestamp, location, webSource 
               : 'rounded-bl-none bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-100'
           }`}
         >
-          <div className="space-y-1">
+          {/* <div className="space-y-1">
             {content.split('\n').map((line, index) => (
               <p key={index} className="text-md whitespace-pre-wrap leading-relaxed">
                 {renderLineWithLinks(line)}
               </p>
             ))}
-          </div>
+          </div> */}
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
           {timestamp && (
             <p className={`mt-1 text-xs ${isUser ? 'text-blue-100' : 'text-slate-500 dark:text-slate-400'}`}>
               {timestamp}
