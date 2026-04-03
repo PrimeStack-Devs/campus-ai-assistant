@@ -15,12 +15,12 @@ export function Sidebar() {
   ];
 
   return (
-    <aside className="w-64 bg-gradient-to-b from-slate-900 to-slate-800 text-white p-6 flex flex-col h-screen">
+    <aside className="flex h-screen w-64 flex-col border-r border-slate-200 bg-gradient-to-b from-white via-slate-50 to-slate-100 p-6 text-slate-900 dark:border-slate-800 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900 dark:text-white">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+        <h1 className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-2xl font-bold text-transparent">
           Dexa AI
         </h1>
-        <p className="text-xs text-slate-400 mt-1">Your campus assistant</p>
+        <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Your campus assistant</p>
       </div>
 
       <nav className="flex-1 space-y-2">
@@ -30,21 +30,21 @@ export function Sidebar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
+              className={`flex items-center gap-3 rounded-lg px-4 py-3 transition-all ${
                 isActive
                   ? 'bg-blue-600 text-white shadow-lg'
-                  : 'text-slate-300 hover:bg-slate-700 hover:text-white'
+                  : 'text-slate-600 hover:bg-slate-200 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
               }`}
             >
-              <span className="text-xl">{item.icon}</span>
+              <span className="text-sm font-semibold uppercase tracking-wide">{item.icon}</span>
               <span className="font-medium">{item.label}</span>
             </Link>
           );
         })}
       </nav>
 
-      <div className="pt-6 border-t border-slate-700">
-        <p className="text-xs text-slate-400 text-center">HireMnd</p>
+      <div className="border-t border-slate-200 pt-6 dark:border-slate-800">
+        <p className="text-center text-xs text-slate-500 dark:text-slate-400">HireMnd</p>
       </div>
     </aside>
   );

@@ -10,24 +10,24 @@ interface InfoCardProps {
 
 export function InfoCard({ icon, title, description, details, badge }: InfoCardProps) {
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-5 hover:shadow-lg transition-shadow">
-      <div className="flex items-start justify-between mb-3">
+    <div className="rounded-lg border border-slate-200 bg-white p-5 transition-all hover:-translate-y-0.5 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-black/10">
+      <div className="mb-3 flex items-start justify-between">
         <div>
-          {icon && <span className="text-3xl mb-2 block">{icon}</span>}
-          <h3 className="font-bold text-gray-900 text-lg">{title}</h3>
+          {icon && <span className="mb-2 block text-3xl">{icon}</span>}
+          <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">{title}</h3>
         </div>
         {badge && (
-          <span className="text-xs font-semibold px-2 py-1 bg-blue-100 text-blue-700 rounded-full">
+          <span className="rounded-full bg-blue-100 px-2 py-1 text-xs font-semibold text-blue-700 dark:bg-blue-500/15 dark:text-blue-300">
             {badge}
           </span>
         )}
       </div>
-      <p className="text-gray-600 text-sm mb-3">{description}</p>
+      <p className="mb-3 text-sm text-slate-600 dark:text-slate-300">{description}</p>
       {details && details.length > 0 && (
-        <ul className="space-y-2 text-sm text-gray-700">
+        <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
           {details.map((detail, i) => (
             <li key={i} className="flex items-start gap-2">
-              <span className="text-blue-600 mt-1">•</span>
+              <span className="mt-1 text-blue-600 dark:text-blue-400">*</span>
               <span>{detail}</span>
             </li>
           ))}

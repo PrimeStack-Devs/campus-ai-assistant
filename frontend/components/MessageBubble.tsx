@@ -39,25 +39,25 @@ function renderLineWithLinks(line: string): ReactNode[] {
 }
 
 export function MessageBubble({ content, isUser, timestamp, location, webSource }: MessageBubbleProps) {
-  console.log('Rendering MessageBubble with content:', content);
   return (
-    <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} mb-4`}>
+    <div className={`mb-4 flex ${isUser ? 'justify-end' : 'justify-start'}`}>
       <div className={isUser ? 'max-w-xs lg:max-w-md' : 'w-full max-w-2xl'}>
         <div
-          className={`px-4 py-3 rounded-2xl ${isUser
-              ? 'bg-blue-600 text-white rounded-br-none'
-              : 'bg-gray-200 text-gray-900 rounded-bl-none'
-            }`}
+          className={`rounded-2xl px-4 py-3 ${
+            isUser
+              ? 'rounded-br-none bg-blue-600 text-white'
+              : 'rounded-bl-none bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-100'
+          }`}
         >
           <div className="space-y-1">
             {content.split('\n').map((line, index) => (
-              <p key={index} className="text-md leading-relaxed whitespace-pre-wrap">
+              <p key={index} className="text-md whitespace-pre-wrap leading-relaxed">
                 {renderLineWithLinks(line)}
               </p>
             ))}
           </div>
           {timestamp && (
-            <p className={`text-xs mt-1 ${isUser ? 'text-blue-100' : 'text-gray-500'}`}>
+            <p className={`mt-1 text-xs ${isUser ? 'text-blue-100' : 'text-slate-500 dark:text-slate-400'}`}>
               {timestamp}
             </p>
           )}

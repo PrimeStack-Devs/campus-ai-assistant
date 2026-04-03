@@ -7,26 +7,24 @@ import { facilities, clubs, academicInfo, contacts } from '@/lib/mockData';
 export default function CampusInfoPage() {
   return (
     <DashboardLayout title="Campus Information">
-      <div className="p-8 space-y-8">
-        {/* Facilities Section */}
+      <div className="space-y-8 p-8">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Facilities</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <h2 className="mb-4 text-2xl font-bold text-slate-900 dark:text-slate-100">Facilities</h2>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {facilities.map((facility) => (
               <InfoCard
                 key={facility.id}
                 title={facility.name}
                 description={`Hours: ${facility.hours}`}
-                details={[`📍 ${facility.location}`, ...facility.amenities.map((a) => `✓ ${a}`)]}
+                details={[`Location: ${facility.location}`, ...facility.amenities.map((a) => `Amenity: ${a}`)]}
               />
             ))}
           </div>
         </div>
 
-        {/* Clubs Section */}
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Clubs & Organizations</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <h2 className="mb-4 text-2xl font-bold text-slate-900 dark:text-slate-100">Clubs & Organizations</h2>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {clubs.map((club) => (
               <InfoCard
                 key={club.id}
@@ -39,20 +37,18 @@ export default function CampusInfoPage() {
           </div>
         </div>
 
-        {/* Academic Resources Section */}
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Academic Resources</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <h2 className="mb-4 text-2xl font-bold text-slate-900 dark:text-slate-100">Academic Resources</h2>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {academicInfo.map((info, i) => (
               <InfoCard key={i} title={info.title} description={info.description} />
             ))}
           </div>
         </div>
 
-        {/* Quick Contacts Section */}
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Important Contacts</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <h2 className="mb-4 text-2xl font-bold text-slate-900 dark:text-slate-100">Important Contacts</h2>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {contacts.map((contact, i) => (
               <InfoCard
                 key={i}

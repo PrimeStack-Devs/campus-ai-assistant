@@ -16,15 +16,14 @@ export default function EventsPage() {
 
   return (
     <DashboardLayout title="Campus Events">
-      <div className="p-8 space-y-6">
-        {/* Category Filter */}
-        <div className="flex gap-2 flex-wrap">
+      <div className="space-y-6 p-8">
+        <div className="flex flex-wrap gap-2">
           <button
             onClick={() => setSelectedCategory(null)}
-            className={`px-4 py-2 rounded-full font-medium transition-colors ${
+            className={`rounded-full px-4 py-2 font-medium transition-colors ${
               selectedCategory === null
                 ? 'bg-blue-600 text-white'
-                : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+                : 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800'
             }`}
           >
             All Events
@@ -33,10 +32,10 @@ export default function EventsPage() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-full font-medium transition-colors capitalize ${
+              className={`rounded-full px-4 py-2 font-medium capitalize transition-colors ${
                 selectedCategory === cat
                   ? 'bg-blue-600 text-white'
-                  : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+                  : 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800'
               }`}
             >
               {cat}
@@ -44,8 +43,7 @@ export default function EventsPage() {
           ))}
         </div>
 
-        {/* Events Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {filteredEvents.map((event) => (
             <EventCard
               key={event.id}
@@ -60,8 +58,8 @@ export default function EventsPage() {
         </div>
 
         {filteredEvents.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">No events found in this category.</p>
+          <div className="py-12 text-center">
+            <p className="text-lg text-slate-500 dark:text-slate-400">No events found in this category.</p>
           </div>
         )}
       </div>

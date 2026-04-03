@@ -31,14 +31,14 @@ export function ChatWindow({ messages, isLoading }: ChatWindowProps) {
   }, [messages, isLoading]);
 
   return (
-    <div className="flex flex-col h-full bg-white">
-      <div className="flex-1 overflow-y-auto p-6 space-y-4">
+    <div className="flex h-full flex-col bg-white dark:bg-slate-950">
+      <div className="flex-1 space-y-4 overflow-y-auto p-6">
         {messages.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-full text-center">
-            <div className="text-5xl mb-4">🤖</div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Welcome to Campus AI</h3>
-            <p className="text-gray-600 max-w-md">
-              Ask me anything about campus events, facilities, clubs, academics, or contacts. I'm here to help!
+          <div className="flex h-full flex-col items-center justify-center text-center">
+            <div className="mb-4 text-5xl">Dexa</div>
+            <h3 className="mb-2 text-2xl font-bold text-slate-900 dark:text-slate-100">Welcome to Campus AI</h3>
+            <p className="max-w-md text-slate-600 dark:text-slate-300">
+              Ask me anything about campus events, facilities, clubs, academics, or contacts. I&apos;m here to help!
             </p>
           </div>
         ) : (
@@ -54,7 +54,7 @@ export function ChatWindow({ messages, isLoading }: ChatWindowProps) {
               />
             ))}
             {isLoading && (
-              <div className="flex gap-2 items-center text-gray-600">
+              <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
                 <TypingIndicator />
               </div>
             )}
