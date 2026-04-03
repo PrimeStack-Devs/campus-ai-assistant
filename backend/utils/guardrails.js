@@ -199,6 +199,11 @@ const normalize = (text) =>
     .replace(/\s+/g, " ")
     .trim();
 
+const hasCampusContext = (text) =>
+  /\b(parul|parul university|pu\b|campus|university|college|hostel|department|faculty|event|fest)\b/i.test(
+    text,
+  );
+
 // ─── Main Exports ─────────────────────────────────────────────────────────────
 
 /**
@@ -244,6 +249,17 @@ export function applyGuardrails(query) {
   // Tier 3 — Off-topic (polite redirect)
   for (const pattern of OFF_TOPIC_PATTERNS) {
     if (pattern.test(normalized)) {
+      // Allow campus-context entertainment/event questions such as
+      // "which bollywood celebrities come at Parul University?"
+      if (
+        /\b(bollywood|celebrity|celebrities|movie review|song lyrics|cricket|ipl)\b/i.test(
+          normalized,
+        ) &&
+        hasCampusContext(normalized)
+      ) {
+        continue;
+      }
+
       return {
         tier: "off_topic",
         id: "off_topic",
