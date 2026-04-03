@@ -1,9 +1,4 @@
 /**
- * webCache.js
- * Parul University Smart Campus Assistant
- * 
- * Agent-facing helper for the web source fallback layer.
- * Used by the query pipeline when local JSON files don't have the answer.
  * 
  * Flow:
  *   1. matchSource(query)  → finds the best matching source from web_sources.json

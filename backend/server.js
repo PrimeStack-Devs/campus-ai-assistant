@@ -14,7 +14,7 @@ import { connectRedis } from "./config/redis.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-await connectRedis(); // ✅ THIS IS IMPORTANT
+await connectRedis(); 
 dotenv.config({ path: path.join(__dirname, ".env") });
 
 const app = express();
@@ -34,26 +34,26 @@ const startServer = async () => {
   try {
     console.log("Starting server initialization...");
 
-    // 1️⃣ Load PDF documents
+    // Load PDF documents
     console.log("Processing PDF...");
     const pdfDocs = await extractPDFDocs(path.join(__dirname, "data", "handbook.pdf"));
 
-    // 2️⃣ Initialize Static RAG
+    // Initialize Static RAG
     console.log("Initializing RAG...");
     await initializeRAG(pdfDocs);
     await initializeProfessorService();
 
-    // 3️⃣ Initialize v2 Campus Vector Store
+    // Initialize v2 Campus Vector Store
     console.log("Initializing Campus Vector Store...");
     await initializeStore();
 
-    // 4️⃣ Initialize Embedding Router
+    // Initialize Embedding Router
     console.log("Initializing Router...");
     await initializeRouter();
 
     console.log("System Ready.");
 
-    // 5️⃣ Start Express Server
+    // Start Express Server
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);

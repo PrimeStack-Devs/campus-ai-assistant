@@ -1,17 +1,9 @@
 /**
- * scraper.cron.js
- * Parul University Smart Campus Assistant
- * 
- * Reads web_sources.json and runs scheduled scraping jobs.
- * Stores extracted content in Redis with TTL per source type.
  * 
  * Cron schedules:
  *   - daily_midnight  → 0 0 * * *   (informational sources)
  *   - twice_daily     → 0 0,12 * * * (dynamic sources)
  *   - weekly          → 0 0 * * 0   (legal + external sources)
- * 
- * Dependencies:
- *   npm install node-cron axios cheerio redis dotenv
  */
 
 import cron from 'node-cron';
