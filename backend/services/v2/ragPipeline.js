@@ -39,10 +39,10 @@ dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
 /**
  * VECTOR_SCORE_THRESHOLD
- * Default minimum cosine similarity to trust a local vector match.
- * MemoryVectorStore returns similarity (higher = better, range 0–1).
+ * Minimum semantic match score to trust a local vector result.
+ * Empirically, relevant local matches often land around 0.40-0.60.
  */
-const VECTOR_SCORE_THRESHOLD = 0.55;
+const VECTOR_SCORE_THRESHOLD = 0.4;
 
 /**
  * PERSON_SCORE_THRESHOLD
@@ -87,6 +87,48 @@ function buildSystemPrompt(queryType) {
 }
 
 // ─── Graph State ──────────────────────────────────────────────────────────────
+
+function buildWebFallbackPrompt(webAnswer, userQuery) {
+  const queryLower = userQuery.toLowerCase();
+  const isStudentAchievementsSource =
+    webAnswer.source_id === "src_student_achievements";
+
+  const genericListInstruction = `
+
+ADDITIONAL RESPONSE RULES FOR LIST-HEAVY PAGES
+- If the content is a long list, do not copy the full list into the answer.
+- Summarise the main pattern first, then include only 3-6 representative examples.
+- Prefer grouping examples by type when the student asked a broad question.
+- Do not add filler lines such as "These are just a few..." or congratulatory intros.
+- Do not add caution notes for official sources unless explicitly instructed.
+`.trim();
+
+  if (isStudentAchievementsSource) {
+    return `${WEB_FALLBACK_SYSTEM_PROMPT}
+
+SOURCE-SPECIFIC INSTRUCTION: STUDENT ACHIEVEMENTS
+- The student is asking about Parul University student achievements.
+- Give a short summary first covering the kinds of achievements visible on the page.
+- Group the highlights into simple themes like placements, competitions, internships, research, entrepreneurship, robotics, public speaking, or cultural achievements when relevant.
+- Mention only 4-6 representative highlights unless the student explicitly asks for the full list.
+- If the student asks for "latest" or "recent" achievements, prioritise the most recent dated items visible in the provided content.
+- Keep the answer natural, warm, and easy to read in 1 short paragraph or a very short bullet list.
+
+${genericListInstruction}`;
+  }
+
+  const looksLikeBroadAchievementsQuery =
+    queryLower.includes("achievement") &&
+    !/\b(latest|recent|specific|all)\b/i.test(userQuery);
+
+  if (looksLikeBroadAchievementsQuery) {
+    return `${WEB_FALLBACK_SYSTEM_PROMPT}
+
+${genericListInstruction}`;
+  }
+
+  return WEB_FALLBACK_SYSTEM_PROMPT;
+}
 
 const GraphState = Annotation.Root({
   messages: Annotation({
@@ -218,7 +260,7 @@ Structured Campus Data Bundle:
   }
 
   const responseMetadata =
-    resultBundle || placeBundle || bestMatch?.metadata || null;
+    placeBundle || resultBundle || bestMatch?.metadata || null;
 
   return {
     messages: [
@@ -276,6 +318,7 @@ const callWebSearch = async (state) => {
           additional_kwargs: {
             metadata: {
               type: "web_source",
+              source_id: webAnswer.source_id || null,
               source_label: webAnswer.source_label,
               source_url: webAnswer.source_url,
               cached: webAnswer.cached,
@@ -290,10 +333,12 @@ const callWebSearch = async (state) => {
   }
 
   // ── Scraped content → LLM ────────────────────────────────────────────────────
+  const webSystemPrompt = buildWebFallbackPrompt(webAnswer, userQuery);
   const response = await llm.invoke([
-    new SystemMessage(WEB_FALLBACK_SYSTEM_PROMPT),
+    new SystemMessage(webSystemPrompt),
     new HumanMessage(
       [
+        webAnswer.source_id ? `Source ID: ${webAnswer.source_id}` : "",
         `Source: ${webAnswer.source_label}`,
         `URL: ${webAnswer.source_url}`,
         webAnswer.disclosure ? `Disclosure: ${webAnswer.disclosure}` : "",
@@ -315,6 +360,7 @@ const callWebSearch = async (state) => {
         additional_kwargs: {
           metadata: {
             type: "web_source",
+            source_id: webAnswer.source_id || null,
             source_label: webAnswer.source_label,
             source_url: webAnswer.source_url,
             cached: webAnswer.cached,
@@ -328,7 +374,7 @@ const callWebSearch = async (state) => {
   };
 };
 
-// ─── Graph Definition ─────────────────────────────────────────────────────────
+// Graph Definition 
 
 const workflow = new StateGraph(GraphState)
   .addNode("local_search", callLocalData)
@@ -346,7 +392,7 @@ const checkpointer = new MemorySaver();
 
 export const campusBot = workflow.compile({ checkpointer });
 
-// ─── Guardrail-Aware Entry Point ──────────────────────────────────────────────
+// Guardrail-Aware Entry Point
 
 /**
  * runCampusBot(userMessage, threadId)

@@ -201,6 +201,7 @@ export async function getWebAnswer(query) {
   if (!source.fetch_strategy.scrape) {
     return {
       content: null,
+      source_id: source.id,
       source_url: source.url,
       source_label: source.label,
       is_url_only: true,
@@ -216,6 +217,7 @@ export async function getWebAnswer(query) {
   if (cached) {
     return {
       content: cached.content,
+      source_id: source.id,
       source_url: source.url,
       source_label: source.label,
       is_url_only: false,
@@ -235,6 +237,7 @@ export async function getWebAnswer(query) {
 
   return {
     content: live.content,
+    source_id: source.id,
     source_url: source.url,
     source_label: source.label,
     is_url_only: false,

@@ -118,6 +118,38 @@
     },
 
     {
+      "id": "src_student_achievements",
+      "label": "Student Achievements",
+      "url": "https://technical.events.paruluniversity.ac.in/student.html",
+      "description": "Highlights of student achievements including technical accomplishments, awards, competition results, recognitions, and notable student success stories at Parul University.",
+      "intent_keywords": [
+        "student achievements parul university",
+        "parul university student achievements",
+        "student awards parul",
+        "student accomplishments parul",
+        "technical achievements parul university",
+        "student success stories parul",
+        "competition winners parul university",
+        "student recognition parul university",
+        "parul university achievers",
+        "student achievements"
+      ],
+      "type": "dynamic",
+      "priority": 2,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "student achievement listings, awards, recognitions, and event outcomes",
+        "scrape": true
+      },
+      "redis": {
+        "key": "pu:web:student_achievements",
+        "ttl_hours": 48,
+        "cron": "0 0,12 * * *",
+        "cron_label": "twice_daily"
+      }
+    },
+
+    {
       "id": "src_placements",
       "label": "Training & Placement Cell",
       "url": "https://paruluniversity.ac.in/training-placement-cell/",
