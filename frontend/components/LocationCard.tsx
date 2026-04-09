@@ -39,7 +39,7 @@ export function LocationCard({ location }: LocationCardProps) {
       </div>
 
       <div className="mb-4">
-        <MapPreview
+        <MapPreview 
           latitude={location.latitude}
           longitude={location.longitude}
           locationName={location.name}
