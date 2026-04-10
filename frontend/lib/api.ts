@@ -1,5 +1,30 @@
 import axios from 'axios';
 
+const SESSION_STORAGE_KEY = 'campus-ai-session-id';
+
+function createSessionId() {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    return crypto.randomUUID();
+  }
+
+  return `web-session-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+}
+
+function getSessionId() {
+  if (typeof window === 'undefined') {
+    return 'server-session';
+  }
+
+  const existingSessionId = window.localStorage.getItem(SESSION_STORAGE_KEY);
+  if (existingSessionId) {
+    return existingSessionId;
+  }
+
+  const newSessionId = createSessionId();
+  window.localStorage.setItem(SESSION_STORAGE_KEY, newSessionId);
+  return newSessionId;
+}
+
 export interface LocationData {
   name: string;
   building?: string;
@@ -52,7 +77,7 @@ type ResponsePayload = PlaceBundlePayload | WebSourcePayload | null | undefined;
 export async function askCampusAI(query: string): Promise<AIResponse> {
   const response = await axios.post('http://localhost:5000/api/v2/chat', {
     message: query,
-    sessionId: 'dummy-session-id',
+    sessionId: getSessionId(),
   });
 
   const apiData = response.data;
