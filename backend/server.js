@@ -12,56 +12,113 @@ import { initializeRouter } from "./services/router.js";
 import { initializeStore } from "./services/v2/vectorStore.js";
 import { connectRedis } from "./config/redis.js";
 
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
+// await connectRedis();
+// dotenv.config({ path: path.join(__dirname, ".env") });
+
+// const app = express();
+
+// app.use(cors());
+// app.use(express.json());
+
+// // API Routes
+// app.use("/api/chat", chatRoutes);
+// app.use("/api/v2/chat", chatRoutesV2);
+
+// // ============================
+// // SERVER STARTUP
+// // ============================
+
+// const startServer = async () => {
+//   try {
+//     console.log("Starting server initialization...");
+
+//     // Load PDF documents
+//     console.log("Processing PDF...");
+//     const pdfDocs = await extractPDFDocs(path.join(__dirname, "data", "handbook.pdf"));
+
+//     // Initialize Static RAG
+//     console.log("Initializing RAG...");
+//     await initializeRAG(pdfDocs);
+//     await initializeProfessorService();
+
+//     // Initialize v2 Campus Vector Store
+//     console.log("Initializing Campus Vector Store...");
+//     await initializeStore();
+
+//     // Initialize Embedding Router
+//     console.log("Initializing Router...");
+//     await initializeRouter();
+
+//     console.log("System Ready.");
+
+//     // Start Express Server
+//     const PORT = process.env.PORT || 5000;
+//     app.listen(PORT, () => {
+//       console.log(`Server running on port ${PORT}`);
+//     });
+
+//   } catch (error) {
+//     console.error("Startup error:", error);
+//   }
+// };
+
+// startServer();
+// export default app;
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-await connectRedis(); 
+
 dotenv.config({ path: path.join(__dirname, ".env") });
 
 const app = express();
-
 app.use(cors());
 app.use(express.json());
-
-// API Routes
+ 
 app.use("/api/chat", chatRoutes);
 app.use("/api/v2/chat", chatRoutesV2);
+ 
+let isInitialized = false;
 
-// ============================
-// SERVER STARTUP
-// ============================
+const initializeSystem = async () => {
+  if (isInitialized) return;
 
-const startServer = async () => {
   try {
-    console.log("Starting server initialization...");
+    console.log("Initializing services...");
+    await connectRedis();
 
-    // Load PDF documents
-    console.log("Processing PDF...");
-    const pdfDocs = await extractPDFDocs(path.join(__dirname, "data", "handbook.pdf"));
+    const pdfDocs = await extractPDFDocs(
+      path.join(__dirname, "data", "handbook.pdf"),
+    );
 
-    // Initialize Static RAG
-    console.log("Initializing RAG...");
     await initializeRAG(pdfDocs);
     await initializeProfessorService();
-
-    // Initialize v2 Campus Vector Store
-    console.log("Initializing Campus Vector Store...");
     await initializeStore();
-
-    // Initialize Embedding Router
-    console.log("Initializing Router...");
     await initializeRouter();
 
+    isInitialized = true;
     console.log("System Ready.");
-
-    // Start Express Server
-    const PORT = process.env.PORT || 5000;
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
-
   } catch (error) {
-    console.error("Startup error:", error);
+    console.error("Initialization error:", error);
+    throw error;
   }
 };
+ 
+app.use(async (req, res, next) => {
+  try {
+    await initializeSystem();
+    next();
+  } catch (err) {
+    res.status(500).send("Server failed to initialize");
+  }
+});
+ 
+if (process.env.NODE_ENV !== "production") {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`Local server running on port ${PORT}`);
+  });
+}
 
-startServer();
+export default app;
