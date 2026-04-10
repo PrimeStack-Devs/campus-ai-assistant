@@ -15,9 +15,9 @@ export function Sidebar() {
   ];
 
   return (
-    <aside className="flex h-screen w-64 flex-col border-r border-slate-200 bg-gradient-to-b from-white via-slate-50 to-slate-100 p-6 text-slate-900 dark:border-slate-800 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900 dark:text-white">
+    <aside className="flex h-screen w-64 flex-col border-r border-slate-200 bg-linear-to-b from-white via-slate-50 to-slate-100 p-6 text-slate-900 dark:border-slate-800 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900 dark:text-white">
       <div className="mb-8">
-        <h1 className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-2xl font-bold text-transparent">
+        <h1 className="bg-linear-to-r from-blue-400 to-blue-600 bg-clip-text text-2xl font-bold text-transparent">
           Dexa AI
         </h1>
         <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Your campus assistant</p>
