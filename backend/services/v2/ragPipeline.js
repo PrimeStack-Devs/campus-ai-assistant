@@ -70,145 +70,6 @@ const PERSON_SCORE_THRESHOLD = 0.3;
 const LOCATION_INTENT_PATTERN =
   /\b(where (is|are|can i find|do i go)|location (of|for)|find|how to (reach|get to|find)|directions? (to|for)|route (to|from)|nearest|which (block|building|floor)|take me to)\b/i;
 
-const FOLLOW_UP_REFERENCE_PATTERN =
-  /\b(he|she|they|them|their|his|her|it|its|this|that|these|those|there|here|same)\b/i;
-const FOLLOW_UP_START_PATTERN =
-  /^(and|also|what about|how about|which|what|where|when|who|tell me|his|her|their)\b/i;
-const SUBJECT_QUERY_PATTERN = /\b(subject|subjects|teach|teaches|teaching)\b/i;
-const CONTACT_QUERY_PATTERN = /\b(contact|email|mail|phone|number)\b/i;
-const LOCATION_QUERY_PATTERN =
-  /\b(where|room|office|floor|building|location|cabin|sit)\b/i;
-
-const replaceScalarState = (left, right) => right ?? left ?? null;
-
-function normalizeQueryText(text) {
-  return String(text || "")
-    .toLowerCase()
-    .replace(/[^\w\s]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function getMessageType(message) {
-  return message?._getType?.() || message?.getType?.() || message?.type || null;
-}
-
-function findPreviousMessageOfType(messages, type, beforeIndex) {
-  for (let index = beforeIndex - 1; index >= 0; index -= 1) {
-    if (getMessageType(messages[index]) === type) {
-      return messages[index];
-    }
-  }
-
-  return null;
-}
-
-function summarizeMetadataForFollowUp(metadata) {
-  if (!metadata) return null;
-
-  const matchedEntity = metadata.matched_entity || null;
-  const destination = metadata.destination || null;
-  const entityName =
-    matchedEntity?.name ||
-    metadata.name ||
-    metadata.label ||
-    metadata.title ||
-    destination?.name ||
-    null;
-
-  const tokens = [
-    entityName,
-    metadata.designation,
-    metadata.department_name,
-    matchedEntity?.category,
-    matchedEntity?.building_name,
-    metadata.building_name,
-    destination?.name,
-    destination?.code,
-    metadata.room,
-  ].filter(Boolean);
-
-  return {
-    entityName,
-    context: tokens.join(" "),
-  };
-}
-
-function looksLikeContextualFollowUp(query) {
-  const normalizedQuery = normalizeQueryText(query);
-  if (!normalizedQuery) return false;
-
-  const words = normalizedQuery.split(" ").filter(Boolean);
-
-  return (
-    FOLLOW_UP_REFERENCE_PATTERN.test(normalizedQuery) ||
-    FOLLOW_UP_START_PATTERN.test(normalizedQuery) ||
-    words.length <= 5
-  );
-}
-
-function buildContextualRetrievalQuery(state, rawUserMsg) {
-  const currentIndex = state.messages.length - 1;
-  const previousUserMessage = findPreviousMessageOfType(
-    state.messages,
-    "human",
-    currentIndex,
-  );
-  const previousAIMessage = findPreviousMessageOfType(
-    state.messages,
-    "ai",
-    currentIndex,
-  );
-
-  if (!previousUserMessage || !looksLikeContextualFollowUp(rawUserMsg)) {
-    return rawUserMsg;
-  }
-
-  const previousMetadata = previousAIMessage?.additional_kwargs?.metadata || null;
-  const metadataSummary = summarizeMetadataForFollowUp(previousMetadata);
-  const previousQuestion = previousUserMessage.content;
-  const entityName = metadataSummary?.entityName || "";
-  const context = metadataSummary?.context || "";
-  const normalizedQuery = normalizeQueryText(rawUserMsg);
-
-  if (SUBJECT_QUERY_PATTERN.test(normalizedQuery)) {
-    return [
-      entityName,
-      context,
-      previousQuestion,
-      "subjects taught",
-    ]
-      .filter(Boolean)
-      .join(" ");
-  }
-
-  if (CONTACT_QUERY_PATTERN.test(normalizedQuery)) {
-    return [
-      entityName,
-      context,
-      previousQuestion,
-      "contact email phone",
-    ]
-      .filter(Boolean)
-      .join(" ");
-  }
-
-  if (LOCATION_QUERY_PATTERN.test(normalizedQuery)) {
-    return [
-      entityName,
-      context,
-      previousQuestion,
-      "office room floor building location",
-    ]
-      .filter(Boolean)
-      .join(" ");
-  }
-
-  return [rawUserMsg, entityName, context, previousQuestion]
-    .filter(Boolean)
-    .join(" ");
-}
-
 // ─── Format Templates ─────────────────────────────────────────────────────────
 
 const FORMAT_MAP = {
@@ -274,10 +135,6 @@ const GraphState = Annotation.Root({
     reducer: messagesStateReducer,
     default: () => [],
   }),
-  resolvedQuery: Annotation({
-    reducer: replaceScalarState,
-    default: () => null,
-  }),
 });
 
 // ─── LLM ─────────────────────────────────────────────────────────────────────
@@ -292,24 +149,18 @@ const llm = new ChatGroq({
 
 const callLocalData = async (state) => {
   const lastUserMsg = state.messages[state.messages.length - 1].content;
-  const resolvedQuery = buildContextualRetrievalQuery(state, lastUserMsg);
-  const queryType = detectQueryType(resolvedQuery);
+  const queryType = detectQueryType(lastUserMsg);
   const systemPrompt = buildSystemPrompt(queryType);
 
-  const logSuffix =
-    resolvedQuery !== lastUserMsg
-      ? ` | resolved: "${resolvedQuery}"`
-      : "";
-
   console.log(
-    `[Graph] Local search | query: "${lastUserMsg}"${logSuffix} | type: ${queryType}`,
+    `[Graph] Local search | query: "${lastUserMsg}" | type: ${queryType}`,
   );
 
   // ── Routing Decision 1: Place Bundle ────────────────────────────────────────
   // Only call getCampusPlaceBundle() for real location queries.
-  const isLocationQuery = LOCATION_INTENT_PATTERN.test(resolvedQuery);
+  const isLocationQuery = LOCATION_INTENT_PATTERN.test(lastUserMsg);
   const placeBundle = isLocationQuery
-    ? getCampusPlaceBundle(resolvedQuery)
+    ? getCampusPlaceBundle(lastUserMsg)
     : null;
 
   if (placeBundle) {
@@ -320,16 +171,16 @@ const callLocalData = async (state) => {
     console.log(`[Graph] Skipping place bundle — not a location query`);
   }
 
-  //  Semantic Vector Search 
+  // ── Semantic Vector Search ───────────────────────────────────────────────────
   // Person queries get more results because the exact faculty entry
   // may be ranked lower due to embedding distance between abbreviated
   // terms ("HOD", "MCA") and their full forms in the data.
   const searchLimit = queryType === "person" ? 8 : 4;
-  const searchResults = await searchCampusData(resolvedQuery, searchLimit);
+  const searchResults = await searchCampusData(lastUserMsg, searchLimit);
   const bestScore = searchResults[0]?.[1] ?? 0;
   const bestMatch = searchResults[0]?.[0];
 
-  //  Routing Decision 2: Type-aware threshold 
+  // ── Routing Decision 2: Type-aware threshold ──────────────────────────────
   // Person queries use a lower threshold because semantic distance between
   // query terms ("HOD of MCA") and document text ("Head of Department for
   // Master of Computer Application") is larger than for other query types.
@@ -342,18 +193,15 @@ const callLocalData = async (state) => {
     `[Graph] Vector search | results: ${searchResults.length} | best score: ${bestScore.toFixed(3)} | threshold: ${threshold} | match: ${hasGoodVectorMatch}`,
   );
 
-  //  Route: No local data → Web search 
+  // ── Route: No local data → Web search ────────────────────────────────────────
   if (!placeBundle && !hasGoodVectorMatch) {
     console.log(`[Graph] No confident local match → routing to web search`);
-    return {
-      resolvedQuery,
-      messages: [new AIMessage("NOT_FOUND_IN_DATA")],
-    };
+    return { messages: [new AIMessage("NOT_FOUND_IN_DATA")] };
   }
 
-  //  Build Context for LLM 
+  // ── Build Context for LLM ────────────────────────────────────────────────────
   const resultBundle = getRelevantPlaceBundleFromResults(
-    resolvedQuery,
+    lastUserMsg,
     searchResults,
   );
 
@@ -388,15 +236,12 @@ Structured Campus Data Bundle:
 `.trim()
     : "";
 
-  //  LLM Call 
+  // ── LLM Call ─────────────────────────────────────────────────────────────────
   const response = await llm.invoke([
     new SystemMessage(systemPrompt),
     ...state.messages.slice(-3),
     new HumanMessage(
       [
-        resolvedQuery !== lastUserMsg
-          ? `Resolved Retrieval Query: ${resolvedQuery}`
-          : "",
         `Campus Data:\n${context}`,
         bundleContext ? `Place Bundle:\n${bundleContext}` : "",
         `Student Question: ${lastUserMsg}`,
@@ -406,22 +251,18 @@ Structured Campus Data Bundle:
     ),
   ]);
 
-  //  NOT_FOUND_IN_DATA guard 
+  // ── NOT_FOUND_IN_DATA guard ───────────────────────────────────────────────────
   // Must be exact trim match. System prompt instructs no wrapping,
   // but we guard here too in case the LLM adds stray punctuation.
   if (response.content.trim() === "NOT_FOUND_IN_DATA") {
     console.log("[Graph] LLM signalled NOT_FOUND → routing to web search");
-    return {
-      resolvedQuery,
-      messages: [new AIMessage("NOT_FOUND_IN_DATA")],
-    };
+    return { messages: [new AIMessage("NOT_FOUND_IN_DATA")] };
   }
 
   const responseMetadata =
     placeBundle || resultBundle || bestMatch?.metadata || null;
 
   return {
-    resolvedQuery,
     messages: [
       new AIMessage({
         content: response.content,
@@ -435,21 +276,18 @@ Structured Campus Data Bundle:
   };
 };
 
-//  Node 2: Web Search Fallback 
+// ─── Node 2: Web Search Fallback ──────────────────────────────────────────────
 
 const callWebSearch = async (state) => {
   // Original user query is at length - 2
   // (length - 1 is the NOT_FOUND_IN_DATA signal message)
   const userQuery = state.messages[state.messages.length - 2].content;
-  const resolvedQuery = state.resolvedQuery || userQuery;
 
-  const logSuffix =
-    resolvedQuery !== userQuery ? ` | resolved: "${resolvedQuery}"` : "";
-  console.log(`[Graph] Web fallback | query: "${userQuery}"${logSuffix}`);
+  console.log(`[Graph] Web fallback | query: "${userQuery}"`);
 
-  const webAnswer = await getWebAnswer(resolvedQuery);
+  const webAnswer = await getWebAnswer(userQuery);
 
-  //  Nothing found anywhere 
+  // ── Nothing found anywhere ────────────────────────────────────────────────────
   if (!webAnswer) {
     console.log("[Graph] Web fallback returned nothing → not found response");
 
@@ -471,7 +309,7 @@ const callWebSearch = async (state) => {
     };
   }
 
-  //  URL-only source 
+  // ── URL-only source ───────────────────────────────────────────────────────────
   if (webAnswer.is_url_only) {
     return {
       messages: [
@@ -494,7 +332,7 @@ const callWebSearch = async (state) => {
     };
   }
 
-  //  Scraped content → LLM 
+  // ── Scraped content → LLM ────────────────────────────────────────────────────
   const webSystemPrompt = buildWebFallbackPrompt(webAnswer, userQuery);
   const response = await llm.invoke([
     new SystemMessage(webSystemPrompt),
@@ -536,7 +374,7 @@ const callWebSearch = async (state) => {
   };
 };
 
-// Graph Definition 
+// Graph Definition
 
 const workflow = new StateGraph(GraphState)
   .addNode("local_search", callLocalData)
