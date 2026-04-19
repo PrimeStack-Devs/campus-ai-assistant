@@ -1,0 +1,2 @@
+export const VECTOR_SCORE_THRESHOLD = 0.4;
+export const PERSON_SCORE_THRESHOLD = 0.3;
