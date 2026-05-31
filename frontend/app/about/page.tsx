@@ -36,10 +36,10 @@ export default function AboutPage() {
               <h3 className="font-semibold text-slate-900 dark:text-slate-100">Advanced AI with Real-time Data</h3>
               <p className="text-sm text-slate-600 dark:text-slate-300">Connect to university APIs for live event updates and real-time facility information.</p>
             </div>
-            <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
+            {/* <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
               <h3 className="font-semibold text-slate-900 dark:text-slate-100">Mobile App</h3>
               <p className="text-sm text-slate-600 dark:text-slate-300">Native iOS and Android apps for on-the-go campus access.</p>
-            </div>
+            </div> */}
             <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
               <h3 className="font-semibold text-slate-900 dark:text-slate-100">Smart Notifications</h3>
               <p className="text-sm text-slate-600 dark:text-slate-300">Get notified about events and updates relevant to your interests.</p>
