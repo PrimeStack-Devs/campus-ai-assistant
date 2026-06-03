@@ -75,7 +75,7 @@ interface WebSourcePayload {
 type ResponsePayload = PlaceBundlePayload | WebSourcePayload | null | undefined;
 
 export async function askCampusAI(query: string): Promise<AIResponse> {
-  const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}`, {
+  const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/v2/chat`, {
   // const response = await axios.post('https://campus-ai-assistant-backend.vercel.app/api/v2/chat', {
     message: query,
     sessionId: getSessionId(),
