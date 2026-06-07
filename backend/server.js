@@ -1,4 +1,4 @@
-import express from "express";
+/* import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import path from "path";
@@ -71,3 +71,39 @@ const startServer = async () => {
 };
 
 startServer();
+ */
+
+
+import express from "express";
+import cors from "cors";
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "Backend is running",
+  });
+});
+
+app.get("/test", (req, res) => {
+  res.json({
+    success: true,
+    message: "API is working!",
+  });
+});
+
+app.post("/api/chat", (req, res) => {
+  const { message } = req.body;
+
+  res.json({
+    success: true,
+    reply: `You said: ${message}`,
+  });
+});
+
+export default app;
+
