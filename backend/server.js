@@ -76,19 +76,30 @@ startServer();
 
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
+
+import { initializeProfessorService } from "./services/structuredService.js";
+import chatRoutes from "./routes/chat.js";
+import chatRoutesV2 from "./routes/v2/chat.js";
+import { extractPDFDocs } from "./services/pdfProcessor.js";
+import { initializeRAG } from "./services/ragPipeline.js";
+import { initializeRouter } from "./services/router.js";
+import { initializeStore } from "./services/v2/vectorStore.js";
+import { connectRedis } from "./config/redis.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.join(__dirname, ".env") });
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.json({
-    success: true,
-    message: "Backend is running",
-  });
-});
-
+// Health Check
 app.get("/test", (req, res) => {
   res.json({
     success: true,
@@ -96,14 +107,43 @@ app.get("/test", (req, res) => {
   });
 });
 
-app.post("/api/chat", (req, res) => {
-  const { message } = req.body;
+// Routes
+app.use("/api/chat", chatRoutes);
+app.use("/api/v2/chat", chatRoutesV2);
 
-  res.json({
-    success: true,
-    reply: `You said: ${message}`,
-  });
-});
+// Initialize Services
+const initializeApp = async () => {
+  try {
+    console.log("Starting server initialization...");
 
+    await connectRedis();
+
+    console.log("Processing PDF...");
+    const pdfDocs = await extractPDFDocs(
+      path.join(__dirname, "data", "handbook.pdf")
+    );
+
+    console.log("Initializing RAG...");
+    await initializeRAG(pdfDocs);
+
+    console.log("Initializing Professor Service...");
+    await initializeProfessorService();
+
+    console.log("Initializing Campus Vector Store...");
+    await initializeStore();
+
+    console.log("Initializing Router...");
+    await initializeRouter();
+
+    console.log("System Ready.");
+  } catch (error) {
+    console.error("Startup error:", error);
+  }
+};
+
+// Run initialization once
+await initializeApp();
+
+// IMPORTANT FOR VERCEL
 export default app;
 
