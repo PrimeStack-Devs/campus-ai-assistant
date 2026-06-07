@@ -43,9 +43,9 @@ function renderLineWithLinks(line: string): ReactNode[] {
 export function MessageBubble({ content, isUser, timestamp, location, webSource }: MessageBubbleProps) {
   return (
     <div className={`mb-4 flex ${isUser ? 'justify-end' : 'justify-start'}`}>
-      <div className={isUser ? 'max-w-xs lg:max-w-md' : 'w-full max-w-2xl'}>
+      <div className={isUser ? 'max-w-[85%] sm:max-w-xs lg:max-w-md' : 'w-full max-w-full sm:max-w-2xl'}>
         <div
-          className={`rounded-2xl px-4 py-3 ${
+          className={`rounded-2xl px-3 py-2.5 text-sm leading-6 sm:px-4 sm:py-3 sm:text-base ${
             isUser
               ? 'rounded-br-none bg-blue-600 text-white'
               : 'rounded-bl-none bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-100'
@@ -58,7 +58,9 @@ export function MessageBubble({ content, isUser, timestamp, location, webSource 
               </p>
             ))}
           </div> */}
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+          <div className="max-w-full overflow-x-auto break-words [&_a]:break-all [&_ol]:pl-5 [&_pre]:overflow-x-auto [&_ul]:pl-5">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+          </div>
           {timestamp && (
             <p className={`mt-1 text-xs ${isUser ? 'text-blue-100' : 'text-slate-500 dark:text-slate-400'}`}>
               {timestamp}

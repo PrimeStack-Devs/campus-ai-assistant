@@ -31,13 +31,13 @@ export function ChatWindow({ messages, isLoading }: ChatWindowProps) {
   }, [messages, isLoading]);
 
   return (
-    <div className="flex h-full flex-col bg-white dark:bg-slate-950">
-      <div className="flex-1 space-y-4 overflow-y-auto p-6">
+    <div className="flex min-h-0 flex-1 flex-col bg-white dark:bg-slate-950">
+      <div className="min-h-0 flex-1 space-y-3 overflow-y-auto px-3 py-4 sm:space-y-4 sm:p-6">
         {messages.length === 0 ? (
-          <div className="flex h-full flex-col items-center justify-center text-center">
-            <div className="mb-4 text-5xl">Dexa</div>
-            <h3 className="mb-2 text-2xl font-bold text-slate-900 dark:text-slate-100">Welcome to Campus AI</h3>
-            <p className="max-w-md text-slate-600 dark:text-slate-300">
+          <div className="flex min-h-full flex-col items-center justify-center px-3 text-center">
+            <div className="mb-3 text-4xl sm:mb-4 sm:text-5xl">Dexa</div>
+            <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-slate-100 sm:text-2xl">Welcome to Campus AI</h3>
+            <p className="max-w-sm text-sm leading-6 text-slate-600 dark:text-slate-300 sm:max-w-md sm:text-base">
               Ask me anything about campus events, facilities, clubs, academics, or contacts. I&apos;m here to help!
             </p>
           </div>

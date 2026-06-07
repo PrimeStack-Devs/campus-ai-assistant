@@ -55,7 +55,7 @@ export default function ChatPage() {
 
   return (
     <DashboardLayout title="Chat with Campus AI">
-      <div className="h-full flex flex-col">
+      <div className="flex h-full min-h-0 flex-col">
         <ChatWindow messages={messages} isLoading={isLoading} />
         <ChatInput onSubmit={handleSendMessage} disabled={isLoading} />
       </div>
