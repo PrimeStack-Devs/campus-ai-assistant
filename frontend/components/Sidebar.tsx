@@ -2,16 +2,17 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { CalendarDays, Home, Info, MapPin, MessageCircle } from 'lucide-react';
 
 export function Sidebar() {
   const pathname = usePathname();
 
   const navItems = [
-    { href: '/', label: 'Home', icon: '🏠' },
-    { href: '/chat', label: 'Chat', icon: '💬' },
-    { href: '/campus-info', label: 'Campus Info', icon: '📍' },
-    { href: '/events', label: 'Events', icon: '📅' },
-    { href: '/about', label: 'About', icon: 'ℹ️' },
+    { href: '/', label: 'Home', icon: Home },
+    { href: '/chat', label: 'Chat', icon: MessageCircle },
+    { href: '/campus-info', label: 'Campus Info', icon: MapPin },
+    { href: '/events', label: 'Events', icon: CalendarDays },
+    { href: '/about', label: 'About', icon: Info },
   ];
 
   return (
@@ -26,6 +27,8 @@ export function Sidebar() {
       <nav className="grid w-full grid-cols-5 gap-1 md:block md:flex-1 md:space-y-2">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
+          const Icon = item.icon;
+
           return (
             <Link
               key={item.href}
@@ -36,7 +39,7 @@ export function Sidebar() {
                   : 'text-slate-600 hover:bg-slate-200 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
               }`}
             >
-              <span className="text-base font-semibold uppercase leading-none md:text-sm md:tracking-wide">{item.icon}</span>
+              <Icon className="h-5 w-5 shrink-0 md:h-4 md:w-4" aria-hidden="true" />
               <span className="max-w-full truncate text-[11px] font-medium leading-tight md:text-base">{item.label}</span>
             </Link>
           );
