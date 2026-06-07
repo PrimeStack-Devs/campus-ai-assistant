@@ -23,6 +23,11 @@ app.use(cors());
 app.use(express.json());
 
 // API Routes
+
+app.use("/test", (req, res) => {
+  res.json({ message: "API is working!" });
+});
+
 app.use("/api/chat", chatRoutes);
 app.use("/api/v2/chat", chatRoutesV2);
 
