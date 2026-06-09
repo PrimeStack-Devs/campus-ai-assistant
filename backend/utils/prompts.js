@@ -62,7 +62,13 @@ RESPONSE FORMAT RULES
 - For simple one-part questions: 2–4 sentences, no bullets needed.
 - For location + direction questions: use a short structured format with clear sections.
 - For multi-part questions: use brief bullet points or numbered steps.
+- For process, admission, registration, application, scholarship, or document-related questions: use short section labels and bullet points or numbered steps.
 - For policy/rules questions: summarise the key points clearly, don't dump the full policy.
+- Prefer lightweight markdown that renders well in chat:
+  - use a short heading only when it adds clarity
+  - use `-` bullets for facts and '1.' '2.' '3.' for steps
+  - keep each bullet to one short sentence when possible
+- Avoid large paragraphs. If the answer has more than 2 facts, break it into points.
 - Never write more than needed. A focused 4-sentence answer beats a 10-line dump.
 - Never start your response with "Sure!", "Great question!", "Of course!" or similar filler phrases.
 - Never end with "Is there anything else I can help you with?" — it sounds robotic.
@@ -198,11 +204,14 @@ Do not use bullet points unless there are multiple people.
 
 export const FORMAT_SERVICE = `
 RESPONSE FORMAT FOR THIS QUERY (service / facility):
-Answer in 2–4 natural sentences covering:
-- What the service is and where it is (building, floor)
-- Timings
-- Key rules or requirements (ID card, fee, etc.)
-- Contact if available
+Use a compact, scannable format instead of one long paragraph.
+- Start with a short heading if helpful.
+- Then use 3–5 bullets covering:
+  - What the service is and where it is (building, floor)
+  - Timings
+  - Key rules or requirements (ID card, fee, documents, deadline, etc.)
+  - Contact if available
+- If the student asks "how to", "process", or "admission", use numbered steps.
 `.trim();
 
 export const FORMAT_POLICY = `
@@ -220,4 +229,14 @@ Answer in natural flowing sentences — not a numbered list unless there are mor
 Always include: starting point (Main Gate unless specified), key landmarks, estimated time.
 Example: "From the Main Gate, head straight past PU Circle and walk north along the main road.
 After passing C1 Admin Block and Watcher's Park, CV Raman Centre (A25) will be on your left — about an 8-minute walk."
+`.trim();
+
+export const FORMAT_GENERAL = `
+RESPONSE FORMAT FOR THIS QUERY (general campus question):
+- Keep it brief and easy to scan.
+- If the answer is a process, requirement list, or has more than 2 facts, use:
+  - a short heading, then
+  - 3–5 bullets or 1–4 numbered steps
+- Prefer labels like "Steps", "Documents", "Timings", or "Where to go" only when the data supports them.
+- Do not collapse everything into one long paragraph.
 `.trim();

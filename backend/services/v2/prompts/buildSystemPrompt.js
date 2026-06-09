@@ -1,6 +1,7 @@
 import {
   CAMPUS_ASSISTANT_SYSTEM_PROMPT,
   FORMAT_DIRECTIONS,
+  FORMAT_GENERAL,
   FORMAT_LOCATION,
   FORMAT_PERSON,
   FORMAT_POLICY,
@@ -13,6 +14,7 @@ const FORMAT_MAP = {
   person: FORMAT_PERSON,
   service: FORMAT_SERVICE,
   policy: FORMAT_POLICY,
+  general: FORMAT_GENERAL,
 };
 
 export function buildSystemPrompt(queryType) {

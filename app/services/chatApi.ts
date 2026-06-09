@@ -50,12 +50,14 @@ interface WebSourcePayload {
 type ResponsePayload = PlaceBundlePayload | WebSourcePayload | null | undefined;
 
 export async function askCampusAI(query: string): Promise<AIResponse> {
-  const response = await axios.post('http://10.0.2.2:5000/api/v2/chat', {
+  // const response = await axios.post('http://10.0.2.2:5000/api/v2/chat', {
+  const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v2/chat`, {
     message: query,
     sessionId: 'dummy-session-id',
   });
 
   const apiData = response.data;
+  const formattedAnswer = apiData?.replyPlain ?? apiData?.reply ?? '';
   const payload = apiData?.data as ResponsePayload;
   const responseType = typeof apiData?.data?.type === 'string' ? apiData.data.type : null;
 
@@ -75,7 +77,7 @@ export async function askCampusAI(query: string): Promise<AIResponse> {
         : undefined;
 
     return {
-      answer: apiData?.reply ?? '',
+      answer: formattedAnswer,
       responseType,
       location,
     };
@@ -83,7 +85,7 @@ export async function askCampusAI(query: string): Promise<AIResponse> {
 
   if (payload?.type === 'web_source') {
     return {
-      answer: apiData?.reply ?? '',
+      answer: formattedAnswer,
       responseType,
       webSource: payload.source_url
         ? {
@@ -98,7 +100,7 @@ export async function askCampusAI(query: string): Promise<AIResponse> {
   }
 
   return {
-    answer: apiData?.reply ?? '',
+    answer: formattedAnswer,
     responseType,
   };
 }

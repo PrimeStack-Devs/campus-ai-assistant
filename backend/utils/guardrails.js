@@ -311,7 +311,7 @@ export function detectQueryType(query) {
   }
 
   if (
-    /\b(timing|timings|open|close|hours|when (does|is|are)|schedule|bus|canteen|mess|library|gym|pool|bank|atm)\b/.test(
+    /\b(timing|timings|open|close|hours|when (does|is|are)|schedule|bus|canteen|mess|library|gym|pool|bank|atm|admission|apply|application|registration|enrollment|document|required documents|fees process)\b/.test(
       q,
     )
   ) {
