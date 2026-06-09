@@ -44,8 +44,7 @@ export const callLocalData = async (state) => {
 
   console.log(
     `[Graph] Vector search | results: ${searchResults.length} | best score: ${bestScore.toFixed(3)} | threshold: ${threshold} | match: ${hasGoodVectorMatch}`,
-  );
-
+  ); 
   if (!placeBundle && !hasGoodVectorMatch) {
     console.log("[Graph] No confident local match - routing to web search");
     return { messages: [new AIMessage(NOT_FOUND_IN_DATA)] };
