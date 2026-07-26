@@ -175,17 +175,7 @@ export async function fetchLive(source) {
 }
 
 // ─── 4. Full Pipeline ─────────────────────────────────────────────────────────
-
-/**
- * Main entry point for the agent's web fallback layer.
- * 
- * Usage in your query pipeline:
- *   const webAnswer = await getWebAnswer(userQuery);
- *   if (webAnswer) { use webAnswer.content, webAnswer.source_url }
- * 
- * @param {string} query - User's natural language query
- * @returns {object|null} - { content, source_url, source_label, is_url_only, cached } or null
- */
+ 
 export async function getWebAnswer(query) {
   // Step 1 — find best matching source
   const source = matchSource(query);

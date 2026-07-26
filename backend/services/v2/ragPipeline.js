@@ -4,17 +4,7 @@ import { campusBot } from "./graph/workflow.js";
 import { runGuardrails } from "./guards/guardrailRunner.js";
 
 export { campusBot };
-
-/**
- * runCampusBot(userMessage, threadId)
- *
- * Single entry point for all v2 queries.
- * Always call this instead of invoking the graph directly.
- *
- * @param {string} userMessage
- * @param {string} threadId
- * @returns {{ response, metadata, query_type, source }}
- */
+ 
 export async function runCampusBot(userMessage, threadId = "default") {
   const guardrailResponse = runGuardrails(userMessage);
 

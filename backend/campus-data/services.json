@@ -164,12 +164,12 @@
       "lunch mess", "dinner mess", "student dining"
     ],
     "timings": {
-      "breakfast": "07:00 AM - 09:00 AM",
-      "lunch": "12:00 PM - 02:00 PM",
-      "dinner": "07:00 PM - 09:00 PM",
+      "breakfast": "06:30 AM - 08:00 AM",
+      "lunch": "11:00 AM - 02:00 PM",
+      "dinner": "07:00 PM - 08:00 PM",
       "sunday_brunch": "08:00 AM - 11:00 AM"
     },
-    "description": "The Student Mess (M1) is the main dining facility for hostel residents at Parul University. It serves breakfast from 7:00 AM to 9:00 AM, lunch from 12:00 PM to 2:00 PM, and dinner from 7:00 PM to 9:00 PM. On Sundays, a special brunch is served from 8:00 AM to 11:00 AM. The mess follows a weekly rotating menu. Vegetarian and non-vegetarian options are available on designated days. Mess fees are included in hostel charges. Students must carry their mess card or ID card to avail meals. Additional mess facilities are also spread across the campus for different hostel zones.",
+    "description": "The Student Mess (M1) is the main dining facility for hostel residents at Parul University. It serves breakfast from 6:30 AM to 8:00 AM, lunch from 11:00 AM to 2:00 PM, and dinner from 7:00 PM to 8:00 PM. On Sundays, a special brunch is served from 8:00 AM to 11:00 AM. The mess follows a weekly rotating menu. Vegetarian and non-vegetarian options are available on designated days. Mess fees are included in hostel charges. Students must carry their mess card or ID card to avail meals. Additional mess facilities are also spread across the campus for different hostel zones.",
     "facilities": [
       "Breakfast, lunch and dinner",
       "Vegetarian and non-vegetarian options",
