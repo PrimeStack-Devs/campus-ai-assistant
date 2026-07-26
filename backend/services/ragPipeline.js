@@ -10,9 +10,7 @@ import client from "../config/redis.js"; // ✅ REDIS IMPORT
 let embedder;
 let vectorStore = [];
 
-// ============================
-// INITIALIZE STATIC RAG
-// ============================
+
 
 export const initializeRAG = async (documents) => {
   console.log("Splitting documents...");
@@ -55,15 +53,9 @@ export const initializeRAG = async (documents) => {
   console.log("Static vector store ready.");
 };
 
-// ============================
-// MAIN ASK FUNCTION
-// ============================
 
 export const askQuestion = async (query) => {
 
- // ============================
-// ✅ INTENT-BASED CACHE KEY
-// ============================
 
 const normalized = query.toLowerCase().trim();
 
@@ -92,9 +84,7 @@ if (cached) {
   let ragAnswer = "";
   let sources = [];
 
-  // ============================
-  // 1️⃣ STRUCTURED PROFESSOR LOOKUP
-  // ============================
+  
 
   const professorMatches = await findProfessorMatches(query);
 
@@ -118,10 +108,7 @@ if (cached) {
     sources = ["internal: professor_database"];
   }
 
-  // ============================
-  // 2️⃣ DYNAMIC ROUTER
-  // ============================
-
+  
   if (!structuredJSON) {
     const { bestMatch, highestScore } = await routeQuery(query);
 
@@ -154,10 +141,7 @@ Provide structured professional response.
     }
   }
 
-  // ============================
-  // 3️⃣ STATIC RAG FALLBACK
-  // ============================
-
+  
   if (!structuredJSON && !ragAnswer) {
     if (!embedder || vectorStore.length === 0) {
       throw new Error("Static vector store not initialized.");
@@ -209,10 +193,7 @@ Provide structured response.
     ];
   }
 
-  // ============================
-  // 4️⃣ FORMAT RESPONSE
-  // ============================
-
+  
   if (!structuredJSON && ragAnswer) {
     const formattedResponse = await groq.chat.completions.create({
       model: "llama-3.1-8b-instant",
@@ -259,10 +240,7 @@ Return only JSON.
     }
   }
 
-  // ============================
-  // ✅ 5️⃣ SAVE TO REDIS
-  // ============================
-
+  
   const finalResponse = {
     reply: structuredJSON,
     sources,
