@@ -19,6 +19,13 @@ export function ChatInput({ onSubmit, disabled }: ChatInputProps) {
     }
   };
 
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    // Wait a brief moment for the keyboard transition animation to complete
+    setTimeout(() => {
+      e.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 280);
+  };
+
   return (
     <form onSubmit={handleSubmit} className="border-t border-slate-200/50 bg-white/70 p-4 dark:border-slate-800/50 dark:bg-slate-950/70 backdrop-blur-md">
       <div className="relative flex items-center rounded-2xl border border-slate-200 bg-white p-1.5 shadow-sm transition-all focus-within:border-rose-500 focus-within:ring-3 focus-within:ring-rose-500/10 dark:border-slate-800/80 dark:bg-slate-900/40">
@@ -26,6 +33,7 @@ export function ChatInput({ onSubmit, disabled }: ChatInputProps) {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onFocus={handleFocus}
           placeholder="Ask me anything about campus..."
           disabled={disabled}
           className="min-w-0 flex-1 bg-transparent px-4.5 py-3 text-sm text-slate-900 focus:outline-none disabled:text-slate-400 dark:text-slate-100 dark:disabled:text-slate-500 sm:text-base"
