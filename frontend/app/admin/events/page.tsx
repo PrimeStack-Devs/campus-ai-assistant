@@ -73,7 +73,7 @@ export default function EventsAdminPage() {
             },
           ]}
           data={events}
-          onEdit={() => {}}
+          onEdit={handleOpenModal}
           onDelete={handleDelete}
         />
 

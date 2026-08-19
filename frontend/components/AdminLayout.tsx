@@ -31,20 +31,20 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <nav className="flex-1 p-4 space-y-2">
           {menuItems.map((item) => {
             const Icon = item.icon;
-            const active = isActive(item.href === '/admin' ? '' : item.href.replace('/admin', ''));
+            const active = item.href === '/admin' ? pathname === '/admin' : pathname.startsWith(item.href);
             
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-colors ${
+                className={`flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-200 ${
                   active
-                    ? 'bg-blue-600 text-white'
-                    : 'text-slate-300 hover:bg-slate-800'
+                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold shadow-md shadow-blue-500/15'
+                    : 'text-slate-350 hover:bg-slate-800/60 hover:text-white'
                 }`}
               >
-                <Icon size={20} />
-                <span>{item.label}</span>
+                <Icon size={18} />
+                <span className="text-sm font-semibold">{item.label}</span>
               </Link>
             );
           })}

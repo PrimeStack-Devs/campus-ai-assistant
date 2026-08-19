@@ -16,14 +16,14 @@ export default function EventsPage() {
 
   return (
     <DashboardLayout title="Campus Events">
-      <div className="space-y-6 p-8">
-        <div className="flex flex-wrap gap-2">
+      <div className="space-y-8 p-6 md:p-8 animate-fade-in-up duration-500">
+        <div className="flex flex-wrap gap-2.5">
           <button
             onClick={() => setSelectedCategory(null)}
-            className={`rounded-full px-4 py-2 font-medium transition-colors ${
+            className={`rounded-xl px-5 py-2.5 text-sm font-bold transition-all duration-200 active:scale-95 cursor-pointer ${
               selectedCategory === null
-                ? 'bg-blue-600 text-white'
-                : 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800'
+                ? 'bg-gradient-to-r from-rose-600 to-amber-500 text-white shadow-md shadow-rose-500/15'
+                : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-850'
             }`}
           >
             All Events
@@ -32,10 +32,10 @@ export default function EventsPage() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`rounded-full px-4 py-2 font-medium capitalize transition-colors ${
+              className={`rounded-xl px-5 py-2.5 text-sm font-bold capitalize transition-all duration-200 active:scale-95 cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-blue-600 text-white'
-                  : 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800'
+                  ? 'bg-gradient-to-r from-rose-600 to-amber-500 text-white shadow-md shadow-rose-500/15'
+                  : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-850'
               }`}
             >
               {cat}
@@ -43,7 +43,7 @@ export default function EventsPage() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {filteredEvents.map((event) => (
             <EventCard
               key={event.id}
@@ -58,8 +58,8 @@ export default function EventsPage() {
         </div>
 
         {filteredEvents.length === 0 && (
-          <div className="py-12 text-center">
-            <p className="text-lg text-slate-500 dark:text-slate-400">No events found in this category.</p>
+          <div className="py-16 text-center">
+            <p className="text-lg font-bold text-slate-400 dark:text-slate-500">No events found in this category.</p>
           </div>
         )}
       </div>

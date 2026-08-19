@@ -65,7 +65,7 @@ export default function ContactsAdminPage() {
             { key: 'email', label: 'Email' },
           ]}
           data={contacts}
-          onEdit={() => {}}
+          onEdit={handleOpenModal}
           onDelete={handleDelete}
         />
 

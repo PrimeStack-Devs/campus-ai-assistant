@@ -42,27 +42,20 @@ function renderLineWithLinks(line: string): ReactNode[] {
 
 export function MessageBubble({ content, isUser, timestamp, location, webSource }: MessageBubbleProps) {
   return (
-    <div className={`mb-4 flex ${isUser ? 'justify-end' : 'justify-start'}`}>
+    <div className={`mb-6 flex ${isUser ? 'justify-end' : 'justify-start'} animate-fade-in-up duration-300`}>
       <div className={isUser ? 'max-w-[85%] sm:max-w-xs lg:max-w-md' : 'w-full max-w-full sm:max-w-2xl'}>
         <div
-          className={`rounded-2xl px-3 py-2.5 text-sm leading-6 sm:px-4 sm:py-3 sm:text-base ${
+          className={`rounded-2xl px-4 py-3 text-sm leading-relaxed sm:text-base ${
             isUser
-              ? 'rounded-br-none bg-blue-600 text-white'
-              : 'rounded-bl-none bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-100'
+              ? 'rounded-br-xs bg-gradient-to-tr from-rose-600 to-amber-500 text-white shadow-md shadow-rose-500/10'
+              : 'rounded-bl-xs bg-white dark:bg-slate-900/60 border border-slate-200/50 dark:border-slate-850 text-slate-900 dark:text-slate-100 shadow-xs'
           }`}
         >
-          {/* <div className="space-y-1">
-            {content.split('\n').map((line, index) => (
-              <p key={index} className="text-md whitespace-pre-wrap leading-relaxed">
-                {renderLineWithLinks(line)}
-              </p>
-            ))}
-          </div> */}
-          <div className="max-w-full overflow-x-auto break-words [&_a]:break-all [&_ol]:pl-5 [&_pre]:overflow-x-auto [&_ul]:pl-5">
+          <div className="max-w-full overflow-x-auto break-words prose prose-slate dark:prose-invert [&_a]:break-all [&_a]:text-rose-600 dark:[&_a]:text-rose-400 [&_a]:font-semibold [&_a]:underline [&_ol]:pl-5 [&_pre]:overflow-x-auto [&_ul]:pl-5">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
           </div>
           {timestamp && (
-            <p className={`mt-1 text-xs ${isUser ? 'text-blue-100' : 'text-slate-500 dark:text-slate-400'}`}>
+            <p className={`mt-2 text-[10px] font-semibold text-right ${isUser ? 'text-blue-100/70' : 'text-slate-400 dark:text-slate-500'}`}>
               {timestamp}
             </p>
           )}

@@ -71,7 +71,7 @@ export default function ClubsAdminPage() {
             { key: 'meets', label: 'Meets' },
           ]}
           data={clubs}
-          onEdit={() => {}}
+          onEdit={handleOpenModal}
           onDelete={handleDelete}
         />
 

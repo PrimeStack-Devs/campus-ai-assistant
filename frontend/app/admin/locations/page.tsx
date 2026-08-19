@@ -81,7 +81,7 @@ export default function LocationsAdminPage() {
             },
           ]}
           data={locations}
-          onEdit={() => {}}
+          onEdit={handleOpenModal}
           onDelete={handleDelete}
         />
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Send } from 'lucide-react';
 
 interface ChatInputProps {
   onSubmit: (message: string) => void;
@@ -19,48 +20,23 @@ export function ChatInput({ onSubmit, disabled }: ChatInputProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="border-t border-slate-200 bg-slate-50 p-3 dark:border-slate-800 dark:bg-slate-900 sm:p-6">
-      <div className="flex items-stretch gap-2 sm:gap-3">
+    <form onSubmit={handleSubmit} className="border-t border-slate-200/50 bg-white/70 p-4 dark:border-slate-800/50 dark:bg-slate-950/70 backdrop-blur-md">
+      <div className="relative flex items-center rounded-2xl border border-slate-200 bg-white p-1.5 shadow-sm transition-all focus-within:border-rose-500 focus-within:ring-3 focus-within:ring-rose-500/10 dark:border-slate-800/80 dark:bg-slate-900/40">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask me anything about campus..."
           disabled={disabled}
-          className="min-w-0 flex-1 rounded-lg border border-slate-300 bg-white px-3 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-slate-100 disabled:text-slate-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:disabled:bg-slate-800 dark:disabled:text-slate-400 sm:px-4 sm:text-base"
+          className="min-w-0 flex-1 bg-transparent px-4.5 py-3 text-sm text-slate-900 focus:outline-none disabled:text-slate-400 dark:text-slate-100 dark:disabled:text-slate-500 sm:text-base"
         />
         <button
           type="submit"
           disabled={disabled || !input.trim()}
-          className="shrink-0 rounded-lg bg-blue-600 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-slate-300 dark:disabled:bg-slate-700 sm:px-6 sm:text-base"
+          className="shrink-0 flex items-center justify-center rounded-xl bg-gradient-to-r from-rose-600 to-amber-500 px-5 py-3 text-sm font-bold text-white shadow-md shadow-rose-500/15 hover:shadow-lg transition-all duration-200 active:scale-95 disabled:cursor-not-allowed disabled:from-slate-200 disabled:to-slate-200 disabled:text-slate-400 disabled:shadow-none dark:disabled:from-slate-800 dark:disabled:to-slate-800 dark:disabled:text-slate-500"
+          aria-label="Send query"
         >
-          Send
-        </button>
-      </div>
-      <div className="mt-3 flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:overflow-visible sm:pb-0">
-        <button
-          type="button"
-          onClick={() => onSubmit('What events are coming up?')}
-          disabled={disabled}
-          className="shrink-0 rounded-full border border-slate-300 bg-white px-3 py-1 text-xs text-slate-700 transition-colors hover:bg-slate-50 disabled:text-slate-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-300 dark:hover:bg-slate-800"
-        >
-          Events
-        </button>
-        <button
-          type="button"
-          onClick={() => onSubmit('Where is the library?')}
-          disabled={disabled}
-          className="shrink-0 rounded-full border border-slate-300 bg-white px-3 py-1 text-xs text-slate-700 transition-colors hover:bg-slate-50 disabled:text-slate-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-300 dark:hover:bg-slate-800"
-        >
-          Facilities
-        </button>
-        <button
-          type="button"
-          onClick={() => onSubmit('Tell me about clubs')}
-          disabled={disabled}
-          className="shrink-0 rounded-full border border-slate-300 bg-white px-3 py-1 text-xs text-slate-700 transition-colors hover:bg-slate-50 disabled:text-slate-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-300 dark:hover:bg-slate-800"
-        >
-          Clubs
+          <Send className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
         </button>
       </div>
     </form>

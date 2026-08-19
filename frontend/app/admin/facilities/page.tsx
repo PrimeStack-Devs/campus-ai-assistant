@@ -90,7 +90,7 @@ export default function FacilitiesAdminPage() {
             },
           ]}
           data={facilities}
-          onEdit={() => {}}
+          onEdit={handleOpenModal}
           onDelete={handleDelete}
         />
 
