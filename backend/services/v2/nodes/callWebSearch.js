@@ -2,18 +2,37 @@ import { AIMessage, HumanMessage, SystemMessage } from "@langchain/core/messages
 import { llm } from "../config/llm.js";
 import { buildWebFallbackPrompt } from "../prompts/buildWebFallbackPrompt.js";
 import { retrieveWebAnswer } from "../retrieval/webRetriever.js";
+import { contextualizeQuery } from "../retrieval/contextualizer.js";
+import { NOT_FOUND_IN_DATA } from "../constants/graphSignals.js";
 import { createNotFoundResponse } from "./handleNotFound.js";
 
 export const callWebSearch = async (state) => {
-  const userQuery = state.messages[state.messages.length - 2].content;
+  // Filter out internal graph signal messages (e.g. NOT_FOUND_IN_DATA)
+  const conversationMessages = state.messages.filter(
+    (m) => m.content?.trim() !== NOT_FOUND_IN_DATA
+  );
 
-  console.log(`[Graph] Web fallback | query: "${userQuery}"`);
+  // Find the last student message
+  const userMessages = conversationMessages.filter(
+    (m) => m._getType?.() === "human" || m.constructor?.name === "HumanMessage"
+  );
+  const rawUserQuery =
+    userMessages.length > 0
+      ? userMessages[userMessages.length - 1].content
+      : "";
 
-  const webAnswer = await retrieveWebAnswer(userQuery);
+  // Multi-turn pronoun resolution for follow-ups (e.g. "when was it founded?")
+  const effectiveQuery = await contextualizeQuery(conversationMessages);
+
+  console.log(
+    `[Graph] Web fallback | raw: "${rawUserQuery}" | resolved: "${effectiveQuery}"`
+  );
+
+  const webAnswer = await retrieveWebAnswer(effectiveQuery || rawUserQuery);
 
   if (!webAnswer) {
     console.log("[Graph] Web fallback returned nothing - not found response");
-    return await createNotFoundResponse(userQuery);
+    return await createNotFoundResponse(effectiveQuery || rawUserQuery);
   }
 
   if (webAnswer.is_url_only) {
@@ -38,7 +57,7 @@ export const callWebSearch = async (state) => {
     };
   }
 
-  const webSystemPrompt = buildWebFallbackPrompt(webAnswer, userQuery);
+  const webSystemPrompt = buildWebFallbackPrompt(webAnswer, effectiveQuery);
   const response = await llm.invoke([
     new SystemMessage(webSystemPrompt),
     new HumanMessage(
@@ -51,10 +70,11 @@ export const callWebSearch = async (state) => {
         "Content:",
         webAnswer.content,
         "",
-        `Student Question: ${userQuery}`,
+        `Student Question: ${rawUserQuery}`,
+        effectiveQuery !== rawUserQuery ? `(Resolved Context: ${effectiveQuery})` : "",
       ]
         .filter(Boolean)
-        .join("\n"),
+        .join("\n")
     ),
   ]);
 

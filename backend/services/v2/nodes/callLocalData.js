@@ -9,6 +9,7 @@ import { formatCampusContext } from "../formatters/campusContextFormatter.js";
 import { formatPlaceBundle } from "../formatters/placeBundleFormatter.js";
 import { buildSystemPrompt } from "../prompts/buildSystemPrompt.js";
 import { searchLocalCampusData } from "../retrieval/localRetriever.js";
+import { contextualizeQuery } from "../retrieval/contextualizer.js";
 import {
   getPlaceBundleForQuery,
   getPlaceBundleFromSearchResults,
@@ -17,14 +18,17 @@ import { detectQueryType } from "../../../utils/guardrails.js";
 
 export const callLocalData = async (state) => {
   const lastUserMsg = state.messages[state.messages.length - 1].content;
-  const queryType = detectQueryType(lastUserMsg);
+
+  // Contextualize follow-up questions using prior conversation history
+  const effectiveQuery = await contextualizeQuery(state.messages);
+  const queryType = detectQueryType(effectiveQuery);
   const systemPrompt = buildSystemPrompt(queryType);
 
   console.log(
-    `[Graph] Local search | query: "${lastUserMsg}" | type: ${queryType}`,
+    `[Graph] Local search | raw: "${lastUserMsg}" | effective: "${effectiveQuery}" | type: ${queryType}`,
   );
 
-  const { isLocationQuery, placeBundle } = getPlaceBundleForQuery(lastUserMsg);
+  const { isLocationQuery, placeBundle } = getPlaceBundleForQuery(effectiveQuery);
 
   if (placeBundle) {
     console.log(
@@ -40,18 +44,22 @@ export const callLocalData = async (state) => {
     bestMatch,
     threshold,
     hasGoodVectorMatch,
-  } = await searchLocalCampusData(lastUserMsg, queryType);
+  } = await searchLocalCampusData(effectiveQuery, queryType);
 
   console.log(
     `[Graph] Vector search | results: ${searchResults.length} | best score: ${bestScore.toFixed(3)} | threshold: ${threshold} | match: ${hasGoodVectorMatch}`,
   ); 
-  if (!placeBundle && !hasGoodVectorMatch) {
-    console.log("[Graph] No confident local match - routing to web search");
+
+  // Smart check: Only abort if NO confident match AND NO prior conversation history
+  // (If there is prior history, the answer could already exist in the conversation context!)
+  const hasConversationHistory = state.messages.length > 2;
+  if (!placeBundle && !hasGoodVectorMatch && !hasConversationHistory) {
+    console.log("[Graph] No confident local match and no prior history - routing to web search");
     return { messages: [new AIMessage(NOT_FOUND_IN_DATA)] };
   }
 
   const resultBundle = getPlaceBundleFromSearchResults(
-    lastUserMsg,
+    effectiveQuery,
     searchResults,
   );
 
@@ -60,25 +68,36 @@ export const callLocalData = async (state) => {
 
   const response = await llm.invoke([
     new SystemMessage(systemPrompt),
-    ...state.messages.slice(-3),
+    ...state.messages.slice(-5, -1),
     new HumanMessage(
       [
-        `Campus Data:\n${context}`,
+        context ? `Campus Data:\n${context}` : "",
         bundleContext ? `Place Bundle:\n${bundleContext}` : "",
         `Student Question: ${lastUserMsg}`,
+        effectiveQuery !== lastUserMsg
+          ? `(Resolved Context: ${effectiveQuery})`
+          : "",
       ]
         .filter(Boolean)
         .join("\n\n"),
     ),
   ]);
 
-  if (response.content.trim() === NOT_FOUND_IN_DATA) {
+  const trimmedContent = response.content.trim();
+  const isNotFound =
+    trimmedContent === NOT_FOUND_IN_DATA ||
+    trimmedContent.includes(NOT_FOUND_IN_DATA) ||
+    /(i[’']?m\s+sorry|i\s+am\s+sorry|i\s+don[’']?t\s+have|i\s+do\s+not\s+have|i\s+couldn[’']?t\s+find|unfortunately|not\s+(found|mentioned)\s+in\s+the\s+(provided|campus|available)|no\s+information.*(found|available|provided|mentioned)|no\s+.*(found|mentioned)\s+in\s+the\s+(provided|campus|available))/i.test(
+      trimmedContent
+    );
+
+  if (isNotFound) {
     console.log("[Graph] LLM signalled NOT_FOUND - routing to web search");
     return { messages: [new AIMessage(NOT_FOUND_IN_DATA)] };
   }
 
   const responseMetadata =
-    placeBundle || resultBundle || bestMatch?.metadata || null;
+    placeBundle || (isLocationQuery ? resultBundle : null) || bestMatch?.metadata || null;
 
   return {
     messages: [
