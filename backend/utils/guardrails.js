@@ -190,6 +190,31 @@ const OFF_TOPIC_RESPONSE = `I'm specifically here to help with everything relate
 
 That's a bit outside what I can help with. Is there anything about the campus I can assist you with?`;
 
+// ─── Special Tier: Developer & Engineering Team ──────────────────────────────
+const DEVELOPER_PATTERNS = [
+  /\b(who (made|built|developed|created|coded|designed) (you|dexa|this (ai|bot|app|assistant|project|system)))\b/i,
+  /\b((developer|creator|builder|author)s? (of|behind) (you|dexa|this (ai|bot|app|assistant|project|system)))\b/i,
+  /\b(who is (the|your) (developer|creator|builder|author))\b/i,
+  /\b(contact (the )?(developer|creator|team)|developer (contact|email|info|details|linkedin))\b/i,
+  /\b(how (can|do) i (contact|reach) (the )?(developer|support|team))\b/i,
+  /\b(report (a )?(bug|issue|glitch)|dexa support email)\b/i,
+  /\b(who (are|is) (the )?developers?)\b/i,
+];
+
+const DEVELOPER_RESPONSE = `Dexa was architected and developed by a dedicated engineering team:
+
+👨‍💻 **Deepak Dhakad** — *Lead Full-Stack AI Engineer*
+- **Scope:** End-to-end web architecture, Node.js/Express backend, LangGraph multi-agent RAG pipeline, vector search, Redis caching, and real-time campus data.
+- ✉️ **Email:** deepakdkd1188@gmail.com
+- 💼 **LinkedIn:** https://www.linkedin.com/in/deepak-dhakad-web-developer/
+
+📱 **Jatin Puri** — *Mobile App Developer*
+- **Scope:** Native campus mobile application engineering for on-the-go student access.
+- ✉️ **Email:** purijatinn@gmail.com
+- 💼 **LinkedIn:** https://www.linkedin.com/in/deepak-dhakad-web-developer/
+
+💡 *Have feedback, found a campus data glitch, or want to collaborate? Feel free to reach out to the team directly!*`;
+
 // ─── Normalize ────────────────────────────────────────────────────────────────
 
 const normalize = (text) =>
@@ -218,6 +243,18 @@ const hasCampusContext = (text) =>
  */
 export function applyGuardrails(query) {
   const normalized = normalize(query);
+
+  // Special Tier — Developer & Engineering Team Inquiries
+  for (const pattern of DEVELOPER_PATTERNS) {
+    if (pattern.test(normalized)) {
+      return {
+        tier: "developer_info",
+        id: "developer_info",
+        response: DEVELOPER_RESPONSE,
+        is_critical: false,
+      };
+    }
+  }
 
   // Tier 1 — Blocked (hard stop, no LLM call)
   for (const pattern of BLOCKED_PATTERNS) {
