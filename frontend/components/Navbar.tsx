@@ -43,23 +43,23 @@ export function Navbar({ title }: NavbarProps) {
   const isDark = mounted && resolvedTheme === 'dark';
 
   return (
-    <nav className="relative z-40 flex min-h-16 items-center justify-between gap-3 border-b border-slate-200/50 bg-white/70 px-4 py-3 shadow-xs backdrop-blur-md dark:border-slate-800/50 dark:bg-slate-950/70 sm:px-6 sm:py-4">
-      <h2 className="min-w-0 truncate text-lg font-black tracking-tight text-slate-900 dark:text-slate-100 sm:text-2xl">
+    <nav className="relative z-40 flex h-13 sm:h-14 items-center justify-between gap-3 border-b border-slate-200/50 bg-white/70 px-3.5 sm:px-5 py-2 shadow-xs backdrop-blur-md dark:border-slate-800/50 dark:bg-slate-950/70 shrink-0">
+      <h2 className="min-w-0 truncate text-base sm:text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100">
         {title}
       </h2>
-      <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+      <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
         {/* Theme Toggle */}
         <button
           type="button"
           suppressHydrationWarning
           onClick={() => setTheme(isDark ? 'light' : 'dark')}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200/80 bg-slate-50 text-slate-700 transition-all duration-200 hover:bg-slate-100 active:scale-95 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-850 sm:h-10 sm:w-10 cursor-pointer"
+          className="inline-flex h-8.5 w-8.5 items-center justify-center rounded-xl border border-slate-200/80 bg-slate-50 text-slate-700 transition-all duration-200 hover:bg-slate-100 active:scale-95 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-850 cursor-pointer"
           aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
         >
           {isDark ? (
-            <Sun className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
+            <Sun className="h-4 w-4" />
           ) : (
-            <Moon className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
+            <Moon className="h-4 w-4" />
           )}
         </button>
 
@@ -69,9 +69,9 @@ export function Navbar({ title }: NavbarProps) {
             <button
               suppressHydrationWarning
               onClick={() => setShowUserMenu(!showUserMenu)}
-              className="flex items-center gap-2.5 px-3 py-1.5 rounded-xl border border-slate-200/80 bg-slate-50 hover:bg-slate-100 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-850 transition-all cursor-pointer shadow-xs active:scale-98"
+              className="flex items-center gap-2 px-2.5 py-1.5 rounded-xl border border-slate-200/80 bg-slate-50 hover:bg-slate-100 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-850 transition-all cursor-pointer shadow-xs active:scale-98"
             >
-              <div className="h-7 w-7 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 text-white font-bold text-xs flex items-center justify-center shadow-xs overflow-hidden">
+              <div className="h-6 w-6 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 text-white font-bold text-xs flex items-center justify-center shadow-xs overflow-hidden">
                 {user.avatar ? (
                   <img
                     src={user.avatar}
@@ -85,15 +85,15 @@ export function Navbar({ title }: NavbarProps) {
                 )}
               </div>
               <div className="hidden sm:block text-left">
-                <p className="text-xs font-bold leading-tight text-slate-900 dark:text-white truncate max-w-[120px]">
+                <p className="text-[11px] font-bold leading-tight text-slate-900 dark:text-white truncate max-w-[120px]">
                   {user.name}
                 </p>
-                <p className="text-[10px] text-indigo-600 dark:text-indigo-400 font-medium">
+                <p className="text-[9.5px] text-indigo-600 dark:text-indigo-400 font-medium leading-none mt-0.5">
                   {user.domain?.includes('parul') ? 'PU Student' : 'Google User'}
                 </p>
               </div>
               <ChevronDown
-                size={14}
+                size={13}
                 className={`text-slate-400 transition-transform duration-200 ${showUserMenu ? 'rotate-180' : ''
                   }`}
               />

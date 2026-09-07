@@ -31,7 +31,7 @@ export function ChatInput({
     // Reset height to accurately compute scrollHeight upon deletion or wrapping
     textarea.style.height = 'auto';
 
-    const maxHeight = 160; // Max ~6-7 lines
+    const maxHeight = 140; // Max ~5-6 lines
     const nextHeight = Math.min(textarea.scrollHeight, maxHeight);
     textarea.style.height = `${nextHeight}px`;
     textarea.style.overflowY = textarea.scrollHeight > maxHeight ? 'auto' : 'hidden';
@@ -70,13 +70,13 @@ export function ChatInput({
   // 1. Guest Limit Reached State
   if (isGuestLimitReached) {
     return (
-      <div className="border-t border-slate-200/50 bg-white/80 p-4 sm:p-5 dark:border-slate-800/50 dark:bg-slate-950/80 backdrop-blur-md">
-        <div className="max-w-xl mx-auto p-5 rounded-3xl bg-gradient-to-r from-blue-50/90 via-indigo-50/90 to-purple-50/90 dark:from-slate-900 dark:via-indigo-950/40 dark:to-slate-900 border border-blue-200 dark:border-indigo-800/60 text-center space-y-3 shadow-lg">
-          <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-md mx-auto">
-            <Lock size={22} />
+      <div className="border-t border-slate-200/50 bg-white/80 p-3 sm:p-4 dark:border-slate-800/50 dark:bg-slate-950/80 backdrop-blur-md">
+        <div className="max-w-xl mx-auto p-4 sm:p-5 rounded-3xl bg-gradient-to-r from-blue-50/90 via-indigo-50/90 to-purple-50/90 dark:from-slate-900 dark:via-indigo-950/40 dark:to-slate-900 border border-blue-200 dark:border-indigo-800/60 text-center space-y-2.5 shadow-lg">
+          <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-md mx-auto">
+            <Lock size={18} />
           </div>
           <div className="space-y-1">
-            <h4 className="text-base font-bold text-slate-900 dark:text-white">
+            <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
               Guest Question Limit Reached (5/5)
             </h4>
             <p className="text-xs text-slate-600 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
@@ -86,7 +86,7 @@ export function ChatInput({
           <div className="pt-1">
             <Button
               onClick={onSignIn}
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold px-6 py-2.5 rounded-xl shadow-md cursor-pointer transition-all active:scale-95 text-xs inline-flex items-center gap-2"
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold px-5 py-2 rounded-xl shadow-md cursor-pointer transition-all active:scale-95 text-xs inline-flex items-center gap-2"
             >
               {/* Google G Icon */}
               <svg className="h-4 w-4 shrink-0 bg-white rounded-full p-0.5" viewBox="0 0 24 24">
@@ -120,14 +120,14 @@ export function ChatInput({
   return (
     <form
       onSubmit={handleSubmit}
-      className="border-t border-slate-200/50 bg-white/70 p-2.5 sm:p-4 dark:border-slate-800/50 dark:bg-slate-950/70 backdrop-blur-md shrink-0"
+      className="border-t border-slate-200/50 bg-white/70 p-2 sm:p-2.5 dark:border-slate-800/50 dark:bg-slate-950/70 backdrop-blur-md shrink-0"
     >
-      <div className="max-w-4xl mx-auto w-full">
+      <div className="max-w-3xl mx-auto w-full">
         {/* Guest Query Counter Badge */}
         {isGuest && (
-          <div className="mb-2 flex items-center justify-between px-1 text-[11px] text-slate-500 dark:text-slate-400">
+          <div className="mb-1.5 flex items-center justify-between px-1 text-[10.5px] text-slate-500 dark:text-slate-400">
             <span className="flex items-center gap-1.5 font-medium">
-              <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
+              <span className="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse" />
               Guest Mode:{' '}
               <strong className="text-slate-800 dark:text-slate-200">
                 {remainingGuestMessages} of 5 free queries
@@ -145,7 +145,7 @@ export function ChatInput({
           </div>
         )}
 
-        <div className="relative flex items-end gap-1.5 sm:gap-2 rounded-2xl border border-slate-200 bg-white p-1.5 sm:p-2 shadow-sm transition-all focus-within:border-indigo-500 focus-within:ring-3 focus-within:ring-indigo-500/10 dark:border-slate-800/80 dark:bg-slate-900/60">
+        <div className="relative flex items-end gap-1.5 rounded-2xl border border-slate-200 bg-white p-1 sm:p-1.5 shadow-sm transition-all focus-within:border-indigo-500 focus-within:ring-2 focus-within:ring-indigo-500/10 dark:border-slate-800/80 dark:bg-slate-900/60">
           <textarea
             ref={textareaRef}
             rows={1}
@@ -156,23 +156,23 @@ export function ChatInput({
             placeholder="Ask me anything about campus..."
             disabled={disabled}
             suppressHydrationWarning
-            className="min-w-0 flex-1 resize-none bg-transparent px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base text-slate-900 placeholder:text-slate-400 focus:outline-none disabled:text-slate-400 dark:text-slate-100 dark:placeholder:text-slate-500 dark:disabled:text-slate-500 leading-relaxed max-h-[160px] overflow-y-hidden break-words"
+            className="min-w-0 flex-1 resize-none bg-transparent px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none disabled:text-slate-400 dark:text-slate-100 dark:placeholder:text-slate-500 dark:disabled:text-slate-500 leading-relaxed max-h-[140px] overflow-y-hidden break-words"
           />
           <button
             type="submit"
             disabled={disabled || !input.trim()}
             suppressHydrationWarning
-            className="shrink-0 flex items-center justify-center rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 h-9 w-9 sm:h-10 sm:w-10 text-white shadow-md shadow-indigo-500/20 hover:shadow-lg transition-all duration-200 active:scale-95 disabled:cursor-not-allowed disabled:from-slate-200 disabled:to-slate-200 disabled:text-slate-400 disabled:shadow-none dark:disabled:from-slate-800 dark:disabled:to-slate-800 dark:disabled:text-slate-500 cursor-pointer self-end mb-0.5"
+            className="shrink-0 flex items-center justify-center rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 h-8.5 w-8.5 sm:h-9 sm:w-9 text-white shadow-md shadow-indigo-500/20 hover:shadow-lg transition-all duration-200 active:scale-95 disabled:cursor-not-allowed disabled:from-slate-200 disabled:to-slate-200 disabled:text-slate-400 disabled:shadow-none dark:disabled:from-slate-800 dark:disabled:to-slate-800 dark:disabled:text-slate-500 cursor-pointer self-end mb-0.5"
             aria-label="Send query"
           >
-            <Send className="h-4 w-4 sm:h-4.5 sm:w-4.5" />
+            <Send className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           </button>
         </div>
 
         {/* Subtle keyboard hint for desktop */}
-        <div className="hidden sm:flex items-center justify-between px-2 pt-1.5 text-[11px] text-slate-400 dark:text-slate-500">
+        <div className="hidden sm:flex items-center justify-between px-2 pt-1 text-[10px] text-slate-400 dark:text-slate-500">
           <span>Dexa AI answers campus queries in real time.</span>
-          <span className="font-mono text-[10px] text-slate-400/80 dark:text-slate-500">
+          <span className="font-mono text-[9.5px] text-slate-400/80 dark:text-slate-500">
             Shift + Enter for new line
           </span>
         </div>
