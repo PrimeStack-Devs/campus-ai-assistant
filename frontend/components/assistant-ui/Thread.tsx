@@ -2,6 +2,7 @@
 
 import { ThreadPrimitive } from '@assistant-ui/react';
 import { UserMessage } from './UserMessage';
+import { UserEditComposer } from './UserEditComposer';
 import { AssistantMessage } from './AssistantMessage';
 import { Composer } from './Composer';
 import { TypingIndicator } from '@/components/TypingIndicator';
@@ -134,16 +135,12 @@ export function Thread({
         <ThreadPrimitive.Messages
           components={{
             UserMessage,
+            EditComposer: UserEditComposer,
+            UserEditComposer,
             AssistantMessage,
           }}
         />
 
-        {/* Typing indicator while running */}
-        <ThreadPrimitive.If running={true}>
-          <div className="flex items-center gap-2 py-2 text-slate-600 dark:text-slate-300">
-            <TypingIndicator />
-          </div>
-        </ThreadPrimitive.If>
       </ThreadPrimitive.Viewport>
 
       {/* Floating Scroll to Bottom Button */}

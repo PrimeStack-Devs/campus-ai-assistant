@@ -28,6 +28,7 @@ export default function ChatPage() {
     deleteSession,
     addMessageToActiveSession,
     updateSessionTitle,
+    truncateMessagesFrom,
     isGuest,
     remainingGuestMessages,
     isGuestLimitReached,
@@ -155,6 +156,9 @@ export default function ChatPage() {
     onEdit: async (msg) => {
       const text = msg.content.find((c) => c.type === 'text')?.text || '';
       if (!text.trim()) return;
+      if (msg.sourceId) {
+        truncateMessagesFrom(msg.sourceId, activeSessionId);
+      }
       await handleSendMessage(text);
     },
     onReload: async () => {

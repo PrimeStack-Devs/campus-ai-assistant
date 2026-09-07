@@ -47,9 +47,8 @@ export function ChatSessionsSidebar({
       )}
 
       <aside
-        className={`fixed top-0 bottom-0 left-0 z-35 lg:static flex flex-col bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 transition-all duration-300 ${
-          isOpen ? 'w-60 lg:w-64 shadow-2xl lg:shadow-none' : 'w-0 -translate-x-full lg:w-0 lg:translate-x-0'
-        } overflow-hidden shrink-0`}
+        className={`fixed top-0 bottom-0 left-0 z-35 lg:static flex flex-col bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 transition-all duration-300 ${isOpen ? 'w-60 lg:w-64 shadow-2xl lg:shadow-none' : 'w-0 -translate-x-full lg:w-0 lg:translate-x-0'
+          } overflow-hidden shrink-0`}
       >
         <div className="w-60 lg:w-64 flex flex-col h-full">
           {/* Header */}
@@ -97,11 +96,10 @@ export function ChatSessionsSidebar({
                 <div
                   key={session.id}
                   onClick={() => onSelectSession(session.id)}
-                  className={`group relative flex items-center justify-between px-2.5 py-2 rounded-xl cursor-pointer transition-all ${
-                    isActive
-                      ? 'bg-indigo-50/80 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 font-semibold border border-indigo-200/60 dark:border-indigo-900/50'
-                      : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
-                  }`}
+                  className={`group relative flex items-center justify-between px-2.5 py-2 rounded-xl cursor-pointer transition-all ${isActive
+                    ? 'bg-indigo-50/80 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 font-semibold border border-indigo-200/60 dark:border-indigo-900/50'
+                    : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
+                    }`}
                 >
                   <div className="flex items-center gap-2 min-w-0 pr-5">
                     <MessageSquare
@@ -139,7 +137,8 @@ export function ChatSessionsSidebar({
             })}
           </div>
           {/* Developer & Support Footer */}
-          <div className="p-2.5 border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+          {/* Commented for now */}
+          {/* <div className="p-2.5 border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
             <button
               suppressHydrationWarning
               onClick={() => setIsDevModalOpen(true)}
@@ -160,11 +159,12 @@ export function ChatSessionsSidebar({
               </div>
               <Users size={13} className="text-slate-400 group-hover:text-indigo-500 shrink-0 transition-colors" />
             </button>
-          </div>
+          </div> */}
         </div>
       </aside>
 
       {/* Developer & Team Modal */}
+      {/*  Currently commented*/}
       <DeveloperTeamModal
         isOpen={isDevModalOpen}
         onClose={() => setIsDevModalOpen(false)}

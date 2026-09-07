@@ -298,6 +298,35 @@ export function useChatSessions() {
     });
   }, []);
 
+  // 8. Truncate messages from a given message ID (used when editing a past prompt)
+  const truncateMessagesFrom = useCallback(
+    (messageId: string, targetSessionId?: string) => {
+      const targetId = targetSessionId || activeSessionIdRef.current;
+      setSessions((prev) => {
+        const updated = prev.map((s) => {
+          if (s.id === targetId) {
+            const index = s.messages.findIndex((m) => m.id === messageId);
+            if (index !== -1) {
+              return {
+                ...s,
+                messages: s.messages.slice(0, index),
+                updatedAt: new Date().toISOString(),
+              };
+            }
+          }
+          return s;
+        });
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+        } catch (e) {
+          console.error(e);
+        }
+        return updated;
+      });
+    },
+    []
+  );
+
   const activeSession = sessions.find((s) => s.id === activeSessionId);
 
   return {
@@ -311,6 +340,7 @@ export function useChatSessions() {
     clearAllSessions,
     addMessageToActiveSession,
     updateSessionTitle,
+    truncateMessagesFrom,
     isGuest,
     remainingGuestMessages,
     isGuestLimitReached,
