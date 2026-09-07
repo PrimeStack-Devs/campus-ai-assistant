@@ -4,84 +4,202 @@ import { useState, useEffect } from 'react';
 import { DashboardLayout } from '@/components/DashboardLayout';
 import { ChatWindow } from '@/components/ChatWindow';
 import { ChatInput } from '@/components/ChatInput';
-import { askCampusAI, type LocationData, type WebSourceData } from '@/lib/api';
-
-interface Message {
-  id: string;
-  content: string;
-  isUser: boolean;
-  timestamp: string;
-  location?: LocationData;
-  webSource?: WebSourceData;
-}
+import { ChatSessionsSidebar } from '@/components/ChatSessionsSidebar';
+import { askCampusAI } from '@/lib/api';
+import { useChatSessions, type ChatMessage } from '@/hooks/useChatSessions';
+import { useAuth } from '@/context/AuthContext';
+import {
+  MessageSquare,
+  Plus,
+  PanelLeft,
+  Sparkles,
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export default function ChatPage() {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const { loginWithGoogle } = useAuth();
+  const {
+    sessions,
+    activeSessionId,
+    activeSession,
+    isLoaded,
+    createNewSession,
+    switchSession,
+    deleteSession,
+    addMessageToActiveSession,
+    updateSessionTitle,
+    isGuest,
+    remainingGuestMessages,
+    isGuestLimitReached,
+  } = useChatSessions();
+
   const [isLoading, setIsLoading] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  // Auto-collapse sidebar on small mobile screens initially
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+      setIsSidebarOpen(false);
+    }
+  }, []);
 
   const handleSendMessage = async (content: string) => {
-    // Add user message
-    const userMessage: Message = {
-      id: Date.now().toString(),
-      content,
+    if (!content.trim() || isLoading) return;
+
+    const targetSessionId = activeSessionId;
+
+    const userMessage: ChatMessage = {
+      id: `msg_user_${Date.now()}`,
+      content: content.trim(),
       isUser: true,
-      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      timestamp: new Date().toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+      }),
     };
 
-    setMessages((prev) => [...prev, userMessage]);
+    const currentSession = sessions.find((s) => s.id === targetSessionId);
+    const existingUserCount = currentSession
+      ? currentSession.messages.filter((m) => m.isUser).length
+      : 0;
+    const userMessageCount = existingUserCount + 1;
+    const existingTitle = currentSession?.title;
+
+    // Save user message immediately to session
+    addMessageToActiveSession(userMessage, targetSessionId);
     setIsLoading(true);
 
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 600));
-
-    // Get AI response
-    console.log('Sending query to backend:', content);
     try {
-      const aiResponse = await askCampusAI(content);
-      console.log("AI Response received:", aiResponse);
+      console.log(
+        `[Chat] Query: "${content}" | Session: ${targetSessionId} | Prompt #${userMessageCount}`
+      );
+      const aiResponse = await askCampusAI(content, targetSessionId, {
+        messageCount: userMessageCount,
+        existingTitle,
+      });
 
-      const aiMessage: Message = {
-        id: (Date.now() + 1).toString(),
+      const aiMessage: ChatMessage = {
+        id: `msg_ai_${Date.now()}`,
         content: aiResponse.answer,
         isUser: false,
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        timestamp: new Date().toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit',
+        }),
         location: aiResponse.location,
         webSource: aiResponse.webSource,
       };
-      console.log('Adding AI message to chat:', aiMessage);
-      setMessages((prev) => [...prev, aiMessage]);
+
+      addMessageToActiveSession(aiMessage, targetSessionId);
+
+      // Keep title stable: only update during prompt 1 or 2
+      if (aiResponse.title && userMessageCount <= 2) {
+        updateSessionTitle(targetSessionId, aiResponse.title);
+      }
     } catch (err) {
-      console.error("Error communicating with campus assistant backend:", err);
-      // fallback message
-      setMessages((prev) => [
-        ...prev,
+      console.error('Error communicating with campus assistant backend:', err);
+      addMessageToActiveSession(
         {
-          id: (Date.now() + 1).toString(),
-          content: "Sorry, I'm having trouble connecting to the campus service right now. Please try again later.",
+          id: `msg_err_${Date.now()}`,
+          content:
+            "I'm having trouble connecting to the campus database right now. Please try again in a moment.",
           isUser: false,
-          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        }
-      ]);
+          timestamp: new Date().toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit',
+          }),
+        },
+        targetSessionId
+      );
     } finally {
       setIsLoading(false);
     }
   };
 
+  // Check for initial prompt query (e.g. from Home page cards)
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const initialPrompt = window.sessionStorage.getItem('campus-ai-initial-prompt');
+    if (typeof window !== 'undefined' && isLoaded) {
+      const initialPrompt = window.sessionStorage.getItem(
+        'campus-ai-initial-prompt'
+      );
       if (initialPrompt) {
         window.sessionStorage.removeItem('campus-ai-initial-prompt');
         handleSendMessage(initialPrompt);
       }
     }
-  }, []);
+  }, [isLoaded]);
+
+  const currentMessages = activeSession?.messages || [];
 
   return (
-    <DashboardLayout title="Chat with Campus AI">
-      <div className="flex h-full min-h-0 flex-col bg-slate-50 dark:bg-slate-950">
-        <ChatWindow messages={messages} isLoading={isLoading} onSuggest={handleSendMessage} />
-        <ChatInput onSubmit={handleSendMessage} disabled={isLoading} />
+    <DashboardLayout title="Chat with Dexa AI">
+      <div className="flex h-full min-h-0 w-full overflow-hidden bg-slate-50 dark:bg-slate-950">
+        {/* Chat History Sidebar */}
+        <ChatSessionsSidebar
+          sessions={sessions}
+          activeSessionId={activeSessionId}
+          isOpen={isSidebarOpen}
+          onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
+          onSelectSession={switchSession}
+          onNewChat={createNewSession}
+          onDeleteSession={deleteSession}
+        />
+
+        {/* Main Conversation Area */}
+        <div className="flex min-w-0 flex-1 flex-col h-full overflow-hidden">
+          {/* Top Session Bar */}
+          <div className="flex items-center justify-between px-4 py-2.5 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/70 dark:border-slate-800 shrink-0">
+            <div className="flex items-center gap-2 min-w-0">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                className="h-8 w-8 p-0 text-slate-500 hover:text-slate-900 dark:hover:text-slate-100"
+                title="Toggle conversation list"
+              >
+                <PanelLeft size={18} />
+              </Button>
+
+              <div className="truncate">
+                <span className="text-xs font-bold text-slate-800 dark:text-slate-200 truncate flex items-center gap-1.5">
+                  <MessageSquare size={13} className="text-indigo-500 shrink-0" />
+                  <span className="truncate">
+                    {activeSession?.title || 'Campus Assistant'}
+                  </span>
+                </span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 shrink-0">
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={createNewSession}
+                className="h-8 text-xs font-semibold flex items-center gap-1.5 rounded-lg border-slate-200 hover:border-indigo-300 dark:border-slate-800 dark:hover:border-indigo-800"
+              >
+                <Plus size={14} className="text-indigo-500" />
+                <span className="hidden sm:inline">New Chat</span>
+              </Button>
+            </div>
+          </div>
+
+          {/* Messages Window */}
+          <ChatWindow
+            messages={currentMessages}
+            isLoading={isLoading}
+            onSuggest={handleSendMessage}
+          />
+
+          {/* User Input with Guest Limit awareness */}
+          <ChatInput
+            onSubmit={handleSendMessage}
+            disabled={isLoading}
+            isGuest={isGuest}
+            remainingGuestMessages={remainingGuestMessages}
+            isGuestLimitReached={isGuestLimitReached}
+            onSignIn={loginWithGoogle}
+          />
+        </div>
       </div>
     </DashboardLayout>
   );
