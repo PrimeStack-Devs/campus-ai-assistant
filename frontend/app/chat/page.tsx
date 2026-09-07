@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { DashboardLayout } from '@/components/DashboardLayout';
-import { ChatWindow } from '@/components/ChatWindow';
-import { ChatInput } from '@/components/ChatInput';
+import { AssistantRuntimeProvider, useExternalStoreRuntime } from '@assistant-ui/react';
+import { Thread } from '@/components/assistant-ui/Thread';
 import { ChatSessionsSidebar } from '@/components/ChatSessionsSidebar';
 import { askCampusAI } from '@/lib/api';
 import { useChatSessions, type ChatMessage } from '@/hooks/useChatSessions';
@@ -131,6 +131,40 @@ export default function ChatPage() {
 
   const currentMessages = activeSession?.messages || [];
 
+  const runtime = useExternalStoreRuntime({
+    isRunning: isLoading,
+    messages: currentMessages,
+    convertMessage: (msg: ChatMessage) => ({
+      id: msg.id,
+      role: msg.isUser ? 'user' : 'assistant',
+      content: [{ type: 'text', text: msg.content }],
+      createdAt: new Date(),
+      metadata: {
+        custom: {
+          location: msg.location,
+          webSource: msg.webSource,
+          timestamp: msg.timestamp,
+        },
+      },
+    }),
+    onNew: async (msg) => {
+      const text = msg.content.find((c) => c.type === 'text')?.text || '';
+      if (!text.trim()) return;
+      await handleSendMessage(text);
+    },
+    onEdit: async (msg) => {
+      const text = msg.content.find((c) => c.type === 'text')?.text || '';
+      if (!text.trim()) return;
+      await handleSendMessage(text);
+    },
+    onReload: async () => {
+      const lastUserMsg = [...currentMessages].reverse().find((m) => m.isUser);
+      if (lastUserMsg) {
+        await handleSendMessage(lastUserMsg.content);
+      }
+    },
+  });
+
   return (
     <DashboardLayout title="Chat with Dexa AI">
       <div className="flex h-full min-h-0 w-full overflow-hidden bg-slate-50 dark:bg-slate-950">
@@ -183,22 +217,17 @@ export default function ChatPage() {
             </div>
           </div>
 
-          {/* Messages Window */}
-          <ChatWindow
-            messages={currentMessages}
-            isLoading={isLoading}
-            onSuggest={handleSendMessage}
-          />
-
-          {/* User Input with Guest Limit awareness */}
-          <ChatInput
-            onSubmit={handleSendMessage}
-            disabled={isLoading}
-            isGuest={isGuest}
-            remainingGuestMessages={remainingGuestMessages}
-            isGuestLimitReached={isGuestLimitReached}
-            onSignIn={loginWithGoogle}
-          />
+          {/* @assistant-ui Thread Runtime Container */}
+          <AssistantRuntimeProvider runtime={runtime}>
+            <Thread
+              onSuggest={handleSendMessage}
+              disabled={isLoading}
+              isGuest={isGuest}
+              remainingGuestMessages={remainingGuestMessages}
+              isGuestLimitReached={isGuestLimitReached}
+              onSignIn={loginWithGoogle}
+            />
+          </AssistantRuntimeProvider>
         </div>
       </div>
     </DashboardLayout>

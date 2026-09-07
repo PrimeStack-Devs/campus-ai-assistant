@@ -9,6 +9,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@assistant-ui/react": "^0.15.18",
+    "@assistant-ui/react-markdown": "^0.14.14",
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "1.2.12",
     "@radix-ui/react-alert-dialog": "1.1.15",
