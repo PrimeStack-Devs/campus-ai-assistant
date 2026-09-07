@@ -18,6 +18,13 @@ export async function runCampusBot(userMessage, threadId = "default") {
   );
 
   const lastMessage = result.messages[result.messages.length - 1];
+  const userMessageCount = result.messages.filter(
+    (m) => m._getType?.() === "human" || m.constructor?.name === "HumanMessage"
+  ).length;
 
-  return toCampusBotResponse(lastMessage);
+  return {
+    ...toCampusBotResponse(lastMessage),
+    totalMessages: result.messages.length,
+    userMessageCount,
+  };
 }
