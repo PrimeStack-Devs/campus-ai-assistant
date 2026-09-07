@@ -1,0 +1,1241 @@
+[
+  {
+    "id": "FAC_001",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 0,
+    "notes": "Ground floor near main entrance",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet",
+      "restroom",
+      "bathroom"
+    ]
+  },
+  {
+    "id": "FAC_002",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 1,
+    "notes": "Each floor has washrooms on both wings",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet",
+      "restroom"
+    ]
+  },
+  {
+    "id": "FAC_003",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 2,
+    "notes": "",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_004",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 3,
+    "notes": "",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_005",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 4,
+    "notes": "",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_006",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 5,
+    "notes": "",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_007",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 6,
+    "notes": "Top floor",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_008",
+    "label": "Elevator / Lift",
+    "type": "lift",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 0,
+    "notes": "Serves all 7 floors, near main staircase",
+    "gender": "both",
+    "aliases": [
+      "lift",
+      "elevator",
+      "lifts"
+    ]
+  },
+  {
+    "id": "FAC_009",
+    "label": "Water Dispenser",
+    "type": "water_dispenser",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 0,
+    "notes": "Ground floor lobby",
+    "gender": "both",
+    "aliases": [
+      "water",
+      "drinking water",
+      "water dispenser",
+      "RO water"
+    ]
+  },
+  {
+    "id": "FAC_010",
+    "label": "Water Dispenser",
+    "type": "water_dispenser",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 3,
+    "notes": "Mid-building floor",
+    "gender": "both",
+    "aliases": [
+      "water",
+      "drinking water",
+      "water dispenser"
+    ]
+  },
+  {
+    "id": "FAC_011",
+    "label": "First Aid Room",
+    "type": "first_aid",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 0,
+    "notes": "Ground floor, near security desk",
+    "gender": "both",
+    "aliases": [
+      "first aid",
+      "medical room",
+      "sick room",
+      "emergency"
+    ]
+  },
+  {
+    "id": "FAC_012",
+    "label": "Mini Canteen / Vending",
+    "type": "canteen",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 0,
+    "notes": "Small canteen/vending area at ground floor",
+    "gender": "both",
+    "aliases": [
+      "canteen",
+      "vending",
+      "snacks",
+      "tea stall"
+    ]
+  },
+  {
+    "id": "FAC_013",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A24",
+    "building_name": "Bhagat Singh Bhawan",
+    "floor": 0,
+    "notes": "Ground floor near main entrance",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet",
+      "restroom"
+    ]
+  },
+  {
+    "id": "FAC_014",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A24",
+    "building_name": "Bhagat Singh Bhawan",
+    "floor": 1,
+    "notes": "",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_015",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A24",
+    "building_name": "Bhagat Singh Bhawan",
+    "floor": 2,
+    "notes": "",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_016",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A24",
+    "building_name": "Bhagat Singh Bhawan",
+    "floor": 3,
+    "notes": "",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_017",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A24",
+    "building_name": "Bhagat Singh Bhawan",
+    "floor": 4,
+    "notes": "",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_018",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A24",
+    "building_name": "Bhagat Singh Bhawan",
+    "floor": 5,
+    "notes": "",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_019",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A24",
+    "building_name": "Bhagat Singh Bhawan",
+    "floor": 6,
+    "notes": "Top floor",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_020",
+    "label": "Elevator / Lift",
+    "type": "lift",
+    "building_id": "A24",
+    "building_name": "Bhagat Singh Bhawan",
+    "floor": 0,
+    "notes": "Serves all 7 floors",
+    "gender": "both",
+    "aliases": [
+      "lift",
+      "elevator"
+    ]
+  },
+  {
+    "id": "FAC_021",
+    "label": "Water Dispenser",
+    "type": "water_dispenser",
+    "building_id": "A24",
+    "building_name": "Bhagat Singh Bhawan",
+    "floor": 0,
+    "notes": "Ground floor lobby",
+    "gender": "both",
+    "aliases": [
+      "water",
+      "drinking water",
+      "water dispenser"
+    ]
+  },
+  {
+    "id": "FAC_022",
+    "label": "First Aid Room",
+    "type": "first_aid",
+    "building_id": "A24",
+    "building_name": "Bhagat Singh Bhawan",
+    "floor": 0,
+    "notes": "Ground floor",
+    "gender": "both",
+    "aliases": [
+      "first aid",
+      "medical room"
+    ]
+  },
+  {
+    "id": "FAC_023",
+    "label": "Central Library",
+    "type": "library",
+    "building_id": "C1",
+    "building_name": "Administrative Block C1",
+    "floor": 1,
+    "notes": "Main Central Library of Parul University. Mon-Sat 7am-8pm, Sun 9:30am-4:30pm",
+    "gender": "both",
+    "aliases": [
+      "library",
+      "central library",
+      "main library",
+      "gyanoday",
+      "reading room"
+    ]
+  },
+  {
+    "id": "FAC_024",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "C1",
+    "building_name": "Administrative Block C1",
+    "floor": 0,
+    "notes": "Ground floor",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_025",
+    "label": "Elevator / Lift",
+    "type": "lift",
+    "building_id": "C1",
+    "building_name": "Administrative Block C1",
+    "floor": 0,
+    "notes": "Serves all floors in admin block",
+    "gender": "both",
+    "aliases": [
+      "lift",
+      "elevator"
+    ]
+  },
+  {
+    "id": "FAC_026",
+    "label": "Harmony Hall",
+    "type": "auditorium",
+    "building_id": "C1",
+    "building_name": "Administrative Block C1",
+    "floor": 1,
+    "notes": "Main event hall in C1 administrative block",
+    "gender": "both",
+    "aliases": [
+      "harmony hall",
+      "auditorium",
+      "event hall",
+      "hall"
+    ]
+  },
+  {
+    "id": "FAC_027",
+    "label": "West Hall",
+    "type": "auditorium",
+    "building_id": "C1",
+    "building_name": "Administrative Block C1",
+    "floor": 1,
+    "notes": "West Hall for events and gatherings",
+    "gender": "both",
+    "aliases": [
+      "west hall",
+      "hall",
+      "seminar hall"
+    ]
+  },
+  {
+    "id": "FAC_028",
+    "label": "Admission Cell",
+    "type": "office",
+    "building_id": "C2",
+    "building_name": "Administrative Block C2",
+    "floor": 0,
+    "notes": "Main admission office for new admissions",
+    "gender": "both",
+    "aliases": [
+      "admission",
+      "admission cell",
+      "admission office",
+      "new admission"
+    ]
+  },
+  {
+    "id": "FAC_029",
+    "label": "Placement Cell",
+    "type": "office",
+    "building_id": "C2",
+    "building_name": "Administrative Block C2",
+    "floor": 1,
+    "notes": "Placement and career services office",
+    "gender": "both",
+    "aliases": [
+      "placement",
+      "placement cell",
+      "career services",
+      "placement office",
+      "t&p",
+      "training and placement"
+    ]
+  },
+  {
+    "id": "FAC_030",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "C2",
+    "building_name": "Administrative Block C2",
+    "floor": 0,
+    "notes": "",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_031",
+    "label": "Office of Student Welfare",
+    "type": "office",
+    "building_id": "C3",
+    "building_name": "Administrative Block C3",
+    "floor": 0,
+    "notes": "Student welfare and grievance office",
+    "gender": "both",
+    "aliases": [
+      "student welfare",
+      "welfare office",
+      "grievance",
+      "student office"
+    ]
+  },
+  {
+    "id": "FAC_032",
+    "label": "Internship Cell",
+    "type": "office",
+    "building_id": "C3",
+    "building_name": "Administrative Block C3",
+    "floor": 1,
+    "notes": "Internship coordination office",
+    "gender": "both",
+    "aliases": [
+      "internship",
+      "internship cell",
+      "internship office"
+    ]
+  },
+  {
+    "id": "FAC_033",
+    "label": "Alumni Association Office",
+    "type": "office",
+    "building_id": "C3",
+    "building_name": "Administrative Block C3",
+    "floor": 1,
+    "notes": "",
+    "gender": "both",
+    "aliases": [
+      "alumni",
+      "alumni office",
+      "alumni association"
+    ]
+  },
+  {
+    "id": "FAC_034",
+    "label": "Symphony Hall",
+    "type": "auditorium",
+    "building_id": "A12",
+    "building_name": "Parul Institute of Medical Sciences & Research",
+    "floor": 0,
+    "notes": "Large auditorium used for major university events",
+    "gender": "both",
+    "aliases": [
+      "symphony hall",
+      "auditorium",
+      "symphony",
+      "main auditorium",
+      "medical auditorium"
+    ]
+  },
+  {
+    "id": "FAC_035",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A12",
+    "building_name": "Parul Institute of Medical Sciences & Research",
+    "floor": 0,
+    "notes": "",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_036",
+    "label": "Elevator / Lift",
+    "type": "lift",
+    "building_id": "A12",
+    "building_name": "Parul Institute of Medical Sciences & Research",
+    "floor": 0,
+    "notes": "Available for patients and staff",
+    "gender": "both",
+    "aliases": [
+      "lift",
+      "elevator"
+    ]
+  },
+  {
+    "id": "FAC_037",
+    "label": "PU Fitness Gym",
+    "type": "gym",
+    "building_id": "A5",
+    "building_name": "PIET Diploma / Gymnasium",
+    "floor": 0,
+    "notes": "Campus gymnasium / fitness centre inside A5",
+    "gender": "both",
+    "aliases": [
+      "gym",
+      "gymnasium",
+      "fitness",
+      "fitness centre",
+      "pu gym",
+      "workout"
+    ]
+  },
+  {
+    "id": "FAC_038",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A5",
+    "building_name": "PIET Diploma / Gymnasium",
+    "floor": 0,
+    "notes": "",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_039",
+    "label": "Swimming Pool",
+    "type": "swimming_pool",
+    "building_id": "S1",
+    "building_name": "Swimming Pool",
+    "floor": 0,
+    "notes": "Olympic-standard swimming pool. Separate timing slots for boys and girls.",
+    "gender": "both",
+    "aliases": [
+      "swimming pool",
+      "pool",
+      "aquatics",
+      "swim"
+    ]
+  },
+  {
+    "id": "FAC_040",
+    "label": "Changing Room / Washroom",
+    "type": "washroom",
+    "building_id": "S1",
+    "building_name": "Swimming Pool",
+    "floor": 0,
+    "notes": "Separate changing rooms for male and female",
+    "gender": "both",
+    "aliases": [
+      "changing room",
+      "washroom",
+      "locker room"
+    ]
+  },
+  {
+    "id": "FAC_041",
+    "label": "Central Bank of India",
+    "type": "bank",
+    "building_id": "B1",
+    "building_name": "Central Bank of India",
+    "floor": 0,
+    "notes": "Campus bank branch for students and staff",
+    "gender": "both",
+    "aliases": [
+      "bank",
+      "central bank",
+      "banking"
+    ]
+  },
+  {
+    "id": "FAC_042",
+    "label": "ATM",
+    "type": "atm",
+    "building_id": "B1",
+    "building_name": "Central Bank of India",
+    "floor": 0,
+    "notes": "ATM available 24/7 near bank branch",
+    "gender": "both",
+    "aliases": [
+      "atm",
+      "cash machine",
+      "cash",
+      "ATM machine"
+    ]
+  },
+  {
+    "id": "FAC_043",
+    "label": "Greenzy Food Court",
+    "type": "food_court",
+    "building_id": "F1",
+    "building_name": "Greenzy Food Court",
+    "floor": 0,
+    "notes": "Main food court with multiple stalls. Open during campus hours.",
+    "gender": "both",
+    "aliases": [
+      "greenzy",
+      "food court",
+      "canteen",
+      "food",
+      "eat",
+      "lunch",
+      "dinner",
+      "breakfast"
+    ]
+  },
+  {
+    "id": "FAC_044",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "F1",
+    "building_name": "Greenzy Food Court",
+    "floor": 0,
+    "notes": "Near food court",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_045",
+    "label": "Capitol Crust",
+    "type": "restaurant",
+    "building_id": "F2",
+    "building_name": "Capitol Crust",
+    "floor": 0,
+    "notes": "Food outlet near east zone / medical area",
+    "gender": "both",
+    "aliases": [
+      "capitol crust",
+      "capitol",
+      "pizza",
+      "restaurant",
+      "east food"
+    ]
+  },
+  {
+    "id": "FAC_046",
+    "label": "Champions Cove",
+    "type": "restaurant",
+    "building_id": "F3",
+    "building_name": "Champions Cove",
+    "floor": 0,
+    "notes": "Food outlet near sports and north block area",
+    "gender": "both",
+    "aliases": [
+      "champions cove",
+      "champions",
+      "cove",
+      "north food",
+      "sports canteen"
+    ]
+  },
+  {
+    "id": "FAC_047",
+    "label": "Main Student Mess",
+    "type": "mess",
+    "building_id": "M1",
+    "building_name": "Mess",
+    "floor": 0,
+    "notes": "Main dining mess for hostel students. Breakfast, lunch and dinner served.",
+    "gender": "both",
+    "aliases": [
+      "mess",
+      "dining",
+      "hostel mess",
+      "student mess",
+      "food",
+      "mess hall"
+    ]
+  },
+  {
+    "id": "FAC_048",
+    "label": "Medical Library",
+    "type": "library",
+    "building_id": "A11",
+    "building_name": "Medical Library",
+    "floor": 0,
+    "notes": "Specialized medical library for health sciences students",
+    "gender": "both",
+    "aliases": [
+      "medical library",
+      "health library",
+      "medical books"
+    ]
+  },
+  {
+    "id": "FAC_049",
+    "label": "Insights Centre for Counselling",
+    "type": "counselling",
+    "building_id": "A11",
+    "building_name": "Insights Centre",
+    "floor": 1,
+    "notes": "Psychological counselling centre for students",
+    "gender": "both",
+    "aliases": [
+      "counselling",
+      "counselling centre",
+      "psychologist",
+      "mental health",
+      "insights centre",
+      "therapy"
+    ]
+  },
+  {
+    "id": "FAC_050",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A23",
+    "building_name": "Subhash Chandra Bose Bhawan",
+    "floor": 0,
+    "notes": "Ground floor",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_051",
+    "label": "Elevator / Lift",
+    "type": "lift",
+    "building_id": "A23",
+    "building_name": "Subhash Chandra Bose Bhawan",
+    "floor": 0,
+    "notes": "Serves all 7 floors",
+    "gender": "both",
+    "aliases": [
+      "lift",
+      "elevator"
+    ]
+  },
+  {
+    "id": "FAC_052",
+    "label": "Water Dispenser",
+    "type": "water_dispenser",
+    "building_id": "A23",
+    "building_name": "Subhash Chandra Bose Bhawan",
+    "floor": 0,
+    "notes": "Ground floor lobby",
+    "gender": "both",
+    "aliases": [
+      "water",
+      "drinking water",
+      "water dispenser"
+    ]
+  },
+  {
+    "id": "FAC_053",
+    "label": "Transport Office",
+    "type": "transport",
+    "building_id": "TS",
+    "building_name": "Transport Office",
+    "floor": 0,
+    "notes": "Bus passes, route info and transport complaints handled here",
+    "gender": "both",
+    "aliases": [
+      "transport",
+      "bus pass",
+      "bus route",
+      "transport office",
+      "bus"
+    ]
+  },
+  {
+    "id": "FAC_054",
+    "label": "Security Office",
+    "type": "security",
+    "building_id": "V1",
+    "building_name": "Security Office",
+    "floor": 0,
+    "notes": "Main campus security. 24/7 operations.",
+    "gender": "both",
+    "aliases": [
+      "security",
+      "security office",
+      "guard",
+      "campus security",
+      "lost and found"
+    ]
+  },
+  {
+    "id": "FAC_055",
+    "label": "Office of Hostel Superintendent & Chief Rector",
+    "type": "office",
+    "building_id": "C5",
+    "building_name": "Hostel Superintendent Office",
+    "floor": 0,
+    "notes": "For hostel-related complaints, room allotment and rector queries",
+    "gender": "both",
+    "aliases": [
+      "hostel office",
+      "superintendent",
+      "chief rector",
+      "rector",
+      "hostel complaint",
+      "hostel superintendent"
+    ]
+  },
+  {
+    "id": "FAC_056",
+    "label": "Computer Labs (BCA / MCA / BTech)",
+    "type": "lab",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 1,
+    "notes": "Multiple computer labs from floor 1 to floor 5 for BCA, MCA and BTech CS students",
+    "gender": "both",
+    "aliases": [
+      "computer lab",
+      "lab",
+      "programming lab",
+      "coding lab",
+      "bca lab",
+      "mca lab",
+      "btech lab",
+      "it lab"
+    ]
+  },
+  {
+    "id": "FAC_057",
+    "label": "Data Centre",
+    "type": "data_centre",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 5,
+    "notes": "University Data Centre — restricted access",
+    "gender": "both",
+    "aliases": [
+      "data centre",
+      "data center",
+      "server room",
+      "network room"
+    ]
+  },
+  {
+    "id": "FAC_058",
+    "label": "Tinkering Hub / FAB LAB",
+    "type": "innovation_hub",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 6,
+    "notes": "Innovation lab with fabrication tools, 3D printers and prototyping equipment",
+    "gender": "both",
+    "aliases": [
+      "tinkering hub",
+      "fab lab",
+      "fablab",
+      "innovation lab",
+      "3d printing",
+      "maker space",
+      "tinkering lab"
+    ]
+  },
+  {
+    "id": "FAC_059",
+    "label": "System Support Cell",
+    "type": "office",
+    "building_id": "A25",
+    "building_name": "C.V. Raman Centre",
+    "floor": 4,
+    "notes": "IT support and system maintenance office",
+    "gender": "both",
+    "aliases": [
+      "system support",
+      "it support",
+      "technical support",
+      "system support cell",
+      "helpdesk"
+    ]
+  },
+  {
+    "id": "FAC_060",
+    "label": "Office of Director Academics",
+    "type": "office",
+    "building_id": "A24",
+    "building_name": "Bhagat Singh Bhawan",
+    "floor": 1,
+    "notes": "Office of Director Academics for academic matters",
+    "gender": "both",
+    "aliases": [
+      "director academics",
+      "director office",
+      "academic director",
+      "academics office"
+    ]
+  },
+  {
+    "id": "FAC_061",
+    "label": "Classrooms (BCA / BTech)",
+    "type": "classroom",
+    "building_id": "A24",
+    "building_name": "Bhagat Singh Bhawan",
+    "floor": 2,
+    "notes": "Main classrooms for BCA and BTech programs from floor 2 to floor 6",
+    "gender": "both",
+    "aliases": [
+      "classroom",
+      "class",
+      "lecture hall",
+      "bca class",
+      "btech class",
+      "lecture room"
+    ]
+  },
+  {
+    "id": "FAC_062",
+    "label": "Shree Sai Temple",
+    "type": "temple",
+    "building_id": "T1",
+    "building_name": "Shree Sai Temple",
+    "floor": 0,
+    "notes": "Open for prayer during campus hours",
+    "gender": "both",
+    "aliases": [
+      "temple",
+      "mandir",
+      "sai temple",
+      "shree sai",
+      "prayer",
+      "baba"
+    ]
+  },
+  {
+    "id": "FAC_063",
+    "label": "Basketball Court",
+    "type": "sports_court",
+    "building_id": "G4",
+    "building_name": "Basketball Court",
+    "floor": 0,
+    "notes": "Open-air basketball court",
+    "gender": "both",
+    "aliases": [
+      "basketball",
+      "basketball court",
+      "basket"
+    ]
+  },
+  {
+    "id": "FAC_064",
+    "label": "Tennis Court",
+    "type": "sports_court",
+    "building_id": "G5",
+    "building_name": "Tennis Court",
+    "floor": 0,
+    "notes": "Open-air tennis court",
+    "gender": "both",
+    "aliases": [
+      "tennis",
+      "tennis court"
+    ]
+  },
+  {
+    "id": "FAC_065",
+    "label": "Volleyball Court",
+    "type": "sports_court",
+    "building_id": "G6",
+    "building_name": "Volleyball Court",
+    "floor": 0,
+    "notes": "Open-air volleyball court",
+    "gender": "both",
+    "aliases": [
+      "volleyball",
+      "volleyball court"
+    ]
+  },
+  {
+    "id": "FAC_066",
+    "label": "Cricket Net Practice",
+    "type": "sports_ground",
+    "building_id": "G9",
+    "building_name": "Cricket Net Practice Ground",
+    "floor": 0,
+    "notes": "Net practice facility for cricket",
+    "gender": "both",
+    "aliases": [
+      "cricket",
+      "cricket net",
+      "net practice",
+      "cricket practice"
+    ]
+  },
+  {
+    "id": "FAC_067",
+    "label": "Hockey Ground",
+    "type": "sports_ground",
+    "building_id": "G8",
+    "building_name": "Hockey Ground",
+    "floor": 0,
+    "notes": "Full-size hockey ground",
+    "gender": "both",
+    "aliases": [
+      "hockey",
+      "hockey ground",
+      "hockey field"
+    ]
+  },
+  {
+    "id": "FAC_068",
+    "label": "PU Football Ground",
+    "type": "sports_ground",
+    "building_id": "G2",
+    "building_name": "Football Ground",
+    "floor": 0,
+    "notes": "Main football / multi-purpose ground",
+    "gender": "both",
+    "aliases": [
+      "football",
+      "football ground",
+      "soccer",
+      "multipurpose ground"
+    ]
+  },
+  {
+    "id": "FAC_069",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A3",
+    "building_name": "PIET D Block",
+    "floor": 0,
+    "notes": "Ground floor",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_070",
+    "label": "Elevator / Lift",
+    "type": "lift",
+    "building_id": "A3",
+    "building_name": "PIET D Block",
+    "floor": 0,
+    "notes": "Serves all floors in D Block",
+    "gender": "both",
+    "aliases": [
+      "lift",
+      "elevator"
+    ]
+  },
+  {
+    "id": "FAC_071",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A1",
+    "building_name": "PIET Main",
+    "floor": 0,
+    "notes": "Ground floor",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_072",
+    "label": "Elevator / Lift",
+    "type": "lift",
+    "building_id": "A1",
+    "building_name": "PIET Main",
+    "floor": 0,
+    "notes": "Serves all floors in A1",
+    "gender": "both",
+    "aliases": [
+      "lift",
+      "elevator"
+    ]
+  },
+  {
+    "id": "FAC_073",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "A14",
+    "building_name": "Parul Institute of Business Administration",
+    "floor": 0,
+    "notes": "",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_074",
+    "label": "Elevator / Lift",
+    "type": "lift",
+    "building_id": "A14",
+    "building_name": "Parul Institute of Business Administration",
+    "floor": 0,
+    "notes": "",
+    "gender": "both",
+    "aliases": [
+      "lift",
+      "elevator"
+    ]
+  },
+  {
+    "id": "FAC_075",
+    "label": "Parul Sevashram Hospital",
+    "type": "hospital",
+    "building_id": "E2",
+    "building_name": "Parul Sevashram Hospital",
+    "floor": 0,
+    "notes": "NABH-accredited 750-bed multi-specialty hospital. Open 24/7.",
+    "gender": "both",
+    "aliases": [
+      "hospital",
+      "sevashram hospital",
+      "main hospital",
+      "emergency",
+      "casualty",
+      "doctor",
+      "medical"
+    ]
+  },
+  {
+    "id": "FAC_076",
+    "label": "Hospital Pharmacy",
+    "type": "pharmacy",
+    "building_id": "E2",
+    "building_name": "Parul Sevashram Hospital",
+    "floor": 0,
+    "notes": "Pharmacy inside Sevashram hospital, open 24/7",
+    "gender": "both",
+    "aliases": [
+      "pharmacy",
+      "medicine",
+      "chemist",
+      "drug store",
+      "hospital pharmacy"
+    ]
+  },
+  {
+    "id": "FAC_077",
+    "label": "Washroom",
+    "type": "washroom",
+    "building_id": "E2",
+    "building_name": "Parul Sevashram Hospital",
+    "floor": 0,
+    "notes": "",
+    "gender": "both",
+    "aliases": [
+      "washroom",
+      "toilet"
+    ]
+  },
+  {
+    "id": "FAC_078",
+    "label": "Elevator / Lift",
+    "type": "lift",
+    "building_id": "E2",
+    "building_name": "Parul Sevashram Hospital",
+    "floor": 0,
+    "notes": "Patient lifts available",
+    "gender": "both",
+    "aliases": [
+      "lift",
+      "elevator"
+    ]
+  },
+  {
+    "id": "FAC_079",
+    "label": "Security Check Post",
+    "type": "security_post",
+    "building_id": "GATE_MAIN",
+    "building_name": "Main Entry Gate",
+    "floor": 0,
+    "notes": "Entry security check for visitors and vehicles",
+    "gender": "both",
+    "aliases": [
+      "security post",
+      "entry check",
+      "visitor check",
+      "gate security"
+    ]
+  },
+  {
+    "id": "FAC_080",
+    "label": "PU Circle / Main Roundabout",
+    "type": "landmark",
+    "building_id": "PU_CIRCLE",
+    "building_name": "Parul University Circle",
+    "floor": 0,
+    "notes": "Main navigation landmark inside campus. Most routes pass through here.",
+    "gender": "both",
+    "aliases": [
+      "circle",
+      "pu circle",
+      "roundabout",
+      "main circle",
+      "parul circle"
+    ]
+  }
+]

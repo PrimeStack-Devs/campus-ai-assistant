@@ -1,0 +1,11 @@
+{
+  "auth": {
+    "googleAuthEnabled": true,
+    "domainRestrictionEnabled": false,
+    "allowedDomains": [
+      "paruluniversity.ac.in"
+    ],
+    "allowPersonalGmail": true,
+    "registrationNote": "Sign in with any Google account or your Parul University student ID."
+  }
+}

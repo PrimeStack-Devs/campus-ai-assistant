@@ -1,0 +1,2643 @@
+[
+  {
+    "id": "A1",
+    "code": "A1",
+    "name": "Parul Institute of Engineering & Technology",
+    "short_name": "PIET",
+    "category": "academic",
+    "floors": 6,
+    "zone": "central",
+    "lat": 22.288408,
+    "lng": 73.363971,
+    "coordinates_verified": true,
+    "aliases": [
+      "PIET",
+      "A1",
+      "engineering block",
+      "A block",
+      "piet main"
+    ],
+    "description": "Main engineering and technology block of Parul University.",
+    "institutes": [
+      "Parul Institute of Engineering & Technology"
+    ],
+    "nearby": [
+      "A2",
+      "A3",
+      "C1",
+      "C2"
+    ]
+  },
+  {
+    "id": "A2",
+    "code": "A2",
+    "name": "Parul Institute of Engineering & Technology (Diploma Studies) and HR & Administration",
+    "short_name": "PIET Diploma / HR",
+    "category": "academic",
+    "floors": 5,
+    "zone": "central",
+    "lat": 22.28855,
+    "lng": 73.3638,
+    "coordinates_verified": true,
+    "aliases": [
+      "A2",
+      "diploma block",
+      "hr block",
+      "hr administration"
+    ],
+    "description": "Hosts PIET Diploma Studies and the HR & Administration office.",
+    "institutes": [
+      "Parul Institute of Engineering & Technology (Diploma Studies)",
+      "HR & Administration"
+    ],
+    "nearby": [
+      "A1",
+      "A3",
+      "C1"
+    ]
+  },
+  {
+    "id": "A3",
+    "code": "A3",
+    "name": "Parul Institute of Engineering & Technology (D Block)",
+    "short_name": "PIET D Block",
+    "category": "academic",
+    "floors": 6,
+    "zone": "central",
+    "lat": 22.289746,
+    "lng": 73.363824,
+    "coordinates_verified": true,
+    "aliases": [
+      "A3",
+      "D block",
+      "PIET D block",
+      "d block piet"
+    ],
+    "description": "D Block of PIET, housing additional engineering departments.",
+    "institutes": [
+      "Parul Institute of Engineering & Technology"
+    ],
+    "nearby": [
+      "A1",
+      "A2",
+      "C1",
+      "A13"
+    ]
+  },
+  {
+    "id": "A4",
+    "code": "A4",
+    "name": "Parul Institute of Pharmacy",
+    "short_name": "PIP",
+    "category": "academic",
+    "floors": 5,
+    "zone": "central",
+    "lat": 22.2887,
+    "lng": 73.3628,
+    "coordinates_verified": true,
+    "aliases": [
+      "A4",
+      "pharmacy",
+      "pip",
+      "pharmacy block"
+    ],
+    "description": "Pharmacy institute offering B.Pharm and related programs.",
+    "institutes": [
+      "Parul Institute of Pharmacy"
+    ],
+    "nearby": [
+      "A5",
+      "A7",
+      "E2"
+    ]
+  },
+  {
+    "id": "A5",
+    "code": "A5",
+    "name": "Parul Institute of Engineering & Technology (Diploma Studies) and Gymnasium",
+    "short_name": "PIET Diploma / Gym",
+    "category": "academic",
+    "floors": 5,
+    "zone": "central",
+    "lat": 22.29003,
+    "lng": 73.365092,
+    "coordinates_verified": true,
+    "aliases": [
+      "A5",
+      "gym block",
+      "gymnasium",
+      "fitness block",
+      "piet diploma"
+    ],
+    "description": "Houses PIET Diploma Studies and the campus gymnasium.",
+    "institutes": [
+      "Parul Institute of Engineering & Technology (Diploma Studies)",
+      "Gymnasium"
+    ],
+    "nearby": [
+      "A4",
+      "A6",
+      "G1"
+    ]
+  },
+  {
+    "id": "A6",
+    "code": "A6",
+    "name": "Parul Institute of Nursing",
+    "short_name": "PIN",
+    "category": "academic",
+    "floors": 4,
+    "zone": "central",
+    "lat": 22.2895,
+    "lng": 73.3642,
+    "coordinates_verified": true,
+    "aliases": [
+      "A6",
+      "nursing",
+      "nursing block",
+      "nursing institute"
+    ],
+    "description": "Nursing institute offering B.Sc Nursing and related programs.",
+    "institutes": [
+      "Parul Institute of Nursing"
+    ],
+    "nearby": [
+      "A5",
+      "A7",
+      "E2"
+    ]
+  },
+  {
+    "id": "A7",
+    "code": "A7",
+    "name": "Jawaharlal Nehru Homoeopathic Medical College and Parul Institute of Physiotherapy",
+    "short_name": "JNHMC / Physiotherapy",
+    "category": "academic",
+    "floors": 5,
+    "zone": "central-east",
+    "lat": 22.290681,
+    "lng": 73.365752,
+    "coordinates_verified": true,
+    "aliases": [
+      "A7",
+      "homoeopathic college",
+      "jnhmc",
+      "physiotherapy",
+      "homeopathy block"
+    ],
+    "description": "Houses Homoeopathic Medical College and Physiotherapy institute.",
+    "institutes": [
+      "Jawaharlal Nehru Homoeopathic Medical College",
+      "Parul Institute of Physiotherapy"
+    ],
+    "nearby": [
+      "A6",
+      "A8",
+      "E5"
+    ]
+  },
+  {
+    "id": "A8",
+    "code": "A8",
+    "name": "Parul Institute of Pharmacy & Research",
+    "short_name": "PIPR",
+    "category": "academic",
+    "floors": 5,
+    "zone": "central",
+    "lat": 22.2899,
+    "lng": 73.3646,
+    "coordinates_verified": true,
+    "aliases": [
+      "A8",
+      "pharmacy research",
+      "pipr",
+      "pharmacy and research"
+    ],
+    "description": "Advanced pharmacy research institute.",
+    "institutes": [
+      "Parul Institute of Pharmacy & Research"
+    ],
+    "nearby": [
+      "A7",
+      "A9",
+      "A4"
+    ]
+  },
+  {
+    "id": "A9",
+    "code": "A9",
+    "name": "Parul Polytechnic Institute",
+    "short_name": "PPI",
+    "category": "academic",
+    "floors": 5,
+    "zone": "central",
+    "lat": 22.2898,
+    "lng": 73.3649,
+    "coordinates_verified": true,
+    "aliases": [
+      "A9",
+      "polytechnic",
+      "ppi",
+      "polytechnic institute"
+    ],
+    "description": "Polytechnic institute offering diploma-level technical programs.",
+    "institutes": [
+      "Parul Polytechnic Institute"
+    ],
+    "nearby": [
+      "A8",
+      "A10",
+      "A5"
+    ]
+  },
+  {
+    "id": "A10",
+    "code": "A10",
+    "name": "School of Pharmacy",
+    "short_name": "SOP",
+    "category": "academic",
+    "floors": 4,
+    "zone": "central",
+    "lat": 22.2901,
+    "lng": 73.3643,
+    "coordinates_verified": true,
+    "aliases": [
+      "A10",
+      "school of pharmacy",
+      "sop"
+    ],
+    "description": "School of Pharmacy offering advanced pharmaceutical programs.",
+    "institutes": [
+      "School of Pharmacy"
+    ],
+    "nearby": [
+      "A9",
+      "A11",
+      "A8"
+    ]
+  },
+  {
+    "id": "A11",
+    "code": "A11",
+    "name": "Medical Library & Insights - Centre for Counselling and Psychological",
+    "short_name": "Medical Library / Counselling",
+    "category": "academic",
+    "floors": 3,
+    "zone": "east",
+    "lat": 22.292384,
+    "lng": 73.366739,
+    "coordinates_verified": true,
+    "aliases": [
+      "A11",
+      "medical library",
+      "counselling centre",
+      "psychological centre",
+      "insights centre"
+    ],
+    "description": "Medical library and counselling centre for students.",
+    "institutes": [
+      "Medical Library",
+      "Insights Centre for Counselling and Psychological"
+    ],
+    "nearby": [
+      "A12",
+      "A10",
+      "E2"
+    ]
+  },
+  {
+    "id": "A12",
+    "code": "A12",
+    "name": "Parul Institute of Medical Sciences & Research",
+    "short_name": "PIMSR / Symphony Hall",
+    "category": "academic",
+    "floors": 7,
+    "zone": "east",
+    "lat": 22.292667,
+    "lng": 73.366999,
+    "coordinates_verified": true,
+    "aliases": [
+      "A12",
+      "medical sciences",
+      "pimsr",
+      "symphony hall",
+      "public health",
+      "paramedical",
+      "armed forces cell"
+    ],
+    "description": "Medical sciences complex housing multiple institutes and Symphony Hall.",
+    "institutes": [
+      "Parul Institute of Medical Sciences & Research",
+      "Parul Institute of Public Health",
+      "Parul Institute of Paramedical & Health Sciences",
+      "Armed Forces Motivational Cell",
+      "Symphony Hall"
+    ],
+    "nearby": [
+      "A11",
+      "E2",
+      "A13"
+    ]
+  },
+  {
+    "id": "A13",
+    "code": "A13",
+    "name": "Parul Institute of Ayurved",
+    "short_name": "PIA",
+    "category": "academic",
+    "floors": 5,
+    "zone": "central",
+    "lat": 22.289206,
+    "lng": 73.363331,
+    "coordinates_verified": true,
+    "aliases": [
+      "A13",
+      "ayurved",
+      "ayurveda",
+      "pia",
+      "ayurved block"
+    ],
+    "description": "Ayurveda institute offering BAMS and related programs.",
+    "institutes": [
+      "Parul Institute of Ayurved"
+    ],
+    "nearby": [
+      "A12",
+      "A14",
+      "E1"
+    ]
+  },
+  {
+    "id": "A14",
+    "code": "A14",
+    "name": "Parul Institute of Business Administration",
+    "short_name": "PIBA",
+    "category": "academic",
+    "floors": 6,
+    "zone": "central",
+    "lat": 22.288606,
+    "lng": 73.363056,
+    "coordinates_verified": true,
+    "aliases": [
+      "A14",
+      "business administration",
+      "piba",
+      "mba block",
+      "bba block",
+      "management block"
+    ],
+    "description": "Business administration institute offering MBA and BBA programs.",
+    "institutes": [
+      "Parul Institute of Business Administration"
+    ],
+    "nearby": [
+      "A15",
+      "A13",
+      "C1"
+    ]
+  },
+  {
+    "id": "A15",
+    "code": "A15",
+    "name": "Faculty of Management Studies",
+    "short_name": "FMS",
+    "category": "academic",
+    "floors": 5,
+    "zone": "central-west",
+    "lat": 22.2899,
+    "lng": 73.3625,
+    "coordinates_verified": true,
+    "aliases": [
+      "A15",
+      "management studies",
+      "fms",
+      "management faculty"
+    ],
+    "description": "Faculty of Management Studies offering advanced management programs.",
+    "institutes": [
+      "Faculty of Management Studies"
+    ],
+    "nearby": [
+      "A14",
+      "A16",
+      "C2"
+    ]
+  },
+  {
+    "id": "A16",
+    "code": "A16",
+    "name": "Parul Institute of Architecture & Research and Parul Institute of Physiotherapy & Research",
+    "short_name": "Architecture / Physiotherapy",
+    "category": "academic",
+    "floors": 6,
+    "zone": "central-west",
+    "lat": 22.290021,
+    "lng": 73.362171,
+    "coordinates_verified": true,
+    "aliases": [
+      "A16",
+      "architecture",
+      "piar",
+      "physiotherapy research",
+      "arch block"
+    ],
+    "description": "Architecture and physiotherapy research institute.",
+    "institutes": [
+      "Parul Institute of Architecture & Research",
+      "Parul Institute of Physiotherapy & Research"
+    ],
+    "nearby": [
+      "A15",
+      "A17",
+      "A14"
+    ]
+  },
+  {
+    "id": "A17",
+    "code": "A17",
+    "name": "Parul Institute of Homeopathy & Research",
+    "short_name": "PIHR",
+    "category": "academic",
+    "floors": 5,
+    "zone": "north-west",
+    "lat": 22.293535,
+    "lng": 73.359385,
+    "coordinates_verified": true,
+    "aliases": [
+      "A17",
+      "homeopathy research",
+      "pihr",
+      "homoeopathy research"
+    ],
+    "description": "Homeopathy research institute.",
+    "institutes": [
+      "Parul Institute of Homeopathy & Research"
+    ],
+    "nearby": [
+      "A18",
+      "E4",
+      "A16"
+    ]
+  },
+  {
+    "id": "A18",
+    "code": "A18",
+    "name": "Parul Institute of Ayurved & Research",
+    "short_name": "PIAR",
+    "category": "academic",
+    "floors": 5,
+    "zone": "north-west",
+    "lat": 22.293337,
+    "lng": 73.358457,
+    "coordinates_verified": true,
+    "aliases": [
+      "A18",
+      "ayurved research",
+      "piar",
+      "ayurveda research"
+    ],
+    "description": "Advanced Ayurveda research institute.",
+    "institutes": [
+      "Parul Institute of Ayurved & Research"
+    ],
+    "nearby": [
+      "A17",
+      "A13",
+      "E3"
+    ]
+  },
+  {
+    "id": "A19",
+    "code": "A19",
+    "name": "Parul Institute of Technology and Parul Institute of Hotel Management & Catering Technology",
+    "short_name": "PIT / Hotel Management",
+    "category": "academic",
+    "floors": 6,
+    "zone": "south",
+    "lat": 22.286248,
+    "lng": 73.364309,
+    "coordinates_verified": true,
+    "aliases": [
+      "A19",
+      "PIT",
+      "hotel management",
+      "catering",
+      "technology institute",
+      "pit block"
+    ],
+    "description": "Technology and hotel management institute in the south zone.",
+    "institutes": [
+      "Parul Institute of Technology",
+      "Parul Institute of Hotel Management & Catering Technology"
+    ],
+    "nearby": [
+      "A20",
+      "A21",
+      "P3"
+    ]
+  },
+  {
+    "id": "A20",
+    "code": "A20",
+    "name": "Engineering Workshop",
+    "short_name": "Workshop",
+    "category": "academic",
+    "floors": 2,
+    "zone": "south",
+    "lat": 22.286513,
+    "lng": 73.36396,
+    "coordinates_verified": true,
+    "aliases": [
+      "A20",
+      "workshop",
+      "engineering workshop",
+      "workshop block"
+    ],
+    "description": "Practical engineering workshop for hands-on training.",
+    "institutes": [
+      "Engineering Workshop"
+    ],
+    "nearby": [
+      "A19",
+      "A21",
+      "A9"
+    ]
+  },
+  {
+    "id": "A21",
+    "code": "A21",
+    "name": "Parul Institute of Applied Sciences and Parul Institute of Pharmaceutical Education & Research",
+    "short_name": "Applied Sciences / Pharma Ed",
+    "category": "academic",
+    "floors": 5,
+    "zone": "south",
+    "lat": 22.285482,
+    "lng": 73.363787,
+    "coordinates_verified": true,
+    "aliases": [
+      "A21",
+      "applied sciences",
+      "pharmaceutical education",
+      "pias",
+      "pharma education"
+    ],
+    "description": "Applied sciences and pharmaceutical education institute.",
+    "institutes": [
+      "Parul Institute of Applied Sciences",
+      "Parul Institute of Pharmaceutical Education & Research"
+    ],
+    "nearby": [
+      "A20",
+      "A19",
+      "H30",
+      "H31"
+    ]
+  },
+  {
+    "id": "A22",
+    "code": "A22",
+    "name": "Parul Institute of Design, Parul Institute of Fine Arts and Parul Institute of Performing Arts",
+    "short_name": "Design / Fine Arts / Performing Arts",
+    "category": "academic",
+    "floors": 5,
+    "zone": "north-east",
+    "lat": 22.295044,
+    "lng": 73.364604,
+    "coordinates_verified": true,
+    "aliases": [
+      "A22",
+      "design",
+      "fine arts",
+      "performing arts",
+      "PID",
+      "arts block",
+      "creative block"
+    ],
+    "description": "Creative arts complex housing design, fine arts and performing arts.",
+    "institutes": [
+      "Parul Institute of Design",
+      "Parul Institute of Fine Arts",
+      "Parul Institute of Performing Arts"
+    ],
+    "nearby": [
+      "A23",
+      "A25",
+      "G7"
+    ]
+  },
+  {
+    "id": "A23",
+    "code": "A23",
+    "name": "Subhash Chandra Bose Bhawan",
+    "short_name": "SCB Bhawan",
+    "category": "academic",
+    "floors": 7,
+    "zone": "north-central",
+    "lat": 22.292996,
+    "lng": 73.362453,
+    "coordinates_verified": true,
+    "aliases": [
+      "A23",
+      "subhash chandra bose bhawan",
+      "SCB bhawan",
+      "law block",
+      "commerce block",
+      "arts block",
+      "agriculture"
+    ],
+    "description": "Multi-institute block hosting law, commerce, arts, agriculture, social work and more.",
+    "institutes": [
+      "Parul Institute of Law",
+      "Parul Institute of Commerce",
+      "Parul Institute of Arts",
+      "College of Agriculture",
+      "Parul Institute of Social Work",
+      "Institute of Pharmaceutical Sciences",
+      "Centre for Continuing Education and Online Learning",
+      "Competitive Exam Cell",
+      "Center for Human Resource Development",
+      "Estate and Maintenance Department"
+    ],
+    "nearby": [
+      "A24",
+      "A25",
+      "A22"
+    ]
+  },
+  {
+    "id": "A24",
+    "code": "A24",
+    "name": "Bhagat Singh Bhawan",
+    "short_name": "Bhagat Singh Bhawan / N Block",
+    "category": "academic",
+    "floors": 7,
+    "zone": "north-central",
+    "lat": 22.291481,
+    "lng": 73.363288,
+    "coordinates_verified": true,
+    "aliases": [
+      "A24",
+      "bhagat singh bhawan",
+      "N block",
+      "n-block",
+      "BCA block",
+      "computer application",
+      "director academics"
+    ],
+    "description": "N Block housing Computer Application, PIET, and Office of Director Academics.",
+    "institutes": [
+      "Parul Institute of Computer Application",
+      "Parul Institute of Engineering & Technology",
+      "Office of Director Academics"
+    ],
+    "nearby": [
+      "A25",
+      "A23",
+      "A15"
+    ]
+  },
+  {
+    "id": "A25",
+    "code": "A25",
+    "name": "C.V. Raman Centre",
+    "short_name": "CV Raman Centre",
+    "category": "academic",
+    "floors": 7,
+    "zone": "north-central",
+    "lat": 22.292278,
+    "lng": 73.363257,
+    "coordinates_verified": true,
+    "aliases": [
+      "A25",
+      "cv raman",
+      "raman centre",
+      "raman center",
+      "data centre",
+      "tinkering hub",
+      "L block",
+      "labs block",
+      "mca block",
+      "btech labs",
+      "bca labs"
+    ],
+    "description": "Centre of Excellence for advanced computational skills and research. Houses BCA, MCA, BTech CS labs, Data Centre and Tinkering Hub.",
+    "institutes": [
+      "Parul Institute of Computer Application",
+      "Parul Institute of Engineering & Technology",
+      "System Support Cell",
+      "Data Centre",
+      "Office of Learning and Academic Enrichment Program",
+      "Central Vigilance Office",
+      "Tinkering Hub",
+      "Faculty Updation Cell",
+      "Center for Multidisciplinary and Interdisciplinary Education"
+    ],
+    "nearby": [
+      "A24",
+      "A23",
+      "A26"
+    ]
+  },
+  {
+    "id": "A26",
+    "code": "A26",
+    "name": "24 Frames Studio",
+    "short_name": "24 Frames",
+    "category": "academic",
+    "floors": 2,
+    "zone": "north-central",
+    "lat": 22.2932,
+    "lng": 73.3638,
+    "coordinates_verified": true,
+    "aliases": [
+      "A26",
+      "24 frames",
+      "studio",
+      "film studio",
+      "media studio"
+    ],
+    "description": "Media and film production studio.",
+    "institutes": [
+      "24 Frames Studio"
+    ],
+    "nearby": [
+      "A25",
+      "A23"
+    ]
+  },
+  {
+    "id": "C1",
+    "code": "C1",
+    "name": "Administrative Block C1",
+    "short_name": "Admin C1 / Central Library",
+    "category": "administrative",
+    "floors": 5,
+    "zone": "central",
+    "lat": 22.288844,
+    "lng": 73.363872,
+    "coordinates_verified": true,
+    "aliases": [
+      "C1",
+      "admin block",
+      "central library",
+      "harmony hall",
+      "west hall",
+      "exam section",
+      "scholarship",
+      "accounts",
+      "university office"
+    ],
+    "description": "Main administrative hub with Central Library, Harmony Hall, Exam Section and key offices.",
+    "institutes": [
+      "Student Section",
+      "Scholarship Section",
+      "Account Section",
+      "University Office",
+      "Central Library",
+      "Harmony Hall",
+      "West Hall",
+      "Exam Section"
+    ],
+    "nearby": [
+      "C2",
+      "C3",
+      "A1",
+      "A3"
+    ]
+  },
+  {
+    "id": "C2",
+    "code": "C2",
+    "name": "Administrative Block C2",
+    "short_name": "Admin C2 / Admission",
+    "category": "administrative",
+    "floors": 4,
+    "zone": "central",
+    "lat": 22.288704,
+    "lng": 73.363866,
+    "coordinates_verified": true,
+    "aliases": [
+      "C2",
+      "admission cell",
+      "admission office",
+      "placement cell",
+      "iqac",
+      "mis cell",
+      "south hall",
+      "north hall"
+    ],
+    "description": "Houses Admission Cell, Placement Cell, IQAC and MIS Cell.",
+    "institutes": [
+      "Admission Cell",
+      "Placement Cell",
+      "IQAC",
+      "MIS Cell",
+      "South Hall",
+      "North Hall"
+    ],
+    "nearby": [
+      "C1",
+      "C3",
+      "A1"
+    ]
+  },
+  {
+    "id": "C3",
+    "code": "C3",
+    "name": "Administrative Block C3",
+    "short_name": "Admin C3 / International Affairs",
+    "category": "administrative",
+    "floors": 4,
+    "zone": "central",
+    "lat": 22.289,
+    "lng": 73.3635,
+    "coordinates_verified": true,
+    "aliases": [
+      "C3",
+      "international relations",
+      "student welfare",
+      "alumni",
+      "internship cell",
+      "east hall",
+      "purchase section",
+      "technical event cell"
+    ],
+    "description": "Houses International Relations, Student Welfare, Alumni Association, Internship Cell and more.",
+    "institutes": [
+      "Centre of International Relations & Research",
+      "Office of Student Welfare",
+      "Office of International Affairs",
+      "Office of Alumni Association",
+      "Parul Innovation and Entrepreneurship Research Centre",
+      "Purchase Section",
+      "Technical Event Cell",
+      "Internship Cell",
+      "East Hall"
+    ],
+    "nearby": [
+      "C1",
+      "C2",
+      "C4"
+    ]
+  },
+  {
+    "id": "C4",
+    "code": "C4",
+    "name": "Administrative Block C4",
+    "short_name": "Admin C4 / HR & Doctoral",
+    "category": "administrative",
+    "floors": 3,
+    "zone": "central",
+    "lat": 22.2899,
+    "lng": 73.363,
+    "coordinates_verified": true,
+    "aliases": [
+      "C4",
+      "hr administration",
+      "doctoral studies",
+      "cultural affairs",
+      "phd office"
+    ],
+    "description": "Houses HR & Administration, Doctoral Studies and Cultural Affairs.",
+    "institutes": [
+      "HR & Administration",
+      "Office of Doctoral Studies",
+      "Department of Cultural Affairs"
+    ],
+    "nearby": [
+      "C3",
+      "C5",
+      "A14"
+    ]
+  },
+  {
+    "id": "C5",
+    "code": "C5",
+    "name": "Office of the Hostel Superintendent & Chief Rector",
+    "short_name": "Hostel Superintendent",
+    "category": "administrative",
+    "floors": 2,
+    "zone": "central",
+    "lat": 22.2901,
+    "lng": 73.3629,
+    "coordinates_verified": true,
+    "aliases": [
+      "C5",
+      "hostel superintendent",
+      "chief rector",
+      "rector office"
+    ],
+    "description": "Office of Hostel Superintendent and Chief Rector.",
+    "institutes": [
+      "Office of the Hostel Superintendent & Chief Rector"
+    ],
+    "nearby": [
+      "C4",
+      "H1",
+      "H2"
+    ]
+  },
+  {
+    "id": "E1",
+    "code": "E1",
+    "name": "Parul Ayurved Hospital",
+    "short_name": "Ayurved Hospital",
+    "category": "hospital",
+    "floors": 4,
+    "zone": "central",
+    "lat": 22.2893,
+    "lng": 73.3627,
+    "coordinates_verified": true,
+    "aliases": [
+      "E1",
+      "ayurved hospital",
+      "ayurveda hospital"
+    ],
+    "description": "Ayurveda hospital attached to Parul Institute of Ayurved.",
+    "institutes": [
+      "Parul Ayurved Hospital"
+    ],
+    "nearby": [
+      "A13",
+      "A18",
+      "E2"
+    ]
+  },
+  {
+    "id": "E2",
+    "code": "E2",
+    "name": "Parul Sevashram Hospital",
+    "short_name": "Sevashram Hospital",
+    "category": "hospital",
+    "floors": 7,
+    "zone": "central",
+    "lat": 22.289,
+    "lng": 73.363,
+    "coordinates_verified": true,
+    "aliases": [
+      "E2",
+      "sevashram hospital",
+      "main hospital",
+      "parul hospital",
+      "multi specialty hospital"
+    ],
+    "description": "NABH-accredited 750-bed multi-specialty hospital.",
+    "institutes": [
+      "Parul Sevashram Hospital"
+    ],
+    "nearby": [
+      "E1",
+      "A12",
+      "A6"
+    ]
+  },
+  {
+    "id": "E3",
+    "code": "E3",
+    "name": "Khemdas Ayurved Hospital",
+    "short_name": "Khemdas Hospital",
+    "category": "hospital",
+    "floors": 3,
+    "zone": "north-west",
+    "lat": 22.2938,
+    "lng": 73.3588,
+    "coordinates_verified": true,
+    "aliases": [
+      "E3",
+      "khemdas hospital",
+      "khemdas ayurved"
+    ],
+    "description": "Ayurveda hospital in the north-west zone.",
+    "institutes": [
+      "Khemdas Ayurved Hospital"
+    ],
+    "nearby": [
+      "A18",
+      "E1",
+      "A17"
+    ]
+  },
+  {
+    "id": "E4",
+    "code": "E4",
+    "name": "Parul Institute of Homeopathy & Research Hospital",
+    "short_name": "Homeopathy Hospital",
+    "category": "hospital",
+    "floors": 4,
+    "zone": "north-west",
+    "lat": 22.2934,
+    "lng": 73.3591,
+    "coordinates_verified": true,
+    "aliases": [
+      "E4",
+      "homeopathy hospital",
+      "homoeopathy hospital"
+    ],
+    "description": "Homeopathy hospital attached to Parul Institute of Homeopathy & Research.",
+    "institutes": [
+      "Parul Institute of Homeopathy & Research Hospital"
+    ],
+    "nearby": [
+      "A17",
+      "E3",
+      "E5"
+    ]
+  },
+  {
+    "id": "E5",
+    "code": "E5",
+    "name": "Jawaharlal Nehru Homoeopathic Medical College Hospital",
+    "short_name": "JN Homoeopathic Hospital",
+    "category": "hospital",
+    "floors": 4,
+    "zone": "central-east",
+    "lat": 22.290681,
+    "lng": 73.3655,
+    "coordinates_verified": true,
+    "aliases": [
+      "E5",
+      "jn hospital",
+      "nehru hospital",
+      "homoeopathic hospital",
+      "jnhmc hospital"
+    ],
+    "description": "Homoeopathic hospital attached to Jawaharlal Nehru Homoeopathic Medical College.",
+    "institutes": [
+      "Jawaharlal Nehru Homoeopathic Medical College Hospital"
+    ],
+    "nearby": [
+      "A7",
+      "E4",
+      "A6"
+    ]
+  },
+  {
+    "id": "B1",
+    "code": "B1",
+    "name": "Central Bank of India",
+    "short_name": "Bank",
+    "category": "bank",
+    "floors": 1,
+    "zone": "central",
+    "lat": 22.2885,
+    "lng": 73.3632,
+    "coordinates_verified": true,
+    "aliases": [
+      "B1",
+      "bank",
+      "central bank",
+      "atm",
+      "campus bank"
+    ],
+    "description": "Central Bank of India branch on campus.",
+    "institutes": [
+      "Central Bank of India"
+    ],
+    "nearby": [
+      "C1",
+      "C2",
+      "A1"
+    ]
+  },
+  {
+    "id": "H1",
+    "code": "H1",
+    "name": "Shastri Bhawan - A",
+    "short_name": "Shastri Bhawan A",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "central-east",
+    "lat": 22.2905,
+    "lng": 73.3658,
+    "coordinates_verified": true,
+    "aliases": [
+      "H1",
+      "shastri bhawan a",
+      "shastri a",
+      "shastri hostel"
+    ],
+    "description": "Boys/Girls hostel block A of Shastri Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H2",
+      "H3",
+      "M1"
+    ]
+  },
+  {
+    "id": "H2",
+    "code": "H2",
+    "name": "Shastri Bhawan - B",
+    "short_name": "Shastri Bhawan B",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "central-east",
+    "lat": 22.2906,
+    "lng": 73.3659,
+    "coordinates_verified": true,
+    "aliases": [
+      "H2",
+      "shastri bhawan b",
+      "shastri b"
+    ],
+    "description": "Hostel block B of Shastri Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H1",
+      "H3",
+      "M1"
+    ]
+  },
+  {
+    "id": "H3",
+    "code": "H3",
+    "name": "Shastri Bhawan - C",
+    "short_name": "Shastri Bhawan C",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "central-east",
+    "lat": 22.2907,
+    "lng": 73.366,
+    "coordinates_verified": true,
+    "aliases": [
+      "H3",
+      "shastri bhawan c",
+      "shastri c"
+    ],
+    "description": "Hostel block C of Shastri Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H1",
+      "H2",
+      "H4"
+    ]
+  },
+  {
+    "id": "H4",
+    "code": "H4",
+    "name": "Marie Curie Residence",
+    "short_name": "Marie Curie",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "central-east",
+    "lat": 22.2909,
+    "lng": 73.3661,
+    "coordinates_verified": true,
+    "aliases": [
+      "H4",
+      "marie curie",
+      "marie curie residence",
+      "marie curie hostel"
+    ],
+    "description": "Girls hostel named after Marie Curie.",
+    "institutes": [],
+    "nearby": [
+      "H3",
+      "H5",
+      "M1"
+    ]
+  },
+  {
+    "id": "H5",
+    "code": "H5",
+    "name": "Sarojini Bhawan - A",
+    "short_name": "Sarojini Bhawan A",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "central-east",
+    "lat": 22.2911,
+    "lng": 73.3662,
+    "coordinates_verified": true,
+    "aliases": [
+      "H5",
+      "sarojini bhawan a",
+      "sarojini a",
+      "sarojini hostel"
+    ],
+    "description": "Hostel block A of Sarojini Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H4",
+      "H6",
+      "H7"
+    ]
+  },
+  {
+    "id": "H6",
+    "code": "H6",
+    "name": "Sarojini Bhawan - B",
+    "short_name": "Sarojini Bhawan B",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "central-east",
+    "lat": 22.2912,
+    "lng": 73.3663,
+    "coordinates_verified": true,
+    "aliases": [
+      "H6",
+      "sarojini bhawan b",
+      "sarojini b"
+    ],
+    "description": "Hostel block B of Sarojini Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H5",
+      "H7",
+      "H8"
+    ]
+  },
+  {
+    "id": "H7",
+    "code": "H7",
+    "name": "Sarojini Bhawan - C",
+    "short_name": "Sarojini Bhawan C",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "central-east",
+    "lat": 22.2913,
+    "lng": 73.3661,
+    "coordinates_verified": true,
+    "aliases": [
+      "H7",
+      "sarojini bhawan c",
+      "sarojini c"
+    ],
+    "description": "Hostel block C of Sarojini Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H6",
+      "H8",
+      "H9"
+    ]
+  },
+  {
+    "id": "H8",
+    "code": "H8",
+    "name": "Indira Bhawan - A",
+    "short_name": "Indira Bhawan A",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "central-east",
+    "lat": 22.2911,
+    "lng": 73.3658,
+    "coordinates_verified": true,
+    "aliases": [
+      "H8",
+      "indira bhawan a",
+      "indira a",
+      "indira hostel"
+    ],
+    "description": "Hostel block A of Indira Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H7",
+      "H9",
+      "H10"
+    ]
+  },
+  {
+    "id": "H9",
+    "code": "H9",
+    "name": "Indira Bhawan - B",
+    "short_name": "Indira Bhawan B",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "central-east",
+    "lat": 22.2912,
+    "lng": 73.3657,
+    "coordinates_verified": true,
+    "aliases": [
+      "H9",
+      "indira bhawan b",
+      "indira b"
+    ],
+    "description": "Hostel block B of Indira Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H8",
+      "H10",
+      "H11"
+    ]
+  },
+  {
+    "id": "H10",
+    "code": "H10",
+    "name": "Indira Bhawan - C",
+    "short_name": "Indira Bhawan C",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "central-east",
+    "lat": 22.2913,
+    "lng": 73.3656,
+    "coordinates_verified": true,
+    "aliases": [
+      "H10",
+      "indira bhawan c",
+      "indira c"
+    ],
+    "description": "Hostel block C of Indira Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H9",
+      "H11",
+      "H12"
+    ]
+  },
+  {
+    "id": "H11",
+    "code": "H11",
+    "name": "Albert Einstein Residence",
+    "short_name": "Einstein Residence",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "central-east",
+    "lat": 22.2915,
+    "lng": 73.3654,
+    "coordinates_verified": true,
+    "aliases": [
+      "H11",
+      "einstein residence",
+      "albert einstein",
+      "einstein hostel"
+    ],
+    "description": "Boys hostel named after Albert Einstein.",
+    "institutes": [],
+    "nearby": [
+      "H10",
+      "H12",
+      "S1"
+    ]
+  },
+  {
+    "id": "H12",
+    "code": "H12",
+    "name": "Kalam Bhawan - A",
+    "short_name": "Kalam Bhawan A",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "central-east",
+    "lat": 22.2917,
+    "lng": 73.3653,
+    "coordinates_verified": true,
+    "aliases": [
+      "H12",
+      "kalam bhawan a",
+      "kalam a",
+      "kalam hostel"
+    ],
+    "description": "Hostel block A of Kalam Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H11",
+      "H13",
+      "H14"
+    ]
+  },
+  {
+    "id": "H13",
+    "code": "H13",
+    "name": "Kalam Bhawan - B",
+    "short_name": "Kalam Bhawan B",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "central-east",
+    "lat": 22.2918,
+    "lng": 73.3652,
+    "coordinates_verified": true,
+    "aliases": [
+      "H13",
+      "kalam bhawan b",
+      "kalam b"
+    ],
+    "description": "Hostel block B of Kalam Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H12",
+      "H14",
+      "H15"
+    ]
+  },
+  {
+    "id": "H14",
+    "code": "H14",
+    "name": "Kalam Bhawan - C",
+    "short_name": "Kalam Bhawan C",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "central-east",
+    "lat": 22.2919,
+    "lng": 73.3651,
+    "coordinates_verified": true,
+    "aliases": [
+      "H14",
+      "kalam bhawan c",
+      "kalam c"
+    ],
+    "description": "Hostel block C of Kalam Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H13",
+      "H15",
+      "H16"
+    ]
+  },
+  {
+    "id": "H15",
+    "code": "H15",
+    "name": "Tagore Bhawan - A",
+    "short_name": "Tagore Bhawan A",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "east",
+    "lat": 22.292,
+    "lng": 73.365,
+    "coordinates_verified": true,
+    "aliases": [
+      "H15",
+      "tagore bhawan a",
+      "tagore a",
+      "tagore hostel"
+    ],
+    "description": "Hostel block A of Tagore Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H14",
+      "H16",
+      "H17"
+    ]
+  },
+  {
+    "id": "H16",
+    "code": "H16",
+    "name": "Tagore Bhawan - B",
+    "short_name": "Tagore Bhawan B",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "east",
+    "lat": 22.2921,
+    "lng": 73.3649,
+    "coordinates_verified": true,
+    "aliases": [
+      "H16",
+      "tagore bhawan b",
+      "tagore b"
+    ],
+    "description": "Hostel block B of Tagore Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H15",
+      "H17",
+      "H18"
+    ]
+  },
+  {
+    "id": "H17",
+    "code": "H17",
+    "name": "Dhyan Bhawan",
+    "short_name": "Dhyan Bhawan",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "east",
+    "lat": 22.2923,
+    "lng": 73.3652,
+    "coordinates_verified": true,
+    "aliases": [
+      "H17",
+      "dhyan bhawan",
+      "dhyan hostel"
+    ],
+    "description": "Hostel block Dhyan Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H16",
+      "H18",
+      "H15"
+    ]
+  },
+  {
+    "id": "H18",
+    "code": "H18",
+    "name": "Janki Bhawan",
+    "short_name": "Janki Bhawan",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "east",
+    "lat": 22.2924,
+    "lng": 73.3654,
+    "coordinates_verified": true,
+    "aliases": [
+      "H18",
+      "janki bhawan",
+      "janki hostel"
+    ],
+    "description": "Hostel block Janki Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H17",
+      "H19",
+      "S1"
+    ]
+  },
+  {
+    "id": "H19",
+    "code": "H19",
+    "name": "Teresa Bhawan - A",
+    "short_name": "Teresa Bhawan A",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "east",
+    "lat": 22.2925,
+    "lng": 73.3656,
+    "coordinates_verified": true,
+    "aliases": [
+      "H19",
+      "teresa bhawan a",
+      "teresa a",
+      "teresa hostel"
+    ],
+    "description": "Hostel block A of Teresa Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H18",
+      "H20",
+      "H21"
+    ]
+  },
+  {
+    "id": "H20",
+    "code": "H20",
+    "name": "Teresa Bhawan - B",
+    "short_name": "Teresa Bhawan B",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "east",
+    "lat": 22.2926,
+    "lng": 73.3657,
+    "coordinates_verified": true,
+    "aliases": [
+      "H20",
+      "teresa bhawan b",
+      "teresa b"
+    ],
+    "description": "Hostel block B of Teresa Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H19",
+      "H21",
+      "H22"
+    ]
+  },
+  {
+    "id": "H21",
+    "code": "H21",
+    "name": "Teresa Bhawan - C",
+    "short_name": "Teresa Bhawan C",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "east",
+    "lat": 22.2927,
+    "lng": 73.3658,
+    "coordinates_verified": true,
+    "aliases": [
+      "H21",
+      "teresa bhawan c",
+      "teresa c"
+    ],
+    "description": "Hostel block C of Teresa Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H20",
+      "H22",
+      "H23"
+    ]
+  },
+  {
+    "id": "H22",
+    "code": "H22",
+    "name": "Teresa Bhawan - D",
+    "short_name": "Teresa Bhawan D",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "north",
+    "lat": 22.295089,
+    "lng": 73.362394,
+    "coordinates_verified": true,
+    "aliases": [
+      "H22",
+      "teresa bhawan d",
+      "teresa d"
+    ],
+    "description": "Hostel block D of Teresa Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H21",
+      "H23",
+      "H24"
+    ]
+  },
+  {
+    "id": "H23",
+    "code": "H23",
+    "name": "Shakuntala Bhawan - A",
+    "short_name": "Shakuntala Bhawan A",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "east",
+    "lat": 22.2929,
+    "lng": 73.366,
+    "coordinates_verified": true,
+    "aliases": [
+      "H23",
+      "shakuntala bhawan a",
+      "shakuntala a",
+      "shakuntala hostel"
+    ],
+    "description": "Hostel block A of Shakuntala Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H22",
+      "H24",
+      "S1"
+    ]
+  },
+  {
+    "id": "H24",
+    "code": "H24",
+    "name": "Shakuntala Bhawan - B",
+    "short_name": "Shakuntala Bhawan B",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "east",
+    "lat": 22.293,
+    "lng": 73.3661,
+    "coordinates_verified": true,
+    "aliases": [
+      "H24",
+      "shakuntala bhawan b",
+      "shakuntala b"
+    ],
+    "description": "Hostel block B of Shakuntala Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H23",
+      "H25",
+      "H26"
+    ]
+  },
+  {
+    "id": "H25",
+    "code": "H25",
+    "name": "Atal Bhawan - A1",
+    "short_name": "Atal Bhawan A1",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "north-west",
+    "lat": 22.2939,
+    "lng": 73.3589,
+    "coordinates_verified": true,
+    "aliases": [
+      "H25",
+      "atal bhawan a1",
+      "atal a1"
+    ],
+    "description": "Hostel block A1 of Atal Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H26",
+      "H27",
+      "H32"
+    ]
+  },
+  {
+    "id": "H26",
+    "code": "H26",
+    "name": "Atal Bhawan - A2",
+    "short_name": "Atal Bhawan A2",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "north-west",
+    "lat": 22.294,
+    "lng": 73.3591,
+    "coordinates_verified": true,
+    "aliases": [
+      "H26",
+      "atal bhawan a2",
+      "atal a2"
+    ],
+    "description": "Hostel block A2 of Atal Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H25",
+      "H27",
+      "H32"
+    ]
+  },
+  {
+    "id": "H27",
+    "code": "H27",
+    "name": "Milkha Bhawan - A",
+    "short_name": "Milkha Bhawan",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "north-west",
+    "lat": 22.294319,
+    "lng": 73.358516,
+    "coordinates_verified": true,
+    "aliases": [
+      "H27",
+      "milkha bhawan",
+      "milkha a",
+      "milkha hostel",
+      "milkha singh bhawan"
+    ],
+    "description": "Boys hostel named after Milkha Singh.",
+    "institutes": [],
+    "nearby": [
+      "H25",
+      "H26",
+      "G5"
+    ]
+  },
+  {
+    "id": "H28",
+    "code": "H28",
+    "name": "Kalpana Bhawan - A",
+    "short_name": "Kalpana Bhawan A",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "north-west",
+    "lat": 22.2941,
+    "lng": 73.3594,
+    "coordinates_verified": true,
+    "aliases": [
+      "H28",
+      "kalpana bhawan a",
+      "kalpana a",
+      "kalpana hostel"
+    ],
+    "description": "Hostel block A of Kalpana Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H27",
+      "H29",
+      "H25"
+    ]
+  },
+  {
+    "id": "H29",
+    "code": "H29",
+    "name": "Kalpana Bhawan - B",
+    "short_name": "Kalpana Bhawan B",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "north-west",
+    "lat": 22.2942,
+    "lng": 73.3596,
+    "coordinates_verified": true,
+    "aliases": [
+      "H29",
+      "kalpana bhawan b",
+      "kalpana b"
+    ],
+    "description": "Hostel block B of Kalpana Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H28",
+      "H30",
+      "H27"
+    ]
+  },
+  {
+    "id": "H30",
+    "code": "H30",
+    "name": "Sardar Bhawan - A",
+    "short_name": "Sardar Bhawan A",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "south",
+    "lat": 22.28541,
+    "lng": 73.363765,
+    "coordinates_verified": true,
+    "aliases": [
+      "H30",
+      "sardar bhawan a",
+      "sardar a",
+      "sardar hostel"
+    ],
+    "description": "Boys hostel block A of Sardar Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H31",
+      "A21",
+      "A20"
+    ]
+  },
+  {
+    "id": "H31",
+    "code": "H31",
+    "name": "Sardar Bhawan - B",
+    "short_name": "Sardar Bhawan B",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "south",
+    "lat": 22.285155,
+    "lng": 73.363767,
+    "coordinates_verified": true,
+    "aliases": [
+      "H31",
+      "sardar bhawan b",
+      "sardar b"
+    ],
+    "description": "Boys hostel block B of Sardar Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H30",
+      "A21",
+      "A20"
+    ]
+  },
+  {
+    "id": "H32",
+    "code": "H32",
+    "name": "Atal Bhawan - B",
+    "short_name": "Atal Bhawan B",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "north-west",
+    "lat": 22.294806,
+    "lng": 73.359599,
+    "coordinates_verified": true,
+    "aliases": [
+      "H32",
+      "atal bhawan b",
+      "atal b",
+      "atal hostel"
+    ],
+    "description": "Boys hostel block B of Atal Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H25",
+      "H26",
+      "H27"
+    ]
+  },
+  {
+    "id": "H33",
+    "code": "H33",
+    "name": "Azad Bhawan - A",
+    "short_name": "Azad Bhawan",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "north",
+    "lat": 22.295089,
+    "lng": 73.362394,
+    "coordinates_verified": true,
+    "aliases": [
+      "H33",
+      "azad bhawan",
+      "azad a",
+      "azad hostel"
+    ],
+    "description": "Boys hostel Azad Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H22",
+      "H34",
+      "A22"
+    ]
+  },
+  {
+    "id": "H34",
+    "code": "H34",
+    "name": "Tagore Bhawan - C",
+    "short_name": "Tagore Bhawan C",
+    "category": "hostel",
+    "floors": 5,
+    "zone": "east",
+    "lat": 22.2932,
+    "lng": 73.3648,
+    "coordinates_verified": true,
+    "aliases": [
+      "H34",
+      "tagore bhawan c",
+      "tagore c"
+    ],
+    "description": "Hostel block C of Tagore Bhawan.",
+    "institutes": [],
+    "nearby": [
+      "H15",
+      "H16",
+      "H33"
+    ]
+  },
+  {
+    "id": "M1",
+    "code": "M1",
+    "name": "Mess",
+    "short_name": "Main Mess",
+    "category": "mess",
+    "floors": 1,
+    "zone": "central-east",
+    "lat": 22.2908,
+    "lng": 73.3655,
+    "coordinates_verified": true,
+    "aliases": [
+      "M1",
+      "mess",
+      "dining hall",
+      "food",
+      "canteen mess"
+    ],
+    "description": "Main student mess / dining hall.",
+    "institutes": [],
+    "nearby": [
+      "H1",
+      "H2",
+      "H3",
+      "H4"
+    ]
+  },
+  {
+    "id": "F1",
+    "code": "F1",
+    "name": "Greenzy Food Court",
+    "short_name": "Greenzy",
+    "category": "food",
+    "floors": 1,
+    "zone": "central",
+    "lat": 22.291408,
+    "lng": 73.363806,
+    "coordinates_verified": true,
+    "aliases": [
+      "F1",
+      "greenzy",
+      "food court",
+      "canteen",
+      "greenzy food court"
+    ],
+    "description": "Main food court on campus with multiple food stalls.",
+    "institutes": [],
+    "nearby": [
+      "A24",
+      "A25",
+      "G1"
+    ]
+  },
+  {
+    "id": "F2",
+    "code": "F2",
+    "name": "Capitol Crust",
+    "short_name": "Capitol Crust",
+    "category": "food",
+    "floors": 1,
+    "zone": "east",
+    "lat": 22.293937,
+    "lng": 73.366085,
+    "coordinates_verified": true,
+    "aliases": [
+      "F2",
+      "capitol crust",
+      "capitol",
+      "pizza",
+      "east canteen"
+    ],
+    "description": "Food outlet Capitol Crust near the east zone.",
+    "institutes": [],
+    "nearby": [
+      "A12",
+      "H23",
+      "H24"
+    ]
+  },
+  {
+    "id": "F3",
+    "code": "F3",
+    "name": "Champions Cove",
+    "short_name": "Champions Cove",
+    "category": "food",
+    "floors": 1,
+    "zone": "north-central",
+    "lat": 22.291964,
+    "lng": 73.362393,
+    "coordinates_verified": true,
+    "aliases": [
+      "F3",
+      "champions cove",
+      "champions",
+      "cove",
+      "sports canteen"
+    ],
+    "description": "Food outlet Champions Cove near sports complex.",
+    "institutes": [],
+    "nearby": [
+      "A25",
+      "A23",
+      "G3"
+    ]
+  },
+  {
+    "id": "S1",
+    "code": "S1",
+    "name": "Swimming Pool",
+    "short_name": "Swimming Pool",
+    "category": "sports",
+    "floors": 1,
+    "zone": "east",
+    "lat": 22.29265,
+    "lng": 73.366016,
+    "coordinates_verified": true,
+    "aliases": [
+      "S1",
+      "swimming pool",
+      "pool",
+      "aquatics"
+    ],
+    "description": "Campus swimming pool.",
+    "institutes": [],
+    "nearby": [
+      "H18",
+      "H23",
+      "G5"
+    ]
+  },
+  {
+    "id": "T",
+    "code": "T",
+    "name": "Shree Sai Temple",
+    "short_name": "Temple",
+    "category": "temple",
+    "floors": 1,
+    "zone": "central-east",
+    "lat": 22.290598,
+    "lng": 73.365129,
+    "coordinates_verified": true,
+    "aliases": [
+      "T",
+      "temple",
+      "sai temple",
+      "shree sai",
+      "mandir"
+    ],
+    "description": "Shree Sai Temple on campus.",
+    "institutes": [],
+    "nearby": [
+      "H3",
+      "H4",
+      "M1"
+    ]
+  },
+  {
+    "id": "G1",
+    "code": "G1",
+    "name": "Watcher's Park / Central Ground",
+    "short_name": "Watcher's Park",
+    "category": "sports",
+    "floors": 1,
+    "zone": "central",
+    "lat": 22.291272,
+    "lng": 73.36422,
+    "coordinates_verified": true,
+    "aliases": [
+      "G1",
+      "watcher's park",
+      "central park",
+      "watchers park",
+      "open ground"
+    ],
+    "description": "Central open ground and park area.",
+    "institutes": [],
+    "nearby": [
+      "A24",
+      "A25",
+      "F1"
+    ]
+  },
+  {
+    "id": "G2",
+    "code": "G2",
+    "name": "PU Football Ground / Multi-Purpose Ground",
+    "short_name": "Football Ground",
+    "category": "sports",
+    "floors": 1,
+    "zone": "central",
+    "lat": 22.290019,
+    "lng": 73.363271,
+    "coordinates_verified": true,
+    "aliases": [
+      "G2",
+      "football ground",
+      "PU football",
+      "multipurpose ground",
+      "football"
+    ],
+    "description": "Main football and multi-purpose sports ground.",
+    "institutes": [],
+    "nearby": [
+      "A3",
+      "C1",
+      "G1"
+    ]
+  },
+  {
+    "id": "G3",
+    "code": "G3",
+    "name": "Multi-Purpose / Football Ground (North)",
+    "short_name": "North Ground",
+    "category": "sports",
+    "floors": 1,
+    "zone": "north-central",
+    "lat": 22.2919,
+    "lng": 73.3626,
+    "coordinates_verified": true,
+    "aliases": [
+      "G3",
+      "north ground",
+      "multipurpose north"
+    ],
+    "description": "Multi-purpose sports ground in north-central zone.",
+    "institutes": [],
+    "nearby": [
+      "A15",
+      "A23",
+      "F3"
+    ]
+  },
+  {
+    "id": "G4",
+    "code": "G4",
+    "name": "Basketball Court",
+    "short_name": "Basketball Court",
+    "category": "sports",
+    "floors": 1,
+    "zone": "central",
+    "lat": 22.290438,
+    "lng": 73.364721,
+    "coordinates_verified": true,
+    "aliases": [
+      "G4",
+      "basketball court",
+      "basketball",
+      "basketball ground"
+    ],
+    "description": "Campus basketball court.",
+    "institutes": [],
+    "nearby": [
+      "A5",
+      "G5",
+      "T1"
+    ]
+  },
+  {
+    "id": "G5",
+    "code": "G5",
+    "name": "Tennis Court",
+    "short_name": "Tennis Court",
+    "category": "sports",
+    "floors": 1,
+    "zone": "central",
+    "lat": 22.290559,
+    "lng": 73.364229,
+    "coordinates_verified": true,
+    "aliases": [
+      "G5",
+      "tennis court",
+      "tennis"
+    ],
+    "description": "Campus tennis court.",
+    "institutes": [],
+    "nearby": [
+      "G4",
+      "G6",
+      "A5"
+    ]
+  },
+  {
+    "id": "G6",
+    "code": "G6",
+    "name": "Volleyball Court",
+    "short_name": "Volleyball Court",
+    "category": "sports",
+    "floors": 1,
+    "zone": "central",
+    "lat": 22.290345,
+    "lng": 73.364166,
+    "coordinates_verified": true,
+    "aliases": [
+      "G6",
+      "volleyball court",
+      "volleyball"
+    ],
+    "description": "Campus volleyball court.",
+    "institutes": [],
+    "nearby": [
+      "G5",
+      "G4",
+      "A5"
+    ]
+  },
+  {
+    "id": "G7",
+    "code": "G7",
+    "name": "Kabaddi Ground",
+    "short_name": "Kabaddi Ground",
+    "category": "sports",
+    "floors": 1,
+    "zone": "central",
+    "lat": 22.291478,
+    "lng": 73.364776,
+    "coordinates_verified": true,
+    "aliases": [
+      "G7",
+      "kabaddi ground",
+      "kabaddi"
+    ],
+    "description": "Campus kabaddi ground.",
+    "institutes": [],
+    "nearby": [
+      "G1",
+      "F1",
+      "A24"
+    ]
+  },
+  {
+    "id": "G8",
+    "code": "G8",
+    "name": "Hockey Ground",
+    "short_name": "Hockey Ground",
+    "category": "sports",
+    "floors": 1,
+    "zone": "north-east",
+    "lat": 22.294481,
+    "lng": 73.366626,
+    "coordinates_verified": true,
+    "aliases": [
+      "G8",
+      "hockey ground",
+      "hockey"
+    ],
+    "description": "Campus hockey ground.",
+    "institutes": [],
+    "nearby": [
+      "G9",
+      "H22",
+      "A22"
+    ]
+  },
+  {
+    "id": "G9",
+    "code": "G9",
+    "name": "Cricket Net Practice Ground",
+    "short_name": "Cricket Net",
+    "category": "sports",
+    "floors": 1,
+    "zone": "north",
+    "lat": 22.295099,
+    "lng": 73.360731,
+    "coordinates_verified": true,
+    "aliases": [
+      "G9",
+      "cricket net",
+      "cricket practice",
+      "cricket ground",
+      "net practice"
+    ],
+    "description": "Cricket net practice facility.",
+    "institutes": [],
+    "nearby": [
+      "G8",
+      "G10",
+      "H32"
+    ]
+  },
+  {
+    "id": "G10",
+    "code": "G10",
+    "name": "PID Ground / Multi-Purpose Ground (North-East)",
+    "short_name": "PID Ground",
+    "category": "sports",
+    "floors": 1,
+    "zone": "north-east",
+    "lat": 22.295858,
+    "lng": 73.364969,
+    "coordinates_verified": true,
+    "aliases": [
+      "G10",
+      "PID ground",
+      "design ground",
+      "north east ground"
+    ],
+    "description": "Sports ground near PID / Design block.",
+    "institutes": [],
+    "nearby": [
+      "A22",
+      "G8",
+      "H33"
+    ]
+  },
+  {
+    "id": "P1",
+    "code": "P1",
+    "name": "Visitor's Parking",
+    "short_name": "Visitor Parking",
+    "category": "parking",
+    "floors": 1,
+    "zone": "central",
+    "lat": 22.288811,
+    "lng": 73.363446,
+    "coordinates_verified": true,
+    "aliases": [
+      "P1",
+      "visitor parking",
+      "guest parking",
+      "visitor's parking"
+    ],
+    "description": "Main visitor parking area near the entrance.",
+    "institutes": [],
+    "nearby": [
+      "C1",
+      "C2",
+      "GATE_MAIN"
+    ]
+  },
+  {
+    "id": "P2",
+    "code": "P2",
+    "name": "Staff 2-Wheeler Parking",
+    "short_name": "Staff 2W Parking",
+    "category": "parking",
+    "floors": 1,
+    "zone": "central-west",
+    "lat": 22.2895,
+    "lng": 73.3628,
+    "coordinates_verified": true,
+    "aliases": [
+      "P2",
+      "staff parking",
+      "staff 2 wheeler",
+      "two wheeler parking"
+    ],
+    "description": "Staff 2-wheeler parking area.",
+    "institutes": [],
+    "nearby": [
+      "A15",
+      "C4",
+      "TS"
+    ]
+  },
+  {
+    "id": "P3",
+    "code": "P3",
+    "name": "Student 2-Wheeler Parking",
+    "short_name": "Student 2W Parking",
+    "category": "parking",
+    "floors": 1,
+    "zone": "central",
+    "lat": 22.2882,
+    "lng": 73.3635,
+    "coordinates_verified": true,
+    "aliases": [
+      "P3",
+      "student parking",
+      "bike parking",
+      "student 2 wheeler"
+    ],
+    "description": "Student 2-wheeler parking area.",
+    "institutes": [],
+    "nearby": [
+      "A1",
+      "A19",
+      "GATE_MAIN"
+    ]
+  },
+  {
+    "id": "P4",
+    "code": "P4",
+    "name": "Bus Parking / Pick and Drop Point",
+    "short_name": "Bus Parking",
+    "category": "parking",
+    "floors": 1,
+    "zone": "north-central",
+    "lat": 22.2927,
+    "lng": 73.364,
+    "coordinates_verified": true,
+    "aliases": [
+      "P4",
+      "bus parking",
+      "bus stop",
+      "pick and drop",
+      "transport stop"
+    ],
+    "description": "Bus parking and pick & drop point for transport services.",
+    "institutes": [],
+    "nearby": [
+      "TS",
+      "A23",
+      "A24"
+    ]
+  },
+  {
+    "id": "P5",
+    "code": "P5",
+    "name": "Staff 4-Wheeler Parking (North-East)",
+    "short_name": "Staff 4W Parking NE",
+    "category": "parking",
+    "floors": 1,
+    "zone": "north-west",
+    "lat": 22.2938,
+    "lng": 73.3597,
+    "coordinates_verified": true,
+    "aliases": [
+      "P5",
+      "staff car parking",
+      "staff 4 wheeler",
+      "car parking"
+    ],
+    "description": "Staff 4-wheeler parking in north-east zone.",
+    "institutes": [],
+    "nearby": [
+      "H25",
+      "H26",
+      "TS"
+    ]
+  },
+  {
+    "id": "TS",
+    "code": "TS",
+    "name": "Transport Office",
+    "short_name": "Transport Office",
+    "category": "transport",
+    "floors": 1,
+    "zone": "central-west",
+    "lat": 22.2898,
+    "lng": 73.3624,
+    "coordinates_verified": true,
+    "aliases": [
+      "TS",
+      "transport office",
+      "transport",
+      "bus office",
+      "transport services"
+    ],
+    "description": "Transport office managing campus bus services and routes.",
+    "institutes": [
+      "Transport Office"
+    ],
+    "nearby": [
+      "P4",
+      "P2",
+      "C4"
+    ]
+  },
+  {
+    "id": "STP",
+    "code": "STP",
+    "name": "Sewage Treatment Plant",
+    "short_name": "STP",
+    "category": "utility",
+    "floors": 1,
+    "zone": "far-east",
+    "lat": 22.2916,
+    "lng": 73.3674,
+    "coordinates_verified": true,
+    "aliases": [
+      "STP",
+      "sewage treatment",
+      "treatment plant"
+    ],
+    "description": "Sewage treatment plant at the eastern edge of campus.",
+    "institutes": [],
+    "nearby": [
+      "G5",
+      "H24"
+    ]
+  },
+  {
+    "id": "V",
+    "code": "V",
+    "name": "Security Office",
+    "short_name": "Security",
+    "category": "security",
+    "floors": 1,
+    "zone": "south",
+    "lat": 22.287762,
+    "lng": 73.363324,
+    "coordinates_verified": true,
+    "aliases": [
+      "V",
+      "security office",
+      "security",
+      "guard",
+      "campus security"
+    ],
+    "description": "Main campus security office near Gate No. 3.",
+    "institutes": [],
+    "nearby": [
+      "GATE_MAIN",
+      "GATE3",
+      "P1"
+    ]
+  },
+  {
+    "id": "GATE_MAIN",
+    "code": "GATE_MAIN",
+    "name": "Main Entry Gate",
+    "short_name": "Main Gate",
+    "category": "gate",
+    "floors": 1,
+    "zone": "south",
+    "lat": 22.287766,
+    "lng": 73.36474,
+    "coordinates_verified": true,
+    "aliases": [
+      "main gate",
+      "entry gate",
+      "main entrance",
+      "entry",
+      "gate 1"
+    ],
+    "description": "Main entry gate of Parul University campus.",
+    "institutes": [],
+    "nearby": [
+      "V1",
+      "P1",
+      "P3"
+    ]
+  },
+  {
+    "id": "GATE_EXIT",
+    "code": "GATE_EXIT",
+    "name": "Exit Gate",
+    "short_name": "Exit Gate",
+    "category": "gate",
+    "floors": 1,
+    "zone": "west",
+    "lat": 22.288831,
+    "lng": 73.3628,
+    "coordinates_verified": true,
+    "aliases": [
+      "exit gate",
+      "west gate",
+      "way to vadodara",
+      "exit"
+    ],
+    "description": "Exit gate on the west side of campus towards Vadodara.",
+    "institutes": [],
+    "nearby": [
+      "TS",
+      "P2",
+      "A20"
+    ]
+  },
+  {
+    "id": "GATE3",
+    "code": "GATE3",
+    "name": "Gate No. 3",
+    "short_name": "Gate 3",
+    "category": "gate",
+    "floors": 1,
+    "zone": "south",
+    "lat": 22.287623,
+    "lng": 73.363324,
+    "coordinates_verified": true,
+    "aliases": [
+      "gate 3",
+      "gate no 3",
+      "gate number 3",
+      "gate three"
+    ],
+    "description": "Gate No. 3 of Parul University campus.",
+    "institutes": [],
+    "nearby": [
+      "V1",
+      "GATE_MAIN",
+      "P3"
+    ]
+  },
+  {
+    "id": "PU_CIRCLE",
+    "code": "PU_CIRCLE",
+    "name": "Parul University Circle",
+    "short_name": "PU Circle",
+    "category": "landmark",
+    "floors": 1,
+    "zone": "central",
+    "lat": 22.288831,
+    "lng": 73.364778,
+    "coordinates_verified": true,
+    "aliases": [
+      "pu circle",
+      "circle",
+      "parul circle",
+      "roundabout",
+      "main circle"
+    ],
+    "description": "Main roundabout / circle landmark inside campus.",
+    "institutes": [],
+    "nearby": [
+      "C1",
+      "C2",
+      "A1",
+      "GATE_MAIN"
+    ]
+  }
+]

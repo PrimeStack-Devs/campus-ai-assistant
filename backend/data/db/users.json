@@ -1,0 +1,56 @@
+[
+  {
+    "googleId": "gid_1788585763574",
+    "name": "Rahul Sharma",
+    "email": "rahul.sharma@gmail.com",
+    "avatar": "https://lh3.googleusercontent.com/a/test",
+    "domain": "gmail.com",
+    "role": "user",
+    "lastLogin": "2026-09-05T05:22:43.574Z"
+  },
+  {
+    "googleId": "gid_1788585885803",
+    "name": "Amit Kumar",
+    "email": "amit.kumar@paruluniversity.ac.in",
+    "avatar": "",
+    "domain": "paruluniversity.ac.in",
+    "role": "student",
+    "lastLogin": "2026-09-05T05:24:45.803Z"
+  },
+  {
+    "googleId": "a4593484-13d1-40dd-901e-c358c1636334",
+    "name": "Deepak Dhakad",
+    "email": "deepakdkd1188@gmail.com",
+    "avatar": "https://lh3.googleusercontent.com/a/ACg8ocIcnBPTkH9KacW0bbg8YPyKWLfav_ZMehdU3diOaVUHiyt2lPTvyQ=s96-c",
+    "domain": "gmail.com",
+    "role": "user",
+    "lastLogin": "2026-09-07T07:37:56.081Z"
+  },
+  {
+    "googleId": "gid_1788586279858",
+    "name": "Deepak",
+    "email": "deepakdkd@gmail.com",
+    "avatar": "",
+    "domain": "gmail.com",
+    "role": "user",
+    "lastLogin": "2026-09-05T05:31:19.858Z"
+  },
+  {
+    "googleId": "gid_1788586861811",
+    "name": "Deepak",
+    "email": "deepak@gmail.com",
+    "avatar": "",
+    "domain": "gmail.com",
+    "role": "user",
+    "lastLogin": "2026-09-05T05:41:01.811Z"
+  },
+  {
+    "googleId": "gid_1788586882099",
+    "name": "Deepak Patel",
+    "email": "student@paruluniversity.ac.in",
+    "avatar": "",
+    "domain": "paruluniversity.ac.in",
+    "role": "student",
+    "lastLogin": "2026-09-05T05:41:22.099Z"
+  }
+]
