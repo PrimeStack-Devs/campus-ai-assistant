@@ -20,38 +20,38 @@ type Message = {
 };
 
 export default function Chat() {
- const [messages, setMessages] = useState<Message[]>([]);
- const [input, setInput] = useState("");
- const [loading, setLoading] = useState(false);
-const [isLoaded, setIsLoaded] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-  const loadMessages = async () => {
-    const saved = await AsyncStorage.getItem("chat_messages");
+    const loadMessages = async () => {
+      const saved = await AsyncStorage.getItem("chat_messages");
 
-    if (saved) {
-      setMessages(JSON.parse(saved));
-    } else {
-      setMessages([
-        {
-          id: "1",
-          text: "Hi! I'm UniBuddy, your campus AI assistant. How can I help you today?",
-          sender: "ai",
-          suggestions: ["Course registration", "Hostel info", "Event calendar", "Exam schedule"],
-        },
-      ]);
+      if (saved) {
+        setMessages(JSON.parse(saved));
+      } else {
+        setMessages([
+          {
+            id: "1",
+            text: "Hi! I'm UniBuddy, your campus AI assistant. How can I help you today?",
+            sender: "ai",
+            suggestions: ["Course registration", "Hostel info", "Event calendar", "Exam schedule"],
+          },
+        ]);
+      }
+    };
+
+    loadMessages().then(() => setIsLoaded(true));
+  }, []);
+  useEffect(() => {
+    if (messages.length > 0) {
+      AsyncStorage.setItem("chat_messages", JSON.stringify(messages));
     }
-  };
+  }, [messages]);
 
-loadMessages().then(() => setIsLoaded(true));
-}, []);
- useEffect(() => {
-  if (messages.length > 0) {
-    AsyncStorage.setItem("chat_messages", JSON.stringify(messages));
-  }
-}, [messages]);
-
-    const handleSend = async () => {
+  const handleSend = async () => {
     if (!input.trim() || loading) return;
 
     const userMessage: Message = {
@@ -68,11 +68,11 @@ loadMessages().then(() => setIsLoaded(true));
       const res = await askCampusAI(input);
       console.log("API Response:", res);
       const aiMessage: Message = {
-  id: (Date.now() + 1).toString(),
-  text: res.answer,
-  sender: "ai",
-  location: res.location, // 🔥 IMPORTANT
-};
+        id: (Date.now() + 1).toString(),
+        text: res.answer,
+        sender: "ai",
+        location: res.location, // 🔥 IMPORTANT
+      };
 
       setMessages((prev) => [...prev, aiMessage]);
     } catch (error) {
@@ -128,27 +128,27 @@ loadMessages().then(() => setIsLoaded(true));
                 maxWidth: "80%",
               }}
             >
-             <View
-  style={{
-    padding: 12,
-    borderRadius: 16,
-    backgroundColor:
-      msg.sender === "user" ? "#6366f1" : "#f3f4f6",
-  }}
->
-  <Text
-    style={{
-      color: msg.sender === "user" ? "#fff" : "#111",
-    }}
-  >
-    {msg.text}
-  </Text>
-</View>
+              <View
+                style={{
+                  padding: 12,
+                  borderRadius: 16,
+                  backgroundColor:
+                    msg.sender === "user" ? "#6366f1" : "#f3f4f6",
+                }}
+              >
+                <Text
+                  style={{
+                    color: msg.sender === "user" ? "#fff" : "#111",
+                  }}
+                >
+                  {msg.text}
+                </Text>
+              </View>
 
-{/* 🔥 ADD THIS */}
-{msg.location && (
-  <LocationCard location={msg.location} />
-)}
+              {/* 🔥 ADD THIS */}
+              {msg.location && (
+                <LocationCard location={msg.location} />
+              )}
 
               {/* 🔥 Suggestions */}
               {msg.suggestions && (
@@ -197,6 +197,7 @@ loadMessages().then(() => setIsLoaded(true));
               paddingVertical: 10,
               borderRadius: 20,
             }}
+            autoFocus={true}
             className="px-6 py-4 bg-white/50 backdrop-blur-xl"
           />
 
