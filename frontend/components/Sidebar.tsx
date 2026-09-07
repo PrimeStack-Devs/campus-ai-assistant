@@ -34,7 +34,7 @@ export function Sidebar() {
               key={item.href}
               href={item.href}
               className={`flex min-w-0 flex-col items-center justify-center gap-0.5 rounded-xl px-1.5 py-1.5 text-center transition-all duration-200 md:flex-row md:justify-start md:gap-3 md:px-4 md:py-3.5 md:text-left ${isActive
-                  ? 'bg-gradient-to-r from-rose-600 to-amber-500 text-white shadow-md shadow-rose-500/20 dark:shadow-rose-500/10'
+                  ? 'bg-gradient-to-r from-indigo-600 to-violet-600 text-white shadow-md shadow-indigo-500/25 dark:shadow-indigo-500/15'
                   : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-900 dark:hover:text-slate-100'
                 }`}
             >
