@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { AuthProvider } from '@/context/AuthContext'
 import LoginModal from '@/components/LoginModal'
 import GuestUnlockPopup from '@/components/GuestUnlockPopup'
+import { InstallPwaPrompt } from '@/components/InstallPwaPrompt'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -14,12 +15,23 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   interactiveWidget: 'resizes-content',
+  themeColor: '#4f46e5',
 };
 
 export const metadata: Metadata = {
-  title: 'Dexa AI',
-  description: 'Created by Hiremind',
-}
+  title: 'Dexa AI - Smart Campus Assistant',
+  description: 'AI-powered campus queries, navigation, policies, and events for Parul University.',
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Dexa AI',
+  },
+  icons: {
+    icon: '/icons/icon-192x192.png',
+    apple: '/icons/icon-192x192.png',
+  },
+};
 
 export default function RootLayout({
   children,
@@ -34,6 +46,7 @@ export default function RootLayout({
             {children}
             <LoginModal />
             <GuestUnlockPopup />
+            <InstallPwaPrompt />
           </AuthProvider>
         </ThemeProvider>
         <Analytics />
