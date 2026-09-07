@@ -4,14 +4,12 @@ import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
 
-import { initializeProfessorService } from "./services/structuredService.js";
 import chatRoutes from "./routes/chat.js";
-import chatRoutesV2 from "./routes/v2/chat.js";
-import { extractPDFDocs } from "./services/pdfProcessor.js";
-import { initializeRAG } from "./services/ragPipeline.js";
-import { initializeRouter } from "./services/router.js";
-import { initializeStore } from "./services/v2/vectorStore.js";
+import adminRoutes from "./routes/admin.js";
+import campusRoutes from "./routes/campus.js";
+import { initializeStore } from "./services/vectorStore.js";
 import { connectRedis } from "./config/redis.js";
+import { connectDB } from "./config/db.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,51 +25,52 @@ app.use(express.json());
 app.get("/api/health", (req, res) => {
   res.json({
     success: true,
-    message: "API is working!",
+    message: "Dexa Campus AI API is working!",
+    timestamp: new Date().toISOString(),
   });
 });
 
-// Routes
+// Canonical Routes
 app.use("/api/chat", chatRoutes);
-app.use("/api/v2/chat", chatRoutesV2);
- 
+app.use("/api/v2/chat", chatRoutes); // Backward compatibility alias
+app.use("/api/admin", adminRoutes);
+app.use("/api/campus", campusRoutes);
+
 const initializeApp = async () => {
   try {
-    console.log("Starting server initialization...");
+    const startTime = Date.now();
+    console.log("🚀 Starting Dexa Server initialization...");
 
-    await connectRedis();
+    // 1. Connect Redis Cache
+    try {
+      await connectRedis();
+    } catch (redisErr) {
+      console.warn("⚠️ Redis unavailable, proceeding without cache:", redisErr.message);
+    }
 
-    console.log("Processing PDF...");
-    const pdfDocs = await extractPDFDocs(
-      path.join(__dirname, "data", "handbook.pdf")
-    );
+    // 2. Connect Database (with graceful fallback to local persistent store)
+    try {
+      await connectDB();
+    } catch (dbErr) {
+      console.log("ℹ️ Running with local persistent data store in backend/data/db/");
+    }
 
-    console.log("Initializing RAG...");
-    await initializeRAG(pdfDocs);
-
-    console.log("Initializing Professor Service...");
-    await initializeProfessorService();
-
-    console.log("Initializing Campus Vector Store...");
+    // 3. Fast Vector Store Initialization (< 50ms)
     await initializeStore();
 
-    console.log("Initializing Router...");
-    await initializeRouter();
-
-    console.log("System Ready.");
+    console.log(`✅ System Ready in ${Date.now() - startTime}ms (Cold start eliminated).`);
   } catch (error) {
-    console.error("Startup error:", error);
+    console.error("❌ Startup error:", error);
   }
 };
- 
+
 await initializeApp();
 
-if(process.env.NODE_ENV !== "production"){
+if (process.env.NODE_ENV !== "production") {
   const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`🚀 Server running on port ${PORT}`);
   });
 }
 
 export default app;
-
