@@ -46,6 +46,7 @@ export interface AIResponse {
   responseType?: string | null;
   location?: LocationData;
   webSource?: WebSourceData;
+  title?: string;
 }
 
 interface PlaceBundlePayload {
@@ -74,11 +75,17 @@ interface WebSourcePayload {
 
 type ResponsePayload = PlaceBundlePayload | WebSourcePayload | null | undefined;
 
-export async function askCampusAI(query: string): Promise<AIResponse> {
-  const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v2/chat`, {
-  // const response = await axios.post('https://campus-ai-assistant-backend.vercel.app/api/v2/chat', {
+export async function askCampusAI(
+  query: string,
+  sessionId?: string,
+  options?: { messageCount?: number; existingTitle?: string }
+): Promise<AIResponse> {
+  const backend = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+  const response = await axios.post(`${backend}/api/chat`, {
     message: query,
-    sessionId: getSessionId(),
+    sessionId: sessionId || getSessionId(),
+    messageCount: options?.messageCount,
+    existingTitle: options?.existingTitle,
   });
 
   const apiData = response.data;
@@ -103,6 +110,7 @@ export async function askCampusAI(query: string): Promise<AIResponse> {
     return {
       answer: apiData?.reply ?? '',
       responseType,
+      title: apiData?.title,
       location,
     };
   }
@@ -111,6 +119,7 @@ export async function askCampusAI(query: string): Promise<AIResponse> {
     return {
       answer: apiData?.reply ?? '',
       responseType,
+      title: apiData?.title,
       webSource: payload.source_url
         ? {
             sourceLabel: payload.source_label || 'Official source',
@@ -126,5 +135,6 @@ export async function askCampusAI(query: string): Promise<AIResponse> {
   return {
     answer: apiData?.reply ?? '',
     responseType,
+    title: apiData?.title,
   };
 }
