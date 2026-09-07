@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { MessagePrimitive, ActionBarPrimitive, useAuiState } from '@assistant-ui/react';
 import { MarkdownTextPrimitive } from '@assistant-ui/react-markdown';
+import remarkGfm from 'remark-gfm';
 import { Sparkles, Copy, Check, RotateCw } from 'lucide-react';
 import { LocationCard } from '@/components/LocationCard';
 import { SourceCard } from '@/components/SourceCard';
@@ -48,6 +49,56 @@ function CodeBlock({ code, language }: { code: string; language?: string }) {
   );
 }
 
+function renderCellContent(children: React.ReactNode): React.ReactNode {
+  if (typeof children === 'string') {
+    if (/<br\s*\/?>/i.test(children)) {
+      const parts = children.split(/<br\s*\/?>/gi);
+      return parts.map((part, index) => (
+        <span key={index}>
+          {index > 0 && <br />}
+          {part}
+        </span>
+      ));
+    }
+    return children;
+  }
+
+  if (Array.isArray(children)) {
+    return children.map((child, index) => (
+      <React.Fragment key={index}>{renderCellContent(child)}</React.Fragment>
+    ));
+  }
+
+  return children;
+}
+
+function preprocessMarkdown(content: string): string {
+  if (!content || typeof content !== 'string') return '';
+
+  let text = content.replace(/\r\n/g, '\n');
+
+  // 1. Separate table rows that were collapsed into a single line with `| |`
+  text = text.replace(/(\|[^\n]+\|)/g, (match) => {
+    if (match.includes('|-') && /\|\s*\|/.test(match)) {
+      let fixed = match.replace(/\|[ \t]*\|(?=[ \t]*[-:]{2,}[ \t]*\|)/g, '|\n|');
+      fixed = fixed.replace(/\|[ \t]*\|(?=[ \t]*[^|\n]+[ \t]*\|)/g, '|\n|');
+      return fixed;
+    }
+    if (/\|\s*\|\s*[^|\n]+\|/.test(match) && match.split('|').length > 8) {
+      return match.replace(/\|[ \t]*\|(?=[ \t]*[^|\n]+[ \t]*\|)/g, '|\n|');
+    }
+    return match;
+  });
+
+  // 2. Ensure an empty line BEFORE any table block if preceded by non-table text
+  text = text.replace(/([^\n|])\n(\|[^\n]+\|)/g, '$1\n\n$2');
+
+  // 3. Ensure an empty line AFTER any table block if followed by non-table text
+  text = text.replace(/(\|[^\n]+\|)\n([^\n|])/g, '$1\n\n$2');
+
+  return text;
+}
+
 export function AssistantMessage() {
   const customMetadata = useAuiState((s) => (s.message?.metadata as any)?.custom);
   const location = customMetadata?.location as LocationData | undefined;
@@ -62,11 +113,13 @@ export function AssistantMessage() {
 
       <div className="min-w-0 flex-1 space-y-2">
         {/* Message Content Container */}
-        <div className="rounded-2xl rounded-tl-xs bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 p-3.5 sm:p-4 text-xs sm:text-sm text-slate-900 dark:text-slate-100 shadow-xs leading-relaxed">
+        <div className="rounded-2xl rounded-tl-xs bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 p-3.5 sm:p-4 text-xs sm:text-sm text-slate-900 dark:text-slate-100 shadow-xs leading-relaxed overflow-hidden">
           <MessagePrimitive.Content
             components={{
               Text: () => (
                 <MarkdownTextPrimitive
+                  remarkPlugins={[remarkGfm]}
+                  preprocess={preprocessMarkdown}
                   components={{
                     pre: ({ children }) => <>{children}</>,
                     code: ({ className, children, ...props }: any) => {
@@ -91,8 +144,17 @@ export function AssistantMessage() {
                     p: ({ node, ...props }) => (
                       <p
                         {...props}
-                        className="text-slate-800 dark:text-slate-100 leading-relaxed mb-2 last:mb-0 font-normal"
+                        className="text-slate-800 dark:text-slate-100 leading-relaxed mb-2.5 last:mb-0 font-normal"
                       />
+                    ),
+                    h1: ({ node, ...props }) => (
+                      <h1 {...props} className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mt-3.5 mb-2" />
+                    ),
+                    h2: ({ node, ...props }) => (
+                      <h2 {...props} className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mt-3 mb-1.5" />
+                    ),
+                    h3: ({ node, ...props }) => (
+                      <h3 {...props} className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white mt-2.5 mb-1" />
                     ),
                     strong: ({ node, ...props }) => (
                       <strong {...props} className="font-bold text-slate-900 dark:text-white" />
@@ -117,6 +179,42 @@ export function AssistantMessage() {
                         {...props}
                         className="border-l-2 border-indigo-500 pl-3 my-2 italic text-slate-600 dark:text-slate-300"
                       />
+                    ),
+                    hr: ({ node, ...props }) => (
+                      <hr {...props} className="my-3.5 border-slate-200 dark:border-slate-800" />
+                    ),
+                    table: ({ node, ...props }) => (
+                      <div className="my-3.5 w-full overflow-x-auto rounded-xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900/60 shadow-xs">
+                        <table {...props} className="w-full text-left text-xs sm:text-sm border-collapse min-w-full" />
+                      </div>
+                    ),
+                    thead: ({ node, ...props }) => (
+                      <thead
+                        {...props}
+                        className="bg-slate-100/90 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700/70 text-slate-800 dark:text-slate-200 font-semibold uppercase tracking-wider text-[11px]"
+                      />
+                    ),
+                    tbody: ({ node, ...props }) => (
+                      <tbody {...props} className="divide-y divide-slate-100 dark:divide-slate-800/60" />
+                    ),
+                    tr: ({ node, ...props }) => (
+                      <tr {...props} className="hover:bg-slate-50/70 dark:hover:bg-slate-800/40 transition-colors" />
+                    ),
+                    th: ({ node, children, ...props }) => (
+                      <th
+                        {...props}
+                        className="px-3.5 py-2.5 font-bold text-slate-900 dark:text-slate-100 whitespace-nowrap bg-slate-100/70 dark:bg-slate-800/50 border-r border-slate-200/60 dark:border-slate-700/40 last:border-r-0"
+                      >
+                        {renderCellContent(children)}
+                      </th>
+                    ),
+                    td: ({ node, children, ...props }) => (
+                      <td
+                        {...props}
+                        className="px-3.5 py-2 text-slate-700 dark:text-slate-300 leading-normal align-top border-r border-slate-100/80 dark:border-slate-800/40 last:border-r-0"
+                      >
+                        {renderCellContent(children)}
+                      </td>
                     ),
                   }}
                 />
