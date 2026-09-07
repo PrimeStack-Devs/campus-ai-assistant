@@ -54,6 +54,9 @@ export default function GuestUnlockPopup() {
         DISMISS_STORAGE_KEY,
         String(Date.now() + 24 * 60 * 60 * 1000)
       );
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('dexa_guest_popup_closed'));
+      }
     } catch {}
   };
 

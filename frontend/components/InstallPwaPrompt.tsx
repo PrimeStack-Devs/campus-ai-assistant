@@ -9,6 +9,7 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 const DISMISS_KEY = 'dexa_pwa_prompt_dismissed_until';
+const GUEST_DISMISS_KEY = 'dexa_guest_popup_dismissed_until';
 const SNOOZE_DAYS = 7;
 
 export function InstallPwaPrompt() {
@@ -30,7 +31,7 @@ export function InstallPwaPrompt() {
         });
     }
 
-    // 2. Check if already installed in standalone mode
+    // 2. Check if already running in standalone mode (already installed)
     const isStandalone =
       window.matchMedia('(display-mode: standalone)').matches ||
       (window.navigator as any).standalone === true;
@@ -39,11 +40,43 @@ export function InstallPwaPrompt() {
       return;
     }
 
-    // 3. Check snooze period
+    // 3. Check snooze period for PWA install prompt
     const dismissedUntil = localStorage.getItem(DISMISS_KEY);
     if (dismissedUntil && Date.now() < Number(dismissedUntil)) {
       return;
     }
+
+    // Helper: Checks if the guest visitor popup is pending or currently active
+    const isGuestPopupActive = () => {
+      try {
+        const guestDismissed = localStorage.getItem(GUEST_DISMISS_KEY);
+        // If dismissed within the last 24h, guest popup won't show
+        if (guestDismissed && Number(guestDismissed) > Date.now()) {
+          return false;
+        }
+      } catch {}
+      return true;
+    };
+
+    // Helper: Safely schedules showing the PWA prompt without colliding with the guest notice
+    const schedulePwaPrompt = () => {
+      if (isGuestPopupActive()) {
+        // Guest notice is active or pending -> wait until it is dismissed
+        const handleGuestClosed = () => {
+          window.removeEventListener('dexa_guest_popup_closed', handleGuestClosed);
+          // Give the user a relaxed 3-second breathing room after closing guest notice
+          setTimeout(() => {
+            setIsVisible(true);
+          }, 3000);
+        };
+        window.addEventListener('dexa_guest_popup_closed', handleGuestClosed);
+      } else {
+        // Guest notice already handled or logged in -> show after a pleasant delay
+        setTimeout(() => {
+          setIsVisible(true);
+        }, 7000);
+      }
+    };
 
     // 4. Detect iOS Safari
     const userAgent = window.navigator.userAgent.toLowerCase();
@@ -54,17 +87,15 @@ export function InstallPwaPrompt() {
 
     if (isAppleDevice && isSafari) {
       setIsIos(true);
-      // Show iOS install suggestion after brief delay
-      const timer = setTimeout(() => setIsVisible(true), 3000);
-      return () => clearTimeout(timer);
+      schedulePwaPrompt();
+      return;
     }
 
     // 5. Android / Chrome / Edge beforeinstallprompt handler
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
-      // Show prompt banner after brief delay so it feels natural
-      setTimeout(() => setIsVisible(true), 2500);
+      schedulePwaPrompt();
     };
 
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
@@ -124,7 +155,7 @@ export function InstallPwaPrompt() {
               <button
                 type="button"
                 onClick={handleDismiss}
-                className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors p-0.5 rounded-lg"
+                className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors p-0.5 rounded-lg cursor-pointer"
                 title="Dismiss"
               >
                 <X size={15} />

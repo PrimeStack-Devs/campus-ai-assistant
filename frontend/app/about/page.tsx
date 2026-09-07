@@ -53,7 +53,8 @@ export default function AboutPage() {
         </div>
 
         {/* Meet the Builders Section */}
-        <div>
+        {/* Commented for now */}
+        {/* <div>
           <div className="flex items-center gap-2.5 mb-4">
             <div className="p-1.5 rounded-lg bg-linear-to-tr from-indigo-500 to-violet-500 text-white shadow-xs">
               <Sparkles size={18} />
@@ -69,7 +70,6 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Deepak Dhakad */}
             <div className="rounded-xl border border-slate-200/80 bg-white p-5 shadow-xs transition-all hover:border-indigo-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:hover:border-indigo-900/50">
               <div className="flex items-center gap-3">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-tr from-indigo-600 to-violet-600 text-base font-bold text-white shadow-md shadow-indigo-500/20">
@@ -115,7 +115,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Jatin Puri */}
+
             <div className="rounded-xl border border-slate-200/80 bg-white p-5 shadow-xs transition-all hover:border-indigo-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:hover:border-indigo-900/50">
               <div className="flex items-center gap-3">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-tr from-indigo-600 to-sky-500 text-base font-bold text-white shadow-md shadow-indigo-500/20">
@@ -150,7 +150,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 p-8 text-center text-white">
           <h2 className="mb-3 text-2xl font-bold">Ready to explore campus?</h2>
