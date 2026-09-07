@@ -115,7 +115,7 @@ void main() {
 }
 `;
 
-export interface ThreadsProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ThreadsProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'color'> {
   color?: [number, number, number];
   amplitude?: number;
   distance?: number;

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Send, Lock, Sparkles, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -22,18 +22,48 @@ export function ChatInput({
   onSignIn,
 }: ChatInputProps) {
   const [input, setInput] = useState('');
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const adjustHeight = () => {
+    const textarea = textareaRef.current;
+    if (!textarea) return;
+
+    // Reset height to accurately compute scrollHeight upon deletion or wrapping
+    textarea.style.height = 'auto';
+
+    const maxHeight = 160; // Max ~6-7 lines
+    const nextHeight = Math.min(textarea.scrollHeight, maxHeight);
+    textarea.style.height = `${nextHeight}px`;
+    textarea.style.overflowY = textarea.scrollHeight > maxHeight ? 'auto' : 'hidden';
+  };
+
+  useEffect(() => {
+    adjustHeight();
+  }, [input]);
+
+  const handleSubmit = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
     if (input.trim() && !disabled && !isGuestLimitReached) {
       onSubmit(input);
       setInput('');
+      if (textareaRef.current) {
+        textareaRef.current.style.height = 'auto';
+        textareaRef.current.style.overflowY = 'hidden';
+      }
     }
   };
 
-  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      if ((e.nativeEvent as any).isComposing) return;
+      e.preventDefault();
+      handleSubmit();
+    }
+  };
+
+  const handleFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
     setTimeout(() => {
-      e.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      e.target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }, 280);
   };
 
@@ -92,48 +122,60 @@ export function ChatInput({
       onSubmit={handleSubmit}
       className="border-t border-slate-200/50 bg-white/70 p-2.5 sm:p-4 dark:border-slate-800/50 dark:bg-slate-950/70 backdrop-blur-md shrink-0"
     >
-      {/* Guest Query Counter Badge */}
-      {isGuest && (
-        <div className="mb-2 flex items-center justify-between px-1 text-[11px] text-slate-500 dark:text-slate-400">
-          <span className="flex items-center gap-1.5 font-medium">
-            <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
-            Guest Mode:{' '}
-            <strong className="text-slate-800 dark:text-slate-200">
-              {remainingGuestMessages} of 5 free queries
-            </strong>{' '}
-            remaining
-          </span>
-          <button
-            type="button"
+      <div className="max-w-4xl mx-auto w-full">
+        {/* Guest Query Counter Badge */}
+        {isGuest && (
+          <div className="mb-2 flex items-center justify-between px-1 text-[11px] text-slate-500 dark:text-slate-400">
+            <span className="flex items-center gap-1.5 font-medium">
+              <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
+              Guest Mode:{' '}
+              <strong className="text-slate-800 dark:text-slate-200">
+                {remainingGuestMessages} of 5 free queries
+              </strong>{' '}
+              remaining
+            </span>
+            <button
+              type="button"
+              suppressHydrationWarning
+              onClick={onSignIn}
+              className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline cursor-pointer"
+            >
+              Sign in for unlimited
+            </button>
+          </div>
+        )}
+
+        <div className="relative flex items-end gap-1.5 sm:gap-2 rounded-2xl border border-slate-200 bg-white p-1.5 sm:p-2 shadow-sm transition-all focus-within:border-indigo-500 focus-within:ring-3 focus-within:ring-indigo-500/10 dark:border-slate-800/80 dark:bg-slate-900/60">
+          <textarea
+            ref={textareaRef}
+            rows={1}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            onFocus={handleFocus}
+            placeholder="Ask me anything about campus..."
+            disabled={disabled}
             suppressHydrationWarning
-            onClick={onSignIn}
-            className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline cursor-pointer"
+            className="min-w-0 flex-1 resize-none bg-transparent px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base text-slate-900 placeholder:text-slate-400 focus:outline-none disabled:text-slate-400 dark:text-slate-100 dark:placeholder:text-slate-500 dark:disabled:text-slate-500 leading-relaxed max-h-[160px] overflow-y-hidden break-words"
+          />
+          <button
+            type="submit"
+            disabled={disabled || !input.trim()}
+            suppressHydrationWarning
+            className="shrink-0 flex items-center justify-center rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 h-9 w-9 sm:h-10 sm:w-10 text-white shadow-md shadow-indigo-500/20 hover:shadow-lg transition-all duration-200 active:scale-95 disabled:cursor-not-allowed disabled:from-slate-200 disabled:to-slate-200 disabled:text-slate-400 disabled:shadow-none dark:disabled:from-slate-800 dark:disabled:to-slate-800 dark:disabled:text-slate-500 cursor-pointer self-end mb-0.5"
+            aria-label="Send query"
           >
-            Sign in for unlimited
+            <Send className="h-4 w-4 sm:h-4.5 sm:w-4.5" />
           </button>
         </div>
-      )}
 
-      <div className="relative flex items-center rounded-2xl border border-slate-200 bg-white p-1 sm:p-1.5 shadow-sm transition-all focus-within:border-indigo-500 focus-within:ring-3 focus-within:ring-indigo-500/10 dark:border-slate-800/80 dark:bg-slate-900/40">
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onFocus={handleFocus}
-          placeholder="Ask me anything about campus..."
-          disabled={disabled}
-          suppressHydrationWarning
-          className="min-w-0 flex-1 bg-transparent px-3.5 py-2.5 sm:px-4.5 sm:py-3 text-sm text-slate-900 focus:outline-none disabled:text-slate-400 dark:text-slate-100 dark:disabled:text-slate-500 sm:text-base"
-        />
-        <button
-          type="submit"
-          disabled={disabled || !input.trim()}
-          suppressHydrationWarning
-          className="shrink-0 flex items-center justify-center rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 px-3.5 py-2.5 sm:px-5 sm:py-3 text-sm font-bold text-white shadow-md shadow-indigo-500/20 hover:shadow-lg transition-all duration-200 active:scale-95 disabled:cursor-not-allowed disabled:from-slate-200 disabled:to-slate-200 disabled:text-slate-400 disabled:shadow-none dark:disabled:from-slate-800 dark:disabled:to-slate-800 dark:disabled:text-slate-500 cursor-pointer"
-          aria-label="Send query"
-        >
-          <Send className="h-4 w-4 sm:h-5 sm:w-5" />
-        </button>
+        {/* Subtle keyboard hint for desktop */}
+        <div className="hidden sm:flex items-center justify-between px-2 pt-1.5 text-[11px] text-slate-400 dark:text-slate-500">
+          <span>Dexa AI answers campus queries in real time.</span>
+          <span className="font-mono text-[10px] text-slate-400/80 dark:text-slate-500">
+            Shift + Enter for new line
+          </span>
+        </div>
       </div>
     </form>
   );
