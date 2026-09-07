@@ -5,4 +5,4 @@ export {
   initializeStore,
   searchCampusData,
   addDynamicDocuments,
-} from "./vector/index.js";
+} from "./v2/vectorStore.js";
