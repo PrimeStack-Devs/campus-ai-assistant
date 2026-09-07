@@ -1,4 +1,4 @@
-export { getStore, initializeStore } from "./store.js";
+export { getStore, initializeStore, addDynamicDocuments } from "./store.js";
 export { searchCampusData } from "./search/semanticSearch.js";
 export {
   getCampusPlaceBundle,
