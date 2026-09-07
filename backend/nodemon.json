@@ -1,0 +1,5 @@
+{
+  "watch": ["server.js", "config", "routes", "services", "utils", "models"],
+  "ignore": ["data/**", "campus-data/**", "node_modules/**", "*.log"],
+  "ext": "js,mjs,json"
+}
