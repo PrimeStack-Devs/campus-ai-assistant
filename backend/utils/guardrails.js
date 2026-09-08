@@ -191,6 +191,7 @@ const OFF_TOPIC_RESPONSE = `I'm specifically here to help with everything relate
 That's a bit outside what I can help with. Is there anything about the campus I can assist you with?`;
 
 // ─── Special Tier: Developer & Engineering Team ──────────────────────────────
+/*
 const DEVELOPER_PATTERNS = [
   /\b(who (made|built|developed|created|coded|designed) (you|dexa|this (ai|bot|app|assistant|project|system)))\b/i,
   /\b((developer|creator|builder|author)s? (of|behind) (you|dexa|this (ai|bot|app|assistant|project|system)))\b/i,
@@ -214,6 +215,28 @@ const DEVELOPER_RESPONSE = `Dexa was architected and developed by a dedicated en
 - 💼 **LinkedIn:** https://www.linkedin.com/in/deepak-dhakad-web-developer/
 
 💡 *Have feedback, found a campus data glitch, or want to collaborate? Feel free to reach out to the team directly!*`;
+*/
+
+const DEVELOPER_PATTERNS = [
+  /\b(who (made|built|developed|created|coded|designed|owns?) (you|dexa|this (ai|bot|app|assistant|project|system)))\b/i,
+  /\b((developer|creator|builder|author|maker|owner)s? (of|behind) (you|dexa|this (ai|bot|app|assistant|project|system)))\b/i,
+  /\b(who is (the|your) (developer|creator|builder|author|owner))\b/i,
+  /\b(who (are|is) (the )?(developers?|creators?|owners?))\b/i,
+  /\b(who (owns|is owning) (you|dexa|this (ai|bot|app|assistant|project|system)))\b/i,
+  /\b(dexa(\s*s)?\s*owner|owner of (dexa|this (ai|bot|app|assistant|project|system)|the (app|bot|ai|assistant)))\b/i,
+  /\b(contact (to )?(the )?(developer|creator|owner|team)|developer (contact|email|mail|info|details|linkedin))\b/i,
+  /\b(how (can|do) i (contact|reach) (the )?(developer|owner|support|team))\b/i,
+  /\b(report (a )?(bug|issue|glitch)|dexa support email|developer mail)\b/i,
+  /\b(developer|owner) (contact|email|mail|help|feedback)\b/i,
+  /\b(about dexa|who is dexa|what is dexa)\b/i,
+];
+
+const DEVELOPER_RESPONSE = `Dexa is the official Smart Campus AI Assistant for Parul University.
+
+For any inquiries regarding Dexa, its owner, or developer, please contact:
+✉️ **Email:** deepakdkd1188@gmail.com
+
+Please contact the developer for any feedback, questions, or help!`;
 
 // ─── Normalize ────────────────────────────────────────────────────────────────
 

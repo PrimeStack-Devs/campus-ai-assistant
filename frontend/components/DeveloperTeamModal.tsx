@@ -27,11 +27,17 @@ export function DeveloperTeamModal({ isOpen, onClose }: DeveloperTeamModalProps)
               <Sparkles size={18} className="text-cyan-200 sm:w-5 sm:h-5" />
             </div>
             <div className="min-w-0">
-              <DialogTitle className="text-base sm:text-lg font-bold tracking-tight text-white leading-tight">
+              {/* <DialogTitle className="text-base sm:text-lg font-bold tracking-tight text-white leading-tight">
                 Meet the Builders
               </DialogTitle>
               <DialogDescription className="text-[11px] sm:text-xs text-indigo-100/90 mt-0.5 leading-tight truncate sm:whitespace-normal">
                 The Engineering Team behind Dexa Campus AI
+              </DialogDescription> */}
+              <DialogTitle className="text-base sm:text-lg font-bold tracking-tight text-white leading-tight">
+                Contact & Support
+              </DialogTitle>
+              <DialogDescription className="text-[11px] sm:text-xs text-indigo-100/90 mt-0.5 leading-tight truncate sm:whitespace-normal">
+                Reach out to developer for feedback or help
               </DialogDescription>
             </div>
           </div>
@@ -39,7 +45,8 @@ export function DeveloperTeamModal({ isOpen, onClose }: DeveloperTeamModalProps)
 
         {/* Content Body */}
         <div className="p-3 sm:p-5 space-y-2.5 sm:space-y-3.5 overflow-y-auto overscroll-contain flex-1">
-          {/* Deepak Dhakad Card */}
+          {/* Developers info currently commented out */}
+          {/*
           <div className="p-3 sm:p-3.5 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/40 hover:border-indigo-300 dark:hover:border-indigo-800/80 transition-all group">
             <div className="flex items-center gap-2.5 sm:gap-3">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-600 text-white flex items-center justify-center font-bold text-xs sm:text-sm shadow-md shadow-indigo-500/20 shrink-0">
@@ -87,7 +94,6 @@ export function DeveloperTeamModal({ isOpen, onClose }: DeveloperTeamModalProps)
             </div>
           </div>
 
-          {/* Jatin Puri Card */}
           <div className="p-3 sm:p-3.5 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/40 hover:border-indigo-300 dark:hover:border-indigo-900/50 transition-all group">
             <div className="flex items-center gap-2.5 sm:gap-3">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-tr from-indigo-600 to-sky-500 text-white flex items-center justify-center font-bold text-xs sm:text-sm shadow-md shadow-indigo-500/20 shrink-0">
@@ -133,11 +139,31 @@ export function DeveloperTeamModal({ isOpen, onClose }: DeveloperTeamModalProps)
               </a>
             </div>
           </div>
+          */}
+
+          {/* Contact Developer */}
+          <div className="p-4 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/40 text-center space-y-2">
+            <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
+              Contact Developer
+            </p>
+            <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300">
+              For any feedback, questions, or help regarding Dexa, please contact:
+            </p>
+            <div className="pt-2 flex justify-center">
+              <a
+                href="mailto:deepakdkd1188@gmail.com"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-900/40 text-xs font-medium text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 transition-colors"
+              >
+                <Mail size={13} />
+                <span>deepakdkd1188@gmail.com</span>
+              </a>
+            </div>
+          </div>
 
           {/* Quick Note */}
           <div className="p-2.5 rounded-lg sm:rounded-xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/60 dark:border-amber-900/40 text-center">
             <p className="text-[10px] sm:text-[11px] text-amber-800 dark:text-amber-300 leading-relaxed font-medium">
-              💡 Have feedback, found an issue with campus data, or want to suggest a new feature? Reach out directly to the developers!
+              💡 Have feedback, found an issue with campus data, or want to suggest a new feature? Reach out to the developer for any feedback or help!
             </p>
           </div>
         </div>

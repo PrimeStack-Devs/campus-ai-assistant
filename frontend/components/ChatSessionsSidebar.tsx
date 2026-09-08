@@ -164,11 +164,12 @@ export function ChatSessionsSidebar({
       </aside>
 
       {/* Developer & Team Modal */}
-      {/*  Currently commented*/}
+      {/* Currently commented
       <DeveloperTeamModal
         isOpen={isDevModalOpen}
         onClose={() => setIsDevModalOpen(false)}
       />
+      */}
     </>
   );
 }
