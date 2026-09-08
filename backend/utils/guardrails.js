@@ -190,6 +190,33 @@ const OFF_TOPIC_RESPONSE = `I'm specifically here to help with everything relate
 
 That's a bit outside what I can help with. Is there anything about the campus I can assist you with?`;
 
+// ─── Special Tier: System Prompt Protection ──────────────────────────────────
+const SYSTEM_PROMPT_PATTERNS = [
+  // Direct system prompt / developer prompt / meta prompt queries
+  /\b(system\s*prompts?|developer\s*prompts?|meta\s*prompts?|hidden\s*prompts?|base\s*prompts?|system\s*messages?)\b/i,
+  /\b(your\s*prompts?|the\s+ai\s*prompt|bot\s*prompts?|dexa\s*s?\s*prompts?)\b/i,
+  /\b(what\s+is\s+your\s+prompt|tell\s+me\s+your\s+prompt|show\s+(me\s+)?(your\s+)?prompt|reveal\s+(your\s+)?prompt)\b/i,
+
+  // Instructions to the bot / AI
+  /\b(your\s+(system\s+|initial\s+|hidden\s+|developer\s+)?instructions?)\b/i,
+  /\b(reveal|show|print|output|dump|leak|share|display)\s+(me\s+)?(all\s+|your\s+|the\s+)?(system\s+|developer\s+|hidden\s+)?instructions\b/i,
+  /\binstructions?\s+(given\s+to\s+you|you\s+were\s+given|from\s+(the\s+)?developer|by\s+(the\s+)?developer|.*developer\s+(gave|give)\s+you)\b/i,
+  /\b(developer\s+instructions?|system\s+instructions?)\b/i,
+  /\b(what|tell\s+me|show\s+me|reveal|print|output|display)\b.*\b(system\s+prompt|developer\s+instructions?|system\s+instructions?|system\s+message|prompt\s+above|instructions\s+above)\b/i,
+
+  // Prompt injection & jailbreak
+  /\b(ignore\s+(all\s+|previous\s+|above\s+)?instructions)\b/i,
+  /\b(pretend\s+you\s+are|act\s+as|roleplay\s+as|forget\s+you\s+are)\b/i,
+  /\b(jailbreak|dan\s+mode|developer\s+mode|unrestricted\s+mode)\b/i,
+  /\b(repeat\s+(your|the)?\s*(system|prompt|instructions?)\s*(back|to\s+me|above)?)\b/i,
+  /\b(what\s+(is|are)\s+your\s+(system\s*prompt|instructions|rules|constraints))\b/i,
+  /\b(repeat\s+everything\s+above|output\s+text\s+above)\b/i,
+  /\b(how\s+were\s+you\s+(prompted|instructed|configured))\b/i,
+  /\b(what\s+(were|are)\s+you\s+told\s+to\s+do\b)/i,
+];
+
+const SYSTEM_PROMPT_RESPONSE = `I cannot share my system prompt, internal instructions, or configuration. If you have any campus-related questions about Parul University, I'm happy to help!`;
+
 // ─── Special Tier: Developer & Engineering Team ──────────────────────────────
 /*
 const DEVELOPER_PATTERNS = [
@@ -266,6 +293,18 @@ const hasCampusContext = (text) =>
  */
 export function applyGuardrails(query) {
   const normalized = normalize(query);
+
+  // Special Tier — System Prompt & Internal Instructions Protection
+  for (const pattern of SYSTEM_PROMPT_PATTERNS) {
+    if (pattern.test(normalized)) {
+      return {
+        tier: "blocked",
+        id: "system_prompt_protection",
+        response: SYSTEM_PROMPT_RESPONSE,
+        is_critical: false,
+      };
+    }
+  }
 
   // Special Tier — Developer & Engineering Team Inquiries
   for (const pattern of DEVELOPER_PATTERNS) {
