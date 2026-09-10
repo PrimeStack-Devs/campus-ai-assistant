@@ -145,6 +145,14 @@ router.get("/departments", async (req, res) => {
 router.get("/faculty", async (req, res) => {
   try {
     const q = (req.query.q || "").toLowerCase().trim();
+    const department = (req.query.department || "").trim();
+    const qualification = (req.query.qualification || "").toLowerCase().trim();
+    const designation = (req.query.designation || "").toLowerCase().trim();
+    const sort = req.query.sort || "default"; // 'exp_desc', 'exp_asc', 'name_asc', 'name_desc'
+    const page = parseInt(req.query.page, 10) || 1;
+    const hasPagination = req.query.page !== undefined || (req.query.limit !== undefined && req.query.limit !== "all" && req.query.limit !== "0");
+    const limit = hasPagination ? (parseInt(req.query.limit, 10) || 36) : 0;
+
     let faculty = [];
 
     if (mongoose.connection.readyState === 1) {
@@ -156,18 +164,140 @@ router.get("/faculty", async (req, res) => {
       faculty = readJsonCollection("faculty.json", []);
     }
 
+    // Compute global metadata & statistics
+    const departmentsSet = new Set();
+    const designationsSet = new Set();
+    let totalPhd = 0;
+    let totalExpMonths = 0;
+    let expCount = 0;
+
+    faculty.forEach((f) => {
+      if (f.department_name) departmentsSet.add(f.department_name);
+      if (f.designation) designationsSet.add(f.designation);
+      if (
+        f.qualification &&
+        (f.qualification.toLowerCase().includes("ph.d") ||
+          f.qualification.toLowerCase().includes("phd") ||
+          f.qualification.toLowerCase().includes("doctor"))
+      ) {
+        totalPhd++;
+      }
+      if (typeof f.experience_months === "number" && f.experience_months > 0) {
+        totalExpMonths += f.experience_months;
+        expCount++;
+      }
+    });
+
+    const departments = Array.from(departmentsSet).sort();
+    const designations = Array.from(designationsSet).sort();
+    const avgExpYears = expCount > 0 ? (totalExpMonths / (expCount * 12)).toFixed(1) : "0";
+
+    // Filter faculty
+    let filtered = faculty;
+
     if (q) {
-      faculty = faculty.filter(
+      filtered = filtered.filter(
         (f) =>
           (f.name && f.name.toLowerCase().includes(q)) ||
           (f.designation && f.designation.toLowerCase().includes(q)) ||
           (f.department_name && f.department_name.toLowerCase().includes(q)) ||
+          (f.qualification && f.qualification.toLowerCase().includes(q)) ||
           (f.building_name && f.building_name.toLowerCase().includes(q)) ||
-          (f.email && f.email.toLowerCase().includes(q))
+          (f.email && f.email.toLowerCase().includes(q)) ||
+          (Array.isArray(f.subjects_taught) &&
+            f.subjects_taught.some((s) => s.toLowerCase().includes(q)))
       );
     }
 
-    return res.json({ success: true, count: faculty.length, data: faculty });
+    if (department && department !== "all") {
+      filtered = filtered.filter(
+        (f) =>
+          f.department_name &&
+          f.department_name.toLowerCase() === department.toLowerCase()
+      );
+    }
+
+    if (qualification && qualification !== "all") {
+      if (qualification === "phd") {
+        filtered = filtered.filter(
+          (f) =>
+            f.qualification &&
+            (f.qualification.toLowerCase().includes("ph.d") ||
+              f.qualification.toLowerCase().includes("phd"))
+        );
+      } else if (qualification === "masters") {
+        filtered = filtered.filter(
+          (f) =>
+            f.qualification &&
+            (f.qualification.toLowerCase().includes("m.") ||
+              f.qualification.toLowerCase().includes("md") ||
+              f.qualification.toLowerCase().includes("ms") ||
+              f.qualification.toLowerCase().includes("mba") ||
+              f.qualification.toLowerCase().includes("master"))
+        );
+      } else if (qualification === "bachelors") {
+        filtered = filtered.filter(
+          (f) =>
+            f.qualification &&
+            (f.qualification.toLowerCase().includes("b.") ||
+              f.qualification.toLowerCase().includes("bachelor") ||
+              f.qualification.toLowerCase().includes("mbbs"))
+        );
+      } else {
+        filtered = filtered.filter(
+          (f) =>
+            f.qualification &&
+            f.qualification.toLowerCase().includes(qualification)
+        );
+      }
+    }
+
+    if (designation && designation !== "all") {
+      filtered = filtered.filter(
+        (f) =>
+          f.designation &&
+          f.designation.toLowerCase() === designation.toLowerCase()
+      );
+    }
+
+    // Sort faculty
+    if (sort === "exp_desc") {
+      filtered.sort((a, b) => (b.experience_months || 0) - (a.experience_months || 0));
+    } else if (sort === "exp_asc") {
+      filtered.sort((a, b) => (a.experience_months || 0) - (b.experience_months || 0));
+    } else if (sort === "name_asc") {
+      filtered.sort((a, b) => (a.name || "").localeCompare(b.name || ""));
+    } else if (sort === "name_desc") {
+      filtered.sort((a, b) => (b.name || "").localeCompare(a.name || ""));
+    }
+
+    const totalFiltered = filtered.length;
+    let paginatedData = filtered;
+    let totalPages = 1;
+
+    if (limit > 0) {
+      totalPages = Math.ceil(totalFiltered / limit) || 1;
+      const startIndex = (page - 1) * limit;
+      paginatedData = filtered.slice(startIndex, startIndex + limit);
+    }
+
+    return res.json({
+      success: true,
+      count: paginatedData.length,
+      total: totalFiltered,
+      page: limit > 0 ? page : 1,
+      limit: limit,
+      totalPages: limit > 0 ? totalPages : 1,
+      stats: {
+        totalFaculty: faculty.length,
+        totalPhd,
+        avgExpYears: parseFloat(avgExpYears),
+        totalDepartments: departments.length,
+      },
+      departments,
+      designations,
+      data: paginatedData,
+    });
   } catch (error) {
     console.error("[Campus API] Error fetching faculty:", error);
     return res.status(500).json({ success: false, error: error.message });

@@ -62,11 +62,18 @@ const CampusFacultySchema = new mongoose.Schema(
     room: { type: String },
     email: { type: String },
     phone: { type: String },
+    gender: { type: String },
+    qualification: { type: String },
+    experience_months: { type: Number },
+    association_type: { type: String },
+    currently_working: { type: Boolean },
+    joining_date: { type: String },
+    leaving_date: { type: String },
     subjects_taught: [{ type: String }],
     aliases: [{ type: String }],
     description: { type: String },
   },
-  { timestamps: true }
+  { timestamps: true, strict: false }
 );
 
 // --- 4. Facility Schema ---

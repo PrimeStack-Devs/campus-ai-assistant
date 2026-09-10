@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react';
 import { DashboardLayout } from '@/components/DashboardLayout';
 import { InfoCard } from '@/components/InfoCard';
+import { FacultyDirectory } from '@/components/FacultyDirectory';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { Search, MapPin, Users, BookOpen, PhoneCall, Loader2, Sparkles, Lock } from 'lucide-react';
+import { Search, MapPin, Users, BookOpen, PhoneCall, Loader2, Sparkles } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 
 export default function CampusInfoPage() {
@@ -76,15 +77,6 @@ export default function CampusInfoPage() {
         d.programs.some((p: string) => p.toLowerCase().includes(normalizedSearch)))
   );
 
-  const filteredFaculty = faculty.filter(
-    (f) =>
-      (f.name && f.name.toLowerCase().includes(normalizedSearch)) ||
-      (f.designation && f.designation.toLowerCase().includes(normalizedSearch)) ||
-      (f.department_name && f.department_name.toLowerCase().includes(normalizedSearch)) ||
-      (f.building_name && f.building_name.toLowerCase().includes(normalizedSearch)) ||
-      (f.email && f.email.toLowerCase().includes(normalizedSearch))
-  );
-
   const filteredServices = services.filter(
     (s) =>
       (s.name && s.name.toLowerCase().includes(normalizedSearch)) ||
@@ -106,21 +98,23 @@ export default function CampusInfoPage() {
               </span>
             </h1>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-              Browse official campus facilities, academic departments, faculty directory, and campus services.
+              Browse official campus facilities, academic departments, faculty roster, and campus services.
             </p>
           </div>
 
-          {/* Search Bar */}
-          <div className="relative w-full sm:w-80">
-            <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-            <input
-              type="text"
-              placeholder={`Search ${activeTab}...`}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-4 text-xs text-slate-900 shadow-xs focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100"
-            />
-          </div>
+          {/* Top Search Bar (active for facilities, departments, services) */}
+          {activeTab !== 'faculty' && (
+            <div className="relative w-full sm:w-80">
+              <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+              <input
+                type="text"
+                placeholder={`Search ${activeTab}...`}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-4 text-xs text-slate-900 shadow-xs focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100"
+              />
+            </div>
+          )}
         </div>
 
         {/* Tab Wrapper */}
@@ -136,7 +130,7 @@ export default function CampusInfoPage() {
             </TabsTrigger>
             <TabsTrigger value="faculty" className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-bold text-xs">
               <Users className="h-3.5 w-3.5" />
-              Faculty Directory ({faculty.length})
+              Faculty Directory ({faculty.length > 0 ? faculty.length.toLocaleString() : 0})
             </TabsTrigger>
             <TabsTrigger value="services" className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-bold text-xs">
               <PhoneCall className="h-3.5 w-3.5" />
@@ -146,7 +140,7 @@ export default function CampusInfoPage() {
 
           {isLoading ? (
             <div className="py-20 flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 gap-3">
-              <Loader2 className="animate-spin text-blue-600" size={32} />
+              <Loader2 className="animate-spin text-indigo-600" size={32} />
               <p className="text-sm font-medium">Fetching real-time campus directory...</p>
             </div>
           ) : (
@@ -204,51 +198,15 @@ export default function CampusInfoPage() {
                 )}
               </TabsContent>
 
-              {/* Tab 3: Faculty */}
+              {/* Tab 3: Faculty Directory (Enhanced 2,500+ NIRF Roster) */}
               <TabsContent value="faculty" className="outline-none">
-                {!user && (
-                  <div className="mb-5 p-3.5 rounded-2xl bg-indigo-50/90 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800/80 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-indigo-900 dark:text-indigo-200 shadow-xs">
-                    <div className="flex items-center gap-2">
-                      <Lock size={16} className="text-indigo-600 dark:text-indigo-400 shrink-0" />
-                      <span>
-                        Direct email addresses and cabin phone extensions are protected. Sign in with Google to view faculty contacts.
-                      </span>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={loginWithGoogle}
-                      className="inline-flex items-center gap-1.5 font-bold px-3 py-1.5 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 transition-colors shrink-0 shadow-xs cursor-pointer text-[11px]"
-                    >
-                      <span>Sign In to Unlock</span>
-                    </button>
-                  </div>
-                )}
-
-                {filteredFaculty.length > 0 ? (
-                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-                    {filteredFaculty.map((fac, i) => (
-                      <InfoCard
-                        key={fac.id || i}
-                        title={fac.name}
-                        description={fac.designation || 'Faculty Member'}
-                        badge={fac.department_name || 'Academic'}
-                        details={[
-                          `Office: ${fac.building_name || 'Faculty Block'}${fac.room ? ` (${fac.room})` : ''}`,
-                          user
-                            ? fac.email
-                              ? `Email: ${fac.email}`
-                              : 'Contact: Via Department'
-                            : 'Email: 🔒 Sign in to view',
-                          ...(user && fac.phone ? [`Phone: ${fac.phone}`] : []),
-                        ]}
-                      />
-                    ))}
-                  </div>
-                ) : (
-                  <div className="py-12 text-center text-slate-500 dark:text-slate-400">
-                    No faculty members match your search query.
-                  </div>
-                )}
+                <FacultyDirectory
+                  faculty={faculty}
+                  user={user}
+                  loginWithGoogle={loginWithGoogle}
+                  isLoading={isLoading}
+                  externalSearch={activeTab === 'faculty' ? searchQuery : ''}
+                />
               </TabsContent>
 
               {/* Tab 4: Services */}
