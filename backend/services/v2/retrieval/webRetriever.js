@@ -67,6 +67,7 @@ export async function retrieveWebAnswer(query) {
         source_id: "tavily_search",
         source_label: tavilyResult.source_label,
         source_url: tavilyResult.source_url,
+        is_official: tavilyResult.is_official,
         is_url_only: false,
         cached: false,
         scraped_at: tavilyResult.scraped_at,

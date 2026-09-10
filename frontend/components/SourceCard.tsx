@@ -6,24 +6,7 @@ interface SourceCardProps {
   source: WebSourceData;
 }
 
-function formatScrapedAt(value?: string | null) {
-  if (!value) return null;
-
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return null;
-
-  return date.toLocaleString([], {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-  });
-}
-
 export function SourceCard({ source }: SourceCardProps) {
-  const scrapedAtLabel = formatScrapedAt(source.scrapedAt);
-
   return (
     <div className="mt-4 rounded-lg border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900/80">
       <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Source</p>
@@ -36,16 +19,8 @@ export function SourceCard({ source }: SourceCardProps) {
       >
         {source.sourceUrl}
       </a>
-      {scrapedAtLabel && (
-        <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
-          Retrieved: {scrapedAtLabel}
-          {source.cached ? ' | Cached' : ''}
-        </p>
-      )}
-      {!scrapedAtLabel && source.cached !== undefined && (
-        <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{source.cached ? 'Cached source' : 'Live source'}</p>
-      )}
       {source.disclosure && <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{source.disclosure}</p>}
     </div>
   );
 }
+

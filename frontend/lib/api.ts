@@ -68,6 +68,7 @@ interface WebSourcePayload {
   type: 'web_source';
   source_label?: string;
   source_url?: string;
+  is_official?: boolean;
   cached?: boolean;
   scraped_at?: string | null;
   disclosure?: string | null;
@@ -116,19 +117,22 @@ export async function askCampusAI(
   }
 
   if (payload?.type === 'web_source') {
+    // Only show SourceCard for external / third-party web sources (e.g. when disclosure is present or not official paruluniversity.ac.in domain)
+    const isOfficial = payload.is_official ?? payload.source_url?.includes('paruluniversity.ac.in');
+    const shouldShowSourceCard = !isOfficial || Boolean(payload.disclosure);
+
     return {
       answer: apiData?.reply ?? '',
       responseType,
       title: apiData?.title,
-      webSource: payload.source_url
-        ? {
-            sourceLabel: payload.source_label || 'Official source',
-            sourceUrl: payload.source_url,
-            cached: payload.cached,
-            scrapedAt: payload.scraped_at,
-            disclosure: payload.disclosure,
-          }
-        : undefined,
+      webSource:
+        payload.source_url && shouldShowSourceCard
+          ? {
+              sourceLabel: payload.source_label || 'External source',
+              sourceUrl: payload.source_url,
+              disclosure: payload.disclosure,
+            }
+          : undefined,
     };
   }
 

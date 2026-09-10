@@ -88,8 +88,10 @@ export const callWebSearch = async (state) => {
             source_id: webAnswer.source_id || null,
             source_label: webAnswer.source_label,
             source_url: webAnswer.source_url,
+            is_official:
+              webAnswer.is_official ??
+              Boolean(webAnswer.source_url?.includes("paruluniversity.ac.in")),
             cached: webAnswer.cached,
-            scraped_at: webAnswer.scraped_at || null,
             disclosure: webAnswer.disclosure || null,
           },
           source: "web",
