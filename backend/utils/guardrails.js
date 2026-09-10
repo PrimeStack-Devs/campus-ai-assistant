@@ -176,7 +176,6 @@ const OFF_TOPIC_PATTERNS = [
   /\b(cricket (score|match today|ipl result)|bollywood|movie review|song lyrics)\b/i,
   /\b(stock (market|price)|bitcoin|cryptocurrency)\b/i,
   /\b(recipe (for|of)|how to (cook|make) (food|dish|cake|biryani))\b/i,
-  /\b(weather (in|today|tomorrow)|temperature today)\b/i,
 
   // Personal / relationship advice
   /\b(should i (break up|propose|date)|relationship (advice|problem|issue))\b/i,
@@ -423,6 +422,14 @@ export function detectQueryType(query) {
     )
   ) {
     return "policy";
+  }
+
+  if (
+    /\b(weather|temperature|temp|climate|forecast|humidity|raining|rainy|is it (hot|cold|sunny|raining|cloudy)|will it rain)\b/.test(
+      q,
+    )
+  ) {
+    return "weather";
   }
 
   return "general";

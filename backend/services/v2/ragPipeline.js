@@ -2,6 +2,7 @@ import { HumanMessage } from "@langchain/core/messages";
 import { toCampusBotResponse } from "./formatters/responseFormatter.js";
 import { campusBot } from "./graph/workflow.js";
 import { runGuardrails } from "./guards/guardrailRunner.js";
+import { getCampusWeatherResponse } from "../weatherService.js";
 
 export { campusBot };
  
@@ -10,6 +11,12 @@ export async function runCampusBot(userMessage, threadId = "default") {
 
   if (guardrailResponse) {
     return guardrailResponse;
+  }
+
+  // Check for campus real-time weather query
+  const weatherResponse = await getCampusWeatherResponse(userMessage);
+  if (weatherResponse) {
+    return weatherResponse;
   }
 
   const result = await campusBot.invoke(

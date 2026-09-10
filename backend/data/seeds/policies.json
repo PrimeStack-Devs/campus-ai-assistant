@@ -208,5 +208,65 @@
     "source": "FAQ Bank",
     "aliases": ["leave application", "how to apply leave", "college leave", "absence", "medical leave", "leave process"],
     "content": "To apply for leave from college at Parul University, submit a written leave application to your class teacher or faculty in-charge mentioning the reason for leave and the dates. For medical leave, a medical certificate from a registered doctor must be attached. For leaves of more than 3 days, the application must also be submitted to the HOD with supporting documents. Hostel residents must additionally inform their hostel warden before availing leave. Leave does not exempt the student from attendance calculation. Any shortage in attendance due to leave must still be addressed through the condonation process if applicable. Prior intimation for planned leaves is always preferred over post-facto applications."
+  },
+  {
+    "id": "about_foundation_history",
+    "title": "Parul University Foundation, History & Founders",
+    "category": "institutional",
+    "tags": ["history", "founder", "foundation", "origin", "pasm trust", "dr parul patel", "dr devanshu patel", "dr geetika madan patel", "established", "ahmedabad homeopathic college"],
+    "last_updated": "2026-08-17",
+    "source": "Official University Release",
+    "aliases": ["who founded parul university", "history of parul university", "when was parul university established", "why is it called parul university", "pasm trust", "dr parul patel", "dr devanshu patel", "origin of parul university"],
+    "content": "The story of Parul University begins in 1989 when Dr. Parul Patel's father established the Parul Arogya Seva Mandal (PASM) Trust with the mission of advancing education, social welfare, and healthcare. The university and trust are named after Dr. Parul Patel. Dr. Parul Patel holds an MD in Organon from Hemchandracharya North Gujarat University and served as Professor at Rajkot Homoeopathic Medical College before dedicating herself to institution-building. She founded the first academic institution under the trust, Ahmedabad Homeopathic College, in 1993. Dr. Parul Patel currently serves as Vice President (Student Affairs and General Administration) and Chair of the Admissions Committee. From 2008 onwards, President Dr. Devanshu Patel (MBBS, MD Pharmacology) spearheaded the university's multidisciplinary expansion, establishing institutes in Management, Physiotherapy, Engineering, Architecture, and Computer Applications, as well as the Parul Institute of Medical Sciences and Research (PIMSR) and the 750+ bed Parul Sevashram Hospital. In 2015, Parul University was formally established as a private university."
+  },
+  {
+    "id": "about_placements_packages",
+    "title": "Parul University Placements and Highest Salary Package",
+    "category": "placements",
+    "tags": ["placement", "highest package", "average package", "recruiters", "jobs", "companies", "60 lpa", "career"],
+    "last_updated": "2026-08-17",
+    "source": "Official University Release",
+    "aliases": ["highest package at parul university", "pu placements", "placement statistics", "top recruiters", "highest salary", "placement records", "average package", "placement packages"],
+    "content": "Parul University boasts an exceptional placement record with 2,200+ companies actively hiring on campus. The highest salary package offered to students is Rs. 60 LPA. The university's Training & Placement Cell provides comprehensive career development, pre-placement training, and industry interface for engineering, management, IT, pharmacy, and healthcare programs, connecting students to national and multinational employers."
+  },
+  {
+    "id": "about_accreditations_rankings",
+    "title": "Parul University Accreditations, NAAC Grade & Global Rankings",
+    "category": "rankings",
+    "tags": ["naac", "accreditation", "ranking", "naac a++", "nirf", "qs i-gauge", "ugc", "rankings", "awards"],
+    "last_updated": "2026-08-17",
+    "source": "Official University Release",
+    "aliases": ["naac grade of parul university", "is parul university naac accredited", "naac rating", "nirf ranking", "qs rating", "university rankings", "naac a++", "accreditation status"],
+    "content": "Parul University is accredited by NAAC with an A++ grade and a 3.55 CGPA, making it the youngest university in India to achieve NAAC A++ accreditation. It is UGC Entitled, holds a prestigious Diamond Rating from QS I-GAUGE, is ranked in the Top 50 in the NIRF Innovation category, and is ranked among the Top 100 globally by Times Higher Education (THE) for Interdisciplinary Science. Parul University has earned over 175 national and international awards and recognitions."
+  },
+  {
+    "id": "about_campus_statistics",
+    "title": "Parul University Campus Scale, Demographics and Facilities",
+    "category": "campus_overview",
+    "tags": ["campus area", "campus size", "students count", "international students", "hostel capacity", "faculties", "campus facts", "vadodara"],
+    "last_updated": "2026-08-17",
+    "source": "Official University Release",
+    "aliases": ["how big is parul university", "how many students are in parul university", "international students count", "campus area in acres", "hostel capacity", "vadodara campus"],
+    "content": "Parul University spans a 250+ acre modern campus in Vadodara, Gujarat. It is home to 70,500+ enrolled students across diverse disciplines, including 6,000+ international students from over 75 countries. The university maintains on-campus hostel accommodation for 27,000+ students. It features 3,500+ faculty members (including 200+ from IITs, NITs, IISc, NIDs, and NIFTs, and 100+ International Visiting Professors), and offers 200+ NEP 2020-aligned diploma, undergraduate, postgraduate, and doctoral degree programmes."
+  },
+  {
+    "id": "about_startups_research_pierc",
+    "title": "PIERC Entrepreneurship, Startups, Shark Tank & Funded Research",
+    "category": "innovation",
+    "tags": ["pierc", "startups", "incubation", "shark tank", "entrepreneurship", "research funding", "isro", "patents"],
+    "last_updated": "2026-08-17",
+    "source": "Official University Release",
+    "aliases": ["pierc parul university", "startups incubated", "shark tank deals parul", "research grants", "entrepreneurship cell", "incubation center"],
+    "content": "The Parul Innovation and Entrepreneurship Research Centre (PIERC) is Parul University's flagship startup incubator. PIERC has incubated 254+ startups, generated over Rs. 40 Cr in startup revenue, secured more than Rs. 20 Cr in funding, created 1,100+ jobs, and facilitated multiple startup deals on Shark Tank India. In academic research, the university has secured Rs. 58.31 Cr in Government Funded research and Rs. 4.37 Cr in Private Funded research across 315 funded projects from agencies including DHR, GSBTM, ISRO, CSIR, and the UK Royal Academy of Engineering."
+  },
+  {
+    "id": "about_healthcare_sevashram",
+    "title": "Parul Sevashram Hospital & Medical College (PIMSR)",
+    "category": "healthcare",
+    "tags": ["hospital", "parul sevashram hospital", "pimsr", "medical college", "mbbs", "opd", "beds", "nabh", "healthcare"],
+    "last_updated": "2026-08-17",
+    "source": "Official University Release",
+    "aliases": ["parul hospital", "parul sevashram hospital", "medical college mbbs", "hospital beds", "doctor on campus", "hospital facilities"],
+    "content": "Parul Sevashram Hospital is a NABH-accredited 750+ bed multispecialty teaching hospital located directly on the university campus, treating 1,100+ outpatients daily with 24/7 casualty and emergency care. The Parul Institute of Medical Sciences and Research (PIMSR) is recognized by the National Medical Commission (NMC) with 150 MBBS seats. The healthcare campus also includes institutes of Ayurveda, Homeopathy, Physiotherapy, and Nursing."
   }
 ]

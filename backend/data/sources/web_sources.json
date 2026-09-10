@@ -50,6 +50,49 @@
     },
 
     {
+      "id": "src_foundation_history",
+      "label": "Parul University Foundation, History, Founders & Rankings",
+      "url": "https://www.paruluniversity.ac.in/news-and-awards/parul-university-foundation-founders-history-placements-courses-and-rankings-explained/",
+      "description": "Comprehensive history of Parul University, PASM Trust, founders (Dr. Parul Patel, Dr. Devanshu Patel), placements, highest package (60 LPA), rankings (NAAC A++), PIERC startups, and campus scale.",
+      "intent_keywords": [
+        "who founded parul university",
+        "history of parul university",
+        "founders of parul university",
+        "dr parul patel",
+        "dr devanshu patel",
+        "dr geetika madan patel",
+        "highest package",
+        "highest salary package",
+        "placements at parul university",
+        "placement statistics",
+        "naac rating",
+        "naac grade",
+        "naac a++",
+        "nirf ranking",
+        "qs rating",
+        "pierc startups",
+        "shark tank deals",
+        "pasm trust",
+        "how many students in parul university",
+        "campus size in acres",
+        "parul sevashram hospital"
+      ],
+      "type": "informational",
+      "priority": 1,
+      "fetch_strategy": {
+        "method": "scrape",
+        "extract": "main content paragraphs",
+        "scrape": true
+      },
+      "redis": {
+        "key": "pu:web:foundation_history",
+        "ttl_hours": 720,
+        "cron": "0 0 1 * *",
+        "cron_label": "monthly"
+      }
+    },
+
+    {
       "id": "src_research",
       "label": "Research & Development",
       "url": "https://paruluniversity.ac.in/research-and-development-centre/",
