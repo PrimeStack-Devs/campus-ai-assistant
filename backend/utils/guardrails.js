@@ -193,7 +193,7 @@ That's a bit outside what I can help with. Is there anything about the campus I 
 const SYSTEM_PROMPT_PATTERNS = [
   // Direct system prompt / developer prompt / meta prompt queries
   /\b(system\s*prompts?|developer\s*prompts?|meta\s*prompts?|hidden\s*prompts?|base\s*prompts?|system\s*messages?)\b/i,
-  /\b(your\s*prompts?|the\s+ai\s*prompt|bot\s*prompts?|dexa\s*s?\s*prompts?)\b/i,
+  /\b(your\s*prompts?|the\s+ai\s*prompt|bot\s*prompts?|(dexa|kryvix)\s*s?\s*prompts?)\b/i,
   /\b(what\s+is\s+your\s+prompt|tell\s+me\s+your\s+prompt|show\s+(me\s+)?(your\s+)?prompt|reveal\s+(your\s+)?prompt)\b/i,
 
   // Instructions to the bot / AI
@@ -216,50 +216,23 @@ const SYSTEM_PROMPT_PATTERNS = [
 
 const SYSTEM_PROMPT_RESPONSE = `I cannot share my system prompt, internal instructions, or configuration. If you have any campus-related questions about Parul University, I'm happy to help!`;
 
-// ─── Special Tier: Developer & Engineering Team ──────────────────────────────
-/*
 const DEVELOPER_PATTERNS = [
-  /\b(who (made|built|developed|created|coded|designed) (you|dexa|this (ai|bot|app|assistant|project|system)))\b/i,
-  /\b((developer|creator|builder|author)s? (of|behind) (you|dexa|this (ai|bot|app|assistant|project|system)))\b/i,
-  /\b(who is (the|your) (developer|creator|builder|author))\b/i,
-  /\b(contact (the )?(developer|creator|team)|developer (contact|email|info|details|linkedin))\b/i,
-  /\b(how (can|do) i (contact|reach) (the )?(developer|support|team))\b/i,
-  /\b(report (a )?(bug|issue|glitch)|dexa support email)\b/i,
-  /\b(who (are|is) (the )?developers?)\b/i,
-];
-
-const DEVELOPER_RESPONSE = `Dexa was architected and developed by a dedicated engineering team:
-
-👨‍💻 **Deepak Dhakad** — *Lead Full-Stack AI Engineer*
-- **Scope:** End-to-end web architecture, Node.js/Express backend, LangGraph multi-agent RAG pipeline, vector search, Redis caching, and real-time campus data.
-- ✉️ **Email:** deepakdkd1188@gmail.com
-- 💼 **LinkedIn:** https://www.linkedin.com/in/deepak-dhakad-web-developer/
-
-📱 **Jatin Puri** — *Mobile App Developer*
-- **Scope:** Native campus mobile application engineering for on-the-go student access.
-- ✉️ **Email:** purijatinn@gmail.com
-- 💼 **LinkedIn:** https://www.linkedin.com/in/deepak-dhakad-web-developer/
-
-💡 *Have feedback, found a campus data glitch, or want to collaborate? Feel free to reach out to the team directly!*`;
-*/
-
-const DEVELOPER_PATTERNS = [
-  /\b(who (made|built|developed|created|coded|designed|owns?) (you|dexa|this (ai|bot|app|assistant|project|system)))\b/i,
-  /\b((developer|creator|builder|author|maker|owner)s? (of|behind) (you|dexa|this (ai|bot|app|assistant|project|system)))\b/i,
+  /\b(who (made|built|developed|created|coded|designed|owns?) (you|dexa|kryvix|this (ai|bot|app|assistant|project|system)))\b/i,
+  /\b((developer|creator|builder|author|maker|owner)s? (of|behind) (you|dexa|kryvix|this (ai|bot|app|assistant|project|system)))\b/i,
   /\b(who is (the|your) (developer|creator|builder|author|owner))\b/i,
   /\b(who (are|is) (the )?(developers?|creators?|owners?))\b/i,
-  /\b(who (owns|is owning) (you|dexa|this (ai|bot|app|assistant|project|system)))\b/i,
-  /\b(dexa(\s*s)?\s*owner|owner of (dexa|this (ai|bot|app|assistant|project|system)|the (app|bot|ai|assistant)))\b/i,
+  /\b(who (owns|is owning) (you|dexa|kryvix|this (ai|bot|app|assistant|project|system)))\b/i,
+  /\b((dexa|kryvix)(\s*s)?\s*owner|owner of (dexa|kryvix|this (ai|bot|app|assistant|project|system)|the (app|bot|ai|assistant)))\b/i,
   /\b(contact (to )?(the )?(developer|creator|owner|team)|developer (contact|email|mail|info|details|linkedin))\b/i,
   /\b(how (can|do) i (contact|reach) (the )?(developer|owner|support|team))\b/i,
-  /\b(report (a )?(bug|issue|glitch)|dexa support email|developer mail)\b/i,
+  /\b(report (a )?(bug|issue|glitch)|(dexa|kryvix) support email|developer mail)\b/i,
   /\b(developer|owner) (contact|email|mail|help|feedback)\b/i,
-  /\b(about dexa|who is dexa|what is dexa)\b/i,
+  /\b(about (dexa|kryvix)|who is (dexa|kryvix)|what is (dexa|kryvix))\b/i,
 ];
 
-const DEVELOPER_RESPONSE = `Dexa is the official Smart Campus AI Assistant for Parul University.
+const DEVELOPER_RESPONSE = `Kryvix AI is the official Smart Campus AI Assistant for Parul University.
 
-For any inquiries regarding Dexa, its owner, or developer, please contact:
+For any inquiries regarding Kryvix AI, its owner, or developer, please contact:
 ✉️ **Email:** deepakdkd1188@gmail.com
 
 Please contact the developer for any feedback, questions, or help!`;

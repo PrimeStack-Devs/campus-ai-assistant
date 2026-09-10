@@ -15,21 +15,25 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   interactiveWidget: 'resizes-content',
-  themeColor: '#4f46e5',
+  themeColor: '#06063c',
 };
 
 export const metadata: Metadata = {
-  title: 'Dexa AI - Smart Campus Assistant',
+  title: 'Kryvix AI - Smart Campus Assistant',
   description: 'AI-powered campus queries, navigation, policies, and events for Parul University.',
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'Dexa AI',
+    title: 'Kryvix AI',
   },
   icons: {
-    icon: '/icons/icon-192x192.png',
-    apple: '/icons/icon-192x192.png',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.png', type: 'image/png', sizes: '32x32' },
+      { url: '/icons/icon-192x192.png', type: 'image/png', sizes: '192x192' },
+    ],
+    apple: '/apple-icon.png',
   },
 };
 

@@ -44,38 +44,37 @@ export default function About() {
 
         {/* 🔥 Header */}
         <View style={{ flexDirection: "row", alignItems: "center", gap: 12, marginTop: 30 }}>
-
           <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-            About UniBuddy
+            About Kryvix AI
           </Text>
         </View>
 
         {/* 🔥 Hero */}
         <View
-          
-          className="bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-3xl p-8 mb-10 shadow-xl shadow-indigo-500/25 relative overflow-hidden mt-5"
+          className="bg-linear-to-br from-[#06063c] via-[#0c1254] to-[#1e3a8a] rounded-3xl p-8 mb-10 shadow-xl shadow-cyan-950/40 relative overflow-hidden mt-5 border border-cyan-500/25"
         >
           <View
             style={{
               width: 60,
               height: 60,
               borderRadius: 20,
-              backgroundColor: "rgba(255,255,255,0.3)",
+              backgroundColor: "rgba(0,240,255,0.15)",
+              borderWidth: 1,
+              borderColor: "rgba(0,240,255,0.3)",
               alignItems: "center",
               justifyContent: "center",
               marginBottom: 15,
             }}
-            
           >
-            <Image source={icons.ai_icon} style={{ width: 30, height: 30 }} />
+            <Image source={icons.ai_icon} style={{ width: 34, height: 34 }} />
           </View>
 
           <Text style={{ color: "#fff", fontSize: 20, fontWeight: "bold" }}>
             Your Intelligent Campus Companion
           </Text>
 
-          <Text style={{ color: "#c7d2fe", marginTop: 10 }}>
-            UniBuddy is an AI-powered assistant designed to make your university
+          <Text style={{ color: "#bae6fd", marginTop: 10 }}>
+            Kryvix AI is an intelligent campus assistant designed to make your university
             experience seamless, from course registration to event discovery.
           </Text>
         </View>
@@ -183,8 +182,8 @@ export default function About() {
         {/* 🔥 Contact */}
         <View style={{ alignItems: "center", marginTop: 20 }}>
           <Text style={{ color: "#6b7280" }}>Need help?</Text>
-          <Text style={{ color: "#6366f1", fontWeight: "bold", marginTop: 4 }}>
-            support@unibuddy.edu
+          <Text style={{ color: "#00f0ff", fontWeight: "bold", marginTop: 4 }}>
+            support@kryvix.ai
           </Text>
         </View>
 

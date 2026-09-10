@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { DashboardLayout } from '@/components/DashboardLayout';
 import { InfoCard } from '@/components/InfoCard';
@@ -19,7 +20,7 @@ export default function HomePage() {
   };
 
   return (
-    <DashboardLayout title="Welcome to Dexa AI">
+    <DashboardLayout title="Welcome to Kryvix AI">
       <div className="space-y-10 p-6 md:p-8 animate-fade-in-up duration-500">
 
         {/* Hero Card Banner */}
@@ -42,12 +43,12 @@ export default function HomePage() {
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             {/* Left Content Column */}
             <div className="max-w-xl">
-              <span className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/30 px-3.5 py-1 text-xs font-semibold tracking-wide text-indigo-200 backdrop-blur-md shadow-xs">
-                <Sparkles className="h-3.5 w-3.5 text-cyan-300" />
-                Dexa AI • Parul University Guide
+              <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-indigo-500/20 border border-indigo-400/30 px-3.5 py-1 text-xs font-semibold tracking-wide text-indigo-200 backdrop-blur-md shadow-xs">
+                <Image src="/logo-mark.png" alt="Kryvix AI Logo" width={16} height={16} className="shrink-0 drop-shadow-[0_0_6px_rgba(0,240,255,0.4)]" />
+                Kryvix AI • Parul University Guide
               </span>
               <h1 className="mb-4 text-3xl font-black tracking-tight md:text-5xl text-white">
-                Meet <span className="bg-gradient-to-r from-indigo-300 via-sky-200 to-white bg-clip-text text-transparent">Dexa AI</span>
+                Meet <span className="bg-gradient-to-r from-cyan-300 via-sky-200 to-white bg-clip-text text-transparent">Kryvix AI</span>
                 <span className="block text-xl md:text-3xl font-bold text-slate-200 mt-1.5">
                   Your Personal Campus Guide
                 </span>
@@ -74,7 +75,7 @@ export default function HomePage() {
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                     </span>
                     <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                      Dexa AI Brain
+                      Kryvix AI Brain
                     </span>
                   </div>
                   <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-400/20">
@@ -129,7 +130,7 @@ export default function HomePage() {
         <div>
           <h2 className="mb-5 text-xl font-black tracking-tight text-slate-800 dark:text-slate-200 flex items-center gap-2">
             <MessageSquare className="h-5 w-5 text-indigo-500" />
-            Try Asking Dexa...
+            Try Asking Kryvix...
           </h2>
           <div className="space-y-3.5">
             {[

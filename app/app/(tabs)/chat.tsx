@@ -35,7 +35,7 @@ export default function Chat() {
         setMessages([
           {
             id: "1",
-            text: "Hi! I'm UniBuddy, your campus AI assistant. How can I help you today?",
+            text: "Hi! I'm Kryvix AI, your campus AI assistant. How can I help you today?",
             sender: "ai",
             suggestions: ["Course registration", "Hostel info", "Event calendar", "Exam schedule"],
           },
@@ -101,14 +101,13 @@ export default function Chat() {
         {/* 🔥 Header */}
         <View style={{ padding: 20, flexDirection: "row", alignItems: "center", gap: 10 }}>
           <View
-
-            className="bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-[18px] flex items-center justify-center shadow-xl shadow-indigo-300 w-14 h-14"
+            className="bg-linear-to-br from-[#06063c] via-[#0c1254] to-[#1e3a8a] rounded-[18px] flex items-center justify-center shadow-xl shadow-cyan-900/30 w-14 h-14 border border-cyan-500/25"
           >
-            <Image source={icons.ai_icon} style={{ width: 24, height: 24 }} />
+            <Image source={icons.ai_icon} style={{ width: 30, height: 30 }} />
           </View>
 
           <View>
-            <Text style={{ fontWeight: "bold" }}>UniBuddy</Text>
+            <Text style={{ fontWeight: "bold" }}>Kryvix AI</Text>
             <Text style={{ fontSize: 12, color: "#6b7280" }}>
               Online • Instant response
             </Text>

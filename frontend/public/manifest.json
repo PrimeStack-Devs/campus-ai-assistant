@@ -1,11 +1,11 @@
 {
-  "name": "Dexa AI - Campus Assistant",
-  "short_name": "Dexa AI",
+  "name": "Kryvix AI - Campus Assistant",
+  "short_name": "Kryvix AI",
   "description": "Smart campus assistant for Parul University navigation, queries, and events",
   "start_url": "/chat",
   "display": "standalone",
-  "background_color": "#020617",
-  "theme_color": "#4f46e5",
+  "background_color": "#06063c",
+  "theme_color": "#06063c",
   "orientation": "portrait",
   "categories": ["education", "productivity", "utilities"],
   "icons": [

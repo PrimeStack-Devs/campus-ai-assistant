@@ -5,6 +5,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useTheme } from 'next-themes';
 import { useAuth } from '@/context/AuthContext';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface NavbarProps {
   title: string;
@@ -44,9 +45,22 @@ export function Navbar({ title }: NavbarProps) {
 
   return (
     <nav className="relative z-40 flex h-13 sm:h-14 items-center justify-between gap-3 border-b border-slate-200/50 bg-white/70 px-3.5 sm:px-5 py-2 shadow-xs backdrop-blur-md dark:border-slate-800/50 dark:bg-slate-950/70 shrink-0">
-      <h2 className="min-w-0 truncate text-base sm:text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100">
-        {title}
-      </h2>
+      <div className="flex items-center gap-2.5 min-w-0">
+        <Link href="/" className="md:hidden shrink-0 flex items-center">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#06063c] border border-cyan-500/25 shadow-xs">
+            <Image
+              src="/logo-mark.png"
+              alt="Kryvix AI Logo"
+              width={22}
+              height={22}
+              className="drop-shadow-[0_0_6px_rgba(0,240,255,0.4)]"
+            />
+          </div>
+        </Link>
+        <h2 className="min-w-0 truncate text-base sm:text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100">
+          {title}
+        </h2>
+      </div>
       <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
         {/* Theme Toggle */}
         <button

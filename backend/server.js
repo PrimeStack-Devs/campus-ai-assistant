@@ -25,7 +25,7 @@ app.use(express.json());
 app.get("/api/health", (req, res) => {
   res.json({
     success: true,
-    message: "Dexa Campus AI API is working!",
+    message: "Kryvix AI Campus API is working!",
     timestamp: new Date().toISOString(),
   });
 });
@@ -39,7 +39,7 @@ app.use("/api/campus", campusRoutes);
 const initializeApp = async () => {
   try {
     const startTime = Date.now();
-    console.log("🚀 Starting Dexa Server initialization...");
+    console.log("🚀 Starting Kryvix AI Server initialization...");
 
     // 1. Connect Redis Cache
     try {

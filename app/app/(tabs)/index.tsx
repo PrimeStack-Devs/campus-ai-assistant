@@ -24,14 +24,13 @@ export default function Home() {
           <View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
             
             <View
-             
-              className="bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-[18px] flex items-center justify-center shadow-xl shadow-indigo-300 w-14 h-14"
+              className="bg-linear-to-br from-[#06063c] via-[#0c1254] to-[#1e3a8a] rounded-[18px] flex items-center justify-center shadow-xl shadow-cyan-900/30 w-14 h-14 border border-cyan-500/25"
             >
-              <Image source={icons.ai_icon} style={{ width: 24, height: 24 }} />
+              <Image source={icons.ai_icon} style={{ width: 30, height: 30 }} />
             </View>
 
             <Text style={{ fontSize: 26, fontWeight: "bold" }}>
-              Hi, I'm UniBuddy
+              Hi, I'm Kryvix AI
             </Text>
           </View>
 

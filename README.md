@@ -1,6 +1,6 @@
-# Dexa — Parul University Smart Campus Assistant
+# Kryvix AI — Parul University Smart Campus Assistant
 
-> An AI-powered campus assistant for Parul University, Vadodara. Dexa answers student queries about locations, directions, departments, faculty, services, policies, and campus life — using a hybrid local vector search + web fallback pipeline built on LangGraph.
+> An AI-powered campus assistant for Parul University, Vadodara. Kryvix AI answers student queries about locations, directions, departments, faculty, services, policies, and campus life — using a hybrid local vector search + web fallback pipeline built on LangGraph.
 
 ---
 
@@ -22,7 +22,7 @@
 
 ## 1. Project Overview
 
-Dexa is a backend AI assistant that answers natural language queries from students, faculty, and visitors about the Parul University campus. It is designed to feel like a knowledgeable senior student — warm, confident, and never robotic.
+Kryvix AI is a backend AI assistant that answers natural language queries from students, faculty, and visitors about the Parul University campus. It is designed to feel like a knowledgeable senior student — warm, confident, and never robotic.
 
 **Core capabilities:**
 
@@ -620,4 +620,4 @@ PORT=5000
 
 ---
 
-*Dexa — Parul University Smart Campus Assistant*
+*Kryvix AI — Parul University Smart Campus Assistant*
