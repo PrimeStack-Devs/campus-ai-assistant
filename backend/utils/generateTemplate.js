@@ -168,7 +168,8 @@ export function generateCampusDataTemplate(outputPath) {
   XLSX.utils.book_append_sheet(wb, wsPolicies, "Campus_Policies");
 
   const target =
-    outputPath || path.resolve(__dirname, "../data/campus_data_template.xlsx");
+    outputPath ||
+    path.resolve(__dirname, "../data/templates/campus_data_template.xlsx");
   const targetDir = path.dirname(target);
   if (!fs.existsSync(targetDir)) {
     fs.mkdirSync(targetDir, { recursive: true });

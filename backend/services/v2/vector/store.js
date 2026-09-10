@@ -15,10 +15,10 @@ export const initializeStore = async () => {
   const start = Date.now();
   console.log("⚡ Initializing Campus Brain (Fast Startup)...");
 
-  // 1. Load structured entities into cache from DB or campus-data
+  // 1. Load structured entities into cache from DB or data/seeds
   const dbDir = path.resolve(__dirname, "../../../data/db");
-  const campusDataDir = path.resolve(__dirname, "../../../campus-data");
-  const sourceDir = fs.existsSync(dbDir) ? dbDir : campusDataDir;
+  const seedDir = path.resolve(__dirname, "../../../data/seeds");
+  const sourceDir = fs.existsSync(dbDir) ? dbDir : seedDir;
 
   resetCampusData();
   const bPath = path.join(sourceDir, "buildings.json");
@@ -51,7 +51,7 @@ export const initializeStore = async () => {
   // 2. Load pre-computed vector embeddings into vector store
   const vecPath = path.resolve(
     __dirname,
-    "../../../data/precomputed_vectors.json"
+    "../../../data/vectors/precomputed_vectors.json"
   );
   vectorStore = new MemoryVectorStore(embeddings);
 
@@ -88,7 +88,7 @@ export const addDynamicDocuments = async (documents, vectors) => {
   // Persist to precomputed_vectors.json
   const vecPath = path.resolve(
     __dirname,
-    "../../../data/precomputed_vectors.json"
+    "../../../data/vectors/precomputed_vectors.json"
   );
   let existing = [];
   if (fs.existsSync(vecPath)) {
@@ -116,7 +116,7 @@ export const clearVectorStore = async () => {
 
   const vecPath = path.resolve(
     __dirname,
-    "../../../data/precomputed_vectors.json"
+    "../../../data/vectors/precomputed_vectors.json"
   );
   fs.writeFileSync(vecPath, JSON.stringify([], null, 2), "utf-8");
   console.log("[Store] Vector store and precomputed_vectors.json cleared.");

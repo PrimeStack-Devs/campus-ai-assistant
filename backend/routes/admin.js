@@ -220,7 +220,7 @@ router.get("/template", (req, res) => {
   try {
     const templatePath = path.resolve(
       __dirname,
-      "../data/campus_data_template.xlsx"
+      "../data/templates/campus_data_template.xlsx"
     );
 
     if (!fs.existsSync(templatePath)) {
@@ -300,35 +300,35 @@ router.post(
   }
 );
 
-// 3.1. Auto-Sync all .xlsx files currently in backend/campus-data folder
+// 3.1. Auto-Sync all .xlsx files currently in backend/data/excel folder
 router.post("/sync-campus-data", requireAdmin, async (req, res) => {
   try {
-    const campusDataDir = path.resolve(__dirname, "../campus-data");
-    if (!fs.existsSync(campusDataDir)) {
+    const excelDir = path.resolve(__dirname, "../data/excel");
+    if (!fs.existsSync(excelDir)) {
       return res
         .status(404)
-        .json({ success: false, error: "campus-data folder not found." });
+        .json({ success: false, error: "data/excel folder not found." });
     }
 
     const excelFiles = fs
-      .readdirSync(campusDataDir)
+      .readdirSync(excelDir)
       .filter((f) => f.endsWith(".xlsx") && !f.startsWith("~$"));
 
     if (excelFiles.length === 0) {
       return res
         .status(400)
-        .json({ success: false, error: "No .xlsx files found in campus-data folder." });
+        .json({ success: false, error: "No .xlsx files found in data/excel folder." });
     }
 
     console.log(
-      `[Admin] Starting batch sync of ${excelFiles.length} file(s) from campus-data...`
+      `[Admin] Starting batch sync of ${excelFiles.length} file(s) from data/excel...`
     );
     const combinedSummary = {};
     let totalNewVectors = 0;
     const processedFiles = [];
 
     for (const f of excelFiles) {
-      const fullPath = path.join(campusDataDir, f);
+      const fullPath = path.join(excelDir, f);
       console.log(`[Admin] Ingesting: ${f}`);
       const result = await processExcelUpload(fullPath);
       processedFiles.push(f);
@@ -342,7 +342,7 @@ router.post("/sync-campus-data", requireAdmin, async (req, res) => {
 
     return res.json({
       success: true,
-      message: `Successfully synced ${excelFiles.length} file(s) from campus-data!`,
+      message: `Successfully synced ${excelFiles.length} file(s) from data/excel!`,
       files: processedFiles,
       summary: combinedSummary,
       totalNewVectors,

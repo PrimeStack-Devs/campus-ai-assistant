@@ -202,7 +202,7 @@ Also exported from `guardrails.js`. Classifies queries into one of six types use
 
 ### Initialization
 
-`initializeStore()` reads all JSON files from `/campus-data/` at startup, converts each record into a searchable text document, and indexes them into a `MemoryVectorStore`. Documents are added in batches of 8 to avoid memory spikes with local CPU embeddings.
+`initializeStore()` reads structured JSON files from `/backend/data/seeds/` (or `/backend/data/db/`) at startup, converts each record into a searchable text document, and indexes them into a `MemoryVectorStore`. Documents are added in batches of 8 to avoid memory spikes with local CPU embeddings.
 
 **Files indexed:**
 
@@ -411,7 +411,7 @@ The single endpoint for all campus queries.
 
 ## 9. Campus Data Schema
 
-All campus data lives in `/campus-data/` as JSON files. The vector store reads these at startup.
+All campus data lives in `/backend/data/` organized into subfolders (`seeds/`, `excel/`, `sources/`, `db/`, `vectors/`, `templates/`). The vector store reads these at startup.
 
 ### `buildings.json` — `Building[]`
 
@@ -606,16 +606,14 @@ PORT=5000
 ├── config/
 │   └── redis.js                     # Redis client and connectRedis()
 │
-├── campus-data/
-│   ├── buildings.json
-│   ├── departments.json
-│   ├── faculty.json
-│   ├── facilities.json
-│   ├── services.json
-│   ├── policies.json
-│   ├── paths.json
-│   ├── schedules.json
-│   └── web_sources.json             # Web scraping source config
+├── data/
+│   ├── db/                          # Local JSON persistent database collections
+│   ├── excel/                       # Raw campus Excel spreadsheets (.xlsx)
+│   ├── seeds/                       # Baseline seed JSON files (buildings, faculty, etc.)
+│   ├── sources/                     # Web crawler config (web_sources.json)
+│   ├── templates/                   # Campus data Excel upload template
+│   ├── uploads/                     # Dynamic file uploads
+│   └── vectors/                     # Precomputed vector embeddings
 │
 └── .env
 ```

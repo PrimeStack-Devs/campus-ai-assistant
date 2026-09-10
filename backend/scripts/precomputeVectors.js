@@ -35,7 +35,14 @@ async function precompute() {
     );
   }
 
-  const outPath = path.resolve(__dirname, "../data/precomputed_vectors.json");
+  const outPath = path.resolve(
+    __dirname,
+    "../data/vectors/precomputed_vectors.json"
+  );
+  const outDir = path.dirname(outPath);
+  if (!fs.existsSync(outDir)) {
+    fs.mkdirSync(outDir, { recursive: true });
+  }
   fs.writeFileSync(outPath, JSON.stringify(precomputedData, null, 2), "utf-8");
 
   console.log(`\n✅ Pre-computed vectors saved to: ${outPath} (${precomputedData.length} records)`);
@@ -46,7 +53,7 @@ async function precompute() {
     fs.mkdirSync(dbDir, { recursive: true });
   }
 
-  const campusDataDir = path.resolve(__dirname, "../campus-data");
+  const seedDataDir = path.resolve(__dirname, "../data/seeds");
   const files = [
     "buildings.json",
     "departments.json",
@@ -59,7 +66,7 @@ async function precompute() {
   ];
 
   files.forEach((file) => {
-    const src = path.join(campusDataDir, file);
+    const src = path.join(seedDataDir, file);
     const dest = path.join(dbDir, file);
     if (fs.existsSync(src) && !fs.existsSync(dest)) {
       fs.copyFileSync(src, dest);

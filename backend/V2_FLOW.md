@@ -218,14 +218,14 @@ The local semantic retrieval layer is implemented in `backend/services/v2/vector
 
 At startup, `initializeStore()` loads and indexes campus data from JSON files such as:
 
-- `backend/campus-data/buildings.json`
-- `backend/campus-data/departments.json`
-- `backend/campus-data/facilities.json`
-- `backend/campus-data/faculty.json`
-- `backend/campus-data/policies.json`
-- `backend/campus-data/paths.json`
-- `backend/campus-data/services.json`
-- `backend/campus-data/schedules.json`
+- `backend/data/seeds/buildings.json`
+- `backend/data/seeds/departments.json`
+- `backend/data/seeds/facilities.json`
+- `backend/data/seeds/faculty.json`
+- `backend/data/seeds/policies.json`
+- `backend/data/seeds/paths.json`
+- `backend/data/seeds/services.json`
+- `backend/data/seeds/schedules.json`
 
 What happens there:
 
@@ -252,7 +252,7 @@ This node uses `getWebAnswer(userQuery)` from `backend/webCache.js`.
 
 `getWebAnswer()` first tries to match the query to a configured source from:
 
-- `backend/campus-data/web_sources.json`
+- `backend/data/sources/web_sources.json`
 
 If no source matches:
 

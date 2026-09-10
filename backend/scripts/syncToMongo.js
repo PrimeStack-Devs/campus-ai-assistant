@@ -135,8 +135,11 @@ export async function syncAllDataToMongo() {
     console.log(`✅ Synced ${paths.length} paths to MongoDB.`);
   }
 
-  // 9. Vectors (all 761 vectors from precomputed_vectors.json)
-  const vecPath = path.resolve(__dirname, "../data/precomputed_vectors.json");
+  // 9. Vectors (all vectors from precomputed_vectors.json)
+  const vecPath = path.resolve(
+    __dirname,
+    "../data/vectors/precomputed_vectors.json"
+  );
   if (fs.existsSync(vecPath)) {
     const records = JSON.parse(fs.readFileSync(vecPath, "utf-8"));
     console.log(`⚡ Syncing ${records.length} precomputed vectors to MongoDB...`);

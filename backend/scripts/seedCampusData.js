@@ -28,7 +28,7 @@ async function seedData() {
     console.log("🚀 Connecting to MongoDB...");
     await connectDB();
 
-    const dataDir = path.resolve(__dirname, "../campus-data");
+    const dataDir = path.resolve(__dirname, "../data/seeds");
 
     // 1. Buildings
     const buildingsPath = path.join(dataDir, "buildings.json");
@@ -67,7 +67,7 @@ async function seedData() {
     }
 
     // Quick Locations (locations.json)
-    const locationsPath = path.resolve(__dirname, "../data/locations.json");
+    const locationsPath = path.resolve(__dirname, "../data/seeds/locations.json");
     if (fs.existsSync(locationsPath)) {
       const locations = JSON.parse(fs.readFileSync(locationsPath, "utf-8"));
       const locEntities = Object.entries(locations).map(([name, desc], i) => ({

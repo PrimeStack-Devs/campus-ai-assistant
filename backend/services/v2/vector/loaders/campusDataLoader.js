@@ -27,7 +27,7 @@ export function loadCampusDataDocuments() {
   resetCampusData();
 
   const allDocs = [];
-  const dataDir = path.resolve(__dirname, "../../../../campus-data");
+  const dataDir = path.resolve(__dirname, "../../../../data/seeds");
 
   for (const file of DATA_FILES) {
     const filePath = path.join(dataDir, file.name);

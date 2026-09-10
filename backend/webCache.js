@@ -18,7 +18,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Load sources config once at module load
 const webSources = JSON.parse(
-  readFileSync(join(__dirname, 'campus-data/web_sources.json'), 'utf-8')
+  readFileSync(join(__dirname, 'data/sources/web_sources.json'), 'utf-8')
 );
 
 async function getRedis() {

@@ -233,7 +233,7 @@ export default function DocumentsAdminPage() {
               ) : (
                 <Sparkles size={16} className="text-emerald-600 dark:text-emerald-400" />
               )}
-              Sync campus-data Folder
+              Sync Excel Data (data/excel)
             </Button>
             <Button
               onClick={handleDownloadTemplate}
@@ -547,7 +547,7 @@ export default function DocumentsAdminPage() {
           </div>
 
           <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-            Once reset, Dexa will have a completely clean slate (0 vectors, 0 places). You can then immediately click <strong>Sync campus-data Folder</strong> or upload fresh Excel/PDF files to re-index cleanly without any duplicate vectors.
+            Once reset, Dexa will have a completely clean slate (0 vectors, 0 places). You can then immediately click <strong>Sync Excel Data</strong> or upload fresh Excel/PDF files to re-index cleanly without any duplicate vectors.
           </p>
         </div>
       </AdminModal>

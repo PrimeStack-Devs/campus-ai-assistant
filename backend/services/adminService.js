@@ -61,7 +61,10 @@ export async function getCampusStats() {
   const schedules = readJsonCollection("schedules.json");
   const policies = readJsonCollection("policies.json");
 
-  const vecPath = path.resolve(__dirname, "../data/precomputed_vectors.json");
+  const vecPath = path.resolve(
+    __dirname,
+    "../data/vectors/precomputed_vectors.json"
+  );
   let vectorCount = 0;
   if (fs.existsSync(vecPath)) {
     try {
