@@ -114,16 +114,26 @@ export function AssistantMessage() {
   });
 
   return (
-    <MessagePrimitive.Root className="group mb-5 sm:mb-6 flex items-start gap-2.5 sm:gap-3.5 animate-fade-in-up duration-250 max-w-3xl">
-      {/* AI Avatar */}
-      <div className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-600 via-violet-600 to-cyan-500 text-white shadow-md shadow-indigo-500/20 mt-0.5">
-        <Sparkles size={14} className="sm:w-4 sm:h-4" />
+    <MessagePrimitive.Root className="group mb-5 sm:mb-6 flex flex-col sm:flex-row items-start gap-1.5 sm:gap-3.5 animate-fade-in-up duration-250 max-w-3xl">
+      {/* AI Avatar: Desktop sits on the side, mobile has header badge above */}
+      <div className="hidden sm:flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-600 via-violet-600 to-cyan-500 text-white shadow-md shadow-indigo-500/20 mt-0.5">
+        <Sparkles size={15} />
       </div>
 
-      <div className="min-w-0 flex-1 space-y-2">
+      <div className="min-w-0 w-full sm:flex-1 space-y-1.5 sm:space-y-2">
+        {/* Mobile Header Badge: Tucks neatly above the bubble, eliminating the 50px left blank gutter */}
+        <div className="flex sm:hidden items-center gap-1.5 pl-0.5 mb-1">
+          <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-gradient-to-tr from-indigo-600 via-violet-600 to-cyan-500 text-white shadow-xs">
+            <Sparkles size={11} />
+          </div>
+          <span className="text-[11.5px] font-bold text-slate-800 dark:text-slate-200 tracking-tight">
+            Dexa AI
+          </span>
+        </div>
+
         {/* Message Content Container */}
         <div
-          className={`rounded-2xl rounded-tl-xs bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 p-3.5 sm:p-4 text-xs sm:text-sm text-slate-900 dark:text-slate-100 shadow-xs leading-relaxed overflow-hidden ${
+          className={`w-full rounded-2xl rounded-tl-sm sm:rounded-tl-xs bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 p-3.5 sm:p-4 text-xs sm:text-sm text-slate-900 dark:text-slate-100 shadow-xs leading-relaxed overflow-hidden ${
             !hasContent ? 'w-fit' : ''
           }`}
         >
@@ -263,13 +273,13 @@ export function AssistantMessage() {
           )}
         </div>
 
-        {/* Action Toolbar on Hover (only when message has content) */}
+        {/* Action Toolbar: visible on mobile, reveal on hover on desktop */}
         {hasContent && (
-          <div className="flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity pl-1">
+          <div className="chat-action-bar flex items-center gap-1.5 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity pl-1 mt-1">
             <ActionBarPrimitive.Root className="flex items-center gap-1">
               <ActionBarPrimitive.Copy
                 copiedDuration={2000}
-                className="group/btn flex items-center gap-1 px-2 py-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-xs cursor-pointer"
+                className="group/btn flex items-center gap-1 px-2.5 py-1.5 sm:px-2 sm:py-1 rounded-lg text-slate-400 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 active:bg-slate-200 dark:active:bg-slate-700 transition-all text-xs cursor-pointer"
                 title="Copy message"
               >
                 <Copy size={12} className="group-data-[copied=true]/btn:hidden" />
@@ -280,7 +290,7 @@ export function AssistantMessage() {
               </ActionBarPrimitive.Copy>
 
               <ActionBarPrimitive.Reload
-                className="flex items-center gap-1 px-2 py-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-xs cursor-pointer"
+                className="flex items-center gap-1 px-2.5 py-1.5 sm:px-2 sm:py-1 rounded-lg text-slate-400 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 active:bg-slate-200 dark:active:bg-slate-700 transition-all text-xs cursor-pointer"
                 title="Regenerate answer"
               >
                 <RotateCw size={12} />

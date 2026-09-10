@@ -63,7 +63,7 @@ export function Thread({
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-50/20 via-transparent to-transparent dark:from-indigo-950/10 pointer-events-none" />
 
       {/* Messages Viewport */}
-      <ThreadPrimitive.Viewport className="flex-1 overflow-y-auto px-3 py-2 sm:px-6 sm:py-3 relative z-10 scroll-smooth">
+      <ThreadPrimitive.Viewport className="flex-1 overflow-y-auto px-3.5 py-2.5 sm:px-6 sm:py-3 relative z-10 scroll-smooth">
         {/* Empty / Welcome State */}
         <ThreadPrimitive.Empty>
           <div className="flex min-h-full flex-col items-center justify-center py-2 sm:py-3 px-1 sm:px-3 relative">
@@ -144,7 +144,7 @@ export function Thread({
       </ThreadPrimitive.Viewport>
 
       {/* Floating Scroll to Bottom Button */}
-      <ThreadPrimitive.ScrollToBottom className="absolute bottom-20 right-6 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer">
+      <ThreadPrimitive.ScrollToBottom className="absolute bottom-20 right-4 sm:right-6 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer">
         <ArrowDown size={14} />
       </ThreadPrimitive.ScrollToBottom>
 

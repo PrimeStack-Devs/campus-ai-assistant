@@ -1,10 +1,12 @@
 'use client';
 
+import React, { useState } from 'react';
 import { LocationCard } from './LocationCard';
 import { SourceCard } from './SourceCard';
 import type { LocationData, WebSourceData } from '@/lib/api';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { Copy, Check } from 'lucide-react';
 
 interface MessageBubbleProps {
   content: string;
@@ -21,16 +23,24 @@ export function MessageBubble({
   location,
   webSource,
 }: MessageBubbleProps) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(content);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <div
-      className={`mb-6 flex ${
+      className={`group mb-6 flex ${
         isUser ? 'justify-end' : 'justify-start'
       } animate-fade-in-up duration-300`}
     >
       <div
         className={
           isUser
-            ? 'max-w-[85%] sm:max-w-md'
+            ? 'max-w-[85%] sm:max-w-md flex flex-col items-end'
             : 'w-full max-w-full sm:max-w-2xl'
         }
       >
@@ -60,6 +70,28 @@ export function MessageBubble({
               {timestamp}
             </p>
           )}
+        </div>
+
+        {/* Mobile-visible copy action */}
+        <div className="chat-action-bar flex items-center gap-1 mt-1 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+          <button
+            type="button"
+            onClick={handleCopy}
+            className="flex items-center gap-1 px-2 py-1 rounded-md text-slate-400 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 active:bg-slate-200 dark:active:bg-slate-700 transition-all text-xs cursor-pointer"
+            title="Copy message"
+          >
+            {copied ? (
+              <>
+                <Check size={12} className="text-emerald-500" />
+                <span className="text-[10.5px] font-medium text-emerald-500">Copied</span>
+              </>
+            ) : (
+              <>
+                <Copy size={12} />
+                <span className="text-[10.5px] font-medium">Copy</span>
+              </>
+            )}
+          </button>
         </div>
 
         {!isUser && location?.name && <LocationCard location={location} />}

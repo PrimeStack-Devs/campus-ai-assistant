@@ -1,7 +1,7 @@
 'use client';
 
 import { MessagePrimitive, ActionBarPrimitive } from '@assistant-ui/react';
-import { Pencil } from 'lucide-react';
+import { Pencil, Copy, Check } from 'lucide-react';
 
 export function UserMessage() {
   return (
@@ -11,13 +11,28 @@ export function UserMessage() {
           <MessagePrimitive.Content />
         </div>
 
-        {/* Action bar on hover */}
-        <div className="flex items-center gap-1 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
-          <ActionBarPrimitive.Root>
-            <ActionBarPrimitive.Edit className="p-1 rounded-md text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-[11px] flex items-center gap-1 cursor-pointer">
+        {/* Action bar: visible on mobile, reveal on hover on desktop */}
+        <div className="chat-action-bar flex items-center gap-1 mt-1 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+          <ActionBarPrimitive.Root className="flex items-center gap-0.5">
+            <ActionBarPrimitive.Edit
+              className="p-1.5 sm:p-1 rounded-md text-slate-400 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 active:bg-slate-200 dark:active:bg-slate-700 transition-all text-[11px] flex items-center gap-1 cursor-pointer"
+              title="Edit message"
+            >
               <Pencil size={12} />
-              <span className="text-[10px]">Edit</span>
+              <span className="text-[10.5px] font-medium">Edit</span>
             </ActionBarPrimitive.Edit>
+
+            <ActionBarPrimitive.Copy
+              copiedDuration={2000}
+              className="group/btn p-1.5 sm:p-1 rounded-md text-slate-400 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 active:bg-slate-200 dark:active:bg-slate-700 transition-all text-[11px] flex items-center gap-1 cursor-pointer"
+              title="Copy message"
+            >
+              <Copy size={12} className="group-data-[copied=true]/btn:hidden" />
+              <Check size={12} className="hidden group-data-[copied=true]/btn:inline text-emerald-500" />
+              <span className="text-[10.5px] font-medium group-data-[copied=true]/btn:text-emerald-500">
+                Copy
+              </span>
+            </ActionBarPrimitive.Copy>
           </ActionBarPrimitive.Root>
         </div>
       </div>

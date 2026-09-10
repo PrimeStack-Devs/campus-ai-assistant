@@ -69,7 +69,7 @@ export function Composer({
 
   // 2. Active Composer
   return (
-    <div className="border-t border-slate-200/50 bg-white/70 p-2 sm:p-2.5 dark:border-slate-800/50 dark:bg-slate-950/70 backdrop-blur-md shrink-0">
+    <div className="border-t border-slate-200/50 bg-white/70 px-3.5 py-2 sm:p-2.5 dark:border-slate-800/50 dark:bg-slate-950/70 backdrop-blur-md shrink-0">
       <div className="max-w-3xl mx-auto w-full">
         {/* Guest Query Counter Badge */}
         {isGuest && (

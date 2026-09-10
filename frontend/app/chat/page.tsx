@@ -117,6 +117,62 @@ export default function ChatPage() {
     }
   };
 
+  const handleRegenerateResponse = async (
+    userContent: string,
+    targetSessionId: string
+  ) => {
+    if (!userContent.trim() || isLoading) return;
+
+    const currentSession = sessions.find((s) => s.id === targetSessionId);
+    const existingUserCount = currentSession
+      ? currentSession.messages.filter((m) => m.isUser).length
+      : 1;
+    const existingTitle = currentSession?.title;
+
+    setIsLoading(true);
+
+    try {
+      console.log(
+        `[Chat] Regenerating response for: "${userContent}" | Session: ${targetSessionId}`
+      );
+      const aiResponse = await askCampusAI(userContent, targetSessionId, {
+        messageCount: existingUserCount,
+        existingTitle,
+      });
+
+      const aiMessage: ChatMessage = {
+        id: `msg_ai_${Date.now()}`,
+        content: aiResponse.answer,
+        isUser: false,
+        timestamp: new Date().toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit',
+        }),
+        location: aiResponse.location,
+        webSource: aiResponse.webSource,
+      };
+
+      addMessageToActiveSession(aiMessage, targetSessionId);
+    } catch (err) {
+      console.error('Error communicating with campus assistant backend:', err);
+      addMessageToActiveSession(
+        {
+          id: `msg_err_${Date.now()}`,
+          content:
+            "I'm having trouble connecting to the campus database right now. Please try again in a moment.",
+          isUser: false,
+          timestamp: new Date().toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit',
+          }),
+        },
+        targetSessionId
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   // Check for initial prompt query (e.g. from Home page cards)
   useEffect(() => {
     if (typeof window !== 'undefined' && isLoaded) {
@@ -161,11 +217,66 @@ export default function ChatPage() {
       }
       await handleSendMessage(text);
     },
-    onReload: async () => {
-      const lastUserMsg = [...currentMessages].reverse().find((m) => m.isUser);
-      if (lastUserMsg) {
-        await handleSendMessage(lastUserMsg.content);
+    onReload: async (parentId?: any, config?: any) => {
+      if (isLoading) return;
+
+      const targetSessionId = activeSessionId;
+      const session =
+        sessions.find((s) => s.id === targetSessionId) || activeSession;
+      const msgs = session?.messages || [];
+      if (msgs.length === 0) return;
+
+      const resolvedParentId =
+        typeof parentId === 'string'
+          ? parentId
+          : (parentId?.parentId || config?.parentId || null);
+
+      let targetUserMsg: ChatMessage | undefined;
+      let assistantMsgToReplace: ChatMessage | undefined;
+
+      if (resolvedParentId) {
+        const idx = msgs.findIndex((m) => m.id === resolvedParentId);
+        if (idx !== -1) {
+          if (msgs[idx].isUser) {
+            targetUserMsg = msgs[idx];
+            // Assistant response following this prompt
+            if (idx + 1 < msgs.length && !msgs[idx + 1].isUser) {
+              assistantMsgToReplace = msgs[idx + 1];
+            }
+          } else {
+            // resolvedParentId was the assistant message itself
+            assistantMsgToReplace = msgs[idx];
+            if (idx > 0 && msgs[idx - 1].isUser) {
+              targetUserMsg = msgs[idx - 1];
+            }
+          }
+        }
       }
+
+      // If parentId was not passed or couldn't be matched, find the last interaction
+      if (!targetUserMsg) {
+        const lastUserIdx = [...msgs]
+          .map((m, i) => ({ m, i }))
+          .reverse()
+          .find(({ m }) => m.isUser)?.i;
+
+        if (lastUserIdx !== undefined && lastUserIdx !== -1) {
+          targetUserMsg = msgs[lastUserIdx];
+          if (lastUserIdx + 1 < msgs.length && !msgs[lastUserIdx + 1].isUser) {
+            assistantMsgToReplace = msgs[lastUserIdx + 1];
+          }
+        }
+      }
+
+      if (!targetUserMsg) return;
+
+      // Truncate the assistant response being retried (and any following turns)
+      if (assistantMsgToReplace) {
+        truncateMessagesFrom(assistantMsgToReplace.id, targetSessionId);
+      }
+
+      // Regenerate the response for the selected user prompt without creating duplicate user messages
+      await handleRegenerateResponse(targetUserMsg.content, targetSessionId);
     },
   });
 
