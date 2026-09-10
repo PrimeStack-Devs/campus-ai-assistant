@@ -3,9 +3,9 @@
     "id": "fac_vice_chancellor",
     "name": "Dr. Devanshu Patel",
     "role": "administration",
-    "designation": "Vice Chancellor",
+    "designation": "President",
     "department_id": null,
-    "department_name": "University Administration",
+    "department_name": "Parul University / Central Administration",
     "building_id": "C1",
     "building_name": "Administrative Block C1",
     "floor": 2,
@@ -17,9 +17,14 @@
       "vice chancellor",
       "vc",
       "vc office",
-      "chancellor office"
+      "chancellor office",
+      "dr. devanshu patel",
+      "devanshu patel",
+      "president"
     ],
-    "description": "The Vice Chancellor of Parul University. Office is on the 2nd floor of Administrative Block C1, Room 201. Heads the overall academic and administrative operations of the university."
+    "description": "President in Parul University / Central Administration at Parul University. Contact: +91-02668-260300. Email: vc@paruluniversity.ac.in.",
+    "category": "Central Leadership",
+    "currently_working": true
   },
   {
     "id": "fac_registrar",
@@ -354,27 +359,34 @@
   },
   {
     "id": "fac_hod_mca",
-    "name": "Vivek Dave",
+    "name": "Prof. Vivek Dave",
     "role": "faculty",
-    "designation": "HOD",
+    "designation": "Head of Department (MCA)",
     "department_id": "dept_mca",
-    "department_name": "Master of Computer Application",
+    "department_name": "Master of Computer Application (MCA) / PICA",
     "building_id": "A25",
     "building_name": "C.V. Raman Centre",
     "floor": 5,
     "room": "501",
-    "email": "hod.mca@paruluniversity.ac.in",
-    "phone": "02668-260404",
+    "email": "vivek.dave@paruluniversity.ac.in",
+    "phone": "8128313699",
     "subjects_taught": [
       "Advanced Java",
-      "Distributed Systems"
+      "Distributed Systems",
+      "MCA"
     ],
     "aliases": [
       "hod mca",
       "mca hod",
-      "head of mca"
+      "head of mca",
+      "prof. vivek dave",
+      "vivek dave",
+      "mca",
+      "head of department (mca)"
     ],
-    "description": "Head of Department for MCA. Office is on the 5th floor of C.V. Raman Centre (A25), Room 501."
+    "description": "Head of Department (MCA) in Master of Computer Application (MCA) / PICA at Parul University. Subjects: Advanced Java, Distributed Systems, MCA. Contact: +91-8128313699. Email: vivek.dave@paruluniversity.ac.in.",
+    "category": "Institute Leadership",
+    "currently_working": true
   },
   {
     "id": "fac_hod_mech",
@@ -6481,7 +6493,7 @@
   },
   {
     "id": "fac_nirf_0234",
-    "name": "Vijya Ashokbhaitulsani",
+    "name": "Vijya Tulsani",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Female",
@@ -6494,10 +6506,15 @@
     "leaving_date": null,
     "aliases": [
       "vijya ashokbhaitulsani",
-      "vijya ashokbhaitulsani",
-      "vijya ashokbhaitulsani parul"
+      "vijya ashokbhaitulsani parul",
+      "vijya tulsani",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Holds MCA qualification with 6 yrs 1 mos (73 mos) of academic/industry experience. Associated with the university since 03-06-2019 (Regular faculty)."
+    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Assigned Divisions / Notes: Divisions A, D, G. Contact: +91-8866665173. Email: vijya.tulsani42087@paruluniversity.ac.in.",
+    "email": "vijya.tulsani42087@paruluniversity.ac.in",
+    "phone": "8866665173",
+    "category": "Mentor",
+    "assigned_divisions": "Divisions A, D, G"
   },
   {
     "id": "fac_nirf_0235",
@@ -8181,23 +8198,32 @@
   },
   {
     "id": "fac_nirf_0319",
-    "name": "Ghanshyamsureshbhairathod",
-    "role": "faculty",
-    "designation": "Assistant Professor",
+    "name": "Dr. Ghanshyam Rathod",
+    "role": "leadership",
+    "designation": "Head of Department",
     "gender": "Male",
     "qualification": "Ph.D",
     "experience_months": 227,
-    "department_name": "Academic Faculty",
+    "department_name": "MSc.IT, MSc.DS",
     "association_type": "Regular",
-    "currently_working": false,
+    "currently_working": true,
     "joining_date": "09-08-2023",
     "leaving_date": "05-07-2025",
     "aliases": [
       "ghanshyamsureshbhairathod",
-      "ghanshyamsureshbhairathod",
-      "ghanshyamsureshbhairathod parul"
+      "ghanshyamsureshbhairathod parul",
+      "dr. ghanshyam rathod",
+      "ghanshyam rathod",
+      "msc.it, msc.ds",
+      "head of department"
     ],
-    "description": "Assistant Professor in Academic Faculty at Parul University. Holds Ph.D qualification with 18 yrs 11 mos (227 mos) of academic/industry experience. Associated with the university since 09-08-2023 (Regular faculty)."
+    "description": "Head of Department in MSc.IT, MSc.DS at Parul University. Subjects: MSc.IT, MSc.DS. Contact: +91-6357979555. Email: ghanshyam.rathod42366@paruluniversity.ac.in.",
+    "email": "ghanshyam.rathod42366@paruluniversity.ac.in",
+    "phone": "6357979555",
+    "category": "Institute Leadership",
+    "subjects_taught": [
+      "MSc.IT, MSc.DS"
+    ]
   },
   {
     "id": "fac_nirf_0320",
@@ -8281,7 +8307,7 @@
   },
   {
     "id": "fac_nirf_0324",
-    "name": "Niharika Agarwal",
+    "name": "Prof. Niharika Agarwal",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Female",
@@ -8294,10 +8320,21 @@
     "leaving_date": null,
     "aliases": [
       "niharika agarwal",
-      "niharika agarwal",
-      "niharika agarwal parul"
+      "niharika agarwal parul",
+      "prof. niharika agarwal",
+      "web app development",
+      "nlp",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Holds MCA qualification with 1 yrs 8 mos (20 mos) of academic/industry experience. Associated with the university since 08-08-2023 (Regular faculty)."
+    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Assigned Divisions / Notes: Div A, G, I. Subjects: Web App Development, NLP. Contact: +91-9662833439. Email: niharika.agarwal36122@paruluniversity.ac.in.",
+    "email": "niharika.agarwal36122@paruluniversity.ac.in",
+    "phone": "9662833439",
+    "category": "Subject Faculty",
+    "subjects_taught": [
+      "Web App Development",
+      "NLP"
+    ],
+    "assigned_divisions": "Div A, G, I"
   },
   {
     "id": "fac_nirf_0325",
@@ -9741,7 +9778,7 @@
   },
   {
     "id": "fac_nirf_0397",
-    "name": "Adarsh Ashok",
+    "name": "Prof. Adarsh Ashok",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Male",
@@ -9754,10 +9791,15 @@
     "leaving_date": null,
     "aliases": [
       "adarsh ashok",
-      "adarsh ashok",
-      "adarsh ashok parul"
+      "adarsh ashok parul",
+      "prof. adarsh ashok",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Holds MCA qualification with 2 yrs 3 mos (27 mos) of academic/industry experience. Associated with the university since 01-07-2024 (Regular faculty)."
+    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Assigned Divisions / Notes: Divisions E, F, I. Contact: +91-9033644102. Email: adarsh.ashok35533@paruluniversity.ac.in.",
+    "email": "adarsh.ashok35533@paruluniversity.ac.in",
+    "phone": "9033644102",
+    "category": "Mentor",
+    "assigned_divisions": "Divisions E, F, I"
   },
   {
     "id": "fac_nirf_0398",
@@ -10461,7 +10503,7 @@
   },
   {
     "id": "fac_nirf_0433",
-    "name": "Manishkumarghanshyam Joshi",
+    "name": "Prof. Manish Joshi",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Male",
@@ -10474,10 +10516,20 @@
     "leaving_date": null,
     "aliases": [
       "manishkumarghanshyam joshi",
-      "manishkumarghanshyam joshi",
-      "manishkumarghanshyam joshi parul"
+      "manishkumarghanshyam joshi parul",
+      "prof. manish joshi",
+      "manish joshi",
+      "mobile apps development (05201305)",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Holds MCA qualification with 19 yrs 0 mos (228 mos) of academic/industry experience. Associated with the university since 18-01-2019 (Regular faculty)."
+    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Assigned Divisions / Notes: Div E, F, H. Subjects: Mobile Apps Development (05201305). Contact: +91-9898530753. Email: manishkumar.joshi42083@paruluniversity.ac.in.",
+    "email": "manishkumar.joshi42083@paruluniversity.ac.in",
+    "phone": "9898530753",
+    "category": "Subject Faculty",
+    "subjects_taught": [
+      "Mobile Apps Development (05201305)"
+    ],
+    "assigned_divisions": "Div E, F, H"
   },
   {
     "id": "fac_nirf_0434",
@@ -12321,7 +12373,7 @@
   },
   {
     "id": "fac_nirf_0526",
-    "name": "Rinkal Dharmeshsarvaiya",
+    "name": "Prof. Rinkal Sarvaiya",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Female",
@@ -12334,10 +12386,20 @@
     "leaving_date": null,
     "aliases": [
       "rinkal dharmeshsarvaiya",
-      "rinkal dharmeshsarvaiya",
-      "rinkal dharmeshsarvaiya parul"
+      "rinkal dharmeshsarvaiya parul",
+      "prof. rinkal sarvaiya",
+      "rinkal sarvaiya",
+      "mobile apps development (05201305)",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Holds MCA qualification with 16 yrs 3 mos (195 mos) of academic/industry experience. Associated with the university since 01-11-2023 (Regular faculty)."
+    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Assigned Divisions / Notes: Div A, C, D. Subjects: Mobile Apps Development (05201305). Contact: +91-8799025175. Email: rinkal.sarvaiya31672@paruluniversity.ac.in.",
+    "email": "rinkal.sarvaiya31672@paruluniversity.ac.in",
+    "phone": "8799025175",
+    "category": "Subject Faculty",
+    "subjects_taught": [
+      "Mobile Apps Development (05201305)"
+    ],
+    "assigned_divisions": "Div A, C, D"
   },
   {
     "id": "fac_nirf_0527",
@@ -14641,23 +14703,32 @@
   },
   {
     "id": "fac_nirf_0642",
-    "name": "Ramachandran P",
+    "name": "Dr. Ramachandran P",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Male",
     "qualification": "Ph.D",
     "experience_months": 200,
-    "department_name": "Academic Faculty",
+    "department_name": "Principles of Data Science - II (0520DS02)",
     "association_type": "Regular",
     "currently_working": true,
     "joining_date": "09-04-2024",
     "leaving_date": null,
     "aliases": [
       "ramachandran p",
-      "ramachandran p",
-      "ramachandran p parul"
+      "ramachandran p parul",
+      "dr. ramachandran p",
+      "principles of data science - ii (0520ds02)",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Academic Faculty at Parul University. Holds Ph.D qualification with 16 yrs 8 mos (200 mos) of academic/industry experience. Associated with the university since 09-04-2024 (Regular faculty)."
+    "description": "Assistant Professor in Principles of Data Science - II (0520DS02) at Parul University. Assigned Divisions / Notes: Div I. Subjects: Principles of Data Science - II (0520DS02). Contact: +91-9384345662. Email: ramchandran.p34251@paruluniversity.ac.in.",
+    "email": "ramchandran.p34251@paruluniversity.ac.in",
+    "phone": "9384345662",
+    "category": "Subject Faculty",
+    "subjects_taught": [
+      "Principles of Data Science - II (0520DS02)"
+    ],
+    "assigned_divisions": "Div I"
   },
   {
     "id": "fac_nirf_0643",
@@ -17841,23 +17912,33 @@
   },
   {
     "id": "fac_nirf_0802",
-    "name": "Nirmitkumar Girishbhaishah",
+    "name": "Prof. Nirmit Shah",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Male",
     "qualification": "Ph.D",
     "experience_months": 262,
-    "department_name": "Academic Faculty",
+    "department_name": "FITCS / PICA",
     "association_type": "Regular",
     "currently_working": true,
     "joining_date": "01-03-2023",
     "leaving_date": null,
     "aliases": [
       "nirmitkumar girishbhaishah",
-      "nirmitkumar girishbhaishah",
-      "nirmitkumar girishbhaishah parul"
+      "nirmitkumar girishbhaishah parul",
+      "prof. nirmit shah",
+      "nirmit shah",
+      "open source tools and frameworks (05201381)",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Academic Faculty at Parul University. Holds Ph.D qualification with 21 yrs 10 mos (262 mos) of academic/industry experience. Associated with the university since 01-03-2023 (Regular faculty)."
+    "description": "Assistant Professor in FITCS / PICA at Parul University. Assigned Divisions / Notes: Divisions A, E, H; Div A, B, C, D, E, F. Subjects: Open Source Tools and Frameworks (05201381). Contact: +91-9898315486. Email: nirmitkumar.shah27546@paruluniversity.ac.in.",
+    "email": "nirmitkumar.shah27546@paruluniversity.ac.in",
+    "phone": "9898315486",
+    "category": "Mentor",
+    "subjects_taught": [
+      "Open Source Tools and Frameworks (05201381)"
+    ],
+    "assigned_divisions": "Divisions A, E, H; Div A, B, C, D, E, F"
   },
   {
     "id": "fac_nirf_0803",
@@ -21441,7 +21522,7 @@
   },
   {
     "id": "fac_nirf_0982",
-    "name": "Hardik Prabhudasparmar",
+    "name": "Prof. Hardik Parmar",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Male",
@@ -21454,10 +21535,20 @@
     "leaving_date": null,
     "aliases": [
       "hardik prabhudasparmar",
-      "hardik prabhudasparmar",
-      "hardik prabhudasparmar parul"
+      "hardik prabhudasparmar parul",
+      "prof. hardik parmar",
+      "hardik parmar",
+      "mobile apps development (05201305)",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Holds MCA qualification with 8 yrs 3 mos (99 mos) of academic/industry experience. Associated with the university since 17-12-2022 (Regular faculty)."
+    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Assigned Divisions / Notes: Div G Lab. Subjects: Mobile Apps Development (05201305). Contact: +91-9586607479. Email: hardik.parmar26611@paruluniversity.ac.in.",
+    "email": "hardik.parmar26611@paruluniversity.ac.in",
+    "phone": "9586607479",
+    "category": "Subject Faculty",
+    "subjects_taught": [
+      "Mobile Apps Development (05201305)"
+    ],
+    "assigned_divisions": "Div G Lab"
   },
   {
     "id": "fac_nirf_0983",
@@ -22281,7 +22372,7 @@
   },
   {
     "id": "fac_nirf_1024",
-    "name": "Parmar Pratikmukeshkumar",
+    "name": "Prof. Pratik Parmar",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Male",
@@ -22294,10 +22385,20 @@
     "leaving_date": null,
     "aliases": [
       "parmar pratikmukeshkumar",
-      "parmar pratikmukeshkumar",
-      "parmar pratikmukeshkumar parul"
+      "parmar pratikmukeshkumar parul",
+      "prof. pratik parmar",
+      "pratik parmar",
+      "mobile apps development (05201305)",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Holds MCA qualification with 3 yrs 3 mos (39 mos) of academic/industry experience. Associated with the university since 24-08-2024 (Regular faculty)."
+    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Assigned Divisions / Notes: Div A, B, C, D, E, F, H. Subjects: Mobile Apps Development (05201305). Contact: +91-9510615601. Email: pratik.parmar36283@paruluniversity.ac.in.",
+    "email": "pratik.parmar36283@paruluniversity.ac.in",
+    "phone": "9510615601",
+    "category": "Subject Faculty",
+    "subjects_taught": [
+      "Mobile Apps Development (05201305)"
+    ],
+    "assigned_divisions": "Div A, B, C, D, E, F, H"
   },
   {
     "id": "fac_nirf_1025",
@@ -24081,7 +24182,7 @@
   },
   {
     "id": "fac_nirf_1114",
-    "name": "Bhola Minibendayabhai",
+    "name": "Prof. Mini Bhola",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Female",
@@ -24094,10 +24195,20 @@
     "leaving_date": null,
     "aliases": [
       "bhola minibendayabhai",
-      "bhola minibendayabhai",
-      "bhola minibendayabhai parul"
+      "bhola minibendayabhai parul",
+      "prof. mini bhola",
+      "mini bhola",
+      "cloud computing - ii (05201345)",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Holds MCA qualification with 5 yrs 3 mos (63 mos) of academic/industry experience. Associated with the university since 20-05-2024 (Regular faculty)."
+    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Assigned Divisions / Notes: Div H. Subjects: Cloud Computing - II (05201345). Contact: +91-7203083488. Email: miniben.bhola40198@paruluniversity.ac.in.",
+    "email": "miniben.bhola40198@paruluniversity.ac.in",
+    "phone": "7203083488",
+    "category": "Subject Faculty",
+    "subjects_taught": [
+      "Cloud Computing - II (05201345)"
+    ],
+    "assigned_divisions": "Div H"
   },
   {
     "id": "fac_nirf_1115",
@@ -24721,7 +24832,7 @@
   },
   {
     "id": "fac_nirf_1146",
-    "name": "Praveen Singhtomar",
+    "name": "Dr. Praveen Tomar",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Male",
@@ -24734,10 +24845,22 @@
     "leaving_date": null,
     "aliases": [
       "praveen singhtomar",
-      "praveen singhtomar",
-      "praveen singhtomar parul"
+      "praveen singhtomar parul",
+      "dr. praveen tomar",
+      "praveen tomar",
+      "artificial intelligence - ii",
+      "deep learning",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Holds MCA qualification with 22 yrs 3 mos (267 mos) of academic/industry experience. Associated with the university since 03-09-2022 (Regular faculty)."
+    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Assigned Divisions / Notes: Div A, B, C, I. Subjects: Artificial Intelligence - II, Deep Learning. Contact: +91-7987331323. Email: praveen.tomar36403@paruluniversity.ac.in.",
+    "email": "praveen.tomar36403@paruluniversity.ac.in",
+    "phone": "7987331323",
+    "category": "Subject Faculty",
+    "subjects_taught": [
+      "Artificial Intelligence - II",
+      "Deep Learning"
+    ],
+    "assigned_divisions": "Div A, B, C, I"
   },
   {
     "id": "fac_nirf_1147",
@@ -28861,7 +28984,7 @@
   },
   {
     "id": "fac_nirf_1353",
-    "name": "Kapadiamadhavkumarjagdishbhai",
+    "name": "Prof. Madhav Kapadia (Madhav J)",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Male",
@@ -28874,10 +28997,22 @@
     "leaving_date": null,
     "aliases": [
       "kapadiamadhavkumarjagdishbhai",
-      "kapadiamadhavkumarjagdishbhai",
-      "kapadiamadhavkumarjagdishbhai parul"
+      "kapadiamadhavkumarjagdishbhai parul",
+      "prof. madhav kapadia (madhav j)",
+      "madhav kapadia (madhav j)",
+      "cloud computing - ii lab",
+      "wad lab",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Holds MCA qualification with 5 yrs 9 mos (69 mos) of academic/industry experience. Associated with the university since 12-08-2024 (Regular faculty)."
+    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Assigned Divisions / Notes: Div D, G, H. Subjects: Cloud Computing - II Lab, WAD Lab. Contact: +91-9313230772. Email: madhavkumar.kapadia36168@paruluniversity.ac.in.",
+    "email": "madhavkumar.kapadia36168@paruluniversity.ac.in",
+    "phone": "9313230772",
+    "category": "Subject Faculty",
+    "subjects_taught": [
+      "Cloud Computing - II Lab",
+      "WAD Lab"
+    ],
+    "assigned_divisions": "Div D, G, H"
   },
   {
     "id": "fac_nirf_1354",
@@ -29861,7 +29996,7 @@
   },
   {
     "id": "fac_nirf_1403",
-    "name": "Aniket Paul",
+    "name": "Prof. Aniket Paul",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Male",
@@ -29874,10 +30009,19 @@
     "leaving_date": null,
     "aliases": [
       "aniket paul",
-      "aniket paul",
-      "aniket paul parul"
+      "aniket paul parul",
+      "prof. aniket paul",
+      "cyber security & forensics - ii (05201307)",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Holds MCA qualification with 1 yrs 4 mos (16 mos) of academic/industry experience. Associated with the university since 05-08-2024 (Regular faculty)."
+    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Assigned Divisions / Notes: Div D. Subjects: Cyber Security & Forensics - II (05201307). Contact: +91-6353871530. Email: aniket.paul36074@paruluniversity.ac.in.",
+    "email": "aniket.paul36074@paruluniversity.ac.in",
+    "phone": "6353871530",
+    "category": "Subject Faculty",
+    "subjects_taught": [
+      "Cyber Security & Forensics - II (05201307)"
+    ],
+    "assigned_divisions": "Div D"
   },
   {
     "id": "fac_nirf_1404",
@@ -30341,7 +30485,7 @@
   },
   {
     "id": "fac_nirf_1427",
-    "name": "Anmol Singh",
+    "name": "Prof. Anmol Singh",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Male",
@@ -30354,10 +30498,19 @@
     "leaving_date": null,
     "aliases": [
       "anmol singh",
-      "anmol singh",
-      "anmol singh parul"
+      "anmol singh parul",
+      "prof. anmol singh",
+      "web application development (05201302)",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Holds MCA qualification with 1 yrs 7 mos (19 mos) of academic/industry experience. Associated with the university since 29-05-2025 (Regular faculty)."
+    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Assigned Divisions / Notes: Divisions G, H, I; Div A, B, C, E, F, H. Subjects: Web Application Development (05201302). Contact: +91-6306385299. Email: anmol.singh40298@paruluniversity.ac.in.",
+    "email": "anmol.singh40298@paruluniversity.ac.in",
+    "phone": "6306385299",
+    "category": "Mentor",
+    "subjects_taught": [
+      "Web Application Development (05201302)"
+    ],
+    "assigned_divisions": "Divisions G, H, I; Div A, B, C, E, F, H"
   },
   {
     "id": "fac_nirf_1428",
@@ -33301,7 +33454,7 @@
   },
   {
     "id": "fac_nirf_1575",
-    "name": "Sohil Govindbhaiparmar",
+    "name": "Prof. Sohil Parmar",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Male",
@@ -33314,10 +33467,20 @@
     "leaving_date": null,
     "aliases": [
       "sohil govindbhaiparmar",
-      "sohil govindbhaiparmar",
-      "sohil govindbhaiparmar parul"
+      "sohil govindbhaiparmar parul",
+      "prof. sohil parmar",
+      "sohil parmar",
+      "adv. full stack web development - ii (05201349)",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Holds MCA qualification with 16 yrs 5 mos (197 mos) of academic/industry experience. Associated with the university since 04-07-2022 (Regular faculty)."
+    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Assigned Divisions / Notes: Div E, F. Subjects: Adv. Full Stack Web Development - II (05201349). Contact: +91-6352559859. Email: sohil.parmar24381@paruluniversity.ac.in.",
+    "email": "sohil.parmar24381@paruluniversity.ac.in",
+    "phone": "6352559859",
+    "category": "Subject Faculty",
+    "subjects_taught": [
+      "Adv. Full Stack Web Development - II (05201349)"
+    ],
+    "assigned_divisions": "Div E, F"
   },
   {
     "id": "fac_nirf_1576",
@@ -34201,9 +34364,9 @@
   },
   {
     "id": "fac_nirf_1620",
-    "name": "Parul Patel",
-    "role": "faculty",
-    "designation": "Professor",
+    "name": "Dr. Parul Patel",
+    "role": "leadership",
+    "designation": "Vice President",
     "gender": "Female",
     "qualification": "MD(Hom)",
     "experience_months": 303,
@@ -34214,10 +34377,12 @@
     "leaving_date": null,
     "aliases": [
       "parul patel",
-      "parul patel",
-      "parul patel parul"
+      "parul patel parul",
+      "dr. parul patel",
+      "vice president"
     ],
-    "description": "Professor in Faculty of Homeopathy at Parul University. Holds MD(Hom) qualification with 25 yrs 3 mos (303 mos) of academic/industry experience. Associated with the university since 01-08-2000 (Regular faculty)."
+    "description": "Vice President in Faculty of Homeopathy at Parul University.",
+    "category": "Central Leadership"
   },
   {
     "id": "fac_nirf_1621",
@@ -34761,7 +34926,7 @@
   },
   {
     "id": "fac_nirf_1648",
-    "name": "Tanmay Mukeshshah",
+    "name": "Prof. Tanmay Shah",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Male",
@@ -34774,10 +34939,16 @@
     "leaving_date": null,
     "aliases": [
       "tanmay mukeshshah",
-      "tanmay mukeshshah",
-      "tanmay mukeshshah parul"
+      "tanmay mukeshshah parul",
+      "prof. tanmay shah",
+      "tanmay shah",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Holds MCA qualification with 16 yrs 11 mos (203 mos) of academic/industry experience. Associated with the university since 05-06-2024 (Regular faculty)."
+    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Assigned Divisions / Notes: Divisions C, F, I. Contact: +91-9923238304. Email: tanmay.shah35142@paruluniversity.ac.in.",
+    "email": "tanmay.shah35142@paruluniversity.ac.in",
+    "phone": "9923238304",
+    "category": "Mentor",
+    "assigned_divisions": "Divisions C, F, I"
   },
   {
     "id": "fac_nirf_1649",
@@ -35921,7 +36092,7 @@
   },
   {
     "id": "fac_nirf_1706",
-    "name": "Vipulbhai Virsinghbhaigamit",
+    "name": "Prof. Vipul Virsinghbhai Gamit",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Male",
@@ -35934,14 +36105,24 @@
     "leaving_date": null,
     "aliases": [
       "vipulbhai virsinghbhaigamit",
-      "vipulbhai virsinghbhaigamit",
-      "vipulbhai virsinghbhaigamit parul"
+      "vipulbhai virsinghbhaigamit parul",
+      "prof. vipul virsinghbhai gamit",
+      "vipul virsinghbhai gamit",
+      "big data analytics - ii (05201353)",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Faculty of Medicine (PIMSR) at Parul University. Holds MSc(IT) qualification with 9 yrs 5 mos (113 mos) of academic/industry experience. Associated with the university since 03-11-2022 (Regular faculty)."
+    "description": "Assistant Professor in Faculty of Medicine (PIMSR) at Parul University. Assigned Divisions / Notes: Div G. Subjects: Big Data Analytics - II (05201353). Contact: +91-8200012226. Email: vipulbhai.gamit26053@paruluniversity.ac.in.",
+    "email": "vipulbhai.gamit26053@paruluniversity.ac.in",
+    "phone": "8200012226",
+    "category": "Subject Faculty",
+    "subjects_taught": [
+      "Big Data Analytics - II (05201353)"
+    ],
+    "assigned_divisions": "Div G"
   },
   {
     "id": "fac_nirf_1707",
-    "name": "Yadagiri Ramadeepak",
+    "name": "Prof. Ramadeepak",
     "role": "faculty",
     "designation": "Assistant Professor",
     "gender": "Male",
@@ -35954,10 +36135,18 @@
     "leaving_date": null,
     "aliases": [
       "yadagiri ramadeepak",
-      "yadagiri ramadeepak",
-      "yadagiri ramadeepak parul"
+      "yadagiri ramadeepak parul",
+      "prof. ramadeepak",
+      "ramadeepak",
+      "gaming technology (gt)",
+      "assistant professor"
     ],
-    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Holds MCA qualification with 5 yrs 10 mos (70 mos) of academic/industry experience. Associated with the university since 25-06-2024 (Regular faculty)."
+    "description": "Assistant Professor in Faculty of IT & Computer Science at Parul University. Assigned Divisions / Notes: Div H (CR-602 & Lab-609). Subjects: Gaming Technology (GT).",
+    "category": "Timetable Instructor",
+    "subjects_taught": [
+      "Gaming Technology (GT)"
+    ],
+    "assigned_divisions": "Div H (CR-602 & Lab-609)"
   },
   {
     "id": "fac_nirf_1708",
@@ -45641,23 +45830,32 @@
   },
   {
     "id": "fac_nirf_2192",
-    "name": "Hina Chokshi",
-    "role": "faculty",
-    "designation": "Associate Professor",
+    "name": "Dr. Hina Chokshi",
+    "role": "leadership",
+    "designation": "Vice Principal",
     "gender": "Female",
     "qualification": "Ph.D",
     "experience_months": 250,
-    "department_name": "Academic Faculty",
+    "department_name": "PICA",
     "association_type": "Regular",
     "currently_working": true,
     "joining_date": "12-01-2017",
     "leaving_date": null,
     "aliases": [
       "hina chokshi",
-      "hina chokshi",
-      "hina chokshi parul"
+      "hina chokshi parul",
+      "dr. hina chokshi",
+      "pica",
+      "vice principal"
     ],
-    "description": "Associate Professor in Academic Faculty at Parul University. Holds Ph.D qualification with 20 yrs 10 mos (250 mos) of academic/industry experience. Associated with the university since 12-01-2017 (Regular faculty)."
+    "description": "Vice Principal in PICA at Parul University. Subjects: PICA. Contact: +91-9227873387. Landline Ext: 2064. Email: hina.chokshi42058@paruluniversity.ac.in.",
+    "email": "hina.chokshi42058@paruluniversity.ac.in",
+    "phone": "9227873387",
+    "landline_ext": "2064",
+    "category": "Institute Leadership",
+    "subjects_taught": [
+      "PICA"
+    ]
   },
   {
     "id": "fac_nirf_2193",
@@ -46381,23 +46579,28 @@
   },
   {
     "id": "fac_nirf_2229",
-    "name": "Priya Swaminarayan",
-    "role": "faculty",
-    "designation": "Professor",
+    "name": "Dr. Priya Swaminarayan",
+    "role": "leadership",
+    "designation": "HOI - PICA & Dean - FITCS",
     "gender": "Female",
     "qualification": "Ph.D",
     "experience_months": 276,
-    "department_name": "Academic Faculty",
+    "department_name": "PICA / FITCS",
     "association_type": "Regular",
     "currently_working": true,
     "joining_date": "14-03-2016",
     "leaving_date": null,
     "aliases": [
       "priya swaminarayan",
-      "priya swaminarayan",
-      "priya swaminarayan parul"
+      "priya swaminarayan parul",
+      "dr. priya swaminarayan",
+      "hoi - pica & dean - fitcs"
     ],
-    "description": "Professor in Academic Faculty at Parul University. Holds Ph.D qualification with 23 yrs 0 mos (276 mos) of academic/industry experience. Associated with the university since 14-03-2016 (Regular faculty)."
+    "description": "HOI - PICA & Dean - FITCS in PICA / FITCS at Parul University. Contact: +91-9099997057. Landline Ext: 2032. Email: priya.swaminarayan@paruluniversity.ac.in.",
+    "email": "priya.swaminarayan@paruluniversity.ac.in",
+    "phone": "9099997057",
+    "landline_ext": "2032",
+    "category": "Institute Leadership"
   },
   {
     "id": "fac_nirf_2230",
@@ -47381,23 +47584,25 @@
   },
   {
     "id": "fac_nirf_2279",
-    "name": "Kunjal Sinha",
-    "role": "faculty",
-    "designation": "Professor",
+    "name": "Dr. Kunjal Sinha",
+    "role": "leadership",
+    "designation": "Pro Vice Chancellor",
     "gender": "Female",
     "qualification": "Ph.D",
     "experience_months": 258,
-    "department_name": "Academic Faculty",
+    "department_name": "Central Administration",
     "association_type": "Regular",
     "currently_working": true,
     "joining_date": "22-01-2020",
     "leaving_date": null,
     "aliases": [
       "kunjal sinha",
-      "kunjal sinha",
-      "kunjal sinha parul"
+      "kunjal sinha parul",
+      "dr. kunjal sinha",
+      "pro vice chancellor"
     ],
-    "description": "Professor in Academic Faculty at Parul University. Holds Ph.D qualification with 21 yrs 6 mos (258 mos) of academic/industry experience. Associated with the university since 22-01-2020 (Regular faculty)."
+    "description": "Pro Vice Chancellor in Central Administration at Parul University.",
+    "category": "Central Leadership"
   },
   {
     "id": "fac_nirf_2280",
@@ -53698,5 +53903,571 @@
       "dr vrunda paragpethani parul"
     ],
     "description": "Assistant Professor in Academic Faculty at Parul University. Holds M.D qualification with 7 yrs 4 mos (88 mos) of academic/industry experience. Associated with the university since 01-08-2019 (Regular faculty)."
+  },
+  {
+    "id": "fac_leadership_komal_patel",
+    "name": "Dr. Komal Patel",
+    "role": "leadership",
+    "category": "Central Leadership",
+    "designation": "Vice President & Medical Director",
+    "department_name": "Medical & Paramedical Health Sciences",
+    "department_id": null,
+    "building_name": "Administrative Block C1",
+    "assigned_divisions": null,
+    "landline_ext": null,
+    "phone": null,
+    "email": null,
+    "subjects_taught": [
+      "Medical & Paramedical Health Sciences"
+    ],
+    "currently_working": true,
+    "aliases": [
+      "dr. komal patel",
+      "komal patel",
+      "vice president & medical director",
+      "medical & paramedical health sciences"
+    ],
+    "description": "Vice President & Medical Director in Medical & Paramedical Health Sciences at Parul University. Subjects: Medical & Paramedical Health Sciences."
+  },
+  {
+    "id": "fac_leadership_geetika_patel",
+    "name": "Dr. Geetika Patel",
+    "role": "leadership",
+    "category": "Central Leadership",
+    "designation": "Vice President",
+    "department_name": "Quality, Research & Health Sciences",
+    "department_id": null,
+    "building_name": "Administrative Block C1",
+    "assigned_divisions": null,
+    "landline_ext": null,
+    "phone": null,
+    "email": null,
+    "subjects_taught": [],
+    "currently_working": true,
+    "aliases": [
+      "dr. geetika patel",
+      "geetika patel",
+      "vice president",
+      "quality, research & health sciences"
+    ],
+    "description": "Vice President in Quality, Research & Health Sciences at Parul University."
+  },
+  {
+    "id": "fac_leadership_vinod_patel",
+    "name": "Dr. Vinod Patel",
+    "role": "leadership",
+    "category": "Central Leadership",
+    "designation": "Board of Management",
+    "department_name": "Parul University",
+    "department_id": null,
+    "building_name": "Administrative Block C1",
+    "assigned_divisions": null,
+    "landline_ext": null,
+    "phone": null,
+    "email": null,
+    "subjects_taught": [],
+    "currently_working": true,
+    "aliases": [
+      "dr. vinod patel",
+      "vinod patel",
+      "board of management",
+      "parul university"
+    ],
+    "description": "Board of Management in Parul University at Parul University."
+  },
+  {
+    "id": "fac_leadership_arvind_patel",
+    "name": "Dr. Arvind Patel",
+    "role": "leadership",
+    "category": "Central Leadership",
+    "designation": "Management / Leadership",
+    "department_name": "Parul University",
+    "department_id": null,
+    "building_name": "Administrative Block C1",
+    "assigned_divisions": null,
+    "landline_ext": null,
+    "phone": null,
+    "email": null,
+    "subjects_taught": [],
+    "currently_working": true,
+    "aliases": [
+      "dr. arvind patel",
+      "arvind patel",
+      "management / leadership",
+      "parul university"
+    ],
+    "description": "Management / Leadership in Parul University at Parul University."
+  },
+  {
+    "id": "fac_leadership_k_n_madhusoodanan",
+    "name": "Dr. K.N. Madhusoodanan",
+    "role": "leadership",
+    "category": "Central Leadership",
+    "designation": "Provost",
+    "department_name": "Central Administration",
+    "department_id": null,
+    "building_name": "Administrative Block C1",
+    "assigned_divisions": null,
+    "landline_ext": null,
+    "phone": null,
+    "email": null,
+    "subjects_taught": [],
+    "currently_working": true,
+    "aliases": [
+      "dr. k.n. madhusoodanan",
+      "k.n. madhusoodanan",
+      "provost",
+      "central administration"
+    ],
+    "description": "Provost in Central Administration at Parul University."
+  },
+  {
+    "id": "fac_leadership_manish_pandya",
+    "name": "Prof. Manish Pandya",
+    "role": "leadership",
+    "category": "Central Leadership",
+    "designation": "Registrar",
+    "department_name": "Central Administration",
+    "department_id": null,
+    "building_name": "Administrative Block C1",
+    "assigned_divisions": null,
+    "landline_ext": null,
+    "phone": null,
+    "email": null,
+    "subjects_taught": [],
+    "currently_working": true,
+    "aliases": [
+      "prof. manish pandya",
+      "manish pandya",
+      "registrar",
+      "central administration"
+    ],
+    "description": "Registrar in Central Administration at Parul University."
+  },
+  {
+    "id": "fac_leadership_babita_chaube",
+    "name": "Dr. Babita Chaube",
+    "role": "leadership",
+    "category": "Central Leadership",
+    "designation": "Campus Director",
+    "department_name": "Central Administration",
+    "department_id": null,
+    "building_name": "Administrative Block C1",
+    "assigned_divisions": null,
+    "landline_ext": null,
+    "phone": null,
+    "email": null,
+    "subjects_taught": [],
+    "currently_working": true,
+    "aliases": [
+      "dr. babita chaube",
+      "babita chaube",
+      "campus director",
+      "central administration"
+    ],
+    "description": "Campus Director in Central Administration at Parul University."
+  },
+  {
+    "id": "fac_inst_lead_pallavi_d_khedkar",
+    "name": "Dr. Pallavi D. Khedkar",
+    "role": "leadership",
+    "category": "Institute Leadership",
+    "designation": "Academic Director",
+    "department_name": "PICA",
+    "department_id": "dept_bca",
+    "building_name": "C.V. Raman Centre",
+    "assigned_divisions": null,
+    "landline_ext": "2390",
+    "phone": "9925038671",
+    "email": "pallavi.khedkar@paruluniversity.ac.in",
+    "subjects_taught": [
+      "PICA"
+    ],
+    "currently_working": true,
+    "aliases": [
+      "dr. pallavi d. khedkar",
+      "pallavi d. khedkar",
+      "academic director",
+      "pica"
+    ],
+    "description": "Academic Director in PICA at Parul University. Subjects: PICA. Contact: +91-9925038671. Landline Ext: 2390. Email: pallavi.khedkar@paruluniversity.ac.in."
+  },
+  {
+    "id": "fac_mentor_saikat_parmanik",
+    "name": "Saikat Parmanik",
+    "role": "mentor",
+    "category": "Mentor",
+    "designation": "Mentor",
+    "department_name": "FITCS / PICA",
+    "department_id": "dept_bca",
+    "building_name": "C.V. Raman Centre",
+    "assigned_divisions": "Divisions A, B, C",
+    "landline_ext": null,
+    "phone": "9474583427",
+    "email": "saikat.paramanik40297@paruluniversity.ac.in",
+    "subjects_taught": [],
+    "currently_working": true,
+    "aliases": [
+      "saikat parmanik",
+      "mentor",
+      "fitcs / pica"
+    ],
+    "description": "Mentor in FITCS / PICA at Parul University. Assigned Divisions / Notes: Divisions A, B, C. Contact: +91-9474583427. Email: saikat.paramanik40297@paruluniversity.ac.in."
+  },
+  {
+    "id": "fac_mentor_himanshu_yadav",
+    "name": "Himanshu Yadav",
+    "role": "mentor",
+    "category": "Mentor",
+    "designation": "Mentor",
+    "department_name": "FITCS / PICA",
+    "department_id": "dept_bca",
+    "building_name": "C.V. Raman Centre",
+    "assigned_divisions": "Divisions D, E, F",
+    "landline_ext": null,
+    "phone": "9534369065",
+    "email": "himanshu.yadav40349@paruluniversity.ac.in",
+    "subjects_taught": [],
+    "currently_working": true,
+    "aliases": [
+      "himanshu yadav",
+      "mentor",
+      "fitcs / pica"
+    ],
+    "description": "Mentor in FITCS / PICA at Parul University. Assigned Divisions / Notes: Divisions D, E, F. Contact: +91-9534369065. Email: himanshu.yadav40349@paruluniversity.ac.in."
+  },
+  {
+    "id": "fac_mentor_payal_parekh",
+    "name": "Payal Parekh",
+    "role": "mentor",
+    "category": "Mentor",
+    "designation": "Mentor",
+    "department_name": "FITCS / PICA",
+    "department_id": "dept_bca",
+    "building_name": "C.V. Raman Centre",
+    "assigned_divisions": "Divisions B, C, H",
+    "landline_ext": null,
+    "phone": "8866573415",
+    "email": "payal.parekh40362@paruluniversity.ac.in",
+    "subjects_taught": [],
+    "currently_working": true,
+    "aliases": [
+      "payal parekh",
+      "mentor",
+      "fitcs / pica"
+    ],
+    "description": "Mentor in FITCS / PICA at Parul University. Assigned Divisions / Notes: Divisions B, C, H. Contact: +91-8866573415. Email: payal.parekh40362@paruluniversity.ac.in."
+  },
+  {
+    "id": "fac_mentor_sahil_kumar",
+    "name": "Prof. Sahil Kumar",
+    "role": "mentor",
+    "category": "Mentor",
+    "designation": "Mentor",
+    "department_name": "FITCS / PICA",
+    "department_id": "dept_bca",
+    "building_name": "C.V. Raman Centre",
+    "assigned_divisions": "Divisions A, B, C, E",
+    "landline_ext": null,
+    "phone": "7698650313",
+    "email": "prachibahen.mehta35932@paruluniversity.ac.in",
+    "subjects_taught": [],
+    "currently_working": true,
+    "aliases": [
+      "prof. sahil kumar",
+      "sahil kumar",
+      "mentor",
+      "fitcs / pica"
+    ],
+    "description": "Mentor in FITCS / PICA at Parul University. Assigned Divisions / Notes: Divisions A, B, C, E. Contact: +91-7698650313. Email: prachibahen.mehta35932@paruluniversity.ac.in."
+  },
+  {
+    "id": "fac_mentor_pratik_raj",
+    "name": "Prof. Pratik Raj",
+    "role": "mentor",
+    "category": "Mentor",
+    "designation": "Mentor",
+    "department_name": "FITCS / PICA",
+    "department_id": "dept_bca",
+    "building_name": "C.V. Raman Centre",
+    "assigned_divisions": "Divisions A, B, F, G; Div D",
+    "landline_ext": null,
+    "phone": "7632908721",
+    "email": "pratik.raj@paruluniversity.ac.in",
+    "subjects_taught": [
+      "Cyber Security & Forensics - II (05201307)"
+    ],
+    "currently_working": true,
+    "aliases": [
+      "prof. pratik raj",
+      "pratik raj",
+      "mentor",
+      "fitcs / pica",
+      "cyber security & forensics - ii (05201307)"
+    ],
+    "description": "Mentor in FITCS / PICA at Parul University. Assigned Divisions / Notes: Divisions A, B, F, G; Div D. Subjects: Cyber Security & Forensics - II (05201307). Contact: +91-7632908721. Email: pratik.raj@paruluniversity.ac.in."
+  },
+  {
+    "id": "fac_mentor_jatin_morwal",
+    "name": "Prof. Jatin Morwal",
+    "role": "mentor",
+    "category": "Mentor",
+    "designation": "Mentor",
+    "department_name": "FITCS / PICA",
+    "department_id": "dept_bca",
+    "building_name": "C.V. Raman Centre",
+    "assigned_divisions": "Divisions D, E, F, G & B, G, H, I; Div G, I",
+    "landline_ext": null,
+    "phone": "8764398766",
+    "email": "jatin.morwal40859@paruluniversity.ac.in",
+    "subjects_taught": [
+      "Big Data Analytics - II (05201353)"
+    ],
+    "currently_working": true,
+    "aliases": [
+      "prof. jatin morwal",
+      "jatin morwal",
+      "mentor",
+      "fitcs / pica",
+      "big data analytics - ii (05201353)"
+    ],
+    "description": "Mentor in FITCS / PICA at Parul University. Assigned Divisions / Notes: Divisions D, E, F, G & B, G, H, I; Div G, I. Subjects: Big Data Analytics - II (05201353). Contact: +91-8764398766. Email: jatin.morwal40859@paruluniversity.ac.in."
+  },
+  {
+    "id": "fac_pica_lakshya_namdeo",
+    "name": "Prof. Lakshya Namdeo",
+    "role": "faculty",
+    "category": "Subject Faculty",
+    "designation": "Faculty",
+    "department_name": "Mobile Apps Dev / Artificial Intelligence - II",
+    "department_id": null,
+    "building_name": null,
+    "assigned_divisions": "Div A, B, C, D, E, F, G, H",
+    "landline_ext": null,
+    "phone": "7999603414",
+    "email": "lakshya.namdeo45068@paruluniversity.ac.in",
+    "subjects_taught": [
+      "Mobile Apps Dev",
+      "Artificial Intelligence - II"
+    ],
+    "currently_working": true,
+    "aliases": [
+      "prof. lakshya namdeo",
+      "lakshya namdeo",
+      "faculty",
+      "mobile apps dev / artificial intelligence - ii",
+      "mobile apps dev",
+      "artificial intelligence - ii"
+    ],
+    "description": "Faculty in Mobile Apps Dev / Artificial Intelligence - II at Parul University. Assigned Divisions / Notes: Div A, B, C, D, E, F, G, H. Subjects: Mobile Apps Dev, Artificial Intelligence - II. Contact: +91-7999603414. Email: lakshya.namdeo45068@paruluniversity.ac.in."
+  },
+  {
+    "id": "fac_pica_pritam_samanta",
+    "name": "Prof. Pritam Samanta",
+    "role": "faculty",
+    "category": "Subject Faculty",
+    "designation": "Faculty",
+    "department_name": "Mobile Apps Dev / Adv. Web Dev using React-JS",
+    "department_id": null,
+    "building_name": null,
+    "assigned_divisions": "Div B, C, E, F, H",
+    "landline_ext": null,
+    "phone": "6290591852",
+    "email": "pritam.samanta40572@paruluniversity.ac.in",
+    "subjects_taught": [
+      "Mobile Apps Dev",
+      "Adv. Web Dev using React-JS"
+    ],
+    "currently_working": true,
+    "aliases": [
+      "prof. pritam samanta",
+      "pritam samanta",
+      "faculty",
+      "mobile apps dev / adv. web dev using react-js",
+      "mobile apps dev",
+      "adv. web dev using react-js"
+    ],
+    "description": "Faculty in Mobile Apps Dev / Adv. Web Dev using React-JS at Parul University. Assigned Divisions / Notes: Div B, C, E, F, H. Subjects: Mobile Apps Dev, Adv. Web Dev using React-JS. Contact: +91-6290591852. Email: pritam.samanta40572@paruluniversity.ac.in."
+  },
+  {
+    "id": "fac_pica_harsh_kumar",
+    "name": "Prof. Harsh Kumar",
+    "role": "faculty",
+    "category": "Subject Faculty",
+    "designation": "Faculty",
+    "department_name": "Web App Dev / Adv. Full Stack Web Dev - II",
+    "department_id": null,
+    "building_name": null,
+    "assigned_divisions": "Div A, B, C, D, E, F, H",
+    "landline_ext": null,
+    "phone": "8200983761",
+    "email": "harsh.kumar44646@paruluniversity.ac.in",
+    "subjects_taught": [
+      "Web App Dev",
+      "Adv. Full Stack Web Dev - II"
+    ],
+    "currently_working": true,
+    "aliases": [
+      "prof. harsh kumar",
+      "harsh kumar",
+      "faculty",
+      "web app dev / adv. full stack web dev - ii",
+      "web app dev",
+      "adv. full stack web dev - ii"
+    ],
+    "description": "Faculty in Web App Dev / Adv. Full Stack Web Dev - II at Parul University. Assigned Divisions / Notes: Div A, B, C, D, E, F, H. Subjects: Web App Dev, Adv. Full Stack Web Dev - II. Contact: +91-8200983761. Email: harsh.kumar44646@paruluniversity.ac.in."
+  },
+  {
+    "id": "fac_pica_dipti_sharma",
+    "name": "Prof. Dipti Sharma",
+    "role": "faculty",
+    "category": "Subject Faculty",
+    "designation": "Faculty",
+    "department_name": "Adv. Web Dev using React-JS (05202209)",
+    "department_id": null,
+    "building_name": null,
+    "assigned_divisions": "Div C, E, F, G, H",
+    "landline_ext": null,
+    "phone": "7610177528",
+    "email": "dipti.sharma40862@paruluniversity.ac.in",
+    "subjects_taught": [
+      "Adv. Web Dev using React-JS (05202209)"
+    ],
+    "currently_working": true,
+    "aliases": [
+      "prof. dipti sharma",
+      "dipti sharma",
+      "faculty",
+      "adv. web dev using react-js (05202209)"
+    ],
+    "description": "Faculty in Adv. Web Dev using React-JS (05202209) at Parul University. Assigned Divisions / Notes: Div C, E, F, G, H. Subjects: Adv. Web Dev using React-JS (05202209). Contact: +91-7610177528. Email: dipti.sharma40862@paruluniversity.ac.in."
+  },
+  {
+    "id": "fac_pica_satya_mani_gayathri_devi",
+    "name": "Prof. Satya Mani Gayathri Devi",
+    "role": "faculty",
+    "category": "Subject Faculty",
+    "designation": "Faculty",
+    "department_name": "Cyber Security & Forensics - II (05201307)",
+    "department_id": null,
+    "building_name": null,
+    "assigned_divisions": "Div D",
+    "landline_ext": null,
+    "phone": "9392314985",
+    "email": "satyamani.rayavarapu41098@parulunuversity.ac.in",
+    "subjects_taught": [
+      "Cyber Security & Forensics - II (05201307)"
+    ],
+    "currently_working": true,
+    "aliases": [
+      "prof. satya mani gayathri devi",
+      "satya mani gayathri devi",
+      "faculty",
+      "cyber security & forensics - ii (05201307)"
+    ],
+    "description": "Faculty in Cyber Security & Forensics - II (05201307) at Parul University. Assigned Divisions / Notes: Div D. Subjects: Cyber Security & Forensics - II (05201307). Contact: +91-9392314985. Email: satyamani.rayavarapu41098@parulunuversity.ac.in."
+  },
+  {
+    "id": "fac_pica_vishakha_n_bathwar",
+    "name": "Prof. Vishakha N. Bathwar",
+    "role": "faculty",
+    "category": "Subject Faculty",
+    "designation": "Faculty",
+    "department_name": "Big Data Analytics - II Lab (05201353)",
+    "department_id": null,
+    "building_name": null,
+    "assigned_divisions": "Div G",
+    "landline_ext": null,
+    "phone": "6352410619",
+    "email": "vishakha.bathwar32493@paruluniversity.ac.in",
+    "subjects_taught": [
+      "Big Data Analytics - II Lab (05201353)"
+    ],
+    "currently_working": true,
+    "aliases": [
+      "prof. vishakha n. bathwar",
+      "vishakha n. bathwar",
+      "faculty",
+      "big data analytics - ii lab (05201353)"
+    ],
+    "description": "Faculty in Big Data Analytics - II Lab (05201353) at Parul University. Assigned Divisions / Notes: Div G. Subjects: Big Data Analytics - II Lab (05201353). Contact: +91-6352410619. Email: vishakha.bathwar32493@paruluniversity.ac.in."
+  },
+  {
+    "id": "fac_pica_sathibabu_nargani",
+    "name": "Prof. Sathibabu Nargani",
+    "role": "faculty",
+    "category": "Subject Faculty",
+    "designation": "Faculty",
+    "department_name": "Cloud Computing - II (05201345)",
+    "department_id": null,
+    "building_name": null,
+    "assigned_divisions": "Div H",
+    "landline_ext": null,
+    "phone": "8897324867",
+    "email": "sathibabu.nargani43939@paruluniversity.ac.in",
+    "subjects_taught": [
+      "Cloud Computing - II (05201345)"
+    ],
+    "currently_working": true,
+    "aliases": [
+      "prof. sathibabu nargani",
+      "sathibabu nargani",
+      "faculty",
+      "cloud computing - ii (05201345)"
+    ],
+    "description": "Faculty in Cloud Computing - II (05201345) at Parul University. Assigned Divisions / Notes: Div H. Subjects: Cloud Computing - II (05201345). Contact: +91-8897324867. Email: sathibabu.nargani43939@paruluniversity.ac.in."
+  },
+  {
+    "id": "fac_instructor_ashutosh_gautam",
+    "name": "Prof. Ashutosh Gautam",
+    "role": "instructor",
+    "category": "Timetable Instructor",
+    "designation": "Instructor",
+    "department_name": "Generative AI & ChatGPT / OSTF Lab",
+    "department_id": null,
+    "building_name": null,
+    "assigned_divisions": "Div B (Lab-601/602), Div I (Lab-713)",
+    "landline_ext": null,
+    "phone": null,
+    "email": null,
+    "subjects_taught": [
+      "Generative AI & ChatGPT",
+      "OSTF Lab"
+    ],
+    "currently_working": true,
+    "aliases": [
+      "prof. ashutosh gautam",
+      "ashutosh gautam",
+      "instructor",
+      "generative ai & chatgpt / ostf lab",
+      "generative ai & chatgpt",
+      "ostf lab"
+    ],
+    "description": "Instructor in Generative AI & ChatGPT / OSTF Lab at Parul University. Assigned Divisions / Notes: Div B (Lab-601/602), Div I (Lab-713). Subjects: Generative AI & ChatGPT, OSTF Lab."
+  },
+  {
+    "id": "fac_instructor_mukeshkumar_tyagi",
+    "name": "Prof. Mukeshkumar Tyagi",
+    "role": "instructor",
+    "category": "Timetable Instructor",
+    "designation": "Instructor",
+    "department_name": "Mobile Apps Development (MAD)",
+    "department_id": null,
+    "building_name": null,
+    "assigned_divisions": "Div G (CR-510 & Lab-601/602)",
+    "landline_ext": null,
+    "phone": null,
+    "email": null,
+    "subjects_taught": [
+      "Mobile Apps Development (MAD)"
+    ],
+    "currently_working": true,
+    "aliases": [
+      "prof. mukeshkumar tyagi",
+      "mukeshkumar tyagi",
+      "instructor",
+      "mobile apps development (mad)"
+    ],
+    "description": "Instructor in Mobile Apps Development (MAD) at Parul University. Assigned Divisions / Notes: Div G (CR-510 & Lab-601/602). Subjects: Mobile Apps Development (MAD)."
   }
 ]

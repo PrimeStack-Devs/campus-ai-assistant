@@ -31,6 +31,7 @@ export interface FacultyMember {
   id: string;
   name: string;
   role?: string;
+  category?: string;
   designation?: string;
   department_name?: string;
   department_id?: string | null;
@@ -46,6 +47,8 @@ export interface FacultyMember {
   leaving_date?: string | null;
   email?: string;
   phone?: string;
+  landline_ext?: string;
+  assigned_divisions?: string;
   subjects_taught?: string[];
   aliases?: string[];
   description?: string;
@@ -155,22 +158,32 @@ export function FacultyDirectory({
         if (q) {
           const matchName = f.name?.toLowerCase().includes(q);
           const matchDesignation = f.designation?.toLowerCase().includes(q);
+          const matchCategory = f.category?.toLowerCase().includes(q);
+          const matchDivisions = f.assigned_divisions?.toLowerCase().includes(q);
           const matchDept = f.department_name?.toLowerCase().includes(q);
           const matchQual = f.qualification?.toLowerCase().includes(q);
           const matchEmail = f.email?.toLowerCase().includes(q);
+          const matchPhone = f.phone?.toLowerCase().includes(q);
           const matchBuilding = f.building_name?.toLowerCase().includes(q);
           const matchSubjects =
             Array.isArray(f.subjects_taught) &&
             f.subjects_taught.some((s) => s.toLowerCase().includes(q));
+          const matchAliases =
+            Array.isArray(f.aliases) &&
+            f.aliases.some((a) => a.toLowerCase().includes(q));
 
           if (
             !matchName &&
             !matchDesignation &&
+            !matchCategory &&
+            !matchDivisions &&
             !matchDept &&
             !matchQual &&
             !matchEmail &&
+            !matchPhone &&
             !matchBuilding &&
-            !matchSubjects
+            !matchSubjects &&
+            !matchAliases
           ) {
             return false;
           }
@@ -750,6 +763,13 @@ export function FacultyDirectory({
                       </span>
                     )}
 
+                    {/* Category / Mentor Pill */}
+                    {fac.category && (
+                      <span className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-50 text-purple-700 border border-purple-200/60 dark:bg-purple-950/40 dark:text-purple-300 dark:border-purple-800/60">
+                        {fac.category}
+                      </span>
+                    )}
+
                     {/* Association Type */}
                     {fac.association_type && (
                       <span className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full text-[10px] font-medium bg-indigo-50 text-indigo-700 border border-indigo-200/60 dark:bg-indigo-950/40 dark:text-indigo-300 dark:border-indigo-800/60">
@@ -757,6 +777,13 @@ export function FacultyDirectory({
                       </span>
                     )}
                   </div>
+
+                  {/* Assigned Divisions / Labs */}
+                  {fac.assigned_divisions && (
+                    <div className="mb-2 text-[11px] font-medium text-indigo-700 dark:text-indigo-300 bg-indigo-50/70 dark:bg-indigo-950/30 px-2 py-1 rounded-lg border border-indigo-100 dark:border-indigo-900/40 truncate">
+                      <span className="font-semibold">Div:</span> {fac.assigned_divisions}
+                    </div>
+                  )}
 
                   {/* Department & Location */}
                   <div className="space-y-1.5 text-xs text-slate-600 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800/60 pt-3">
@@ -954,7 +981,7 @@ export function FacultyDirectory({
                     {activeModalFaculty.name}
                   </h2>
                   <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-300/60">
-                    <ShieldCheck size={11} /> NIRF Verified
+                    <ShieldCheck size={11} /> {activeModalFaculty.category || (activeModalFaculty.id.startsWith('fac_nirf_') ? 'NIRF Verified' : 'University Staff')}
                   </span>
                 </div>
                 <p className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 mt-0.5">
@@ -1052,13 +1079,29 @@ export function FacultyDirectory({
                   </div>
                   {activeModalFaculty.phone && (
                     <div className="flex items-center gap-2">
-                      <span className="text-slate-400">Phone:</span>
+                      <span className="text-slate-400">Mobile:</span>
                       <a
                         href={`tel:${activeModalFaculty.phone}`}
                         className="font-semibold text-indigo-600 dark:text-indigo-400 hover:underline"
                       >
-                        {activeModalFaculty.phone}
+                        +91-{activeModalFaculty.phone}
                       </a>
+                    </div>
+                  )}
+                  {activeModalFaculty.landline_ext && (
+                    <div className="flex items-center gap-2">
+                      <span className="text-slate-400">Landline Ext:</span>
+                      <span className="font-semibold text-slate-800 dark:text-slate-200">
+                        {activeModalFaculty.landline_ext}
+                      </span>
+                    </div>
+                  )}
+                  {activeModalFaculty.assigned_divisions && (
+                    <div className="flex items-center gap-2">
+                      <span className="text-slate-400">Assigned:</span>
+                      <span className="font-semibold text-indigo-600 dark:text-indigo-400">
+                        {activeModalFaculty.assigned_divisions}
+                      </span>
                     </div>
                   )}
                   {activeModalFaculty.building_name && (

@@ -1,6 +1,6 @@
 [
   {
-    "id": "CSE",
+    "id": "dept_cse",
     "name": "Computer Science & Engineering",
     "short_name": "CSE",
     "parent_faculty": "Faculty of Engineering & Technology",
@@ -36,10 +36,20 @@
       "Machine Learning",
       "Cloud Computing",
       "Web Development"
+    ],
+    "lab_floors": [
+      1,
+      2,
+      3
+    ],
+    "class_floors": [
+      3,
+      4,
+      5
     ]
   },
   {
-    "id": "IT",
+    "id": "dept_it",
     "name": "Information Technology",
     "short_name": "IT",
     "parent_faculty": "Faculty of Engineering & Technology",
@@ -68,10 +78,18 @@
       "Network Administration",
       "Web Technologies",
       "IoT"
+    ],
+    "lab_floors": [
+      1,
+      2
+    ],
+    "class_floors": [
+      4,
+      5
     ]
   },
   {
-    "id": "BCA",
+    "id": "dept_bca",
     "name": "Computer Application (BCA)",
     "short_name": "BCA",
     "parent_faculty": "Faculty of Engineering & Technology",
@@ -104,10 +122,20 @@
       "DBMS",
       "Software Engineering",
       "Mobile App Development"
-    ]
+    ],
+    "lab_floors": [
+      1,
+      2
+    ],
+    "class_floors": [
+      2,
+      3,
+      4
+    ],
+    "note": "BCA classes are in A24 (Bhagat Singh Bhawan). BCA labs are in A25 (CV Raman Centre)."
   },
   {
-    "id": "MCA",
+    "id": "dept_mca",
     "name": "Master of Computer Application (MCA)",
     "short_name": "MCA",
     "parent_faculty": "Faculty of Engineering & Technology",
@@ -115,10 +143,10 @@
     "building_name": "C.V. Raman Centre",
     "floor": 5,
     "hod": {
-      "name": "TBD",
+      "name": "Prof. Vivek Dave",
       "room": "501",
-      "email": "hod.mca@paruluniversity.ac.in",
-      "phone": "TBD"
+      "email": "vivek.dave@paruluniversity.ac.in",
+      "phone": "8128313699"
     },
     "programs": [
       "MCA",
@@ -137,10 +165,18 @@
       "AI",
       "Data Warehousing",
       "Software Project Management"
+    ],
+    "lab_floors": [
+      5,
+      6
+    ],
+    "class_floors": [
+      5,
+      6
     ]
   },
   {
-    "id": "Mech",
+    "id": "dept_mech",
     "name": "Mechanical Engineering",
     "short_name": "Mech",
     "parent_faculty": "Faculty of Engineering & Technology",
@@ -170,10 +206,19 @@
       "Machine Design",
       "Manufacturing Processes",
       "Robotics & Automation"
-    ]
+    ],
+    "lab_floors": [
+      1,
+      2
+    ],
+    "class_floors": [
+      2,
+      3
+    ],
+    "workshop_building": "A20"
   },
   {
-    "id": "Civil",
+    "id": "dept_civil",
     "name": "Civil Engineering",
     "short_name": "Civil",
     "parent_faculty": "Faculty of Engineering & Technology",
@@ -202,10 +247,18 @@
       "Surveying",
       "Environmental Engineering",
       "Transportation Engineering"
+    ],
+    "lab_floors": [
+      1,
+      3
+    ],
+    "class_floors": [
+      3,
+      4
     ]
   },
   {
-    "id": "EE",
+    "id": "dept_elec",
     "name": "Electrical Engineering",
     "short_name": "EE",
     "parent_faculty": "Faculty of Engineering & Technology",
@@ -234,10 +287,18 @@
       "Electrical Machines",
       "Power Electronics",
       "Renewable Energy"
+    ],
+    "lab_floors": [
+      1,
+      4
+    ],
+    "class_floors": [
+      4,
+      5
     ]
   },
   {
-    "id": "EC / ECE",
+    "id": "dept_ece",
     "name": "Electronics & Communication Engineering",
     "short_name": "EC / ECE",
     "parent_faculty": "Faculty of Engineering & Technology",
@@ -268,10 +329,18 @@
       "VLSI Design",
       "Embedded Systems",
       "Signal Processing"
+    ],
+    "lab_floors": [
+      1,
+      5
+    ],
+    "class_floors": [
+      5,
+      6
     ]
   },
   {
-    "id": "Pharmacy",
+    "id": "dept_pharmacy",
     "name": "Pharmacy",
     "short_name": "Pharmacy",
     "parent_faculty": "Faculty of Pharmacy",
@@ -305,10 +374,20 @@
       "Pharmaceutics",
       "Pharmacognosy",
       "Clinical Pharmacy"
+    ],
+    "lab_floors": [
+      1,
+      2,
+      3
+    ],
+    "class_floors": [
+      2,
+      3,
+      4
     ]
   },
   {
-    "id": "Nursing",
+    "id": "dept_nursing",
     "name": "Nursing",
     "short_name": "Nursing",
     "parent_faculty": "Faculty of Nursing",
@@ -339,10 +418,19 @@
       "Medical Surgical Nursing",
       "Community Health Nursing",
       "Obstetric Nursing"
-    ]
+    ],
+    "lab_floors": [
+      1,
+      2
+    ],
+    "class_floors": [
+      2,
+      3
+    ],
+    "clinical_training": "E2"
   },
   {
-    "id": "Ayurved",
+    "id": "dept_ayurved",
     "name": "Ayurved",
     "short_name": "Ayurved",
     "parent_faculty": "Faculty of Ayurved",
@@ -373,10 +461,19 @@
       "Kayachikitsa",
       "Shalya Tantra",
       "Panchakarma"
-    ]
+    ],
+    "lab_floors": [
+      1,
+      2
+    ],
+    "class_floors": [
+      2,
+      3
+    ],
+    "clinical_training": "E1"
   },
   {
-    "id": "Homeopathy",
+    "id": "dept_homeopathy",
     "name": "Homoeopathy",
     "short_name": "Homeopathy",
     "parent_faculty": "Faculty of Medical Sciences",
@@ -406,10 +503,19 @@
       "Homoeopathic Materia Medica",
       "Repertory",
       "Practice of Medicine"
-    ]
+    ],
+    "lab_floors": [
+      1,
+      2
+    ],
+    "class_floors": [
+      2,
+      3
+    ],
+    "clinical_training": "E5"
   },
   {
-    "id": "MBA",
+    "id": "dept_mba",
     "name": "Business Administration (MBA)",
     "short_name": "MBA",
     "parent_faculty": "Faculty of Management Studies",
@@ -446,10 +552,19 @@
       "Human Resource Management",
       "Operations Management",
       "Business Strategy"
+    ],
+    "lab_floors": [
+      1
+    ],
+    "class_floors": [
+      2,
+      3,
+      4,
+      5
     ]
   },
   {
-    "id": "Law",
+    "id": "dept_law",
     "name": "Law",
     "short_name": "Law",
     "parent_faculty": "Faculty of Law",
@@ -483,10 +598,16 @@
       "Contract Law",
       "Property Law",
       "Corporate Law"
+    ],
+    "lab_floors": [],
+    "class_floors": [
+      2,
+      3,
+      4
     ]
   },
   {
-    "id": "Architecture",
+    "id": "dept_architecture",
     "name": "Architecture",
     "short_name": "Architecture",
     "parent_faculty": "Faculty of Architecture",
@@ -518,13 +639,22 @@
       "Urban Planning",
       "History of Architecture",
       "Environmental Design"
+    ],
+    "lab_floors": [
+      1,
+      2
+    ],
+    "class_floors": [
+      2,
+      3,
+      4,
+      5
     ]
   },
   {
-    "id": "Design",
+    "id": "dept_design",
     "name": "Design & Fine Arts",
     "short_name": "Design",
-    "parent_faculty": "",
     "building_id": "A22",
     "building_name": "Parul Institute of Design",
     "floor": 1,
@@ -557,13 +687,22 @@
       "Sculpture",
       "Photography",
       "Film Production"
+    ],
+    "lab_floors": [
+      1,
+      2,
+      3
+    ],
+    "class_floors": [
+      2,
+      3,
+      4
     ]
   },
   {
-    "id": "Agriculture",
+    "id": "dept_agriculture",
     "name": "Agriculture",
     "short_name": "Agriculture",
-    "parent_faculty": "",
     "building_id": "A23",
     "building_name": "Subhash Chandra Bose Bhawan",
     "floor": 3,
@@ -591,10 +730,17 @@
       "Plant Pathology",
       "Agricultural Economics",
       "Horticulture"
+    ],
+    "lab_floors": [
+      3
+    ],
+    "class_floors": [
+      3,
+      4
     ]
   },
   {
-    "id": "Physiotherapy",
+    "id": "dept_physiotherapy",
     "name": "Physiotherapy",
     "short_name": "Physiotherapy",
     "parent_faculty": "Faculty of Medical Sciences",
@@ -625,10 +771,19 @@
       "Biomechanics",
       "Exercise Therapy",
       "Neurological Physiotherapy"
-    ]
+    ],
+    "lab_floors": [
+      2,
+      3
+    ],
+    "class_floors": [
+      2,
+      3
+    ],
+    "clinical_training": "E2"
   },
   {
-    "id": "Commerce",
+    "id": "dept_commerce",
     "name": "Commerce",
     "short_name": "Commerce",
     "parent_faculty": "Faculty of Management Studies",
@@ -660,13 +815,17 @@
       "Taxation",
       "Auditing",
       "Cost Accounting"
+    ],
+    "lab_floors": [],
+    "class_floors": [
+      4,
+      5
     ]
   },
   {
-    "id": "MSW / BSW",
+    "id": "dept_social_work",
     "name": "Social Work",
     "short_name": "MSW / BSW",
-    "parent_faculty": "",
     "building_id": "A23",
     "building_name": "Subhash Chandra Bose Bhawan",
     "floor": 5,
@@ -693,10 +852,15 @@
       "Social Research",
       "Social Policy",
       "Medical Social Work"
+    ],
+    "lab_floors": [],
+    "class_floors": [
+      5,
+      6
     ]
   },
   {
-    "id": "Hotel Management",
+    "id": "dept_hotel_mgmt",
     "name": "Hotel Management & Catering Technology",
     "short_name": "Hotel Management",
     "parent_faculty": "Faculty of Management Studies",
@@ -727,13 +891,20 @@
       "Front Office Operations",
       "Housekeeping",
       "Bakery & Confectionery"
+    ],
+    "lab_floors": [
+      1,
+      2
+    ],
+    "class_floors": [
+      2,
+      3
     ]
   },
   {
-    "id": "Applied Sciences",
+    "id": "dept_applied_sciences",
     "name": "Applied Sciences",
     "short_name": "Applied Sciences",
-    "parent_faculty": "",
     "building_id": "A21",
     "building_name": "Parul Institute of Applied Sciences",
     "floor": 1,
@@ -763,6 +934,15 @@
       "Engineering Chemistry",
       "Engineering Mathematics",
       "Environmental Science"
+    ],
+    "lab_floors": [
+      1,
+      2
+    ],
+    "class_floors": [
+      2,
+      3,
+      4
     ]
   }
 ]

@@ -200,10 +200,16 @@ router.get("/faculty", async (req, res) => {
         (f) =>
           (f.name && f.name.toLowerCase().includes(q)) ||
           (f.designation && f.designation.toLowerCase().includes(q)) ||
+          (f.role && f.role.toLowerCase().includes(q)) ||
+          (f.category && f.category.toLowerCase().includes(q)) ||
+          (f.assigned_divisions && f.assigned_divisions.toLowerCase().includes(q)) ||
           (f.department_name && f.department_name.toLowerCase().includes(q)) ||
           (f.qualification && f.qualification.toLowerCase().includes(q)) ||
           (f.building_name && f.building_name.toLowerCase().includes(q)) ||
           (f.email && f.email.toLowerCase().includes(q)) ||
+          (f.phone && f.phone.toLowerCase().includes(q)) ||
+          (Array.isArray(f.aliases) &&
+            f.aliases.some((a) => a.toLowerCase().includes(q))) ||
           (Array.isArray(f.subjects_taught) &&
             f.subjects_taught.some((s) => s.toLowerCase().includes(q)))
       );
