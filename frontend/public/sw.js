@@ -1,5 +1,5 @@
-// Service Worker for Dexa AI PWA
-const CACHE_NAME = 'dexa-ai-v1';
+// Service Worker for Kryvix AI PWA
+const CACHE_NAME = 'kryvix-ai-v1';
 const PRECACHE_ASSETS = [
   '/manifest.json',
   '/icons/icon-192x192.png',

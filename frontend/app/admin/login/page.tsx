@@ -139,7 +139,7 @@ export default function AdminLoginPage() {
                   autoComplete="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@dexa.ai"
+                  placeholder="admin@kryvix.ai"
                   className="w-full bg-transparent py-3 pl-10 pr-4 text-sm text-slate-100 placeholder:text-slate-600 focus:outline-none"
                 />
               </div>
@@ -202,7 +202,7 @@ export default function AdminLoginPage() {
           {/* Footer Note */}
           <div className="pt-2 text-center">
             <p className="text-[11px] text-slate-500 font-medium">
-              Parul University • Dexa AI Operations &copy; {new Date().getFullYear()}
+              Parul University • Kryvix AI Operations &copy; {new Date().getFullYear()}
             </p>
           </div>
         </div>

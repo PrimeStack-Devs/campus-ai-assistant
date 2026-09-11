@@ -682,7 +682,7 @@ export async function processPdfUpload(filePath, originalFilename, category = "P
 }
 
 /**
- * Completely wipe Dexa's Brain (Vectors, In-Memory Cache, JSON collections, MongoDB Atlas)
+ * Completely wipe Kryvix's Brain (Vectors, In-Memory Cache, JSON collections, MongoDB Atlas)
  */
 export async function resetBrainData() {
   console.log("[Admin] Initiating full brain reset...");
@@ -730,7 +730,7 @@ export async function resetBrainData() {
 
   return {
     success: true,
-    message: "Dexa Brain has been completely reset. All vectors and knowledge records have been cleared.",
+    message: "Kryvix Brain has been completely reset. All vectors and knowledge records have been cleared.",
     stats: {
       buildings: 0,
       departments: 0,

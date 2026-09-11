@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const DISMISS_STORAGE_KEY = 'dexa_guest_popup_dismissed_until';
+const DISMISS_STORAGE_KEY = 'kryvix_guest_popup_dismissed_until';
 const POPUP_DELAY_MS = 3500;
 
 export default function GuestUnlockPopup() {
@@ -55,7 +55,7 @@ export default function GuestUnlockPopup() {
         String(Date.now() + 24 * 60 * 60 * 1000)
       );
       if (typeof window !== 'undefined') {
-        window.dispatchEvent(new CustomEvent('dexa_guest_popup_closed'));
+        window.dispatchEvent(new CustomEvent('kryvix_guest_popup_closed'));
       }
     } catch {}
   };

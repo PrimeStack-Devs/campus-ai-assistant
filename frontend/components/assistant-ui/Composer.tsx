@@ -126,7 +126,7 @@ export function Composer({
 
         {/* Subtle keyboard hint for desktop */}
         <div className="hidden sm:flex items-center justify-between px-2 pt-1 text-[10px] text-slate-400 dark:text-slate-500">
-          <span>Dexa AI answers campus queries in real time.</span>
+          <span>Kryvix AI answers campus queries in real time.</span>
           <span className="font-mono text-[9.5px] text-slate-400/80 dark:text-slate-500">
             Shift + Enter for new line
           </span>

@@ -92,7 +92,7 @@ export default function DocumentsAdminPage() {
     } catch (err: any) {
       setUploadResult({
         success: false,
-        error: err.message || 'Failed to reset Dexa Brain data.',
+        error: err.message || 'Failed to reset Kryvix Brain data.',
       });
     } finally {
       setIsResetting(false);
@@ -208,7 +208,7 @@ export default function DocumentsAdminPage() {
               </span>
             </div>
             <p className="text-slate-600 dark:text-slate-400 mt-1">
-              Upload spreadsheets and official documents to dynamically expand Dexa&apos;s brain without server restarts.
+              Upload spreadsheets and official documents to dynamically expand Kryvix&apos;s brain without server restarts.
             </p>
           </div>
 
@@ -507,7 +507,7 @@ export default function DocumentsAdminPage() {
 
                     {uploadResult.chunksIndexed !== undefined && (
                       <p className="text-xs font-semibold text-indigo-800 dark:text-indigo-300 pt-1">
-                        Indexed {uploadResult.chunksIndexed} chunks across {uploadResult.pages} pages into Dexa&apos;s brain.
+                        Indexed {uploadResult.chunksIndexed} chunks across {uploadResult.pages} pages into Kryvix&apos;s brain.
                       </p>
                     )}
                   </div>
@@ -521,7 +521,7 @@ export default function DocumentsAdminPage() {
       {/* Reset Confirmation Modal */}
       <AdminModal
         isOpen={showResetModal}
-        title="Reset Dexa's Brain Data"
+        title="Reset Kryvix's Brain Data"
         onClose={() => !isResetting && setShowResetModal(false)}
         onSubmit={handleResetBrain}
         submitLabel="Yes, Wipe & Reset Brain"
@@ -547,7 +547,7 @@ export default function DocumentsAdminPage() {
           </div>
 
           <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-            Once reset, Dexa will have a completely clean slate (0 vectors, 0 places). You can then immediately click <strong>Sync Excel Data</strong> or upload fresh Excel/PDF files to re-index cleanly without any duplicate vectors.
+            Once reset, Kryvix will have a completely clean slate (0 vectors, 0 places). You can then immediately click <strong>Sync Excel Data</strong> or upload fresh Excel/PDF files to re-index cleanly without any duplicate vectors.
           </p>
         </div>
       </AdminModal>

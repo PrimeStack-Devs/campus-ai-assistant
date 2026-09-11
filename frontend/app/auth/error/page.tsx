@@ -15,7 +15,7 @@ function AuthErrorContent() {
 
   let title = 'Authentication Restricted';
   let description =
-    'Your Google account could not be signed in to Dexa Campus AI.';
+    'Your Google account could not be signed in to Kryvix Campus AI.';
 
   if (error === 'DomainRestricted') {
     title = 'University Account Required';

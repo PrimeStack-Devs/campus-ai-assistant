@@ -90,5 +90,5 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
   secret:
     process.env.AUTH_SECRET ||
-    'dexa_campus_ai_auth_secret_89cbb5b0e3b94c579c31',
+    'kryvix_campus_ai_auth_secret_89cbb5b0e3b94c579c31',
 });

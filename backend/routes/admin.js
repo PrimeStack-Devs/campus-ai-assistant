@@ -51,7 +51,7 @@ const upload = multer({
 
 // JWT Helper Functions
 const getJwtSecret = () =>
-  process.env.ADMIN_JWT_SECRET || "dexa_campus_ai_jwt_secret_admin_2026_secure";
+  process.env.ADMIN_JWT_SECRET || "kryvix_campus_ai_jwt_secret_admin_2026_secure";
 
 const base64UrlEncode = (str) => {
   return Buffer.from(str)
@@ -140,7 +140,7 @@ const requireAdmin = (req, res, next) => {
   const providedKey = req.headers["x-admin-key"] || req.query.adminKey;
   if (adminKey && providedKey === adminKey) {
     req.admin = {
-      email: process.env.ADMIN_EMAIL || "admin@dexa.ai",
+      email: process.env.ADMIN_EMAIL || "admin@kryvix.ai",
       name: "Campus Administrator",
       role: "admin",
     };
@@ -165,10 +165,10 @@ router.post("/login", (req, res) => {
       });
     }
 
-    const expectedEmail = (process.env.ADMIN_EMAIL || "admin@dexa.ai")
+    const expectedEmail = (process.env.ADMIN_EMAIL || "admin@kryvix.ai")
       .trim()
       .toLowerCase();
-    const expectedPassword = process.env.ADMIN_PASSWORD || "admin@dexa2026";
+    const expectedPassword = process.env.ADMIN_PASSWORD || "admin@kryvix2026";
 
     const cleanInputEmail = email.trim().toLowerCase();
 
@@ -390,7 +390,7 @@ router.post(
   }
 );
 
-// 5. Reset Dexa Brain (Vectors, local JSON DB, cache, MongoDB Atlas)
+// 5. Reset Kryvix Brain (Vectors, local JSON DB, cache, MongoDB Atlas)
 router.post("/reset-brain", requireAdmin, async (req, res) => {
   try {
     const result = await resetBrainData();

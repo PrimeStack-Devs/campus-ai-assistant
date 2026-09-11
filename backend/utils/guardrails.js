@@ -193,7 +193,7 @@ That's a bit outside what I can help with. Is there anything about the campus I 
 const SYSTEM_PROMPT_PATTERNS = [
   // Direct system prompt / developer prompt / meta prompt queries
   /\b(system\s*prompts?|developer\s*prompts?|meta\s*prompts?|hidden\s*prompts?|base\s*prompts?|system\s*messages?)\b/i,
-  /\b(your\s*prompts?|the\s+ai\s*prompt|bot\s*prompts?|(dexa|kryvix)\s*s?\s*prompts?)\b/i,
+  /\b(your\s*prompts?|the\s+ai\s*prompt|bot\s*prompts?|kryvix\s*s?\s*prompts?)\b/i,
   /\b(what\s+is\s+your\s+prompt|tell\s+me\s+your\s+prompt|show\s+(me\s+)?(your\s+)?prompt|reveal\s+(your\s+)?prompt)\b/i,
 
   // Instructions to the bot / AI
@@ -217,17 +217,17 @@ const SYSTEM_PROMPT_PATTERNS = [
 const SYSTEM_PROMPT_RESPONSE = `I cannot share my system prompt, internal instructions, or configuration. If you have any campus-related questions about Parul University, I'm happy to help!`;
 
 const DEVELOPER_PATTERNS = [
-  /\b(who (made|built|developed|created|coded|designed|owns?) (you|dexa|kryvix|this (ai|bot|app|assistant|project|system)))\b/i,
-  /\b((developer|creator|builder|author|maker|owner)s? (of|behind) (you|dexa|kryvix|this (ai|bot|app|assistant|project|system)))\b/i,
+  /\b(who (made|built|developed|created|coded|designed|owns?) (you|kryvix|this (ai|bot|app|assistant|project|system)))\b/i,
+  /\b((developer|creator|builder|author|maker|owner)s? (of|behind) (you|kryvix|this (ai|bot|app|assistant|project|system)))\b/i,
   /\b(who is (the|your) (developer|creator|builder|author|owner))\b/i,
   /\b(who (are|is) (the )?(developers?|creators?|owners?))\b/i,
-  /\b(who (owns|is owning) (you|dexa|kryvix|this (ai|bot|app|assistant|project|system)))\b/i,
-  /\b((dexa|kryvix)(\s*s)?\s*owner|owner of (dexa|kryvix|this (ai|bot|app|assistant|project|system)|the (app|bot|ai|assistant)))\b/i,
+  /\b(who (owns|is owning) (you|kryvix|this (ai|bot|app|assistant|project|system)))\b/i,
+  /\b(kryvix(\s*s)?\s*owner|owner of (kryvix|this (ai|bot|app|assistant|project|system)|the (app|bot|ai|assistant)))\b/i,
   /\b(contact (to )?(the )?(developer|creator|owner|team)|developer (contact|email|mail|info|details|linkedin))\b/i,
   /\b(how (can|do) i (contact|reach) (the )?(developer|owner|support|team))\b/i,
-  /\b(report (a )?(bug|issue|glitch)|(dexa|kryvix) support email|developer mail)\b/i,
+  /\b(report (a )?(bug|issue|glitch)|kryvix support email|developer mail)\b/i,
   /\b(developer|owner) (contact|email|mail|help|feedback)\b/i,
-  /\b(about (dexa|kryvix)|who is (dexa|kryvix)|what is (dexa|kryvix))\b/i,
+  /\b(about kryvix|who is kryvix|what is kryvix)\b/i,
 ];
 
 const DEVELOPER_RESPONSE = `Kryvix AI is the official Smart Campus AI Assistant for Parul University.

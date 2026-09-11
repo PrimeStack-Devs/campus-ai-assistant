@@ -8,8 +8,8 @@ interface BeforeInstallPromptEvent extends Event {
   userChoice: Promise<{ outcome: 'accepted' | 'dismissed'; platform: string }>;
 }
 
-const DISMISS_KEY = 'dexa_pwa_prompt_dismissed_until';
-const GUEST_DISMISS_KEY = 'dexa_guest_popup_dismissed_until';
+const DISMISS_KEY = 'kryvix_pwa_prompt_dismissed_until';
+const GUEST_DISMISS_KEY = 'kryvix_guest_popup_dismissed_until';
 const SNOOZE_DAYS = 7;
 
 export function InstallPwaPrompt() {
@@ -54,7 +54,7 @@ export function InstallPwaPrompt() {
         if (guestDismissed && Number(guestDismissed) > Date.now()) {
           return false;
         }
-      } catch {}
+      } catch { }
       return true;
     };
 
@@ -63,13 +63,13 @@ export function InstallPwaPrompt() {
       if (isGuestPopupActive()) {
         // Guest notice is active or pending -> wait until it is dismissed
         const handleGuestClosed = () => {
-          window.removeEventListener('dexa_guest_popup_closed', handleGuestClosed);
+          window.removeEventListener('kryvix_guest_popup_closed', handleGuestClosed);
           // Give the user a relaxed 3-second breathing room after closing guest notice
           setTimeout(() => {
             setIsVisible(true);
           }, 3000);
         };
-        window.addEventListener('dexa_guest_popup_closed', handleGuestClosed);
+        window.addEventListener('kryvix_guest_popup_closed', handleGuestClosed);
       } else {
         // Guest notice already handled or logged in -> show after a pleasant delay
         setTimeout(() => {
@@ -150,7 +150,7 @@ export function InstallPwaPrompt() {
           <div className="min-w-0 flex-1">
             <div className="flex items-center justify-between gap-2">
               <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">
-                Install Dexa AI
+                Install Kryvix AI
               </h4>
               <button
                 type="button"

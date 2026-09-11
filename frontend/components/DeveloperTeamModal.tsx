@@ -31,7 +31,7 @@ export function DeveloperTeamModal({ isOpen, onClose }: DeveloperTeamModalProps)
                 Meet the Builders
               </DialogTitle>
               <DialogDescription className="text-[11px] sm:text-xs text-indigo-100/90 mt-0.5 leading-tight truncate sm:whitespace-normal">
-                The Engineering Team behind Dexa Campus AI
+                The Engineering Team behind Kryvix Campus AI
               </DialogDescription> */}
               <DialogTitle className="text-base sm:text-lg font-bold tracking-tight text-white leading-tight">
                 Contact & Support
@@ -147,7 +147,7 @@ export function DeveloperTeamModal({ isOpen, onClose }: DeveloperTeamModalProps)
               Contact Developer
             </p>
             <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300">
-              For any feedback, questions, or help regarding Dexa, please contact:
+              For any feedback, questions, or help regarding Kryvix, please contact:
             </p>
             <div className="pt-2 flex justify-center">
               <a

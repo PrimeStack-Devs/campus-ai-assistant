@@ -98,7 +98,7 @@ export default function AdminDashboard() {
         <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-2xl p-8 shadow-xl border border-slate-800 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30">
-              <Sparkles size={14} /> Dexa Production Brain
+              <Sparkles size={14} /> Kryvix Production Brain
             </div>
             <h1 className="text-3xl font-extrabold tracking-tight text-white">
               Campus AI Operations Hub

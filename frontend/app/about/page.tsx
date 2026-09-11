@@ -7,12 +7,12 @@ import { Mail, Linkedin, ExternalLink, Code2, Smartphone, Sparkles } from 'lucid
 
 export default function AboutPage() {
   return (
-    <DashboardLayout title="About Dexa AI">
+    <DashboardLayout title="About Kryvix AI">
       <div className="max-w-5xl space-y-8 p-8">
         <div className="rounded-lg border border-blue-200 bg-linear-to-r from-blue-50 to-indigo-50 p-8 dark:border-blue-500/20 dark:from-slate-900 dark:to-slate-800">
-          <h1 className="mb-3 text-3xl font-bold text-slate-900 dark:text-slate-100">Dexa AI Assistant</h1>
+          <h1 className="mb-3 text-3xl font-bold text-slate-900 dark:text-slate-100">Kryvix AI Assistant</h1>
           <p className="text-lg leading-relaxed text-slate-700 dark:text-slate-300">
-            Dexa AI is your personal guide to everything happening at Parul University. Whether you&apos;re looking for
+            Kryvix AI is your personal guide to everything happening at Parul University. Whether you&apos;re looking for
             events, facilities, clubs, or academic resources, our intelligent assistant is here to help you make the
             most of your campus experience.
           </p>
@@ -64,7 +64,7 @@ export default function AboutPage() {
                 Meet the Builders
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                The engineering team behind Dexa&apos;s campus intelligence platform
+                The engineering team behind Kryvix&apos;s campus intelligence platform
               </p>
             </div>
           </div>
@@ -154,7 +154,7 @@ export default function AboutPage() {
 
         <div className="rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 p-8 text-center text-white">
           <h2 className="mb-3 text-2xl font-bold">Ready to explore campus?</h2>
-          <p className="mb-6 text-blue-100">Start chatting with Dexa AI to discover everything happening on campus.</p>
+          <p className="mb-6 text-blue-100">Start chatting with Kryvix AI to discover everything happening on campus.</p>
           <Link
             href="/chat"
             className="inline-block rounded-lg bg-white px-6 py-3 font-bold text-blue-600 transition-colors hover:bg-blue-50"

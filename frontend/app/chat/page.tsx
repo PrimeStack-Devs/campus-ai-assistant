@@ -281,7 +281,7 @@ export default function ChatPage() {
   });
 
   return (
-    <DashboardLayout title="Chat with Dexa AI">
+    <DashboardLayout title="Chat with Kryvix AI">
       <div className="flex h-full min-h-0 w-full overflow-hidden bg-slate-50 dark:bg-slate-950">
         {/* Chat History Sidebar */}
         <ChatSessionsSidebar

@@ -127,15 +127,14 @@ export function AssistantMessage() {
             <Sparkles size={11} />
           </div>
           <span className="text-[11.5px] font-bold text-slate-800 dark:text-slate-200 tracking-tight">
-            Dexa AI
+            Kryvix AI
           </span>
         </div>
 
         {/* Message Content Container */}
         <div
-          className={`w-full rounded-2xl rounded-tl-sm sm:rounded-tl-xs bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 p-3.5 sm:p-4 text-xs sm:text-sm text-slate-900 dark:text-slate-100 shadow-xs leading-relaxed overflow-hidden ${
-            !hasContent ? 'w-fit' : ''
-          }`}
+          className={`w-full rounded-2xl rounded-tl-sm sm:rounded-tl-xs bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 p-3.5 sm:p-4 text-xs sm:text-sm text-slate-900 dark:text-slate-100 shadow-xs leading-relaxed overflow-hidden ${!hasContent ? 'w-fit' : ''
+            }`}
         >
           {!hasContent ? (
             <div className="flex items-center gap-2.5 py-0.5 px-0.5 text-slate-500 dark:text-slate-400">
@@ -145,7 +144,7 @@ export function AssistantMessage() {
                 <span className="h-2 w-2 rounded-full bg-indigo-500 animate-bounce" />
               </div>
               <span className="text-xs font-medium text-slate-400 dark:text-slate-400 tracking-wide animate-pulse">
-                Dexa is thinking...
+                Kryvix is thinking...
               </span>
             </div>
           ) : (

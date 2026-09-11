@@ -21,15 +21,15 @@ export interface ChatSession {
   messages: ChatMessage[];
 }
 
-const STORAGE_KEY = 'dexa_chat_sessions';
-const ACTIVE_SESSION_KEY = 'dexa_active_session_id';
+const STORAGE_KEY = 'kryvix_chat_sessions';
+const ACTIVE_SESSION_KEY = 'kryvix_active_session_id';
 
 function generateSessionId() {
-  return `dexa_session_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;
+  return `kryvix_session_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;
 }
 
 const GUEST_QUERY_LIMIT = 5;
-const GUEST_QUERY_COUNT_KEY = 'dexa_guest_query_count';
+const GUEST_QUERY_COUNT_KEY = 'kryvix_guest_query_count';
 
 function cleanInitialTitle(query: string): string {
   if (!query) return 'New Conversation';
@@ -95,7 +95,7 @@ export function useChatSessions() {
     try {
       const stored =
         localStorage.getItem(STORAGE_KEY) ||
-        localStorage.getItem('dexa_chat_sessions_v2');
+        localStorage.getItem('kryvix_chat_sessions_v2');
       let initialSessions: ChatSession[] = [];
 
       if (stored) {

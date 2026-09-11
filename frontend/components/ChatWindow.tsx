@@ -89,7 +89,7 @@ export function ChatWindow({ messages, isLoading, onSuggest }: ChatWindowProps) 
               </div>
 
               <h3 className="mb-1 text-lg sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 text-center">
-                Meet Dexa, Your Assistant
+                Meet Kryvix, Your Assistant
               </h3>
               <p className="max-w-xs sm:max-w-md text-xs sm:text-sm leading-relaxed text-slate-500 dark:text-slate-400 text-center mb-3 sm:mb-4 font-normal">
                 Ask anything about Parul University buildings, hostels, policies, faculty members, or upcoming events.

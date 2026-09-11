@@ -26,8 +26,8 @@ interface AdminAuthContextType {
 
 const AdminAuthContext = createContext<AdminAuthContextType | undefined>(undefined);
 
-const TOKEN_KEY = 'dexa_admin_token';
-const ADMIN_USER_KEY = 'dexa_admin_user';
+const TOKEN_KEY = 'kryvix_admin_token';
+const ADMIN_USER_KEY = 'kryvix_admin_user';
 
 export function AdminAuthProvider({ children }: { children: React.ReactNode }) {
   const [admin, setAdmin] = useState<AdminUser | null>(null);
@@ -134,7 +134,7 @@ export function AdminAuthProvider({ children }: { children: React.ReactNode }) {
 
       // Also set secure session cookie for Next.js middleware / SSR compatibility
       if (typeof document !== 'undefined') {
-        document.cookie = `dexa_admin_session=${receivedToken}; path=/; max-age=${
+        document.cookie = `kryvix_admin_session=${receivedToken}; path=/; max-age=${
           7 * 24 * 60 * 60
         }; SameSite=Lax`;
       }
@@ -159,7 +159,7 @@ export function AdminAuthProvider({ children }: { children: React.ReactNode }) {
     localStorage.removeItem(ADMIN_USER_KEY);
     if (typeof document !== 'undefined') {
       document.cookie =
-        'dexa_admin_session=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+        'kryvix_admin_session=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
     }
     setToken(null);
     setAdmin(null);
