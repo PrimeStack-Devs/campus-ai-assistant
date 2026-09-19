@@ -25,6 +25,13 @@ import {
   generateCampusDataTemplate,
   TEMPLATE_REGISTRY,
 } from "../utils/generateTemplate.js";
+import {
+  getAllUsers,
+  upsertUser,
+  updateUserRole,
+  deleteUser,
+  getUserAnalytics,
+} from "../services/userService.js";
 
 import os from "os";
 import crypto from "crypto";
@@ -632,6 +639,62 @@ router.post("/settings", requireAdmin, async (req, res) => {
       success: true,
       message: "Authentication and domain settings saved successfully.",
       settings: updated,
+    });
+  } catch (error) {
+    return res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// 11. Admin Users Management
+router.get("/users", requireAdmin, async (req, res) => {
+  try {
+    const { search, role } = req.query;
+    const users = await getAllUsers(search, role);
+    const analytics = await getUserAnalytics();
+    return res.json({
+      success: true,
+      users,
+      analytics,
+    });
+  } catch (error) {
+    return res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+router.post("/users", requireAdmin, async (req, res) => {
+  try {
+    const user = await upsertUser(req.body);
+    return res.json({
+      success: true,
+      message: "User saved successfully.",
+      user,
+    });
+  } catch (error) {
+    return res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+router.patch("/users/:email/role", requireAdmin, async (req, res) => {
+  try {
+    const { role } = req.body;
+    const result = await updateUserRole(req.params.email, role);
+    return res.json({
+      success: true,
+      message: `User role updated to ${role}.`,
+      result,
+    });
+  } catch (error) {
+    return res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+router.delete("/users/:email", requireAdmin, async (req, res) => {
+  try {
+    const result = await deleteUser(req.params.email);
+    return res.json({
+      success: true,
+      message: "User deleted successfully.",
+      result,
     });
   } catch (error) {
     return res.status(500).json({ success: false, error: error.message });

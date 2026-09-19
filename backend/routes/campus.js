@@ -14,6 +14,7 @@ import {
   CampusUser,
 } from "../models/campusModels.js";
 import { getAuthSettings } from "../services/settingsService.js";
+import { upsertUser } from "../services/userService.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -502,7 +503,7 @@ router.post("/auth/google", async (req, res) => {
       }
     }
 
-    // 3. User Upsert
+    // 3. User Upsert via unified UserService
     const userPayload = {
       googleId: googleId || `gid_${Date.now()}`,
       name: name || cleanEmail.split("@")[0],
@@ -510,45 +511,21 @@ router.post("/auth/google", async (req, res) => {
       avatar: avatar || "",
       domain: emailDomain,
       role: emailDomain.includes("parul") ? "student" : "user",
-      lastLogin: new Date(),
+      lastLogin: new Date().toISOString(),
     };
 
-    // Save to local users.json
-    try {
-      const users = readJsonCollection("users.json", []);
-      const idx = users.findIndex((u) => u.email === cleanEmail);
-      if (idx > -1) {
-        users[idx] = { ...users[idx], ...userPayload };
-      } else {
-        users.push(userPayload);
-      }
-      const usersFile = path.join(dbDir, "users.json");
-      fs.writeFileSync(usersFile, JSON.stringify(users, null, 2), "utf-8");
-    } catch {}
-
-    // Save to MongoDB if connected
-    if (mongoose.connection.readyState === 1) {
-      try {
-        await CampusUser.findOneAndUpdate(
-          { email: cleanEmail },
-          userPayload,
-          { upsert: true, new: true }
-        );
-      } catch (err) {
-        console.warn("[Campus Auth] Mongo user upsert warning:", err.message);
-      }
-    }
+    const savedUser = await upsertUser(userPayload);
 
     return res.json({
       success: true,
       message: "Authentication successful.",
       user: {
-        id: userPayload.googleId,
-        name: userPayload.name,
-        email: userPayload.email,
-        avatar: userPayload.avatar,
-        domain: userPayload.domain,
-        role: userPayload.role,
+        id: savedUser.googleId,
+        name: savedUser.name,
+        email: savedUser.email,
+        avatar: savedUser.avatar,
+        domain: savedUser.domain,
+        role: savedUser.role,
       },
     });
   } catch (error) {

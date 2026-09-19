@@ -15,6 +15,7 @@ import {
   Settings,
   ShieldCheck,
   Loader2,
+  UserCheck,
 } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
@@ -52,6 +53,7 @@ export default function AdminLayout({
     { href: '/admin/contacts', label: 'Contacts', icon: FileText },
     { href: '/admin/locations', label: 'Locations', icon: MapPin },
     { href: '/admin/documents', label: 'Documents', icon: FileText },
+    { href: '/admin/users', label: 'Users', icon: UserCheck },
     { href: '/admin/settings', label: 'Auth Settings', icon: Settings },
   ];
 

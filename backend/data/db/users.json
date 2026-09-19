@@ -52,5 +52,32 @@
     "domain": "paruluniversity.ac.in",
     "role": "student",
     "lastLogin": "2026-09-05T05:41:22.099Z"
+  },
+  {
+    "googleId": "b4591313-2321-4431-960f-a0c8b36483fc",
+    "name": "Demon Slayer",
+    "email": "johnsnow9664@gmail.com",
+    "avatar": "https://lh3.googleusercontent.com/a/ACg8ocKlrZcE8vKMqkca70kCN6wuIGz_NUV95E3YO8wCk72l_hEwGQ=s96-c",
+    "domain": "gmail.com",
+    "role": "user",
+    "lastLogin": "2026-09-07T08:21:44.703Z"
+  },
+  {
+    "googleId": "76594b34-7db2-44a8-8cad-302958c2d0c9",
+    "name": "Test User",
+    "email": "tforused@gmail.com",
+    "avatar": "https://lh3.googleusercontent.com/a/ACg8ocIWPsLmoV3hs5CKIevg1xPG9yyp7Gi0xhBp3bKRuFTMGPTsgw=s96-c",
+    "domain": "gmail.com",
+    "role": "user",
+    "lastLogin": "2026-09-07T12:33:01.524Z"
+  },
+  {
+    "googleId": "85adccad-fdb1-4e0c-9910-92ae2ac9f0db",
+    "name": "deepak",
+    "email": "cforjack@gmail.com",
+    "avatar": "https://lh3.googleusercontent.com/a/ACg8ocItR4IS3zbSvnZv3n5JGYE7HAQ6WZ4nBw7wYJ4-i7ZJ9Oc8DIE=s96-c",
+    "domain": "gmail.com",
+    "role": "user",
+    "lastLogin": "2026-09-10T19:16:42.188Z"
   }
 ]

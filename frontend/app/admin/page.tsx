@@ -203,9 +203,9 @@ export default function AdminDashboard() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <StatCard
               icon={Users}
-              label="Total Users"
-              value={metrics.totalUsers.toLocaleString()}
-              subtext={`${metrics.activeUsers} active today`}
+              label="Registered Users"
+              value={stats?.users ?? metrics.totalUsers.toLocaleString()}
+              subtext="Synced MongoDB & Local DB"
             />
             <StatCard
               icon={MessageSquare}

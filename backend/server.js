@@ -10,6 +10,7 @@ import campusRoutes from "./routes/campus.js";
 import { initializeStore } from "./services/vectorStore.js";
 import { connectRedis } from "./config/redis.js";
 import { connectDB } from "./config/db.js";
+import { syncUsersBetweenLocalAndMongo } from "./services/userService.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -51,6 +52,10 @@ const initializeApp = async () => {
     // 2. Connect Database (with graceful fallback to local persistent store)
     try {
       await connectDB();
+      // Synchronize users between local JSON and MongoDB Atlas
+      await syncUsersBetweenLocalAndMongo().catch((uErr) =>
+        console.warn("⚠️ User sync warning at startup:", uErr.message)
+      );
     } catch (dbErr) {
       console.log("ℹ️ Running with local persistent data store in backend/data/db/");
     }

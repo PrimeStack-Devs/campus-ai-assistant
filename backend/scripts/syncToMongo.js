@@ -13,6 +13,7 @@ import {
   CampusRouteSummary,
   CampusSchedule,
   CampusService,
+  CampusUser,
   VectorChunk,
 } from "../models/campusModels.js";
 
@@ -161,6 +162,26 @@ export async function syncAllDataToMongo() {
     }
     summary.vectorChunks = records.length;
     console.log(`✅ Synced ${records.length} vector embeddings to MongoDB.`);
+  }
+
+  // 10. Users (from users.json)
+  const usersPath = path.join(dbDir, "users.json");
+  if (fs.existsSync(usersPath)) {
+    try {
+      const users = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
+      for (const u of users) {
+        if (!u.email) continue;
+        await CampusUser.findOneAndUpdate(
+          { email: u.email.toLowerCase().trim() },
+          { $set: u },
+          { upsert: true, new: true }
+        );
+      }
+      summary.users = users.length;
+      console.log(`✅ Synced ${users.length} users to MongoDB.`);
+    } catch (uErr) {
+      console.warn("⚠️ User sync warning in syncToMongo:", uErr.message);
+    }
   }
 
   console.log(`🎉 Full MongoDB Atlas Sync Completed in ${Date.now() - startTime}ms!`);

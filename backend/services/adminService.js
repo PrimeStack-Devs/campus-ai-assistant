@@ -60,6 +60,7 @@ export async function getCampusStats() {
   const services = readJsonCollection("services.json");
   const schedules = readJsonCollection("schedules.json");
   const policies = readJsonCollection("policies.json");
+  const users = readJsonCollection("users.json", []);
 
   const vecPath = path.resolve(
     __dirname,
@@ -83,6 +84,7 @@ export async function getCampusStats() {
       ? schedules.length
       : schedules.bus_routes?.length || 0,
     policies: policies.length,
+    users: users.length,
     vectorChunks: vectorCount,
   };
 }
