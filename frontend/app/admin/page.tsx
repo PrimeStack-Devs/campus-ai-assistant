@@ -14,6 +14,8 @@ import {
   Upload,
   Sparkles,
   ArrowRight,
+  FolderDown,
+  Archive,
 } from 'lucide-react';
 import AdminLayout from '@/components/AdminLayout';
 import { analyticsApi } from '@/lib/adminApi';
@@ -108,23 +110,45 @@ export default function AdminDashboard() {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2.5">
+            <Link href="/admin/documents?tab=templates">
+              <Button
+                variant="outline"
+                className="bg-white/10 hover:bg-white/20 text-white border-white/20 flex items-center gap-2 rounded-xl text-xs font-semibold py-2 px-3.5"
+              >
+                <FolderDown size={15} /> Template Library
+              </Button>
+            </Link>
+
             <a
-              href={`${backendUrl}/api/admin/template`}
+              href={`${backendUrl}/api/admin/templates/bundle/zip`}
               target="_blank"
               rel="noreferrer"
             >
               <Button
                 variant="outline"
-                className="bg-white/10 hover:bg-white/20 text-white border-white/20 flex items-center gap-2 rounded-xl"
+                className="bg-purple-500/20 hover:bg-purple-500/30 text-purple-200 border-purple-500/30 flex items-center gap-2 rounded-xl text-xs font-semibold py-2 px-3.5"
               >
-                <Download size={16} /> Download Template
+                <Archive size={15} /> All Templates (.zip)
               </Button>
             </a>
 
-            <Link href="/admin/documents">
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2 rounded-xl shadow-lg shadow-blue-600/30 font-semibold">
-                <Upload size={16} /> Ingest Data
+            <a
+              href={`${backendUrl}/api/admin/templates/master/download`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Button
+                variant="outline"
+                className="bg-white/10 hover:bg-white/20 text-white border-white/20 flex items-center gap-2 rounded-xl text-xs font-semibold py-2 px-3.5"
+              >
+                <Download size={15} /> Master Excel
+              </Button>
+            </a>
+
+            <Link href="/admin/documents?tab=excel">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2 rounded-xl shadow-lg shadow-blue-600/30 font-semibold text-xs py-2 px-4">
+                <Upload size={15} /> Ingest Data
                 <ArrowRight size={14} />
               </Button>
             </Link>

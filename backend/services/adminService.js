@@ -87,6 +87,27 @@ export async function getCampusStats() {
   };
 }
 
+function findSheet(workbook, nameMatcher, headerMatcher) {
+  const sheetNames = workbook.SheetNames || [];
+  const foundByName = sheetNames.find(nameMatcher);
+  if (foundByName) return foundByName;
+
+  if (headerMatcher) {
+    for (const name of sheetNames) {
+      const sheet = workbook.Sheets[name];
+      if (!sheet) continue;
+      const rows = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+      if (rows && rows.length > 0) {
+        const headers = (rows[0] || []).map((h) => String(h || "").toLowerCase().trim());
+        if (headerMatcher(headers)) {
+          return name;
+        }
+      }
+    }
+  }
+  return null;
+}
+
 export async function processExcelUpload(filePath) {
   const workbook = XLSX.readFile(filePath);
   const sheetNames = workbook.SheetNames;
@@ -94,8 +115,10 @@ export async function processExcelUpload(filePath) {
   const newlyCreatedDocs = [];
 
   // 1. Buildings Sheet
-  const buildingSheet = sheetNames.find(
-    (n) => n.toLowerCase().includes("building")
+  const buildingSheet = findSheet(
+    workbook,
+    (n) => n.toLowerCase().includes("building"),
+    (h) => h.some((c) => c.includes("building code") || c.includes("building name") || (c.includes("floors") && c.includes("zone")))
   );
   if (buildingSheet) {
     const rows = XLSX.utils.sheet_to_json(workbook.Sheets[buildingSheet]);
@@ -145,8 +168,10 @@ export async function processExcelUpload(filePath) {
   }
 
   // 2. Locations & Facilities Sheet
-  const facSheet = sheetNames.find(
-    (n) => n.toLowerCase().includes("facilit") || n.toLowerCase().includes("location")
+  const facSheet = findSheet(
+    workbook,
+    (n) => n.toLowerCase().includes("facilit") || n.toLowerCase().includes("location"),
+    (h) => h.some((c) => c.includes("location / facility") || c.includes("gender (for washrooms)") || c.includes("type* (canteen") || c.includes("name / label"))
   );
   if (facSheet) {
     const rows = XLSX.utils.sheet_to_json(workbook.Sheets[facSheet]);
@@ -193,8 +218,10 @@ export async function processExcelUpload(filePath) {
   }
 
   // 3. Faculty Sheet
-  const facDirSheet = sheetNames.find((n) =>
-    n.toLowerCase().includes("faculty")
+  const facDirSheet = findSheet(
+    workbook,
+    (n) => n.toLowerCase().includes("faculty"),
+    (h) => h.some((c) => c.includes("faculty name") || c.includes("subjects taught") || (c.includes("role") && c.includes("cabin")) || (c.includes("designation") && c.includes("department")))
   );
   if (facDirSheet) {
     const rows = XLSX.utils.sheet_to_json(workbook.Sheets[facDirSheet]);
@@ -246,8 +273,10 @@ export async function processExcelUpload(filePath) {
   }
 
   // 4. Departments Sheet
-  const deptSheet = sheetNames.find((n) =>
-    n.toLowerCase().includes("department")
+  const deptSheet = findSheet(
+    workbook,
+    (n) => n.toLowerCase().includes("department"),
+    (h) => h.some((c) => c.includes("department name") || c.includes("programs offered") || c.includes("hod name"))
   );
   if (deptSheet) {
     const rows = XLSX.utils.sheet_to_json(workbook.Sheets[deptSheet]);
@@ -307,7 +336,11 @@ export async function processExcelUpload(filePath) {
   }
 
   // 5. Paths Sheet
-  const pathSheet = sheetNames.find((n) => n.toLowerCase().includes("path"));
+  const pathSheet = findSheet(
+    workbook,
+    (n) => n.toLowerCase().includes("path"),
+    (h) => h.some((c) => c.includes("from building code") || (c.includes("distance (m)") && c.includes("walk time")))
+  );
   if (pathSheet) {
     const rows = XLSX.utils.sheet_to_json(workbook.Sheets[pathSheet]);
     const existing = readJsonCollection("paths.json");
@@ -342,18 +375,24 @@ export async function processExcelUpload(filePath) {
   }
 
   // 6. Services Sheets
-  const serviceSheet = sheetNames.find(
+  const serviceSheet = findSheet(
+    workbook,
     (n) =>
       n.toLowerCase() === "services" ||
       (n.toLowerCase().includes("service") &&
         !n.toLowerCase().includes("timing") &&
-        !n.toLowerCase().includes("detail"))
+        !n.toLowerCase().includes("detail")),
+    (h) => h.some((c) => c.includes("service name") || c.includes("service id"))
   );
-  const serviceTimingsSheet = sheetNames.find((n) =>
-    n.toLowerCase().includes("timing")
+  const serviceTimingsSheet = findSheet(
+    workbook,
+    (n) => n.toLowerCase().includes("timing"),
+    (h) => h.some((c) => c.includes("timing key") && c.includes("service id"))
   );
-  const serviceDetailsSheet = sheetNames.find((n) =>
-    n.toLowerCase().includes("detail")
+  const serviceDetailsSheet = findSheet(
+    workbook,
+    (n) => n.toLowerCase().includes("detail"),
+    (h) => h.some((c) => c.includes("detail type") && c.includes("service id"))
   );
 
   if (serviceSheet || serviceTimingsSheet || serviceDetailsSheet) {
@@ -450,25 +489,35 @@ export async function processExcelUpload(filePath) {
   }
 
   // 7. Schedules Sheets (Bus Routes, Office Hours, Academic Calendar, Important Dates, Holidays)
-  const busSheet = sheetNames.find(
+  const busSheet = findSheet(
+    workbook,
     (n) =>
       n.toLowerCase().includes("bus") ||
       (n.toLowerCase().includes("schedule") &&
         !n.toLowerCase().includes("office") &&
-        !n.toLowerCase().includes("calendar"))
+        !n.toLowerCase().includes("calendar")),
+    (h) => h.some((c) => c.includes("route number") || c.includes("route id") || c.includes("morning departure"))
   );
-  const officeSheet = sheetNames.find(
-    (n) => n.toLowerCase().includes("office") || n.toLowerCase().includes("hour")
+  const officeSheet = findSheet(
+    workbook,
+    (n) => n.toLowerCase().includes("office") || n.toLowerCase().includes("hour"),
+    (h) => h.some((c) => c.includes("lunch break") || (c.includes("timing") && c.includes("days")))
   );
-  const calendarSheet = sheetNames.find(
+  const calendarSheet = findSheet(
+    workbook,
     (n) =>
-      n.toLowerCase().includes("calendar") || n.toLowerCase().includes("academic")
+      n.toLowerCase().includes("calendar") || n.toLowerCase().includes("academic"),
+    (h) => h.some((c) => c.includes("semester name") || (c.includes("exam start") && c.includes("academic year")))
   );
-  const datesSheet = sheetNames.find(
-    (n) => n.toLowerCase().includes("date") || n.toLowerCase().includes("important")
+  const datesSheet = findSheet(
+    workbook,
+    (n) => n.toLowerCase().includes("date") || n.toLowerCase().includes("important"),
+    (h) => h.some((c) => (c.includes("event*") || c.includes("event")) && (c.includes("date*") || c.includes("date")))
   );
-  const holidaysSheet = sheetNames.find((n) =>
-    n.toLowerCase().includes("holiday")
+  const holidaysSheet = findSheet(
+    workbook,
+    (n) => n.toLowerCase().includes("holiday"),
+    (h) => h.some((c) => c.includes("fixed national holidays") || c.includes("holiday note"))
   );
 
   if (
@@ -614,6 +663,59 @@ export async function processExcelUpload(filePath) {
     const schedDocs = createScheduleDocuments(fullData, "Schedule");
     newlyCreatedDocs.push(...schedDocs);
     summary.schedules = totalRows;
+  }
+
+  // 7.5. Campus Policies Sheet
+  const policySheet = findSheet(
+    workbook,
+    (n) => n.toLowerCase().includes("polic") || n.toLowerCase().includes("rule"),
+    (h) => h.some((c) => c.includes("policy title") || (c.includes("content*") && c.includes("category")))
+  );
+  if (policySheet) {
+    const rows = XLSX.utils.sheet_to_json(workbook.Sheets[policySheet]);
+    const existing = readJsonCollection("policies.json");
+    const idMap = new Map(existing.map((p) => [p.id, p]));
+
+    rows.forEach((r) => {
+      const title =
+        r["Policy Title*"] ||
+        r["Policy Title"] ||
+        r["Title*"] ||
+        r["Title"] ||
+        r["title"];
+      if (!title) return;
+      const id =
+        r["id"] ||
+        r["ID"] ||
+        `pol_${title.toLowerCase().replace(/[^a-z0-9]/g, "_")}`;
+      const pObj = {
+        id: String(id).trim(),
+        title,
+        category: (r["Category*"] || r["Category"] || "academic").toLowerCase(),
+        tags: (r["Tags (comma-separated)"] || r["Tags"] || "")
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean),
+        aliases: (r["Aliases (comma-separated)"] || r["Aliases"] || "")
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean),
+        content:
+          r["Content*"] ||
+          r["Content"] ||
+          r["Policy Content"] ||
+          r["description"] ||
+          "",
+        last_updated: new Date().toISOString().split("T")[0],
+        source: "Admin Excel Upload",
+      };
+      idMap.set(id, pObj);
+      newlyCreatedDocs.push(...createStandardDocuments([pObj], "Policy"));
+    });
+
+    const updated = Array.from(idMap.values());
+    writeJsonCollection("policies.json", updated);
+    summary.policies = rows.length;
   }
 
   // 8. Embed and update vector store

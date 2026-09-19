@@ -14,12 +14,12 @@
       "PIET",
       "A1",
       "engineering block",
-      "A block",
-      "piet main"
+      "A block"
     ],
     "description": "Main engineering and technology block of Parul University.",
     "institutes": [
-      "Parul Institute of Engineering & Technology"
+      "PIET",
+      "Faculty of Engineering"
     ],
     "nearby": [
       "A2",
@@ -699,44 +699,21 @@
   {
     "id": "A25",
     "code": "A25",
-    "name": "C.V. Raman Centre",
-    "short_name": "CV Raman Centre",
+    "name": "A25",
+    "short_name": "A25",
     "category": "academic",
-    "floors": 7,
-    "zone": "north-central",
-    "lat": 22.292278,
-    "lng": 73.363257,
+    "floors": 1,
+    "zone": "central",
+    "lat": null,
+    "lng": null,
     "coordinates_verified": true,
     "aliases": [
-      "A25",
-      "cv raman",
-      "raman centre",
-      "raman center",
-      "data centre",
-      "tinkering hub",
-      "L block",
-      "labs block",
-      "mca block",
-      "btech labs",
-      "bca labs"
+      "rahul sir",
+      "dsa faculty"
     ],
-    "description": "Centre of Excellence for advanced computational skills and research. Houses BCA, MCA, BTech CS labs, Data Centre and Tinkering Hub.",
-    "institutes": [
-      "Parul Institute of Computer Application",
-      "Parul Institute of Engineering & Technology",
-      "System Support Cell",
-      "Data Centre",
-      "Office of Learning and Academic Enrichment Program",
-      "Central Vigilance Office",
-      "Tinkering Hub",
-      "Faculty Updation Cell",
-      "Center for Multidisciplinary and Interdisciplinary Education"
-    ],
-    "nearby": [
-      "A24",
-      "A23",
-      "A26"
-    ]
+    "description": "Faculty for BTech CSE students specializing in DSA and Competitive Coding.",
+    "institutes": [],
+    "nearby": []
   },
   {
     "id": "A26",
@@ -769,40 +746,25 @@
     "id": "C1",
     "code": "C1",
     "name": "Administrative Block C1",
-    "short_name": "Admin C1 / Central Library",
-    "category": "administrative",
-    "floors": 5,
+    "short_name": "Admin C1",
+    "category": "admin",
+    "floors": 4,
     "zone": "central",
-    "lat": 22.288844,
-    "lng": 73.363872,
+    "lat": 22.2891,
+    "lng": 73.3645,
     "coordinates_verified": true,
     "aliases": [
-      "C1",
       "admin block",
-      "central library",
-      "harmony hall",
-      "west hall",
-      "exam section",
-      "scholarship",
-      "accounts",
-      "university office"
+      "main office",
+      "exam section"
     ],
-    "description": "Main administrative hub with Central Library, Harmony Hall, Exam Section and key offices.",
+    "description": "Houses university leadership, registrar, exam section, and accounts.",
     "institutes": [
-      "Student Section",
-      "Scholarship Section",
-      "Account Section",
-      "University Office",
-      "Central Library",
-      "Harmony Hall",
-      "West Hall",
-      "Exam Section"
+      "University Administration"
     ],
     "nearby": [
       "C2",
-      "C3",
-      "A1",
-      "A3"
+      "PU Circle"
     ]
   },
   {

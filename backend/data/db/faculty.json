@@ -54966,5 +54966,45 @@
     ],
     "description": "Assistant Professor in Master of Computer Application (MCA) / Faculty of IT & CS at Parul University (C.V. Raman Centre A25). Contact: 9229891004 Email: jigar.bhawsar24744@paruluniversity.ac.in",
     "currently_working": true
+  },
+  {
+    "id": "fac_1789834243470_0",
+    "name": "Dr. Alpesh Desai",
+    "role": "Registrar",
+    "designation": "Registrar",
+    "department_name": "University Administration",
+    "building_id": "C1",
+    "floor": 1,
+    "room": 101,
+    "email": "registrar@paruluniversity.ac.in",
+    "phone": "02668-260301",
+    "subjects_taught": [],
+    "aliases": [
+      "registrar",
+      "registrar office",
+      "dr alpesh"
+    ],
+    "description": "Manages university records, statutory compliance, and correspondence."
+  },
+  {
+    "id": "fac_1789834243470_1",
+    "name": "Prof. Rahul Sharma",
+    "role": "Assistant Professor",
+    "designation": "Assistant Professor",
+    "department_name": "Computer Science & Engineering",
+    "building_id": "A25",
+    "floor": 3,
+    "room": "Cabin 312",
+    "email": "rahul.sharma@paruluniversity.ac.in",
+    "phone": "02668-260450",
+    "subjects_taught": [
+      "Data Structures",
+      "Algorithms"
+    ],
+    "aliases": [
+      "rahul sir",
+      "dsa faculty"
+    ],
+    "description": "Faculty for BTech CSE students specializing in DSA and Competitive Coding."
   }
 ]

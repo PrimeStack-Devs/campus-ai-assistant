@@ -1,0 +1,2 @@
+Route ID*,Route Name*,Route Number*,Direction,Morning Departure,Stops (in order or JSON),Return Schedule (JSON),Frequency,Aliases (comma-separated),Notes
+PU-01,Vadodara Railway Station - Parul University,PU-01,both,07:00 AM,Vadodara Station -> Fatehgunj -> Amit Nagar -> Waghodia Cross Road -> PU Main Gate,"[""05:00 PM"", ""06:15 PM""]",Daily Monday to Saturday,"station bus, railway station bus, pu01",University bus pass must be displayed while boarding.

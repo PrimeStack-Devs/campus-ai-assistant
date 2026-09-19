@@ -1,0 +1,4 @@
+Location / Facility Name*,Type*,Building Code*,Floor*,Room / Landmark,Gender (for washrooms),Aliases (comma-separated),Notes / Details
+Placement Cell,office,C1,2,"Room 202, near central stairs",N/A,"placement office, tpo, career cell",Coordinates campus placements and corporate drives.
+Central Washroom,washroom,A1,0,Ground floor near north entrance,both,"restroom, washroom, toilet",Separate accessible facilities for students and staff.
+HDFC & SBI ATM,atm,C1,0,Ground floor exterior portico,N/A,"atm, cash machine, bank atm",24/7 cash withdrawal and passbook printing.

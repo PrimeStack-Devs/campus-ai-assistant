@@ -1,0 +1,3 @@
+Name*,Role / Designation*,Department*,Building Code*,Floor,Cabin/Room,Email,Phone,Subjects Taught,Aliases (comma-separated),Description
+Dr. Alpesh Desai,Registrar,University Administration,C1,1,101,registrar@paruluniversity.ac.in,02668-260301,,"registrar, registrar office, dr alpesh","Manages university records, statutory compliance, and correspondence."
+Prof. Rahul Sharma,Assistant Professor,Computer Science & Engineering,A25,3,Cabin 312,rahul.sharma@paruluniversity.ac.in,02668-260450,"Data Structures, Algorithms","rahul sir, dsa faculty",Faculty for BTech CSE students specializing in DSA and Competitive Coding.

@@ -21,7 +21,10 @@ import {
   getAuthSettings,
   updateAuthSettings,
 } from "../services/settingsService.js";
-import { generateCampusDataTemplate } from "../utils/generateTemplate.js";
+import {
+  generateCampusDataTemplate,
+  TEMPLATE_REGISTRY,
+} from "../utils/generateTemplate.js";
 
 import os from "os";
 import crypto from "crypto";
@@ -215,27 +218,162 @@ router.get("/verify", requireAdmin, (req, res) => {
   });
 });
 
-// 1. Download Template Excel File
+// 1. Download Template Excel File (Legacy & Backward Compatible)
 router.get("/template", (req, res) => {
   try {
     const templatePath = path.resolve(
       __dirname,
-      "../data/templates/campus_data_template.xlsx"
+      "../data/templates/campus_master_template.xlsx"
     );
 
     if (!fs.existsSync(templatePath)) {
-      generateCampusDataTemplate(templatePath);
+      generateCampusDataTemplate();
     }
 
     res.setHeader(
       "Content-Disposition",
-      'attachment; filename="campus_data_template.xlsx"'
+      'attachment; filename="campus_master_template.xlsx"'
     );
     res.setHeader(
       "Content-Type",
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     );
     return res.sendFile(templatePath);
+  } catch (error) {
+    console.error("Template download error:", error);
+    return res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// 1.1 List All Available Templates
+router.get("/templates", (req, res) => {
+  try {
+    const templates = TEMPLATE_REGISTRY.map((t) => ({
+      id: t.id,
+      title: t.title,
+      category: t.category,
+      sheetName: t.sheetName,
+      icon: t.icon,
+      description: t.description,
+      fieldCount: t.fields.length,
+      fields: t.fields,
+      sampleData: t.sampleData,
+      downloadUrls: {
+        xlsx: `/api/admin/templates/${t.id}/download?format=xlsx`,
+        csv: `/api/admin/templates/${t.id}/download?format=csv`,
+      },
+    }));
+
+    return res.json({
+      success: true,
+      templates,
+      masterTemplate: {
+        title: "Master Campus AI Template",
+        filename: "campus_master_template.xlsx",
+        description:
+          "Comprehensive multi-sheet workbook containing all 12 campus data categories and formatting instructions.",
+        downloadUrl: "/api/admin/templates/master/download",
+      },
+      bundle: {
+        title: "Complete Templates Package (.zip)",
+        filename: "campus_all_templates.zip",
+        description:
+          "Single zip archive containing all 12 .xlsx templates, 11 .csv templates, and documentation guide.",
+        downloadUrl: "/api/admin/templates/bundle/zip",
+      },
+    });
+  } catch (error) {
+    console.error("Templates listing error:", error);
+    return res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// 1.2 Download ZIP bundle of all templates
+router.get("/templates/bundle/zip", (req, res) => {
+  try {
+    const zipPath = path.resolve(
+      __dirname,
+      "../data/templates/campus_all_templates.zip"
+    );
+    if (!fs.existsSync(zipPath)) {
+      generateCampusDataTemplate();
+    }
+    res.setHeader(
+      "Content-Disposition",
+      'attachment; filename="campus_all_templates.zip"'
+    );
+    res.setHeader("Content-Type", "application/zip");
+    return res.sendFile(zipPath);
+  } catch (error) {
+    console.error("Zip bundle download error:", error);
+    return res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// 1.3 Download Master Campus Template
+router.get("/templates/master/download", (req, res) => {
+  try {
+    const masterPath = path.resolve(
+      __dirname,
+      "../data/templates/campus_master_template.xlsx"
+    );
+    if (!fs.existsSync(masterPath)) {
+      generateCampusDataTemplate();
+    }
+    res.setHeader(
+      "Content-Disposition",
+      'attachment; filename="campus_master_template.xlsx"'
+    );
+    res.setHeader(
+      "Content-Type",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    );
+    return res.sendFile(masterPath);
+  } catch (error) {
+    console.error("Master template download error:", error);
+    return res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// 1.4 Download Individual Template (.xlsx or .csv)
+router.get("/templates/:id/download", (req, res) => {
+  try {
+    const { id } = req.params;
+    const format = (req.query.format || "xlsx").toLowerCase();
+
+    const item = TEMPLATE_REGISTRY.find((t) => t.id === id);
+    if (!item) {
+      return res
+        .status(404)
+        .json({ success: false, error: `Template '${id}' not found.` });
+    }
+
+    const ext = format === "csv" ? "csv" : "xlsx";
+    const filename = `${item.id}_template.${ext}`;
+    const filePath = path.resolve(__dirname, `../data/templates/${filename}`);
+
+    if (!fs.existsSync(filePath)) {
+      generateCampusDataTemplate();
+    }
+
+    if (!fs.existsSync(filePath)) {
+      return res.status(404).json({
+        success: false,
+        error: `Template file '${filename}' could not be generated.`,
+      });
+    }
+
+    if (ext === "csv") {
+      res.setHeader("Content-Disposition", `attachment; filename="${filename}"`);
+      res.setHeader("Content-Type", "text/csv");
+    } else {
+      res.setHeader("Content-Disposition", `attachment; filename="${filename}"`);
+      res.setHeader(
+        "Content-Type",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      );
+    }
+    return res.sendFile(filePath);
   } catch (error) {
     console.error("Template download error:", error);
     return res.status(500).json({ success: false, error: error.message });

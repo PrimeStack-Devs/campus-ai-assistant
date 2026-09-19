@@ -946,5 +946,46 @@
       "btech median salary nirf"
     ],
     "content": "For 4-Year UG programs (B.Tech / Engineering / Technology) at Parul University, the official NIRF report documents: In 2024-25, 1,971 students were placed through campus recruitment with an official median salary package of Rs. 6.25 LPA (Rs. 6,25,000 per annum), while 494 students opted for higher studies. In 2023-24, the median package was Rs. 6.00 LPA (1,810 placed), and in 2022-23 it was Rs. 5.60 LPA (1,667 placed)."
+  },
+  {
+    "id": "pol_attendance_policy",
+    "title": "Attendance Policy",
+    "category": "academic",
+    "tags": [
+      "attendance",
+      "75 percent",
+      "rules",
+      "condonation",
+      "detained",
+      "eligibility"
+    ],
+    "aliases": [
+      "attendance rule",
+      "minimum attendance",
+      "attendance shortage"
+    ],
+    "content": "Parul University mandates a minimum attendance of 75% in each enrolled subject to appear for end-semester examinations. Students with attendance between 65% and 74% may apply for condonation on valid medical grounds through their Department HOD with valid medical certificates within 7 days. Students with attendance below 65% are strictly detained and must repeat the course.",
+    "last_updated": "2026-09-19",
+    "source": "Admin Excel Upload"
+  },
+  {
+    "id": "pol_anti_ragging_zero_tolerance_policy",
+    "title": "Anti-Ragging Zero Tolerance Policy",
+    "category": "discipline",
+    "tags": [
+      "anti ragging",
+      "discipline",
+      "safety",
+      "helpline",
+      "ufc"
+    ],
+    "aliases": [
+      "ragging rule",
+      "anti ragging cell",
+      "safety helpline"
+    ],
+    "content": "Parul University enforces a strict Zero Tolerance Policy against any form of ragging or harassment on campus, in hostels, or on university transport. Any violation leads to immediate suspension, rustication, and police FIR registration under UGC regulations. The 24/7 Anti-Ragging Helpline is available to all students.",
+    "last_updated": "2026-09-19",
+    "source": "Admin Excel Upload"
   }
 ]

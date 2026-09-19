@@ -1,0 +1,3 @@
+From Building Code*,From Building Name,To Building Code*,To Building Name,Distance (m)*,Walk Time (min)*,Route Description,Landmarks (comma-separated)
+GATE_MAIN,Main Entry Gate,PU_CIRCLE,Parul University Circle,80,1,Walk straight from the main security gate into campus. PU Circle is immediately ahead.,"Security Gate Post, PU Welcome Sign"
+PU_CIRCLE,Parul University Circle,C1,Administrative Block C1,120,2,"From PU Circle, take the right fork towards admin zone. C1 is the large multi-story block on the right.","PU Circle, Visitor Parking P1"
