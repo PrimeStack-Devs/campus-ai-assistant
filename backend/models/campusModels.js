@@ -267,3 +267,25 @@ export const CampusUser =
   mongoose.models.CampusUser ||
   mongoose.model("CampusUser", CampusUserSchema);
 
+// --- 13. Feedback Vector Schema (Confirmed Q&A pairs stored for RAG) ---
+const FeedbackVectorSchema = new mongoose.Schema(
+  {
+    pageContent: { type: String, required: true },
+    metadata: { type: mongoose.Schema.Types.Mixed, default: {} },
+    vector: {
+      type: [Number],
+      required: true,
+      validate: {
+        validator: (arr) => Array.isArray(arr) && arr.length === 384,
+        message: "Vector must be an array of 384 numbers for MiniLM-L6-v2",
+      },
+    },
+    source: { type: String, default: "dynamic", index: true }, // "user_feedback" | "admin" | "dynamic"
+  },
+  { timestamps: true }
+);
+
+export const FeedbackVector =
+  mongoose.models.FeedbackVector ||
+  mongoose.model("FeedbackVector", FeedbackVectorSchema);
+

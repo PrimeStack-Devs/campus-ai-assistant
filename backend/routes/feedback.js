@@ -57,8 +57,8 @@ router.post("/", async (req, res) => {
       });
     }
 
-    // Add to live vector store + persist to precomputed_vectors.json
-    await addDynamicDocuments([doc], [vector]);
+    // Add to live vector store + persist to MongoDB
+    await addDynamicDocuments([doc], [vector], "user_feedback");
 
     console.log(`[Feedback] ✅ Confirmed answer added to knowledge base for: "${query.slice(0, 60)}..."`);
 

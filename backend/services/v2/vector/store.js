@@ -1,10 +1,12 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import mongoose from "mongoose";
 import { Document } from "@langchain/core/documents";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
 import { embeddings } from "./embeddings.js";
 import { campusData, resetCampusData } from "./campusDataCache.js";
+import { FeedbackVector } from "../../../models/campusModels.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -48,7 +50,7 @@ export const initializeStore = async () => {
       : [];
   }
 
-  // 2. Load pre-computed vector embeddings into vector store
+  // 2. Load pre-computed vector embeddings into vector store (read-only seed data)
   const vecPath = path.resolve(
     __dirname,
     "../../../data/vectors/precomputed_vectors.json"
@@ -71,59 +73,89 @@ export const initializeStore = async () => {
       "⚠️ Pre-computed vectors not found. Run 'node scripts/precomputeVectors.js' to create them."
     );
   }
+
+  // 3. Load dynamic feedback vectors from MongoDB (if connected)
+  try {
+    if (mongoose.connection.readyState === 1) {
+      const feedbackDocs = await FeedbackVector.find({}).lean();
+      if (feedbackDocs.length > 0) {
+        const docs = feedbackDocs.map(
+          (r) => new Document({ pageContent: r.pageContent, metadata: r.metadata || {} })
+        );
+        const vectors = feedbackDocs.map((r) => r.vector);
+        await vectorStore.addVectors(vectors, docs);
+        console.log(
+          `✅ Loaded ${feedbackDocs.length} feedback vectors from MongoDB.`
+        );
+      }
+    }
+  } catch (mongoErr) {
+    console.warn("⚠️ Could not load feedback vectors from MongoDB:", mongoErr.message);
+  }
 };
 
 export const getStore = () => vectorStore;
 
 /**
- * Dynamically add newly ingested documents and vectors at runtime
+ * Dynamically add newly ingested documents and vectors at runtime.
+ * Persists to MongoDB so feedback survives Vercel cold starts.
  */
-export const addDynamicDocuments = async (documents, vectors) => {
+export const addDynamicDocuments = async (documents, vectors, source = "dynamic") => {
   if (!vectorStore) {
     vectorStore = new MemoryVectorStore(embeddings);
   }
 
+  // Add to in-memory vector store for immediate availability
   await vectorStore.addVectors(vectors, documents);
 
-  // Persist to precomputed_vectors.json (skip on read-only filesystems like Vercel)
+  // Persist to MongoDB (works on Vercel, unlike filesystem writes)
   try {
-    const vecPath = path.resolve(
-      __dirname,
-      "../../../data/vectors/precomputed_vectors.json"
-    );
-    let existing = [];
-    if (fs.existsSync(vecPath)) {
-      existing = JSON.parse(fs.readFileSync(vecPath, "utf-8"));
+    if (mongoose.connection.readyState === 1) {
+      const mongoRecords = documents.map((doc, i) => ({
+        pageContent: doc.pageContent,
+        metadata: doc.metadata || {},
+        vector: vectors[i],
+        source,
+      }));
+      await FeedbackVector.insertMany(mongoRecords);
+      console.log(`[Store] Persisted ${documents.length} dynamic documents to MongoDB.`);
+    } else {
+      console.warn("[Store] MongoDB not connected — documents added to in-memory store only.");
     }
-
-    const newRecords = documents.map((doc, i) => ({
-      id: `dyn_${Date.now()}_${i}`,
-      pageContent: doc.pageContent,
-      metadata: doc.metadata || {},
-      vector: vectors[i],
-    }));
-
-    existing.push(...newRecords);
-    fs.writeFileSync(vecPath, JSON.stringify(existing, null, 2), "utf-8");
-    console.log(`[Store] Added ${documents.length} dynamic documents to vector store and persisted to disk.`);
-  } catch (fsError) {
-    // On Vercel / read-only filesystems, the write will fail — that's OK.
-    // The vectors are still in the in-memory store for this invocation.
-    console.warn(`[Store] Added ${documents.length} dynamic documents to in-memory store (disk persist skipped: ${fsError.message}).`);
+  } catch (mongoErr) {
+    console.error("[Store] MongoDB persist failed:", mongoErr.message);
+    // Still OK — vectors are in the in-memory store for this invocation
   }
 };
 
 /**
- * Completely clear the vector store and its persistent precomputed_vectors.json file
+ * Completely clear the vector store and its persistent storage
  */
 export const clearVectorStore = async () => {
   vectorStore = new MemoryVectorStore(embeddings);
   resetCampusData();
 
-  const vecPath = path.resolve(
-    __dirname,
-    "../../../data/vectors/precomputed_vectors.json"
-  );
-  fs.writeFileSync(vecPath, JSON.stringify([], null, 2), "utf-8");
-  console.log("[Store] Vector store and precomputed_vectors.json cleared.");
+  // Clear the local precomputed_vectors.json (if writable)
+  try {
+    const vecPath = path.resolve(
+      __dirname,
+      "../../../data/vectors/precomputed_vectors.json"
+    );
+    fs.writeFileSync(vecPath, JSON.stringify([], null, 2), "utf-8");
+    console.log("[Store] precomputed_vectors.json cleared.");
+  } catch (fsErr) {
+    console.warn("[Store] Could not clear precomputed_vectors.json:", fsErr.message);
+  }
+
+  // Clear feedback vectors from MongoDB
+  try {
+    if (mongoose.connection.readyState === 1) {
+      const result = await FeedbackVector.deleteMany({});
+      console.log(`[Store] Cleared ${result.deletedCount} feedback vectors from MongoDB.`);
+    }
+  } catch (mongoErr) {
+    console.warn("[Store] Could not clear MongoDB feedback vectors:", mongoErr.message);
+  }
+
+  console.log("[Store] Vector store cleared.");
 };
