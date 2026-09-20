@@ -363,11 +363,10 @@ export function AssistantMessage() {
                 </span>
               ) : feedbackState ? (
                 <span
-                  className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all ${
-                    feedbackState === 'correct'
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all ${feedbackState === 'correct'
                       ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20'
                       : 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20'
-                  }`}
+                    }`}
                 >
                   {feedbackState === 'correct' ? (
                     <>

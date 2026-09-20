@@ -46,7 +46,16 @@ router.post("/", async (req, res) => {
     });
 
     // Generate embedding vector
-    const vector = await embeddings.embedQuery(pageContent);
+    let vector;
+    try {
+      vector = await embeddings.embedQuery(pageContent);
+    } catch (embedError) {
+      console.error("❌ Embedding generation failed:", embedError);
+      return res.status(500).json({
+        success: false,
+        error: `Embedding failed: ${embedError.message}`,
+      });
+    }
 
     // Add to live vector store + persist to precomputed_vectors.json
     await addDynamicDocuments([doc], [vector]);
@@ -59,10 +68,10 @@ router.post("/", async (req, res) => {
       addedToKnowledgeBase: true,
     });
   } catch (error) {
-    console.error("❌ Feedback route error:", error);
+    console.error("❌ Feedback route error:", error?.message || error, error?.stack);
     return res.status(500).json({
       success: false,
-      error: "Failed to process feedback. Please try again.",
+      error: `Failed to process feedback: ${error?.message || "Unknown error"}`,
     });
   }
 });

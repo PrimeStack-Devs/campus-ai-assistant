@@ -85,26 +85,32 @@ export const addDynamicDocuments = async (documents, vectors) => {
 
   await vectorStore.addVectors(vectors, documents);
 
-  // Persist to precomputed_vectors.json
-  const vecPath = path.resolve(
-    __dirname,
-    "../../../data/vectors/precomputed_vectors.json"
-  );
-  let existing = [];
-  if (fs.existsSync(vecPath)) {
-    existing = JSON.parse(fs.readFileSync(vecPath, "utf-8"));
+  // Persist to precomputed_vectors.json (skip on read-only filesystems like Vercel)
+  try {
+    const vecPath = path.resolve(
+      __dirname,
+      "../../../data/vectors/precomputed_vectors.json"
+    );
+    let existing = [];
+    if (fs.existsSync(vecPath)) {
+      existing = JSON.parse(fs.readFileSync(vecPath, "utf-8"));
+    }
+
+    const newRecords = documents.map((doc, i) => ({
+      id: `dyn_${Date.now()}_${i}`,
+      pageContent: doc.pageContent,
+      metadata: doc.metadata || {},
+      vector: vectors[i],
+    }));
+
+    existing.push(...newRecords);
+    fs.writeFileSync(vecPath, JSON.stringify(existing, null, 2), "utf-8");
+    console.log(`[Store] Added ${documents.length} dynamic documents to vector store and persisted to disk.`);
+  } catch (fsError) {
+    // On Vercel / read-only filesystems, the write will fail — that's OK.
+    // The vectors are still in the in-memory store for this invocation.
+    console.warn(`[Store] Added ${documents.length} dynamic documents to in-memory store (disk persist skipped: ${fsError.message}).`);
   }
-
-  const newRecords = documents.map((doc, i) => ({
-    id: `dyn_${Date.now()}_${i}`,
-    pageContent: doc.pageContent,
-    metadata: doc.metadata || {},
-    vector: vectors[i],
-  }));
-
-  existing.push(...newRecords);
-  fs.writeFileSync(vecPath, JSON.stringify(existing, null, 2), "utf-8");
-  console.log(`[Store] Added ${documents.length} dynamic documents to vector store.`);
 };
 
 /**
