@@ -4,9 +4,10 @@ import React, { useState } from 'react';
 import { MessagePrimitive, ActionBarPrimitive, useAuiState } from '@assistant-ui/react';
 import { MarkdownTextPrimitive } from '@assistant-ui/react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Sparkles, Copy, Check, RotateCw } from 'lucide-react';
+import { Sparkles, Copy, Check, RotateCw, ThumbsUp, ThumbsDown, Loader2 } from 'lucide-react';
 import { LocationCard } from '@/components/LocationCard';
 import { SourceCard } from '@/components/SourceCard';
+import { submitFeedback } from '@/lib/api';
 import type { LocationData, WebSourceData } from '@/lib/api';
 
 function CodeBlock({ code, language }: { code: string; language?: string }) {
@@ -112,6 +113,59 @@ export function AssistantMessage() {
       return true;
     });
   });
+
+  // Feedback state
+  const [feedbackState, setFeedbackState] = useState<'correct' | 'incorrect' | null>(null);
+  const [feedbackLoading, setFeedbackLoading] = useState(false);
+
+  // Get the assistant message text from the current message state
+  const assistantText = useAuiState((s) => {
+    const parts = s.message?.parts || [];
+    const textPart = parts.find((p: any) => p.type === 'text') as any;
+    return textPart?.text || '';
+  });
+
+  // Accurately get the preceding user query from the thread messages
+  const userQuery = useAuiState((s) => {
+    const messages = s.thread?.messages || [];
+    const idx = s.message?.index;
+    if (typeof idx === 'number' && idx > 0) {
+      for (let i = idx - 1; i >= 0; i--) {
+        const m = messages[i];
+        if (m?.role === 'user') {
+          const parts = (m as any).parts || [];
+          const textPart = parts.find((p: any) => p.type === 'text');
+          if (textPart?.text) return textPart.text;
+          if (typeof (m as any).content === 'string') return (m as any).content;
+        }
+      }
+    }
+    // Fallback: search backwards through all thread messages
+    for (let i = messages.length - 1; i >= 0; i--) {
+      if (messages[i]?.role === 'user') {
+        const parts = (messages[i] as any).parts || [];
+        const textPart = parts.find((p: any) => p.type === 'text');
+        if (textPart?.text) return textPart.text;
+        if (typeof (messages[i] as any).content === 'string') return (messages[i] as any).content;
+      }
+    }
+    return '';
+  });
+
+  const handleFeedback = async (isCorrect: boolean) => {
+    if (feedbackState || feedbackLoading) return;
+    setFeedbackLoading(true);
+
+    try {
+      const q = userQuery.trim() || assistantText.slice(0, 80);
+      await submitFeedback(q, assistantText, isCorrect);
+      setFeedbackState(isCorrect ? 'correct' : 'incorrect');
+    } catch (err) {
+      console.error('Feedback submission failed:', err);
+    } finally {
+      setFeedbackLoading(false);
+    }
+  };
 
   return (
     <MessagePrimitive.Root className="group mb-5 sm:mb-6 flex flex-col sm:flex-row items-start gap-1.5 sm:gap-3.5 animate-fade-in-up duration-250 max-w-3xl">
@@ -272,13 +326,13 @@ export function AssistantMessage() {
           )}
         </div>
 
-        {/* Action Toolbar: visible on mobile, reveal on hover on desktop */}
+        {/* Action Toolbar: always visible with copy, retry, and technician feedback loop */}
         {hasContent && (
-          <div className="chat-action-bar flex items-center gap-1.5 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity pl-1 mt-1">
+          <div className="chat-action-bar flex flex-wrap items-center gap-2 pl-0.5 mt-1.5 transition-opacity">
             <ActionBarPrimitive.Root className="flex items-center gap-1">
               <ActionBarPrimitive.Copy
                 copiedDuration={2000}
-                className="group/btn flex items-center gap-1 px-2.5 py-1.5 sm:px-2 sm:py-1 rounded-lg text-slate-400 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 active:bg-slate-200 dark:active:bg-slate-700 transition-all text-xs cursor-pointer"
+                className="group/btn flex items-center gap-1 px-2.5 py-1 sm:px-2 sm:py-1 rounded-lg text-slate-400 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 active:bg-slate-200 dark:active:bg-slate-700 transition-all text-xs cursor-pointer"
                 title="Copy message"
               >
                 <Copy size={12} className="group-data-[copied=true]/btn:hidden" />
@@ -289,13 +343,68 @@ export function AssistantMessage() {
               </ActionBarPrimitive.Copy>
 
               <ActionBarPrimitive.Reload
-                className="flex items-center gap-1 px-2.5 py-1.5 sm:px-2 sm:py-1 rounded-lg text-slate-400 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 active:bg-slate-200 dark:active:bg-slate-700 transition-all text-xs cursor-pointer"
+                className="flex items-center gap-1 px-2.5 py-1 sm:px-2 sm:py-1 rounded-lg text-slate-400 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 active:bg-slate-200 dark:active:bg-slate-700 transition-all text-xs cursor-pointer"
                 title="Regenerate answer"
               >
                 <RotateCw size={12} />
                 <span className="text-[10.5px] font-medium">Retry</span>
               </ActionBarPrimitive.Reload>
             </ActionBarPrimitive.Root>
+
+            {/* Subtle Divider */}
+            <div className="h-3 w-px bg-slate-200 dark:bg-slate-800" />
+
+            {/* Feedback Loop Controls */}
+            <div className="flex items-center gap-1">
+              {feedbackLoading ? (
+                <span className="flex items-center gap-1 px-2 py-1 text-xs text-slate-400">
+                  <Loader2 size={12} className="animate-spin" />
+                  <span className="text-[10.5px]">Submitting...</span>
+                </span>
+              ) : feedbackState ? (
+                <span
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all ${
+                    feedbackState === 'correct'
+                      ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20'
+                      : 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20'
+                  }`}
+                >
+                  {feedbackState === 'correct' ? (
+                    <>
+                      <ThumbsUp size={11} className="shrink-0" />
+                      <span>Added to Knowledge Base</span>
+                    </>
+                  ) : (
+                    <>
+                      <ThumbsDown size={11} className="shrink-0" />
+                      <span>Feedback recorded</span>
+                    </>
+                  )}
+                </span>
+              ) : (
+                <div className="flex items-center gap-1 bg-slate-100/70 dark:bg-slate-800/60 rounded-lg p-0.5 border border-slate-200/80 dark:border-slate-700/60">
+                  <button
+                    type="button"
+                    onClick={() => handleFeedback(true)}
+                    className="flex items-center gap-1 px-2 py-0.5 rounded-md text-slate-500 hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400 hover:bg-white dark:hover:bg-slate-700 active:bg-slate-200 dark:active:bg-slate-600 transition-all text-[11px] font-medium cursor-pointer"
+                    title="Mark as correct & add to knowledge base"
+                  >
+                    <ThumbsUp size={11} />
+                    <span>Correct</span>
+                  </button>
+                  <div className="h-2.5 w-px bg-slate-200 dark:bg-slate-700/60" />
+                  <button
+                    type="button"
+                    onClick={() => handleFeedback(false)}
+                    className="flex items-center gap-1 px-2 py-0.5 rounded-md text-slate-500 hover:text-rose-500 dark:text-slate-400 dark:hover:text-rose-400 hover:bg-white dark:hover:bg-slate-700 active:bg-slate-200 dark:active:bg-slate-600 transition-all text-[11px] font-medium cursor-pointer"
+                    title="Mark as incorrect"
+                  >
+                    <ThumbsDown size={11} />
+                    <span>Incorrect</span>
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>

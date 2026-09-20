@@ -7,6 +7,7 @@ import { fileURLToPath } from "url";
 import chatRoutes from "./routes/chat.js";
 import adminRoutes from "./routes/admin.js";
 import campusRoutes from "./routes/campus.js";
+import feedbackRoutes from "./routes/feedback.js";
 import { initializeStore } from "./services/vectorStore.js";
 import { connectRedis } from "./config/redis.js";
 import { connectDB } from "./config/db.js";
@@ -36,6 +37,7 @@ app.use("/api/chat", chatRoutes);
 app.use("/api/v2/chat", chatRoutes); // Backward compatibility alias
 app.use("/api/admin", adminRoutes);
 app.use("/api/campus", campusRoutes);
+app.use("/api/feedback", feedbackRoutes);
 
 const initializeApp = async () => {
   try {

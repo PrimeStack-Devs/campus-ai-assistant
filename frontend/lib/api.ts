@@ -142,3 +142,21 @@ export async function askCampusAI(
     title: apiData?.title,
   };
 }
+
+/**
+ * Submit feedback (thumbs up / thumbs down) for a bot response.
+ * When isCorrect is true, the Q&A pair is added to the knowledge base.
+ */
+export async function submitFeedback(
+  query: string,
+  answer: string,
+  isCorrect: boolean
+): Promise<{ success: boolean; message: string; addedToKnowledgeBase?: boolean }> {
+  const backend = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+  const response = await axios.post(`${backend}/api/feedback`, {
+    query,
+    answer,
+    isCorrect,
+  });
+  return response.data;
+}

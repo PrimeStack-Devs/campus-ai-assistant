@@ -136,16 +136,29 @@ export function ChatWindow({ messages, isLoading, onSuggest }: ChatWindowProps) 
           </div>
         ) : (
           <>
-            {messages.map((message) => (
-              <MessageBubble
-                key={message.id}
-                content={message.content}
-                isUser={message.isUser}
-                timestamp={message.timestamp}
-                location={message.location}
-                webSource={message.webSource}
-              />
-            ))}
+            {messages.map((message, idx) => {
+              // For bot messages, find the preceding user message to use as the query
+              let userQuery: string | undefined;
+              if (!message.isUser) {
+                for (let i = idx - 1; i >= 0; i--) {
+                  if (messages[i].isUser) {
+                    userQuery = messages[i].content;
+                    break;
+                  }
+                }
+              }
+              return (
+                <MessageBubble
+                  key={message.id}
+                  content={message.content}
+                  isUser={message.isUser}
+                  timestamp={message.timestamp}
+                  location={message.location}
+                  webSource={message.webSource}
+                  userQuery={userQuery}
+                />
+              );
+            })}
             {isLoading && (
               <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
                 <TypingIndicator />

@@ -4,9 +4,10 @@ import React, { useState } from 'react';
 import { LocationCard } from './LocationCard';
 import { SourceCard } from './SourceCard';
 import type { LocationData, WebSourceData } from '@/lib/api';
+import { submitFeedback } from '@/lib/api';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Copy, Check } from 'lucide-react';
+import { Copy, Check, ThumbsUp, ThumbsDown, Loader2 } from 'lucide-react';
 
 interface MessageBubbleProps {
   content: string;
@@ -14,6 +15,7 @@ interface MessageBubbleProps {
   timestamp?: string;
   location?: LocationData;
   webSource?: WebSourceData;
+  userQuery?: string; // The user's original question (passed for bot messages)
 }
 
 export function MessageBubble({
@@ -22,13 +24,29 @@ export function MessageBubble({
   timestamp,
   location,
   webSource,
+  userQuery,
 }: MessageBubbleProps) {
   const [copied, setCopied] = useState(false);
+  const [feedbackState, setFeedbackState] = useState<'correct' | 'incorrect' | null>(null);
+  const [feedbackLoading, setFeedbackLoading] = useState(false);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(content);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleFeedback = async (isCorrect: boolean) => {
+    if (feedbackState || feedbackLoading) return;
+    setFeedbackLoading(true);
+    try {
+      await submitFeedback(userQuery || '', content, isCorrect);
+      setFeedbackState(isCorrect ? 'correct' : 'incorrect');
+    } catch (err) {
+      console.error('Feedback submission failed:', err);
+    } finally {
+      setFeedbackLoading(false);
+    }
   };
 
   return (
@@ -72,7 +90,7 @@ export function MessageBubble({
           )}
         </div>
 
-        {/* Mobile-visible copy action */}
+        {/* Action bar: Copy + Feedback buttons */}
         <div className="chat-action-bar flex items-center gap-1 mt-1 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
           <button
             type="button"
@@ -92,6 +110,56 @@ export function MessageBubble({
               </>
             )}
           </button>
+
+          {/* Feedback buttons — only on bot messages */}
+          {!isUser && (
+            <>
+              {feedbackLoading ? (
+                <span className="flex items-center gap-1 px-2 py-1 text-xs text-slate-400">
+                  <Loader2 size={12} className="animate-spin" />
+                </span>
+              ) : feedbackState ? (
+                <span
+                  className={`flex items-center gap-1 px-2 py-1 rounded-md text-[10.5px] font-medium ${
+                    feedbackState === 'correct'
+                      ? 'text-emerald-500'
+                      : 'text-amber-500'
+                  }`}
+                >
+                  {feedbackState === 'correct' ? (
+                    <>
+                      <ThumbsUp size={12} />
+                      <span>Added to knowledge base</span>
+                    </>
+                  ) : (
+                    <>
+                      <ThumbsDown size={12} />
+                      <span>Feedback recorded</span>
+                    </>
+                  )}
+                </span>
+              ) : (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => handleFeedback(true)}
+                    className="flex items-center gap-1 px-2 py-1 rounded-md text-slate-400 hover:text-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 active:bg-emerald-100 dark:active:bg-emerald-900/30 transition-all text-xs cursor-pointer"
+                    title="Good response — add to knowledge base"
+                  >
+                    <ThumbsUp size={12} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleFeedback(false)}
+                    className="flex items-center gap-1 px-2 py-1 rounded-md text-slate-400 hover:text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-950/30 active:bg-amber-100 dark:active:bg-amber-900/30 transition-all text-xs cursor-pointer"
+                    title="Bad response"
+                  >
+                    <ThumbsDown size={12} />
+                  </button>
+                </>
+              )}
+            </>
+          )}
         </div>
 
         {!isUser && location?.name && <LocationCard location={location} />}
