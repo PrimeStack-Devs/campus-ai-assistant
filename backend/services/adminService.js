@@ -926,17 +926,25 @@ export async function deleteLocationItem(id) {
 export async function saveFacilityItem(item) {
   const existing = readJsonCollection("facilities.json");
   const id = item.id || `f_${Date.now()}`;
+  const fName = item.name || item.label || "Untitled Facility";
+  const fCat = item.category || item.type || "General";
+  const fDesc = item.description || item.notes || "";
+  const fType = item.type || (fCat ? fCat.toLowerCase().replace(/\s+/g, "_") : "facility");
+
   const fObj = {
     id: String(id),
-    name: item.name || "Untitled Facility",
-    category: item.category || "General",
+    name: fName,
+    label: item.label || fName,
+    category: fCat,
+    type: fType,
     building_name: item.building_name || item.location || "",
-    floor: item.floor || "",
+    floor: item.floor !== undefined && item.floor !== null ? item.floor : "",
     hours: item.hours || "Standard Hours",
     amenities: Array.isArray(item.amenities)
       ? item.amenities
       : (item.amenities || "").split(",").map((s) => s.trim()).filter(Boolean),
-    description: item.description || "",
+    description: fDesc,
+    notes: item.notes || fDesc,
   };
 
   const idx = existing.findIndex((f) => f.id === fObj.id);

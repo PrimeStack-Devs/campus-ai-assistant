@@ -84,12 +84,17 @@ const CampusFacilitySchema = new mongoose.Schema(
     building_name: { type: String },
     type: { type: String, index: true },
     label: { type: String },
-    floor: { type: Number },
+    name: { type: String },
+    category: { type: String },
+    floor: { type: mongoose.Schema.Types.Mixed },
+    hours: { type: String },
     gender: { type: String, default: "both" },
     notes: { type: String },
+    description: { type: String },
+    amenities: [{ type: String }],
     aliases: [{ type: String }],
   },
-  { timestamps: true }
+  { timestamps: true, strict: false }
 );
 
 // --- 5. Service Schema ---

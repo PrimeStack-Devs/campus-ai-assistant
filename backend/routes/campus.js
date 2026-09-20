@@ -89,19 +89,55 @@ router.get("/facilities", async (req, res) => {
       facilities = readJsonCollection("facilities.json", []);
     }
 
+    // Normalize each facility object so that frontend and consumers always have standard fields:
+    // name (from name or label), category (from category or type), description (from description or notes), hours
+    const normalizedFacilities = facilities.map((f) => {
+      const name = f.name || f.label || "Campus Facility";
+      const type = f.type || (f.category ? f.category.toLowerCase() : "facility");
+      const category =
+        f.category ||
+        (f.type
+          ? f.type.charAt(0).toUpperCase() + f.type.slice(1).replace(/_/g, " ")
+          : "General");
+      const description = f.description || f.notes || "";
+      const notes = f.notes || f.description || "";
+      const building_name = f.building_name || f.location || "Campus Wide";
+      const hours = f.hours || "Standard Hours";
+
+      return {
+        ...f,
+        name,
+        label: f.label || name,
+        category,
+        type,
+        description,
+        notes,
+        building_name,
+        hours,
+        floor: f.floor !== undefined && f.floor !== null ? f.floor : "",
+      };
+    });
+
+    let result = normalizedFacilities;
+
     if (q) {
-      facilities = facilities.filter(
+      result = normalizedFacilities.filter(
         (f) =>
           (f.name && f.name.toLowerCase().includes(q)) ||
+          (f.label && f.label.toLowerCase().includes(q)) ||
           (f.category && f.category.toLowerCase().includes(q)) ||
+          (f.type && f.type.toLowerCase().includes(q)) ||
           (f.building_name && f.building_name.toLowerCase().includes(q)) ||
           (f.description && f.description.toLowerCase().includes(q)) ||
+          (f.notes && f.notes.toLowerCase().includes(q)) ||
           (Array.isArray(f.amenities) &&
-            f.amenities.some((a) => a.toLowerCase().includes(q)))
+            f.amenities.some((a) => a && a.toLowerCase().includes(q))) ||
+          (Array.isArray(f.aliases) &&
+            f.aliases.some((a) => a && a.toLowerCase().includes(q)))
       );
     }
 
-    return res.json({ success: true, count: facilities.length, data: facilities });
+    return res.json({ success: true, count: result.length, data: result });
   } catch (error) {
     console.error("[Campus API] Error fetching facilities:", error);
     return res.status(500).json({ success: false, error: error.message });

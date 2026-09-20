@@ -54,12 +54,12 @@ export default function FacilitiesAdminPage() {
       setEditingId(facility.id);
       setFormData({
         id: facility.id || '',
-        name: facility.name || '',
-        category: facility.category || 'General',
+        name: facility.name || facility.label || '',
+        category: facility.category || (facility.type ? facility.type.charAt(0).toUpperCase() + facility.type.slice(1).replace(/_/g, ' ') : 'General'),
         building_name: facility.building_name || facility.location || '',
-        floor: facility.floor || '',
+        floor: facility.floor !== undefined && facility.floor !== null ? String(facility.floor) : '',
         hours: facility.hours || '8:00 AM - 6:00 PM',
-        description: facility.description || '',
+        description: facility.description || facility.notes || '',
       });
     } else {
       setEditingId(null);
@@ -81,6 +81,9 @@ export default function FacilitiesAdminPage() {
     try {
       const payload = {
         ...formData,
+        label: formData.name,
+        type: formData.category.toLowerCase().replace(/\s+/g, '_'),
+        notes: formData.description,
         id: editingId || `fac_${Date.now()}`,
       };
 
@@ -106,7 +109,8 @@ export default function FacilitiesAdminPage() {
   };
 
   const handleDelete = async (facility: any) => {
-    if (confirm(`Delete facility "${facility.name}"?`)) {
+    const facilityName = facility.name || facility.label || 'this facility';
+    if (confirm(`Delete facility "${facilityName}"?`)) {
       try {
         const res = await fetch(`${backendUrl}/api/admin/facilities/${facility.id}`, {
           method: 'DELETE',
@@ -125,12 +129,19 @@ export default function FacilitiesAdminPage() {
   };
 
   const filteredFacilities = facilities.filter((f) => {
-    const q = searchQuery.toLowerCase();
+    const q = searchQuery.toLowerCase().trim();
+    if (!q) return true;
+    const name = (f.name || f.label || '').toLowerCase();
+    const category = (f.category || f.type || '').toLowerCase();
+    const building = (f.building_name || f.location || '').toLowerCase();
+    const desc = (f.description || f.notes || '').toLowerCase();
+    const aliases = Array.isArray(f.aliases) ? f.aliases.join(' ').toLowerCase() : '';
     return (
-      (f.name && f.name.toLowerCase().includes(q)) ||
-      (f.category && f.category.toLowerCase().includes(q)) ||
-      (f.building_name && f.building_name.toLowerCase().includes(q)) ||
-      (f.description && f.description.toLowerCase().includes(q))
+      name.includes(q) ||
+      category.includes(q) ||
+      building.includes(q) ||
+      desc.includes(q) ||
+      aliases.includes(q)
     );
   });
 
@@ -193,10 +204,10 @@ export default function FacilitiesAdminPage() {
                 render: (_, row) => (
                   <div>
                     <span className="font-semibold text-slate-900 dark:text-white">
-                      {row.name}
+                      {row.name || row.label || 'Facility'}
                     </span>
-                    {row.description && (
-                      <p className="text-xs text-slate-400 truncate max-w-xs">{row.description}</p>
+                    {(row.description || row.notes) && (
+                      <p className="text-xs text-slate-400 truncate max-w-xs">{row.description || row.notes}</p>
                     )}
                   </div>
                 ),
@@ -206,19 +217,25 @@ export default function FacilitiesAdminPage() {
                 label: 'Category',
                 render: (_, row) => (
                   <span className="capitalize text-xs font-medium px-2 py-0.5 rounded bg-blue-50 text-blue-700 dark:bg-blue-950/60 dark:text-blue-300">
-                    {row.category || 'General'}
+                    {row.category || (row.type ? row.type.replace(/_/g, ' ') : 'General')}
                   </span>
                 ),
               },
               {
                 key: 'building_name',
                 label: 'Location / Building',
-                render: (_, row) => (
-                  <span className="text-xs text-slate-700 dark:text-slate-300">
-                    {row.building_name || 'Campus Wide'}
-                    {row.floor ? ` (Floor ${row.floor})` : ''}
-                  </span>
-                ),
+                render: (_, row) => {
+                  let floorText = '';
+                  if (row.floor !== undefined && row.floor !== null && row.floor !== '') {
+                    floorText = row.floor === 0 || row.floor === '0' ? ' (Ground Floor)' : ` (Floor ${row.floor})`;
+                  }
+                  return (
+                    <span className="text-xs text-slate-700 dark:text-slate-300">
+                      {row.building_name || row.location || 'Campus Wide'}
+                      {floorText}
+                    </span>
+                  );
+                },
               },
               {
                 key: 'hours',

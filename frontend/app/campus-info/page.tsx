@@ -62,10 +62,10 @@ export default function CampusInfoPage() {
 
   const filteredFacilities = facilities.filter(
     (f) =>
-      (f.name && f.name.toLowerCase().includes(normalizedSearch)) ||
-      (f.category && f.category.toLowerCase().includes(normalizedSearch)) ||
+      ((f.name || f.label) && (f.name || f.label).toLowerCase().includes(normalizedSearch)) ||
+      ((f.category || f.type) && (f.category || f.type).toLowerCase().includes(normalizedSearch)) ||
       (f.building_name && f.building_name.toLowerCase().includes(normalizedSearch)) ||
-      (f.description && f.description.toLowerCase().includes(normalizedSearch))
+      ((f.description || f.notes) && (f.description || f.notes).toLowerCase().includes(normalizedSearch))
   );
 
   const filteredDepartments = departments.filter(
@@ -152,11 +152,17 @@ export default function CampusInfoPage() {
                     {filteredFacilities.map((facility, i) => (
                       <InfoCard
                         key={facility.id || i}
-                        title={facility.name}
-                        description={facility.description || `Category: ${facility.category || 'Facility'}`}
+                        title={facility.name || facility.label || 'Campus Facility'}
+                        description={facility.description || facility.notes || `Category: ${facility.category || facility.type || 'Facility'}`}
                         badge={facility.hours || 'Open Daily'}
                         details={[
-                          `Building: ${facility.building_name || 'Campus Wide'}${facility.floor ? ` (Floor ${facility.floor})` : ''}`,
+                          `Building: ${facility.building_name || 'Campus Wide'}${
+                            facility.floor !== undefined && facility.floor !== null && facility.floor !== ''
+                              ? facility.floor === 0 || facility.floor === '0'
+                                ? ' (Ground Floor)'
+                                : ` (Floor ${facility.floor})`
+                              : ''
+                          }`,
                           ...(Array.isArray(facility.amenities)
                             ? facility.amenities.map((a: string) => `Feature: ${a}`)
                             : []),
