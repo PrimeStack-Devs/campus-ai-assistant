@@ -5,3 +5,4 @@ node_modules/
 .env*.local
 .DS_Store
 .env
+INTERVIEW_AI_RAG_GUIDE.md
